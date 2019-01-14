@@ -1,0 +1,154 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>afanti阿凡提订单</title>
+    <link rel="stylesheet" href="/static/css/pc/all.css">
+    <link rel="stylesheet" href="/static/css/pc/shezhimima.css">
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+    <script type="text/javascript" src="/static/js/pc/common.js"></script>
+</head>
+
+<body>
+<!--头部-->
+
+<!--头部-->
+
+
+<!--主要内容-->
+<div class="conter" id="app" v-cloak>
+    <comheader></comheader>
+    <div id="all_inprotener">
+        <div class="title">当前位置：&nbsp;&nbsp;<a href="/pc/index.html" class="geographic">{{geographic}}</a>&nbsp;&nbsp;<a href="javascript:0;" @click="addressclick()"> [{{geographic==null?'选择地址':'切换地址'}}]</a>&nbsp;&nbsp;>&nbsp;&nbsp;设置密码
+        </div>
+
+
+        <div class="all_left">
+            <div class="myall"><a href="/pc/onlyconter.html">个人中心</a></div>
+
+            <div class="mydingdan">我的订单</div>
+            <div class="er_fenlan "><a href="/pc/threemont.html">近三个月订单</a></div>
+            <div class="er_fenlan"><a href="/pc/daipjdingdan.html">待评价订单</a></div>
+            <div class="er_fenlan"><a href="/pc/tuidanjilu.html">退单记录</a></div>
+
+            <div class="myzichan">我的资产</div>
+            <div class="er_fenlan"><a href="/pc/myhongbao.html">我的红包</a></div>
+            <div class="er_fenlan"><a href="/pc/zhanghuyue.html">账户余额</a></div>
+            <div class="er_fenlan"><a href="/pc/myjifen.html">我的积分</a></div>
+
+            <div class="myziliao">我的资料</div>
+            <div class="er_fenlan"><a href="/pc/myziliao.html">个人资料</a></div>
+            <div class="er_fenlan"><a href="/pc/dizhiguanli.html">地址管理</a></div>
+            <div class="er_fenlan"><a href="/pc/safeconter.html">安全中心</a></div>
+            <div class="er_fenlan"><a href="/pc/ggpassword.html">修改密码</a></div>
+            <div class="myshoucang"><a href="/pc/wodeshoucang.html">我的收藏</a></div>
+        </div>
+        <!--  里面为右边白框   里面为右边白框   里面为右边白框   里面为右边白框   里面为右边白框   里面为右边白框  -->
+        <div class="all_right">
+
+            <div class="shezhi_paswrd">设置密码</div>
+
+            <div class="elm_tishi">阿凡提提示您：使用大小写字母，数字与标点符号的组合，可以大幅度提升账号安全！</div>
+
+
+            <form action="" method="post" id="fgh">
+                <div class="new_mima"><input type="password" class="newpassword" id="newpassword"
+                                             @focus="newpasswordFocus()" @blur="newpasswordBlur()" name="loginPwd"
+                                             placeholder="请输入新密码"><span>新密码</span></div>
+                <div class="zhingaljl">
+                    <img class="newcuo" src="/static/image/pc/d2.jpg">
+                    <img class="newdui" src="/static/image/pc/d1.jpg">
+                    <span class="xskint" id="paswdnew.info"></span>
+                </div>
+
+                <div class="confrom_mima"><input type="password" class="passwordmore" id="passwordmore"
+                                                 @focus="passwordmoreFocus()" @blur="passwordmoreBlur()"
+                                                 name="passwordmore" placeholder="请再次输入密码"><span>确认密码</span></div>
+                <div class="zhingaljl">
+                    <img class="agecuo" src="/static/image/pc/d2.jpg">
+                    <img class="agedui" src="/static/image/pc/d1.jpg">
+                    <span class="cprent" id="paswdagean.info"></span>
+                </div>
+
+                <div class="anniv"><input type="text" @click="bottomClick()" class="bottom" value="确认"></div>
+            </form>
+            <!--  影藏框     影藏框     影藏框     影藏框     影藏框     影藏框   -->
+            <!--<div class="idxj_sos">-->
+                <!--<div class="the_pa">-->
+                    <!--<div class="jkd_all">-->
+                        <!--<div class="themore"><span class="spant">×</span></div>-->
+                        <!--<div class="topjik">消息提示：<span class="spanter">成功与否</span></div>-->
+                        <!--<input class="yckinput" type="button" value="确认">-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--  影藏框     影藏框     影藏框     影藏框     影藏框     影藏框   -->
+
+
+            <script>
+
+//                 $(function () {
+//
+//                     $("#fgh").submit(function () {
+//                         var call = flag.newpassword && flag.passwordmore;
+//                         if (call == false) {
+//                             $(".idxj_sos").show();
+//                             $('.spanter').text("请填写完整，认真检查!!!");
+//                             $(".yckinput").click(function () {
+//                                 location.reload();
+//                             });
+//                             $(".spant").click(function () {
+//                                 location.reload();
+//                             });
+// //                alert("表单项正在检测或存在错误");
+// //                history.back();
+//                             return false;
+//                         }
+//                         $(".idxj_sos").show();
+//                         // var loginPwd = $(this).val();
+//                         // loginPwd = $(input['loginPwd']).val();
+//                         var loginPwd = $(this).serializeArray();
+//                         $.post('{:U("HomePc/Shezhimima/allre")}', loginPwd, function (data) {
+//                             if (data == 1) {
+//                                 $('.spanter').text("设置成功!!!");
+//                                 $(".yckinput").click(function () {
+//                                     location.reload();
+//                                 });
+//                                 $(".spant").click(function () {
+//                                     location.reload();
+//                                 });
+//                             } else {
+//                                 $('.spanter').text("设置失败,与之前密码重复!!!");
+//                                 $(".yckinput").click(function () {
+//                                     location.reload();
+//                                 });
+//                                 $(".spant").click(function () {
+//                                     location.reload();
+//                                 });
+//                             }
+//                         }, 'json');
+//                         return false;
+//                     });
+//
+//
+//                 });
+            </script>
+
+
+        </div>
+        <!--  里面为右边白框   里面为右边白框   里面为右边白框   里面为右边白框   里面为右边白框   里面为右边白框  -->
+
+
+    </div>
+
+    <!--主要内容-->
+    <comfooter></comfooter>
+
+    <!--尾部-->
+</div>
+
+<script src="/static/js/pc/shezhimima.js"></script>
+</body>
+</html>

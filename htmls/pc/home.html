@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>阿凡提点餐</title>
+    <link rel="stylesheet" href="/static/css/pc/all.css"/>
+    <link rel="stylesheet" href="/static/css/pc/home.css"/>
+    <link rel="stylesheet" href="/static/css/pc/city-select.css">
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/citydata.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/citySelect-1.0.2.js"></script>
+    <script type="text/javascript" src="/static/js/pc/home.js"></script>
+</head>
+
+<body>
+
+<div class="home-top" id="app" @click="hidCityBox()" v-cloak>
+    <div class="minWidth">
+        <div class="map-header">
+            <a class="map-headerL">
+                <img src="/static/image/pc/map-logo.png">
+            </a>
+            <div class="map-headerR">
+                <div v-if="loginName!=''" @click="userNameClick()" style="display: inline-block">
+
+                    <img src="/static/image/pc/topNav3.png"/>
+                    <span class="use-name">{{loginName}}</span>
+                </div>
+                <span class="use-login" v-if="loginName==''" @click="userLoginClick()">登录</span>
+                <a class="kd" href="/business/Enrol/registered.html">我要开店</a>
+            </div>
+            <div class="clear"></div>
+        </div>
+
+        <div class="map-conter">
+            <img src="/static/image/pc/map-conter.png"/>
+        </div>
+        <div class="map-navbar">
+            <div class="map-city">
+                <a class="mapcity-current" @click="cityChoice($event)">广州</a>
+                <!--地址选择-->
+                <div class="mapcity-select">
+                    <div class="city-select-header">
+                        <div class="city-select-breadcrumb">
+                            <span class="highlight">选城市</span>>定位置>叫外卖
+                        </div>
+                        <h3>请选择你所在的城市</h3>
+                    </div>
+                    <div class="mapquickBox">
+                        <div class="mapquick">
+                            <span class="main-color">猜你在</span>
+                            <button @click="cai()" class="caiCity">北京</button>
+                        </div>
+                    </div>
+
+                    <div class="city-select" id="single-select-1">
+                        <div class="city-info">
+                            <div class="city-input">
+                                <input type="text" class="input-search" value="" placeholder="请选择城市"/>
+                            </div>
+                            <ul class="city-list hide">
+
+                            </ul>
+                        </div>
+
+                        <div class="city-pavilion">
+                            <div class="city-tabs"></div>
+                            <div class="city-cont">
+                                <dl class="city-HOT">
+                                    <dd>
+                                    </dd>
+                                </dl>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--地址选择结束-->
+            </div>
+            <div class="map-search">
+                <div class="mapsearch-inputs">
+                    <input placeholder="请输入你的收货地址（写字楼，小区，街道或者学校)" v-on:input="cits(this)" class="searchInput"/>
+                    <button class="buts" @click="sub()">搜索</button>
+                </div>
+                <div class="city-scrollbar">
+                    <div id="address" v-for="(addrDatas,index) in addrData" @click="laytplAddress(index)">
+                        <li class="addressLI">
+                            <p class="suggent-name">{{addrDatas.title}}</p>
+                            <p class="suggent-addr">{{addrDatas.address}}</p>
+                        </li>
+                    </div>
+                    <ul class="addressUL"></ul>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+
+<div class="minWidth">
+    <div class="mapfooter">
+        <div class="mapfooter-app">
+            <div class="mapfooter-app-img">
+                <img src="/static/image/pc/ewm.jpg"/>
+                <span>扫描关注公众号</span>
+            </div>
+            <div class="mapfooter-text">
+                <p>新用户首次下单</p>
+                <p class="aggrav">最高立减30元</p>
+                <p>立马关注公众号，享更多优惠吧</p>
+            </div>
+        </div>
+        <p class="mapfooter-link">
+            <a>我要开店</a>
+            <a>联系我们</a>
+            <a>服务条款和协议</a>
+            <a>加入我们</a>
+            <a>蜂鸟配送</a>
+        </p>
+        <div class="mapfooter-serif">
+            <h5 class="aller">所有方:广东阿凡提电子商务有限公司</h5>
+            <p><a style="color: #999;" href="http://www.miitbeian.gov.cn/">粤ICP备16100736号</a></p>
+        </div>
+        <!--<a class="mapfooter-polic">-->
+        <!--<img src="/static/image/pc/ban.png"/>-->
+        <!--</a>-->
+    </div>
+</div>
+
+</body>
+</html>

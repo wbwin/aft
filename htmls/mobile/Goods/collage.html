@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" >
+    <meta name="divport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,divport-fit=cover">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge，chrome=1">
+    <!-- 设置在苹果手机上以应用模式启动时，是否全屏 -->
+    <meta name='apple-touch-fullscreen' content='yes'>
+    <!-- ios 系统 作用未知 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- iso 系统 作用未知 -->
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <!-- iso 系统 作用未知 -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <!-- 是否识别 手机号码、 电子邮件 地址 等-->
+    <meta name="format-detection" content="telephone=no,email=no,address=no" />
+
+    <!-- 让360双核浏览器用webkit内核渲染页面 -->
+
+    <meta name="renderer" content="webkit">
+
+    <!-- 避免IE使用兼容模式 -->
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!--允许全屏模式浏览,隐藏浏览器导航栏&ndash;&gt;-->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+
+    <!--微信缓存-->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>阿凡提外卖</title>
+    <link rel="stylesheet" href="/static/css/mobile/collage.css?time=Date.parse(new Date())">
+    <link rel="stylesheet" href="/static/css/mobile/alls.css">
+    <link rel="stylesheet" href="/static/css/mobile/flexible.css">
+    <script type="text/javascript" src="/static/js/public/flexible.js"></script>
+    <script type="text/javascript" src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/md5.js"></script>
+    <script type="text/javascript" src="https://res.wx.qq.com/open/js/jweixin-1.3.2.js"></script>
+</head>
+<body >
+<!-- <div class="noCollages" wx:if="{{noCollage}}">
+  <img src="https://image.aftdc.com/images/noorders.jpg"/>
+  <div>拼单已取消</div>
+</div> -->
+<div class="collageAll" >
+
+    <!-- <scroll-div scroll-div scroll-y style="width:100%;height:100%"> -->
+
+    <!-- 头部 -->
+    <div class='row title'>
+        <img class='titleIcon' :src="identityShareOrder.userPhoto"/>
+        <span class='titleText' v-if="!togetherCollage">邀请你一起参与拼单</span>
+        <span class='titleText' v-if="(shareStatus==0||shareStatus==1)&&togetherCollage">拼单成功，稍等我提交订单</span>
+        <span class='titleText' v-if="shareStatus==2&&togetherCollage">已提交订单，等待支付</span>
+        <span class='titleText' v-if="shareStatus==3&&togetherCollage">拼单完成</span>
+        <span class='titleText' v-if="shareStatus==-1&&togetherCollage">拼单已取消</span>
+        <div class='titleDiv'></div>
+    </div>
+
+
+    <!-- 店铺 -->
+    <div class='shop'>
+        <img class='titleIcon' :src="'https://image.aftdc.com/'+shopInfo.shopImg"/>
+        <span class='shopName'>{{shopInfo.shopName}}</span>
+        <span class='shopActive'>{{shopInfo.youhui}}</span>
+        <span class='joinCollage' @click="onFJoinShareClick()" v-if="!togetherCollage&&(shareStatus==0||shareStatus==1)">参与拼单</span>
+    </div>
+
+    <!-- 我的拼单 -->
+    <div class='myCollage' v-if="togetherCollage">
+        <div class='row myCollageDiv'>
+            <div class='row'>
+                <img class='myIcon' :src="myShareOrder.userPhoto"/>
+                <span class='myName'>{{myShareOrder.userName}}</span>
+                <span class='myLabel'>我</span>
+            </div>
+
+            <div class='row' v-if="shareStatus==0||shareStatus==1&&identityShareOrder.userId!=myShareOrder.userId">
+                <span class='editShop' @click="toChooseGoodsClick()">编辑商品</span>
+                <span class='noCollage' @click="onUnShareShowClick()">不拼了</span>
+            </div>
+        </div>
+        <div class='myFood'>
+            <div v-if="myShareOrder.goodsInfo.length==0" class="noGoods">暂时没有点菜</div>
+            <div v-else>
+                <div v-for="(item,index) in myShareOrder.goodsInfo">
+                    <div class='row myFoodList'>
+                        <span class='myFoodName'>{{item.goodsName}}</span>
+                        <div class='row'>
+                            <span class='myFoodNum'>x{{item.numb}}</span>
+                            <span class='myFoodMoney'>￥{{item.totalPrice}}</span>
+                        </div>
+                    </div>
+                    <div class='remaksTwoDiv' v-if="item.goodsAttrName">
+                        <span class='remaksTwo'>{{item.goodsAttrName}}</span>
+                    </div>
+
+                </div>
+                <div class='row myFoodList' v-if="myShareOrder.boxFees!=0">
+                    <span class='myFoodName'>餐盒费</span>
+                    <div class='row'>
+                        <span class='myFoodNum'></span>
+                        <span class='myFoodMoney red'>￥{{myShareOrder.boxFees}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 其他拼友 -->
+    <div >
+        <span class='orderFriends'>其他拼友</span>
+
+        <div class='orderCollage' v-for="(item,index) in userList" v-if="!item.myOrder">
+            <div class='row myCollageDiv'>
+                <div class='row'>
+                    <img class='myIcon' :src='item.userPhoto'/>
+                    <span class='myName'>{{item.userName}}</span>
+                    <span class='orderLabel'>{{item.identity?'发起':'微信'}}</span>
+                </div>
+            </div>
+            <div class='myFood'>
+                <div v-if="item.goodsInfo.length==0" class="noGoods">暂时没有点菜</div>
+                <div v-else>
+                    <div v-for="(food,foodIndex) in item.goodsInfo" >
+                        <div class='row myFoodList'>
+                            <span class='myFoodName'>{{food.goodsName}}</span>
+                            <div class='row'>
+                                <span class='myFoodNum'>x{{food.numb}}</span>
+                                <span class='orderFoodMoney'>￥{{food.totalPrice}}</span>
+                            </div>
+                        </div>
+
+                        <div class='remaksTwoDiv' v-if="food.goodsAttrName">
+                            <span class='remaksTwo'>{{food.goodsAttrName}}</span>
+                        </div>
+                    </div>
+                    <div class='row myFoodList' v-if="item.boxFees">
+                        <span class='myFoodName'>餐盒费</span>
+                        <div class='row'>
+                            <span class='myFoodNum'></span>
+                            <span class='orderFoodMoney red' >￥{{item.boxFees}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 配送费和总计 -->
+    <div class='total'>
+        <div class='row totalDiv'>
+            <span class='cost'>配送费</span>
+            <span class='costMoney' v-if="shopType==2">到店自取订单无需配送费</span>
+            <template v-else>
+                <span class='costMoney' v-if="!shopInfo.psf">免费配送</span>
+                <span class='costMoney' v-else>另需配送费￥{{shopInfo.psf}}</span>
+            </template>
+        </div>
+        <div class='row totalDivTwo'>
+            <span class='cost'>总计</span>
+            <span class='costMoneyTwo'>￥{{needPay}}</span>
+        </div>
+    </div>
+    <div class="share_popup" v-if="unShareShow">
+        <div class="share_popupContent">
+            <span>确定不要继续拼单了么？</span>
+            <div class="share_popupButton">
+                <button style="border: none;" @click="fDelShare()">确定</button>
+                <button style="color: #666" @click="onUnShareShowCancel()">取消</button>
+            </div>
+        </div>
+    </div>
+    <!-- </scroll-div> -->
+    <div class='hobbyTips' v-if="hobbyTip">{{hobbyTips}}</div>
+</div>
+ <script type="text/javascript" src="/static/js/mobile/collage.js?time=Date.parse(new Date())"></script>
+
+</body>
+</html>

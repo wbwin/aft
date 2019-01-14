@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>阿凡提智慧点餐</title>
+    <link href='/static/css/pc/server.css' rel="stylesheet" type="text/css"/>
+
+    <link href='/static/css/pc/toJoin.css' rel="stylesheet" type="text/css"/>
+
+    <link href="/static/css/pc/all.css" rel="stylesheet"/>
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+    <script type="text/javascript" src="/static/js/pc/common.js"></script>
+
+    <head>
+
+
+<body class="body">
+
+<div id="app" v-cloak>
+    <comheader></comheader>
+
+    <div class="top-body">
+        <!--<div class="address">当前位置:<span class="address-d geographic">{{geographic}}</span>-->
+        <!--<a href="javascript:0;" @click="addressclick()">[{{geographic==null?'选择地址':'切换地址'}}]</a>-->
+        <!--<span class="address-d"> > 服务中心</span></div>-->
+
+
+        <div class="server-content">
+
+            <div class='question'>
+                <div class='question-cj'>常见问题</div>
+                <div class="question-content clear-float">
+                    <dl v-for="(item,index) in data">
+                        <dt>
+                            <img :src="item.img" class="question-img"/>
+                            <h2>{{item.title}}</h2>
+                        </dt>
+                        <dd>
+                            <ul>
+                                <li v-for="(x,k) in item.question">
+                                    <a href="javascript:0;" @click="questionClick(index,k)">{{x}}</a>
+                                </li>
+
+                            </ul>
+                        </dd>
+                    </dl>
+                </div>
+                <!--<div class='question-all'>-->
+                <!--<span class='question-pay'>订餐支付</span>-->
+                <!--<span class='question-dsm'>催单配送</span>-->
+                <!--<span class='question-ser'>售后服务</span>-->
+                <!--<span class='question-web'>网站规则</span>-->
+                <!--</div>-->
+                <!--<div class='tips'>-->
+                <!--<div class='tips-1'>-->
+                <!--<a href='#'>1.使用余额支付不了?</a>-->
+                <!--<a href='#'>2.在线支付订单取消后,钱怎么返还?</a>-->
+                <!--<a href='#'>3.阿凡提餐饮账户里的款项怎么体现?</a>-->
+                <!--<a href='#'>4.一个优惠券能多次使用啊</a>-->
+                <!--<a href='#'>5.下单的时候使用了优惠券,但是后来订单取消了,会返还吗</a>-->
+                <!--</div>-->
+                <!--<div class='tips-2'>-->
+                <!--<a href='#'>6.什么是超时赔付?</a>-->
+                <!--<a href='#'>7.返红包活动，红包领取规则是什么?</a>-->
+                <!--<a href='#'>8.邀请好友了?为什么没获得红包?</a>-->
+                <!--<a href='#'>9.积分如何计算</a>-->
+                <!--<a href='#'>10.礼品兑换很多天了还没有收到,怎么办?</a>-->
+                <!--</div>-->
+                <!--</div>-->
+                <!--<div class='look'>-->
+                <!--<a href='#'>查看更多</a>-->
+                <!--<div>-->
+                <!--</div>-->
+                <!--</div>-->
+            </div>
+
+            <!--<div class="support-site ">-->
+            <!--<div class="site-service site-back">-->
+            <!--<h3>在线客服</h3>-->
+            <!--<p>每天为您解答疑惑</p>-->
+            <!--<p>请前往公众号咨询</p>-->
+            <!--</div>-->
+            <!--<div class="site-back phone">-->
+            <!--<h3>24小时客服热线</h3>-->
+            <!--<p>16546465</p>-->
+            <!--</div>-->
+            <!--</div>-->
+
+        </div>
+        <div class="contact">
+            <h1>联系客服</h1>
+            <ul>
+                <li>
+                    <img src="/static/image/pc/kf.png"/>
+                    <div class="contact_h">
+                        <h2>7x24 专业在线咨询</h2>
+                        <h3>小e期待为您解决遇到的问题</h3>
+                    </div>
+                    <a href="#">立即咨询</a>
+                </li>
+                <li>
+                    <img src="/static/image/pc/kf-pnone.png"/>
+                    <div class="contact_h">
+                        <h2>服务热线 10105757</h2>
+                        <h3>24小时服务</h3>
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+    <comfooter></comfooter>
+</div>
+<script src="/static/js/pc/server.js"></script>
+</body>
+
+
+</html>

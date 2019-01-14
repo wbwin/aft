@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <meta http-equiv="X-Ua-Compatible" content="IE=edge,chrome=1"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <meta name="format-detection" content="telephone=no"/>
+  <meta content="yes" name="apple-mobile-web-app-capable"/>
+  <meta content="black" name=" apple-mobile-web-app-status-bar-style"/>
+  <meta content="email=no" name="format-detection"/>
+  <title>商家体检</title>
+  <link rel="stylesheet" type="text/css" href="/static/css/mobile/all.css">
+  <link rel="stylesheet" type="text/css" href="/static/css/mobile/appFeel.css">
+</head>
+<body>
+
+ <div class="phoneAll minbarPT" id="feel">
+     <div class="minibarBox">
+         <div class="minibar">
+             <div @click="back()">
+                 <img src="https://image.aftdc.com/appBimg/icon_back_normal.png" alt="">
+             </div>
+             <span>商家体检</span>
+             <span></span>
+         </div>
+     </div>
+   <div class="fellTop clear">
+     <div class="item-7">
+       <p class="dates">最近7天的体检结果</p>
+       <p>共检测了<i class="orange">8</i>项</p>
+       <p>其中有<i class="c-red ">5</i>项存在问题</p>
+       <p>建议立即优化</p>
+     </div>
+     <div class="item-5">
+      <div class="loading-wrapper pull-right">
+      <!--.. 0.2rem,.. 0.1rem  控制背景  -->
+        <div class="loading-inner j-loading" style="background-position: 0% 0.2rem,-120px 0.1rem;">
+          <div class="inner-score">
+            <div class="acount">
+              75<span class="small">分</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="titles"> 更新时间：2018-01-10</div>
+
+  <div class="panel">
+   <ul class="issusBox">
+     <li class="title">
+      <img class="icon" src="/static/image/mobile/issus.png">
+      问题项（5）
+    </li>
+    <li>
+     <img class="icon " src="/static/image/mobile/iconGive.png">
+     <div class="word">
+       <div><span class="title">顾客催单偏高</span><i class="bor-orange">服务能力</i></div>
+       <div class="w-grayer">影响店铺口碑</div>
+     </div>
+     <span class="fontMore pull-right">></span>
+
+   </li>
+ </ul>
+</div>
+
+<div class="panel">
+ <ul class="issusBox">
+   <li class="title">
+    <img class="icon" src="/static/image/mobile/issusNot.png">
+    无问题项（5）
+  </li>
+  <li>
+   <img class="icon " src="/static/image/mobile/iconGive-not.png">
+   <span class="title">顾客催单偏高</span>
+ </li>
+</ul>
+</div>
+
+</div>
+
+ <script src="/static/js/mobile/vue.js"></script>
+ <script src="/static/js/mobile/appFeel.js"></script>
+</body>
+</html>

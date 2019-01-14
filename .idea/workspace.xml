@@ -1,0 +1,1194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="4001553f-e3f9-41bc-8e54-785380028c73" name="Default" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/sql/composer.json</pharConfigPath>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/weex/clientapp/餐头条/commentDetails-评论详情/src/index.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1026">
+              <caret line="931" selection-start-line="931" selection-end-line="931" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/weex/clientapp/subpage-src-八大导航/src/index.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="775">
+              <caret line="1301" selection-end-line="1301" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/weex/clientapp/index-src-首页/src/index.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="185">
+              <caret line="925" column="31" selection-end-line="3558" selection-end-column="8" />
+              <folding>
+                <element signature="n#style#0;n#list#0;n#div#0;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#cell#0;n#list#0;n#div#0;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#cell#0;n#list#0;n#div#0;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#cell#1;n#list#0;n#div#0;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#cell#2;n#list#0;n#div#0;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#text#0;n#div#1;n#div#1;n#div#1;n#div#0;n#cell#2;n#list#0;n#div#0;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#scroller#0;n#div#0;n#div#0;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#scroller#1;n#div#0;n#div#0;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#scroller#1;n#div#0;n#div#0;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#scroller#1;n#div#0;n#div#0;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#2;n#scroller#1;n#div#0;n#div#0;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#scroller#0;n#div#1;n#div#2;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#text#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#text#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#3;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#wxc-mask#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#text#2;n#scroller#0;n#div#0;n#div#0;n#wxc-mask#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#45433#45439#0" expanded="true" />
+                <element signature="e#45439#45445#0" expanded="true" />
+                <element signature="e#48170#48206#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/weex/clientapp/我的/chat 对话/src/index.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="494">
+              <caret line="26" column="17" selection-end-line="577" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/weex/clientapp/我的/followAanFans-src-关注(粉丝)/src/index.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="437">
+              <caret line="23" selection-end-line="620" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/weex/clientapp/我的/listFriends通讯录好友(未完成)/src/index.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="494">
+              <caret line="26" column="75" selection-end-line="359" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/weex/clientapp/我的/privateLetter-私信/src/index.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="608">
+              <caret line="32" column="10" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/weex/clientapp/我的/设置/aftSet-src-设置/src/index.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="494">
+              <caret line="26" column="64" selection-end-line="420" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/weex/clientapp/登录/login-src-登录/src/index.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="524">
+              <caret line="188" column="42" selection-end-line="393" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/weex/clientapp/餐头条/articleContent-餐头条内容/src/index.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="319">
+              <caret line="1688" column="21" selection-end-line="1712" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>alert</find>
+      <find>gardenA</find>
+      <find>gardenC</find>
+      <find>tip</find>
+      <find>discount</find>
+      <find>classification</find>
+      <find>responseTitle</find>
+      <find>pinLun_content</find>
+      <find>videoImgDiv</find>
+      <find>dianTast</find>
+      <find>cancelOptionalClick</find>
+      <find>action</find>
+      <find>shopInfo</find>
+      <find>aiCenter</find>
+      <find>shopShow</find>
+      <find>longitude</find>
+      <find>https://www.aftdc.com/businessapp/Article/appraisesReply</find>
+      <find>videoJiaoDiv</find>
+      <find>blurClick</find>
+      <find>videoDianBigDiv</find>
+      <find>shopId</find>
+      <find>popuHide</find>
+      <find>popuptitleHide</find>
+      <find>dianTastTitle</find>
+      <find>toPersonalHomePage</find>
+      <find>leavingClick</find>
+      <find>textCarousel</find>
+      <find>getIndexInfo</find>
+      <find>getOrderPrompt</find>
+      <find>loadingAin</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>https://www.aftdc.com/mobile/public/echarts.html</replace>
+      <replace>./</replace>
+      <replace />
+      <replace>that.GLOBAL.</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>D:\exe\public\weex\businessapp\我的\当前账号</dir>
+      <dir>D:\exe\public\dcan\page</dir>
+      <dir>D:\exe\public\weex\businessapp\商品管理</dir>
+      <dir />
+      <dir>D:\exe\public\weex\businessapp</dir>
+      <dir>D:\exe\public\weex\clientapp</dir>
+      <dir>D:\exe\public\weex\businessapp\我的</dir>
+      <dir>D:\exe\public\weex\businessapp\商品管理\FoodSortHandle商品排序删除</dir>
+      <dir>D:\exe\public\weex\businessapp\门店管理</dir>
+    </dirStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/weex/businessapp/商品管理/addUpdataGoods 添加更新商品/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/外卖/shopGoodsSearch-搜索店铺商品/src/index.vue" />
+        <option value="$PROJECT_DIR$/../QQdata/2355641572/FileRecv/客户端-订单/02orderDetails-订单详情/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/search-首页搜索框/src/index.vue" />
+        <option value="$PROJECT_DIR$/htmls/mobile/Goods/chooseGoods.html" />
+        <option value="$PROJECT_DIR$/htmls/mobile/Goods/collage.html" />
+        <option value="$PROJECT_DIR$/static/css/mobile/collage.css" />
+        <option value="$PROJECT_DIR$/static/js/mobile/chooseGoods.js" />
+        <option value="$PROJECT_DIR$/weex/clientapp/订单/refundProgress-src-退款进度/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/订单/refund 提交退款原因/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/订单/OrderEvaluate-src-订单评价/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/外卖/addReceivingAddress-新增修改收货地址/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/外卖/businessQualification-营业资质/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/businessapp/我的/产品意见反馈/feedback/src/index.vue" />
+        <option value="$PROJECT_DIR$/static/js/mobile/collage.js" />
+        <option value="$PROJECT_DIR$/weex/businessapp/餐头条/headLineArticle 商家餐头条/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/登录/verificationCode-src-获取验证码自动登录/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/外卖/collage-拼单/src/index.vue" />
+        <option value="$PROJECT_DIR$/../QQdata/2355641572/FileRecv/index(11).vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/我的/invoice-发票助手/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/我的/addInvoice-发票抬头详情-新增发票/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/预订/reserve-src-预约订座/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/外卖/receivingAddress-选择收货地址/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/商家入驻/entry 输入手机号检测有无入驻no/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/餐头条/articleSearch-搜索餐头条/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/餐头条/forward文章转发/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/登录/login-src-登录/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/登录/forgetPassword-src-忘记密码/src/index.vue" />
+        <option value="$PROJECT_DIR$/../QQdata/2355641572/FileRecv/VUE/commentDetails（评论详情）.vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/餐头条/refue-帮TA加油/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/我的/设置/安全中心/03帮助中心/contactCustomerService-src-帮助中心/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/我的/colection-src-收藏/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/我的/history-src-历史/src/index.vue" />
+        <option value="$PROJECT_DIR$/dcan/page/homePage/pages/waitPay/waitPay.js" />
+        <option value="$PROJECT_DIR$/weex/clientapp/订单/detailsOfGroupAndVoucher-团购、代金券详情/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/我的/personalHomepage-动态(个人主页)/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/餐头条/headLineArticle-商家餐头条首页/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/商家入驻/applicationInformation 审核结果/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/外卖/goodsCommentDetails-商品评价详情/src/index.vue" />
+        <option value="$PROJECT_DIR$/../QQdata/2355641572/FileRecv/index(20).vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/餐头条/articleContent-餐头条内容/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/订单/orderDetails-订单详情/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/外卖/orderPage-提交订单/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/外卖/businessOrder-商家外卖/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/businessapp/门店管理/消息中心/message-src-消息/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/businessapp/index 首页/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/businessapp/我的/shopShow 店铺信息/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/businessapp/门店管理/消息中心/detailsOfNotification评论留言详情/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/餐头条/commentDetails-评论详情/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/subpage-src-八大导航/src/index.vue" />
+        <option value="$PROJECT_DIR$/weex/clientapp/index-src-首页/src/index.vue" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration">
+    <include_path>
+      <path value="$PROJECT_DIR$/sql/vendor/paragonie/random_compat" />
+      <path value="$PROJECT_DIR$/sql/vendor/phpmyadmin/motranslator" />
+      <path value="$PROJECT_DIR$/sql/vendor/paragonie/constant_time_encoding" />
+      <path value="$PROJECT_DIR$/sql/vendor/phpmyadmin/sql-parser" />
+      <path value="$PROJECT_DIR$/sql/vendor/symfony/expression-language" />
+      <path value="$PROJECT_DIR$/sql/vendor/phpmyadmin/shapefile" />
+      <path value="$PROJECT_DIR$/sql/vendor/symfony/polyfill-php56" />
+      <path value="$PROJECT_DIR$/sql/vendor/google/recaptcha" />
+      <path value="$PROJECT_DIR$/sql/vendor/symfony/polyfill-util" />
+      <path value="$PROJECT_DIR$/sql/vendor/symfony/polyfill-mbstring" />
+      <path value="$PROJECT_DIR$/sql/vendor/pragmarx/google2fa" />
+      <path value="$PROJECT_DIR$/sql/vendor/composer" />
+      <path value="$PROJECT_DIR$/sql/vendor/phpseclib/phpseclib" />
+      <path value="$PROJECT_DIR$/sql/vendor/bacon/bacon-qr-code" />
+      <path value="$PROJECT_DIR$/sql/vendor/tecnickcom/tcpdf" />
+      <path value="$PROJECT_DIR$/sql/vendor/samyoul/u2f-php-server" />
+    </include_path>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-7" />
+    <option name="width" value="974" />
+    <option name="height" value="1047" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="public" type="b2602c69:ProjectViewProjectNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="public" type="b2602c69:ProjectViewProjectNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="font" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="public" type="b2602c69:ProjectViewProjectNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="userAppWord" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="public" type="b2602c69:ProjectViewProjectNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="userAppWord" type="462c0819:PsiDirectoryNode" />
+              <item name="页面设计" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="public" type="b2602c69:ProjectViewProjectNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="weex" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="public" type="b2602c69:ProjectViewProjectNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="weex" type="462c0819:PsiDirectoryNode" />
+              <item name="clientapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="public" type="b2602c69:ProjectViewProjectNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="weex" type="462c0819:PsiDirectoryNode" />
+              <item name="clientapp" type="462c0819:PsiDirectoryNode" />
+              <item name="index-src-首页" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="public" type="b2602c69:ProjectViewProjectNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="weex" type="462c0819:PsiDirectoryNode" />
+              <item name="clientapp" type="462c0819:PsiDirectoryNode" />
+              <item name="index-src-首页" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="public" type="b2602c69:ProjectViewProjectNode" />
+              <item name="public" type="462c0819:PsiDirectoryNode" />
+              <item name="weex" type="462c0819:PsiDirectoryNode" />
+              <item name="clientapp" type="462c0819:PsiDirectoryNode" />
+              <item name="我的" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="settings.editor.selected.configurable" value="web.server" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\exe\public\userAppWord\页面设计\我的" />
+      <recent name="D:\exe\public\weex\clientapp" />
+      <recent name="D:\exe\public\weex\clientapp\我的\personalHomepage-动态(个人主页)\src" />
+      <recent name="D:\exe\public\weex\clientapp\外卖\ReportingBusiness-举报商家\src" />
+      <recent name="D:\exe\public\weex\clientapp\外卖" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4001553f-e3f9-41bc-8e54-785380028c73" name="Default" comment="" />
+      <created>1532048321779</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1532048321779</updated>
+      <workItem from="1532048324326" duration="415000" />
+      <workItem from="1532049072487" duration="1590000" />
+      <workItem from="1532078928027" duration="1273000" />
+      <workItem from="1532090523979" duration="545000" />
+      <workItem from="1532133140545" duration="775000" />
+      <workItem from="1532152683571" duration="1947000" />
+      <workItem from="1532306252332" duration="2543000" />
+      <workItem from="1532392262246" duration="2996000" />
+      <workItem from="1532420360637" duration="2398000" />
+      <workItem from="1532478532757" duration="603000" />
+      <workItem from="1532502981039" duration="5327000" />
+      <workItem from="1532566799664" duration="3469000" />
+      <workItem from="1532651366333" duration="5154000" />
+      <workItem from="1532738017186" duration="5560000" />
+      <workItem from="1532910606122" duration="502000" />
+      <workItem from="1532997823682" duration="7109000" />
+      <workItem from="1533083538042" duration="2532000" />
+      <workItem from="1533170301352" duration="11712000" />
+      <workItem from="1533211741353" duration="726000" />
+      <workItem from="1533256161996" duration="75000" />
+      <workItem from="1533264886540" duration="4833000" />
+      <workItem from="1533343662961" duration="965000" />
+      <workItem from="1533515374312" duration="5913000" />
+      <workItem from="1533601882460" duration="8556000" />
+      <workItem from="1533688208458" duration="30100000" />
+      <workItem from="1533774635281" duration="22090000" />
+      <workItem from="1533861028235" duration="4286000" />
+      <workItem from="1533947623482" duration="4694000" />
+      <workItem from="1534121593008" duration="4825000" />
+      <workItem from="1534138149807" duration="11590000" />
+      <workItem from="1534206576936" duration="15883000" />
+      <workItem from="1534294457361" duration="15315000" />
+      <workItem from="1534379409436" duration="7707000" />
+      <workItem from="1534467241752" duration="13947000" />
+      <workItem from="1534552086776" duration="2275000" />
+      <workItem from="1534562927661" duration="6596000" />
+      <workItem from="1534725355360" duration="16650000" />
+      <workItem from="1534814062897" duration="13860000" />
+      <workItem from="1534899806081" duration="17966000" />
+      <workItem from="1534984126868" duration="3321000" />
+      <workItem from="1535005764442" duration="1608000" />
+      <workItem from="1535016839678" duration="2093000" />
+      <workItem from="1535070565918" duration="4122000" />
+      <workItem from="1535091575136" duration="8169000" />
+      <workItem from="1535156934520" duration="16575000" />
+      <workItem from="1535329696138" duration="14826000" />
+      <workItem from="1535419403887" duration="9917000" />
+      <workItem from="1535502584591" duration="18540000" />
+      <workItem from="1535588975169" duration="9825000" />
+      <workItem from="1535675397610" duration="195000" />
+      <workItem from="1535675728370" duration="15539000" />
+      <workItem from="1535761793845" duration="13452000" />
+      <workItem from="1535934572226" duration="11332000" />
+      <workItem from="1536020944179" duration="16665000" />
+      <workItem from="1536107315202" duration="10264000" />
+      <workItem from="1536193896510" duration="7155000" />
+      <workItem from="1536280150495" duration="8155000" />
+      <workItem from="1536366618365" duration="15214000" />
+      <workItem from="1536539348945" duration="15357000" />
+      <workItem from="1536625736412" duration="7815000" />
+      <workItem from="1536647783766" duration="7655000" />
+      <workItem from="1536712221395" duration="17686000" />
+      <workItem from="1536798623565" duration="5312000" />
+      <workItem from="1536885023920" duration="11920000" />
+      <workItem from="1536971396093" duration="5940000" />
+      <workItem from="1537162152308" duration="5823000" />
+      <workItem from="1537230479180" duration="6576000" />
+      <workItem from="1537316989500" duration="16473000" />
+      <workItem from="1537403438728" duration="17152000" />
+      <workItem from="1537489718080" duration="12576000" />
+      <workItem from="1537835347650" duration="16132000" />
+      <workItem from="1537921807649" duration="22537000" />
+      <workItem from="1538008163527" duration="9223000" />
+      <workItem from="1538026296577" duration="5266000" />
+      <workItem from="1538033282998" duration="146000" />
+      <workItem from="1538033530914" duration="9380000" />
+      <workItem from="1538094542117" duration="7125000" />
+      <workItem from="1538124471714" duration="5144000" />
+      <workItem from="1538182140335" duration="15365000" />
+      <workItem from="1538219179711" duration="2830000" />
+      <workItem from="1538267417565" duration="13054000" />
+      <workItem from="1538958648256" duration="7413000" />
+      <workItem from="1538982722096" duration="8843000" />
+      <workItem from="1539044900301" duration="13986000" />
+      <workItem from="1539132467829" duration="4340000" />
+      <workItem from="1539217938085" duration="1983000" />
+      <workItem from="1539304213597" duration="6864000" />
+      <workItem from="1539390502402" duration="4139000" />
+      <workItem from="1539567169058" duration="2389000" />
+      <workItem from="1539649670189" duration="10250000" />
+      <workItem from="1539736160708" duration="12668000" />
+      <workItem from="1539775246674" duration="2901000" />
+      <workItem from="1539822560653" duration="4173000" />
+      <workItem from="1539927519292" duration="11898000" />
+      <workItem from="1539947699549" duration="3213000" />
+      <workItem from="1539998333284" duration="11595000" />
+      <workItem from="1540028727503" duration="758000" />
+      <workItem from="1540168485959" duration="1245000" />
+      <workItem from="1540281383668" duration="5166000" />
+      <workItem from="1540341028692" duration="5738000" />
+      <workItem from="1540448829992" duration="7532000" />
+      <workItem from="1540513828805" duration="5487000" />
+      <workItem from="1540522075863" duration="3257000" />
+      <workItem from="1540600182559" duration="722000" />
+      <workItem from="1540601015807" duration="3764000" />
+      <workItem from="1540773003562" duration="3921000" />
+      <workItem from="1540859887221" duration="5676000" />
+      <workItem from="1540945984039" duration="1665000" />
+      <workItem from="1540963916342" duration="8319000" />
+      <workItem from="1541032336231" duration="10069000" />
+      <workItem from="1541118651695" duration="9721000" />
+      <workItem from="1541204988278" duration="11254000" />
+      <workItem from="1541377840190" duration="12363000" />
+      <workItem from="1541416405897" duration="5021000" />
+      <workItem from="1541464225075" duration="17976000" />
+      <workItem from="1541550800643" duration="16706000" />
+      <workItem from="1541637139803" duration="18489000" />
+      <workItem from="1541680082222" duration="865000" />
+      <workItem from="1541723476549" duration="21678000" />
+      <workItem from="1541810091851" duration="19810000" />
+      <workItem from="1541984160107" duration="29199000" />
+      <workItem from="1542069077269" duration="11876000" />
+      <workItem from="1542095313325" duration="11447000" />
+      <workItem from="1542155606313" duration="11337000" />
+      <workItem from="1542175852429" duration="11224000" />
+      <workItem from="1542195547036" duration="3838000" />
+      <workItem from="1542241912775" duration="19265000" />
+      <workItem from="1542271756795" duration="10795000" />
+      <workItem from="1542328397402" duration="11596000" />
+      <workItem from="1542346496492" duration="8006000" />
+      <workItem from="1542359520418" duration="8450000" />
+      <workItem from="1542414717202" duration="341000" />
+      <workItem from="1542415689512" duration="18512000" />
+      <workItem from="1542446597306" duration="2480000" />
+      <workItem from="1542588328539" duration="17538000" />
+      <workItem from="1542627438396" duration="3159000" />
+      <workItem from="1542673771403" duration="13089000" />
+      <workItem from="1542698101631" duration="9790000" />
+      <workItem from="1542777750971" duration="4853000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="1199408000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Weex Documents" order="3" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5005208" side_tool="true" weight="0.32943678" />
+      <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="File Transfer" order="11" sideWeight="0.4984375" visible="true" weight="0.08289054" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Version Control" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16510417" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="4" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49947917" weight="0.32943678" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url />
+          <line>85</line>
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url />
+          <line>158</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/weex/businessapp/门店管理/经营分析/appGuest-src-顾客分析/src/index.vue</url>
+          <line>453</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/weex/businessapp/门店管理/经营分析/appGuest-src-顾客分析/src/index.vue</url>
+          <line>504</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/weex/clientapp/订单/orderDetails-订单详情/src/index.vue</url>
+          <line>183</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+      <option name="time" value="7" />
+    </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/../QQdata/2355641572/FileRecv/index(19).vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="171">
+          <caret line="9" lean-forward="true" selection-end-line="539" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../QQdata/2355641572/FileRecv/index(15).js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="25" column="8" lean-forward="true" selection-end-line="9616" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../QQdata/2355641572/FileRecv/commentDetails(1).js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="17" lean-forward="true" selection-end-line="8063" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../QQdata/2355641572/FileRecv/articleContent(2).js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="18" lean-forward="true" selection-end-line="8231" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/clientapp/我的/personalHomepage-动态(个人主页)/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="557" column="44" lean-forward="true" selection-start-line="557" selection-start-column="44" selection-end-line="557" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/clientapp/餐头条/headLineArticle-商家餐头条首页/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="535" column="35" selection-start-line="535" selection-start-column="35" selection-end-line="535" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../QQdata/2355641572/FileRecv/0000客户端-我的(更改)(1)/001aftSet-src-设置/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" column="81" selection-end-line="428" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../QQdata/2355641572/FileRecv/0000客户端-我的(更改)(1)/0001index-src-首页/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="50" selection-end-line="3462" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../QQdata/2355641572/FileRecv/index(20).vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="818" column="30" lean-forward="true" selection-start-line="818" selection-start-column="30" selection-end-line="818" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../QQdata/2355641572/FileRecv/articleContent(7).js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="8" lean-forward="true" selection-end-line="8223" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/clientapp/订单/orderDetails-订单详情/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="470">
+          <caret line="495" column="30" lean-forward="true" selection-end-line="1437" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/clientapp/商家入驻/readyEnter 入驻准备未填过资料时的页面/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="26" column="54" selection-end-line="191" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/clientapp/商家入驻/protocol 阿凡提服务协议/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="26" column="43" lean-forward="true" selection-end-line="140" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/clientapp/商家入驻/entry 输入手机号检测有无入驻no/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="49" selection-end-line="315" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/clientapp/商家入驻/enterMessage 入驻第一步/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="43" selection-end-line="736" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/clientapp/商家入驻/credentialsMessage-src 入驻第二步/src/examineBank.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" column="28" selection-end-line="1533" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/clientapp/商家入驻/classificationOfcuisine 门店分类/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="27" column="57" selection-end-line="289" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/clientapp/商家入驻/applicationInformation 审核结果/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5092">
+          <caret line="269" column="50" selection-end-line="498" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/clientapp/商家入驻/agreeEnter 入驻第三步/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3287">
+          <caret line="174" column="26" selection-start-line="174" selection-start-column="26" selection-end-line="174" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/clientapp/外卖/orderPage-提交订单/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4047">
+          <caret line="213" column="105" selection-end-line="2671" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#2;n#div#2;n#div#1;n#scroller#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/businessapp/门店管理/消息中心/comments 评论/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" column="74" selection-start-line="16" selection-start-column="74" selection-end-line="16" selection-end-column="74" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/clientapp/外卖/goodsCommentDetails-商品评价详情/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-716">
+          <caret line="287" column="14" selection-start-line="287" selection-start-column="14" selection-end-line="287" selection-end-column="14" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#scroller#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#scroller#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../QQdata/2355641572/FileRecv/commentDetails(3).js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="32" lean-forward="true" selection-end-line="8055" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/businessapp/门店管理/消息中心/message-src-消息/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="703">
+          <caret line="37" column="28" selection-start-line="37" selection-start-column="28" selection-end-line="37" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/clientapp/外卖/businessOrder-商家外卖/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33212">
+          <caret line="1750" column="21" selection-start-line="1750" selection-start-column="21" selection-end-line="1750" selection-end-column="21" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#2;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#2;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#2;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#4;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#4;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#5;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#image#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#scroller#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#scroller#0;n#scroller#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#scroller#0;n#scroller#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#1;n#div#0;n#div#0;n#scroller#0;n#scroller#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#1;n#div#1;n#div#0;n#div#0;n#scroller#0;n#scroller#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#0;n#div#2;n#div#0;n#div#0;n#scroller#0;n#scroller#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#1;n#div#0;n#div#2;n#div#0;n#div#0;n#scroller#0;n#scroller#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#3;n#div#0;n#div#0;n#scroller#0;n#scroller#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#scroller#0;n#div#0;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#template#0;n#scroller#0;n#div#0;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#scroller#0;n#div#0;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#scroller#0;n#div#0;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#image#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#scroller#0;n#div#0;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#2;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#template#0;n#scroller#0;n#div#0;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#template#0;n#scroller#0;n#div#0;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#template#0;n#scroller#0;n#div#0;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#template#0;n#scroller#0;n#div#0;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#template#1;n#scroller#0;n#div#0;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#1;n#scroller#0;n#div#0;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#1;n#scroller#0;n#div#0;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#1;n#scroller#0;n#div#0;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#26425#26431#0" expanded="true" />
+            <element signature="e#26432#26438#0" expanded="true" />
+            <element signature="e#26456#26462#0" expanded="true" />
+            <element signature="e#27751#27757#0" expanded="true" />
+            <element signature="e#27758#27764#0" expanded="true" />
+            <element signature="e#28331#28337#0" expanded="true" />
+            <element signature="e#28338#28344#0" expanded="true" />
+            <element signature="e#28842#28848#0" expanded="true" />
+            <element signature="e#28849#28855#0" expanded="true" />
+            <element signature="e#29422#29428#0" expanded="true" />
+            <element signature="e#29429#29435#0" expanded="true" />
+            <element signature="e#29776#29782#0" expanded="true" />
+            <element signature="e#30297#30303#0" expanded="true" />
+            <element signature="e#30304#30310#0" expanded="true" />
+            <element signature="e#30760#30766#0" expanded="true" />
+            <element signature="e#30767#30773#0" expanded="true" />
+            <element signature="e#31253#31259#0" expanded="true" />
+            <element signature="e#31260#31266#0" expanded="true" />
+            <element signature="n#style#0;n#scroller#0;n#div#1;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#scroller#0;n#div#1;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#0;n#div#1;n#div#0;n#scroller#0;n#div#1;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#1;n#div#1;n#div#0;n#scroller#0;n#div#1;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#scroller#0;n#div#1;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#scroller#0;n#div#1;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#3;n#scroller#0;n#div#1;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#5;n#div#0;n#div#0;n#div#3;n#scroller#0;n#div#1;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#loading#0;n#scroller#0;n#div#1;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#6;n#div#0;n#scroller#0;n#div#2;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#8;n#div#0;n#scroller#0;n#div#2;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#6;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#1;n#div#1;n#div#0;n#div#6;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#7;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#7;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#7;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#8;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#image#0;n#div#0;n#div#0;n#div#8;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#scroller#0;n#div#0;n#div#8;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#scroller#0;n#wxc-mask#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#image#0;n#div#2;n#div#0;n#scroller#0;n#wxc-mask#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#2;n#div#0;n#div#0;n#wxc-mask#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#wxc-mask#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#0;n#div#1;n#div#0;n#wxc-mask#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#image#0;n#wxc-mask#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#wxc-mask#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#wxc-mask#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#1;n#wxc-mask#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#0;n#div#2;n#wxc-mask#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#1;n#div#0;n#div#2;n#wxc-mask#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#2;n#wxc-mask#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#wxc-mask#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/clientapp/search-首页搜索框/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/businessapp/我的/shopShow 店铺信息/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23769">
+          <caret line="1253" column="52" selection-end-line="5323" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#2;n#div#1;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#2;n#div#2;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#2;n#div#3;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#4;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#4;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#4;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#5;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#image#0;n#div#2;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#scroller#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#scroller#0;n#scroller#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#scroller#0;n#scroller#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#1;n#div#0;n#div#0;n#scroller#0;n#scroller#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#1;n#div#1;n#div#0;n#div#0;n#scroller#0;n#scroller#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#0;n#div#2;n#div#0;n#div#0;n#scroller#0;n#scroller#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#1;n#div#0;n#div#2;n#div#0;n#div#0;n#scroller#0;n#scroller#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#3;n#div#0;n#div#0;n#scroller#0;n#scroller#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#scroller#0;n#div#0;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#template#0;n#scroller#0;n#div#0;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#scroller#0;n#div#0;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#scroller#0;n#div#0;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#image#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#0;n#template#0;n#scroller#0;n#div#0;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#2;n#div#0;n#div#1;n#div#1;n#div#0;n#div#0;n#template#0;n#scroller#0;n#div#0;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#template#0;n#scroller#0;n#div#0;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#template#0;n#scroller#0;n#div#0;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#0;n#template#0;n#scroller#0;n#div#0;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#template#1;n#scroller#0;n#div#0;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#1;n#div#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#1;n#scroller#0;n#div#0;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#1;n#scroller#0;n#div#0;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#0;n#template#1;n#scroller#0;n#div#0;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#26218#26224#0" expanded="true" />
+            <element signature="e#26225#26231#0" expanded="true" />
+            <element signature="e#26249#26255#0" expanded="true" />
+            <element signature="e#27544#27550#0" expanded="true" />
+            <element signature="e#27551#27557#0" expanded="true" />
+            <element signature="e#28124#28130#0" expanded="true" />
+            <element signature="e#28131#28137#0" expanded="true" />
+            <element signature="e#28635#28641#0" expanded="true" />
+            <element signature="e#28642#28648#0" expanded="true" />
+            <element signature="e#29215#29221#0" expanded="true" />
+            <element signature="e#29222#29228#0" expanded="true" />
+            <element signature="e#29569#29575#0" expanded="true" />
+            <element signature="e#30090#30096#0" expanded="true" />
+            <element signature="e#30097#30103#0" expanded="true" />
+            <element signature="e#30553#30559#0" expanded="true" />
+            <element signature="e#30560#30566#0" expanded="true" />
+            <element signature="e#31046#31052#0" expanded="true" />
+            <element signature="e#31053#31059#0" expanded="true" />
+            <element signature="n#style#0;n#scroller#0;n#div#1;n#div#0;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#scroller#0;n#div#1;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#0;n#div#1;n#div#0;n#scroller#0;n#div#1;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#1;n#div#1;n#div#0;n#scroller#0;n#div#1;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#scroller#0;n#div#1;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#scroller#0;n#div#1;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#div#3;n#scroller#0;n#div#1;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#5;n#div#0;n#div#0;n#div#3;n#scroller#0;n#div#1;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#loading#0;n#scroller#0;n#div#1;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#6;n#div#0;n#scroller#0;n#div#2;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#8;n#div#0;n#scroller#0;n#div#2;n#slider#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#1;n#div#1;n#div#0;n#div#2;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#3;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#4;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#image#0;n#div#0;n#div#0;n#div#4;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#scroller#0;n#div#0;n#div#4;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#scroller#0;n#wxc-mask#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#image#0;n#div#2;n#div#0;n#scroller#0;n#wxc-mask#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#2;n#div#0;n#div#0;n#wxc-mask#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#wxc-mask#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#0;n#div#1;n#div#0;n#wxc-mask#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#image#0;n#wxc-mask#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#wxc-mask#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#wxc-mask#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#1;n#wxc-mask#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#0;n#div#2;n#wxc-mask#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#1;n#div#0;n#div#2;n#wxc-mask#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#2;n#wxc-mask#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#2;n#wxc-mask#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../QQdata/2355641572/FileRecv/eightBusiness.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="7" column="42" selection-end-line="10808" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/businessapp/门店管理/消息中心/detailsOfNotification评论留言详情/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="496">
+          <caret line="76" column="26" lean-forward="true" selection-start-line="76" selection-start-column="26" selection-end-line="76" selection-end-column="26" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#scroller#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#scroller#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/businessapp/index 首页/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="71">
+          <caret line="1603" column="17" selection-start-line="1603" selection-start-column="17" selection-end-line="1603" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/businessapp/商品管理/addsGoods-src-批量添加商品/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="22" lean-forward="true" selection-end-line="805" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/businessapp/我的/StoreConfiguration 订单配置/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="56" lean-forward="true" selection-end-line="1684" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/businessapp/我的/当前账号/modify 当前账号/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" column="18" selection-end-line="233" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/businessapp/登录/src/login.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="571">
+          <caret line="174" column="66" selection-start-line="174" selection-start-column="66" selection-end-line="174" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/businessapp/餐头条/ArticlePreview-src-文章预览/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" selection-end-line="1758" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/businessapp/餐头条/chat 对话/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="22" column="82" selection-end-line="576" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/businessapp/餐头条/headLineArticle 商家餐头条/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="73" selection-end-line="1829" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/businessapp/餐头条/seeArticle-查看文章/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="30" column="61" selection-end-line="1519" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/businessapp/餐头条/userArticle个人餐头条/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="24" column="66" selection-start-line="24" selection-start-column="66" selection-end-line="24" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../QQdata/2355641572/FileRecv/VUE(1)/commentDetails（评论详情）/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="15" column="46" selection-end-line="931" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../QQdata/2355641572/FileRecv/VUE(1)/eightBusiness（八大导航）/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="13" column="56" lean-forward="true" selection-end-line="1301" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/clientapp/餐头条/commentDetails-评论详情/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1026">
+          <caret line="931" selection-start-line="931" selection-end-line="931" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/clientapp/subpage-src-八大导航/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="775">
+          <caret line="1301" selection-end-line="1301" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/clientapp/我的/chat 对话/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="26" column="17" selection-end-line="577" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/clientapp/我的/followAanFans-src-关注(粉丝)/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="23" selection-end-line="620" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/clientapp/我的/listFriends通讯录好友(未完成)/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="26" column="75" selection-end-line="359" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/clientapp/我的/privateLetter-私信/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="32" column="10" selection-start-line="32" selection-start-column="10" selection-end-line="32" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/clientapp/我的/设置/aftSet-src-设置/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="494">
+          <caret line="26" column="64" selection-end-line="420" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/clientapp/登录/login-src-登录/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="524">
+          <caret line="188" column="42" selection-end-line="393" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/clientapp/餐头条/articleContent-餐头条内容/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="1688" column="21" selection-end-line="1712" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/weex/clientapp/index-src-首页/src/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="185">
+          <caret line="925" column="31" selection-end-line="3558" selection-end-column="8" />
+          <folding>
+            <element signature="n#style#0;n#list#0;n#div#0;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#cell#0;n#list#0;n#div#0;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#0;n#div#1;n#cell#0;n#list#0;n#div#0;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#cell#1;n#list#0;n#div#0;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#cell#2;n#list#0;n#div#0;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#1;n#div#1;n#div#1;n#div#0;n#cell#2;n#list#0;n#div#0;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#scroller#0;n#div#0;n#div#0;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#scroller#1;n#div#0;n#div#0;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#scroller#1;n#div#0;n#div#0;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#scroller#1;n#div#0;n#div#0;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#2;n#scroller#1;n#div#0;n#div#0;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#scroller#0;n#div#1;n#div#2;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#div#3;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#0;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#1;n#div#1;n#div#0;n#div#0;n#div#0;n#div#3;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#div#3;n#slider#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#wxc-mask#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#text#2;n#scroller#0;n#div#0;n#div#0;n#wxc-mask#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#45433#45439#0" expanded="true" />
+            <element signature="e#45439#45445#0" expanded="true" />
+            <element signature="e#48170#48206#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

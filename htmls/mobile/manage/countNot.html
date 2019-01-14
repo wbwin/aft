@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>阿凡提</title>
+<link rel="stylesheet" href="/static/css/mobile/time.css">
+<link rel="stylesheet" href="/static/css/mobile/all.css">
+<link rel="stylesheet" href="/static/css/mobile/countNot.css">
+<script src="/static/js/mobile/jquery.min.js"></script>
+</head>
+<body>
+<input type="hidden" name="day" value="{$res.day}"/>
+<input type="hidden" name="time" value="{$res.time}"/>
+<div class="minbarPT" id="not" v-cloak>
+    <div class="minibarBox">
+        <div class="minibar">
+            <div @click="back()">
+                <img src="https://image.aftdc.com/appBimg/icon_back_normal.png" alt="">
+            </div>
+            <span>阿凡提</span>
+            <span></span>
+        </div>
+    </div>
+<div class="ZuiAWaiKin">
+    <div class="XunTver">
+        <div class="Lenr" :class="{'active':dayNav==1}" @click="dayNavFn(1)">昨日</div>
+        <div class="Lenr" :class="{'active':dayNav==7}" @click="dayNavFn(7)">近7天</div>
+        <div class="Lenr" :class="{'active':dayNav==30}" @click="dayNavFn(30)">近30天</div>
+        <div class="Lenr" :class="{'active':dayNav==0}" @click="dayNavFn(0)">自定义</div>
+    </div>
+
+    <div class="XunDer" v-show="dayNav==0">
+        <input class="Txt" id="date" type="text" name="start" v-model="time.start" readonly="readonly">
+        <span class="Tst">至</span>
+        <input class="Txt" id="dateEnd" type="text" name="end" v-model="time.end" readonly="readonly">
+    </div>
+</div>
+
+
+
+<div class="Mistake"> 
+    <span class="Vinder"><span class="lvLin"></span>无效订单分析</span> 
+    <span class="Loinver"></span> 
+</div>
+
+<div class="Iunter">
+
+    <div class="FouruDer">
+         <div class="Gin Gzuo">
+            <div class="hInNser">无效订单 <span class="Houter">?</span> </div>
+            <div class="NubPonc"><span class="Liv">{{invalidNum}}</span>单</div>
+         </div>
+         <div class="Gin Gyou">
+           <div class="VieTser">比前{{diff}}日 </div>
+           <div class="CunNonc">
+            <i v-if="invalidb.subi==0">--持平</i>
+            <i v-else class="jianTou" :class="[invalidb.subi>0?'be-up':'be-down']">{{invalidb.proi}}</i>
+           </div>
+         </div>
+    </div>
+
+</div>
+
+
+<div class="Boyytui"> 
+  <div class="Yinayn">商家原因：{{reason}}单</div>
+
+  <div class="SonDer" v-if="reason==0"> 没发现无效订单,继续保持哦!!!</div>
+ 
+</div>
+</div>
+
+<script type="text/javascript">
+$(function(){
+  $("#date").dateSelect();
+  $("#dateEnd").dateSelect(); //加载事件选择*/
+});
+</script>
+<script src="/static/js/mobile/vue.js"></script>
+<script src="/static/js/mobile/dateSelect-over.js"></script>
+<script src="/static/js/mobile/countNot.js"></script>
+
+</body>
+</html>

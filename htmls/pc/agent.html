@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>城市代理商申请表</title>
+    <link rel="stylesheet" href="/static/css/pc/agent.css">
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+</head>
+<body>
+<div class="agent" v-cloak>
+    <header class="agent-top">
+        <h1>城市代理商<strong>申请表</strong></h1>
+    </header>
+
+    <div class="container">
+        <div class="container-center">
+            <p class="introduce">阿凡提点餐自
+                2017年11月起，阿凡提点餐城市代理项目正式启动，面向全国招募城市代理商，负责阿凡提点餐网络平台在各城市的市场开拓、城市管理、即时配送等业务内容，邀请心怀梦想的代理商一起开疆扩土，共同打造中国领先的在线外卖平台。</p>
+
+            <div class="container-step">
+                <p class="container-step-title">成为城市代理只需三步</p>
+
+                <div class="container-step-detail">
+
+                    <div class="container-step-choice">
+                        <div class="step-choice-img agenta">
+                            <img src="/static/image/pc/agenta.png"/>
+                        </div>
+
+                        <span>申请</span>
+                    </div>
+
+                    <img class="container-step-arrow" src="/static/image/pc/arrow.png"/>
+
+                    <div class="container-step-choice">
+                        <div class="step-choice-img agentb">
+                            <img src="/static/image/pc/agentb.png"/>
+                        </div>
+
+                        <span>审批</span>
+                    </div>
+
+                    <img class="container-step-arrow" src="/static/image/pc/arrow.png"/>
+
+                    <div class="container-step-choice">
+                        <div class="step-choice-img agentc">
+                            <img src="/static/image/pc/agentc.png"/>
+                        </div>
+
+                        <span>合作</span>
+                    </div>
+                </div>
+
+                <button class="container-but need" type="submit" @click="need()">立即入驻</button>
+
+                <div class="apply">
+                    <!--<form action="javascript:" name="myform" method="post" onsubmit="return checkUser();">-->
+                        <div class="form-item">
+                            <p class="form-item-name">手机号</p>
+                            <div class="form-item-oper">
+                                <input class="form-item-input phone" name="phone" @input="phoneInupt()" placeholder="请输入手机号"/>
+                                <span class="form-item-but" @click="valiPhone()">发送验证码</span>
+                                <span class="Times" style="display: none;">90秒</span>
+                                <div class="clear"></div>
+                            </div>
+                            <p class="err phoneErr">*请正确输入手机号码
+                            <p>
+                        </div>
+
+                        <div class="form-item">
+                            <p class="form-item-name">验证码</p>
+                            <div class="form-item-oper ">
+                                <input class="form-item-input numb" name="code" @focus="codeFocus()" @input="codeInput()" placeholder="请输入验证码"/>
+                            </div>
+                            <p class="err codeNumb">*请填写验证码
+                            <p class="err phoneNumb">*验证码错误
+                            <p>
+                        </div>
+                        <button class="container-but" type="text" @click="checkUser()">立即入驻</button>
+                    <!--</form>-->
+                </div>
+
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<script src="/static/js/pc/agent.js"></script>
+</body>
+
+
+
+</html>

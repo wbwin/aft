@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>阿凡提餐饮收银台</title>
+    <link rel="stylesheet" href="/static/css/pc/place.css"/>
+    <script type="text/javascript" src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+    <script type="text/javascript" src="/static/js/pc/place.js"></script>
+</head>
+<body>
+<div id="app">
+    <input type='hidden' name='wxcode' value="{$wxcode}">
+    <input type='hidden' name='orderNo' value="{$orderNo}">
+    <input type='hidden' name='alicode' value="{$alicode}">
+    <div class="place">
+        <div class="place-top">
+            <span>阿凡提餐饮</span>
+            <span>收银台</span>
+        </div>
+
+        <div class="place-content minWidth">
+            <div class="order-detail">
+                <p class="order-title">订单详情</p>
+                <div class="order-ifor">
+                    <div class="ifor-word">
+                        <p class="text-muted">{{orders.shopName}} 外卖订单</p>
+                        <div>
+                            <span class="text-muted order-desc " :style="toggle==2?'display:block':''">
+                                <span>{{orders.userName}} {{orders.userPhone}}</span>
+                                <span :style="toggle==2?'display:block':''">{{orders.address}}</span>
+                                <span :style="toggle==2?'display:block':''"> - </span>
+                                <span v-for="good in goods.arr">
+                                    <span class="message" :style="toggle==2?'display:block':''">{{good.goodsName}}
+                                        <span v-if="good.size&&good.size.length>0">({{good.size[good.decide.size].name}})</span>
+                                        <span v-if="good.taste&&good.taste.length>0">--{{good.taste[good.decide.taste].name}}</span>
+                                        &nbsp;&nbsp;&nbsp;×{{good.numb}}
+                                    </span>
+                                </span>
+                            </span>
+                            <span class="order-desc-more" @click="detail()">
+                                <span class="descCk" v-if="toggle==1">查看详情</span>
+                                <span class="descSQ" v-else>收起详情</span>
+                            </span>
+
+                        </div>
+                    </div>
+
+                    <span class="price">
+							<span>支付金额:</span>
+							<span class="priceNumb text-price">￥{{orders.price}}</span>
+						</span>
+
+                </div>
+            </div>
+
+            <div class="order-detail">
+                <div class="payTitle">
+                    <span class="payTitle-item1">请选择支付方式</span>
+                    <span class="text-muted count">剩余支付时间	<span
+                            class="text-price times"></span>，逾期订单将自动取消</span>
+                    <span class="text-muted over" style="display: none">订单将已取消</span>
+                </div>
+
+                <div class="payMode">
+                    <p class="text-muted">账户余额<span class="text-price">￥{{money}}</span></p>
+                    <p class="text-muted">需支付<span class="text-price">￥{{orders.true_pay}}</span></p>
+                    <div class="payMode-item">
+                        <div v-if="money-orders.true_pay<0" class="payMode-choice payMode-zfb" @click="Alipay()">
+                            <span>支付宝</span>
+                        </div>
+                        <div v-if="money-orders.true_pay<0" class="payMode-choice payMode-wx pay-wx" @click="WeChat()">
+                            <span>微信支付</span>
+                        </div>
+                        <div v-if="money-orders.true_pay>0" class="payMode-choice payMode-wx pay-ye" @click="payment()">
+                            <span>余额支付</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="payBut" @click="pay()">确认支付</button>
+                <button class="payButd">确认支付</button>
+            </div>
+        </div>
+    </div>
+    <div class="payqBoxBackZfb">
+        <div class="payBox">
+            <p>请使用啥支付</p>
+            <img :src="'data:image/png;base64,'+urls" class='codeImg' style='height:300px;width:300px'>
+            <button @click="closePay()">退出</button>
+        </div>
+    </div>
+    <div class="payqBoxBackWx">
+        <div class="payBox">
+            <p>请使用啥支付</p>
+            <img :src="urls" class='codeImg' style='height:300px;width:300px'>
+            <button @click="closePay()">退出</button>
+        </div>
+    </div>
+</div>
+
+
+</body>
+
+</html>

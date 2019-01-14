@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>阿凡提点餐</title>
+    <link rel="stylesheet" href="/static/css/pc/all.css"/>
+    <link rel="stylesheet" href="/static/css/pc/contact.css"/>
+    <script type="text/javascript" src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+    <script type="text/javascript" src="/static/js/pc/common.js"></script>
+</head>
+<body>
+<div class="conter" id="app" v-cloak>
+    <comheader></comheader>
+
+    <div class="contact">
+
+        <ul>
+            <li>
+                <div class="contact-title user " :class="[pags==0?'contaceY':'contaceN']" @click="contactpage(0)">
+                    关于我们<i
+                        class="arrow arrow-icon"></i></div>
+                <div class="contact-item" v-if="pags==0">
+                    <div class="introduction">
+                        <img src="/static/image/pc/a.png"/>
+                        <div>
+                            <p>“阿凡提”是2008年创立的本地生活平台，主营在线外卖、新零售、即时配送和餐饮供应链等业务。</p>
+                            <p>创业9年，阿凡提以“ Everything 30'
+                                ”为使命，致力于用创新科技打造全球领先的本地生活平台，推动了中国餐饮行业的数字化进程，将外卖培养成中国人继做饭、堂食后的第三种常规就餐方式。</p>
+                            <p>截至2017年6月，阿凡提在线外卖平台覆盖全国2000个城市，加盟餐厅130万家，用户量达2.6亿。业绩持续高速增长的同时，公司员工也超过15000人。</p>
+                            <p>
+                                目前，阿凡提已获融资总额达23.4亿美元，投资方包括阿里巴巴、蚂蚁金服、中信产业基金、华人文化产业基金和红杉资本等世界顶级企业和投资机构，是全球瞩目的独角兽和外卖行业领军公司。</p>
+                        </div>
+                    </div>
+                    <h3>发展历程</h3>
+                    <div>
+                        <p>2008年 张旭豪、康嘉等人创立阿凡提</p>
+                        <p>2009年04月 阿凡提网站正式上线</p>
+                        <p>2009年09月 推出餐厅运营一体化解决方案</p>
+                        <p>2010年09月 订餐范围覆盖全上海</p>
+                        <p>2010年11月 手机网页订餐平台上线</p>
+                        <p>2011年07月 成立北京分公司，杭州分公司</p>
+                        <p>2012年03月 成立广州分公司、天津分公司，团队规模超过100人</p>
+                        <p>2012年04月 iOS版阿凡提APP 1.0上线</p>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <div class="contact-title unite " :class="[pags==1?'contaceY':'contaceN']" @click="contactpage(1)">
+                    联系我们<i
+                        class="arrow arrow-icon"></i></div>
+                <div class="contact-item" v-if="pags==1">
+                    <h3>联系我们</h3>
+                    <dl>
+                        <dt class="contact-tel">全国统一客服服务热线：</dt>
+                        <dd><strong>123456</strong></dd>
+                        <dt class="contact-tel">客户服务：</dt>
+                        <dd><a href="mailto:1315060134@qq.com">1315060134@qq.com</a></dd>
+                        <dt class="contact-tel">商业合作：</dt>
+                        <dd><a href="mailto:1315060134@qq.com">1315060134@qq.com</a></dd>
+                        <dt class="contact-tel">加入我们：</dt>
+                        <dd><a href="mailto:1315060134@qq.com">1315060134@qq.com</a></dd>
+                        <dt class="contact-tel">媒体合作：</dt>
+                        <dd><a href="mailto:1315060134@qq.com">1315060134@qq.com</a></dd>
+                        <dt class="contact-tel">金币商城：</dt>
+                        <dd><a href="mailto:1315060134@qq.com">1315060134@qq.com</a></dd>
+                    </dl>
+                    <dl>
+                        <dt>地址：</dt>
+                        <dd>上海市普陀区金沙江路1518弄近铁城市广场401室</dd>
+                        <dt>公司：</dt>
+                        <dd>上海拉扎斯信息科技有限公司</dd>
+                        <dt>电话：</dt>
+                        <dd>13172853048</dd>
+                    </dl>
+                    <dl class="follows">
+                        <dt>关注我们：</dt>
+                        <dd>
+                            <a><img src="/static/image/pc/follow_weibo.png"/></a>
+
+                            <a><img src="/static/image/pc/follow_renren.png"/></a>
+                        </dd>
+                        <dt>微信号：</dt>
+                        <dd>阿凡提网上订餐(elemeorder)</dd>
+                    </dl>
+                </div>
+            </li>
+            <li>
+                <div class="contact-title add " :class="[pags==2?'contaceY':'contaceN']" @click="joinClick(2)">
+                    加入我们<i
+                        class="arrow arrow-icon"></i></div>
+
+            </li>
+            <li>
+                <div class="contact-title league " :class="[pags==3?'contaceY':'contaceN']" @click="contactpage(3)">
+                    餐厅加盟<i
+                        class="arrow arrow-icon"></i></div>
+                <div class="contact-item" v-if="pags==3">
+                    <h3>餐厅加盟</h3>
+                    阿凡提很乐意帮助您和您的餐厅；
+                    <br>
+                    阿凡提为每一家加盟餐厅开设网店，负责网店的设计和架构；
+                    <br>
+                    加盟餐厅通过阿凡提平台的强势推广，迅速建立起良好的品牌形象和市场知名度，销售收入迅速增长。在阿凡提的帮助下，优秀的餐饮外卖企业能够迅速做强做大。
+                    <br>
+                    <h3>餐厅加盟要求</h3>
+                    您需要正在经营的餐厅，手续齐全，符合相关卫生标准；
+                    <br>
+                    餐厅提供外送服务；
+                    <br>
+                    信息真实可靠。
+                    <br>
+                    <h3>网店开设流程</h3>
+                    <h4>第一步： 申请开设网店</h4>
+                    <a href="/business/Enrol/registered.html">点击这里</a>注册填写餐厅详细信息，申请加入阿凡提订餐平台。信息越详细，通过审核率越高；
+                    <br>
+                    <h4>第二步： 录入菜单信息</h4>
+                    通过审核后，相关工作人员会联系您录入餐厅菜单。录入菜单时可以添加图片和详细介绍。及时更新菜单信息和生动的介绍有助于吸引客户；
+                    <h4>第三步： 管理订单</h4>
+                    使用阿凡提网络餐饮管理系统处理订单，减少人工劳动，及时高效，为您店铺的发展扫清障碍。
+                </div>
+
+            </li>
+            <li>
+                <div class="contact-title help " :class="[pags==4?'contaceY':'contaceN']" @click="helpClick(4)">
+                    帮助中心<i
+                        class="arrow arrow-icon"></i></div>
+
+            </li>
+            <li>
+                <div class="contact-title service " :class="[pags==5?'contaceY':'contaceN']"
+                     @click="contactpage(5)">服务协议<i
+                        class="arrow arrow-icon"></i></div>
+                <div class="contact-item" v-if="pags==5">
+                    <div class="blockquote">
+                        <p>本协议为《阿凡提用户服务协议》修订版本，自本协议发布之日起，阿凡提网站各处所称“阿凡提用户服务协议”均指本协议。</p>
+                    </div>
+                    <h2>一、概述</h2>
+                    <p>第一条 本服务协议双方为上海拉扎斯信息科技有限公司旗下网站“阿凡提”（下称“阿凡提”）与阿凡提网站用户，本服务协议具有合同效力。</p>
+                    <p>第二条 本服务协议内容包括协议正文及所有阿凡提已经发布的或将来可能发布的各类规则。所有规则为协议不可分割的一部分，与协议正文具有同等法律效力。</p>
+                    <p>第三条
+                        用户在使用阿凡提提供的各项服务的同时，承诺接受并遵守各项相关规则的规定。阿凡提有权根据需要不定时地制定、修改本协议或各类规则。如本协议有任何变更，阿凡提将在网站上刊载公告，通知予用户。如用户不同意相关变更，必须停止使用“服务”。经修订的协议一经在阿凡提网站公布后，立即自动生效。各类规则会在发布后生效，亦成为本协议的一部分。登录或继续使用“服务”将表示用户接受经修订的协议。除另行明确声明外，任何使“服务”范围扩大或功能增强的新内容均受本协议约束。</p>
+                    <h2>二、定义</h2>
+                    <p>第四条 阿凡提的用户：
+                        用户为具备完全民事行为能力的自然人。无民事行为能力人、限制民事行为能力人不当注册为阿凡提用户或超过其民事权利或行为能力范围从事交易的，其与阿凡提之间的服务协议自始无效，阿凡提一经发现，有权立即注销该用户，并追究其使用阿凡提“服务”的一切法律责任。</p>
+                    <p>第五条
+                        用户注册是指用户登录阿凡提网站，并按要求填写相关信息并确认同意履行相关用户协议的过程。用户因进行交易，获取订餐的有偿服务或接触阿凡提网站服务器而发生的所有应纳税赋，以及一切硬件、软件、服务及其他方面的费用均由用户负责支付。阿凡提网站仅作为订餐的交易平台。</p>
+                    <p>第六条
+                        阿凡提积分规则：为了感谢广大阿凡提用户的支持，同时营造健康、时尚、有序的网上订餐平台，阿凡提网站推出积分系统，对订餐用户实行消费积分回馈、推广积分赠送和积分兑换礼品等服务。阿凡提积分规则就是建立在此基础上的一整套完善的积分奖励和兑换体系。</p>
+                    <p>第七条
+                        阿凡提礼品：阿凡提推出的积分兑换礼品，主要为实物礼品和现金。用户在提交礼品兑换的申请后，经阿凡提确认并发出礼品后，阿凡提保证普通礼品的品质和电子礼品为专柜正品，礼品不再提供退换货服务，礼品的后续保修服务请联系厂家。</p>
+                    <p>第八条 阿凡提网上订餐系统： 由阿凡提自主开发，提供给用户进行网站上交易的平台软件，用户可以使用此系统进行订单和积分管理、商户可以使用此系统进行店铺和外卖信息的发布和订单管理。</p>
+
+                </div>
+
+            </li>
+        </ul>
+    </div>
+
+
+    <comfooter></comfooter>
+</div>
+<script src="/static/js/pc/contact.js"></script>
+</body>
+
+</html>

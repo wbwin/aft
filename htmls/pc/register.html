@@ -1,0 +1,71 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>afanti阿凡提订单</title>
+    <link rel="stylesheet" href="/static/css/pc/all.css">
+    <link rel="stylesheet" href="/static/css/pc/register.css">
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+    <script src="https://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
+</head>
+
+<body>
+<div class="loginBox" v-cloak>
+    <input type='hidden' name='type' value="{$type}">
+    <input type='hidden' name='shopId' value="{$shopId}">
+    <div class="themeach">
+        <div class="conter">
+            <img class="ima" src="/static/image/pc/a.png" height="60" width="60">
+            <span class="aft">阿凡提</span>
+        </div>
+        <div class="teor"><span>陌上香来</span><span>倦客如归</span></div>
+        <div class="fangshi">
+            <span class="duanxin" > 注册</span>
+
+        </div>
+
+        <!-- <form action=" {:U('HomePc/Index/dologin')}" method="post"> -->
+
+        <!--  短信登录时显示     短信登录时显示     短信登录时显示   -->
+        <div class="twonu" name="Form1">
+            <div class="cfmwetwo"><img src="/static/image/business/jskjds.png" height="12" width="12"><span id="spantwo.info"></span></div>
+            <div class="phonenuber">
+                <img class="phoneexs" src="/static/image/business/phoe.png" height="16" width="12">
+                <input type="text" name="userPhone" v-model="phone" class="phone" @keydown="keyLogin()" placeholder="手机号" @blur="phoneBlur()">
+            </div>
+            <div class="wnowhw">
+                <input class="yzmkuang" name="code" type="text" @keydown="keyLogin()" placeholder="验证码" @blur="yzmkuangBlur()">
+                <span class="fayzm" :class="[chack()?'aa':'']" id="coke" @click="cokeClick(this.event)" >发送验证码</span>
+                <span class="Times" style="display: none;">60秒</span>
+            </div>
+            <div class="denglutwo" id="denglutwo" @click="denglutwoClick()">登录</div>
+        </div>
+
+        <div class="aboutus"><a href="">关于我们</a></div>
+
+
+
+        <!--尾部-->
+
+        <div class="zuixiamian">
+            <div class="footer-copyright">
+                <h5 class="aller">所有方:广东阿凡提电子商务有限公司</h5>
+                <p>12454554548信息</p>
+            </div>
+        </div>
+
+
+    </div>
+
+
+</div>
+</div>
+<script>
+
+</script>
+<script src="/static/js/pc/register.js"></script>
+
+</body>
+</html>

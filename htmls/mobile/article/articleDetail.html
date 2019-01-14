@@ -1,0 +1,915 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>餐头条</title>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+    <script src="/static/js/mobile/jquery.min.js"></script>
+    <style type="text/css">
+        body{
+            margin: 0;padding: 0;
+        }
+        .fix{
+            z-index: 11;
+            top: 0;left: 0;
+            width: 100%; height: 50px;display: flex;flex-direction: row;
+            background-color: #333333;align-items: center;position: fixed;
+        }
+        .logo-box{
+            flex: 1;
+        }
+        .logo {
+            width: 40px;
+            height: 40px;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .aftspan {
+            color: #fff;
+            font-size: 13px;
+            line-height: 50px;
+            flex: 6;
+        }
+        .open-box{
+            flex: 1.5;
+            margin-right: 10px;
+        }
+        .open{
+            font-size: 13px;
+            height: 30px;
+            line-height: 30px;
+            color: #fff;
+            border-radius: 6px;
+            width:100%;
+            background-color:#e16456;
+            text-align: center;
+        }
+
+        .center{
+            margin: 50px 0;
+            position: relative;
+        }
+        .fix-color{
+            position: fixed;top: 0;left: 0;bottom: 0;right: 0;
+        }
+        .bg{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 9;
+        }
+        .music{
+            position: fixed;
+            width:40px;
+            height:40px;
+            top:70px;
+            right:20px;
+            animation:music 6s linear infinite;
+            background-color:#fff;
+            border-radius:50%;
+            z-index: 11;
+        }
+        @keyframes music {
+            0% {
+                transform: rotate(0deg);
+            }
+            50% {
+                transform: rotate(180deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+        .centers{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 12px;
+            z-index: 10;
+        }
+        .title{
+            font-size:22px;
+            font-weight:bold;
+            line-height:30px;
+        }
+        .author{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            border-bottom:1px solid #dedede;
+            margin: 10px 0;
+        }
+        .L{
+            flex: 1;
+        }
+        .shopImg{
+            width:50px;
+            height:50px;
+            border-radius:50%;
+            border:1px solid #dedede;
+        }
+        .C{
+            flex:5;
+            line-height:20px;
+            margin:0 2%;
+        }
+        .time{
+            font-size:12px;
+            display:flex;
+            flex-direction: column;
+        }
+        .shopName{
+            flex: 1;
+            font-size:14px;font-weight:700;
+        }
+        .times{
+            flex: 1;
+        }
+        .R{
+            flex: 1;
+        }
+        .gz{
+            font-size: 13px;
+            height: 28px;
+            line-height: 30px;
+            color: #fff;
+            border-radius: 6px;
+            width:100%;
+            background-color:#e16456;
+            text-align: center;
+        }
+
+        .content{
+            margin-top: 10px;
+        }
+        .content-text{
+            font-size: 16px;
+        }
+        .vote{
+            margin-top: 15px;
+            border: 1px solid #dedede;
+            border-radius: 6px;
+            display: flex;
+            flex-direction: column;
+            padding: 0 20px;
+        }
+        .voteTitle{
+            padding-top: 15px;
+            font-size:20px;
+        }
+        .voteType{
+            font-size:12px;
+            padding: 5px 0;
+        }
+        .voteList{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            border-bottom: 1px solid #dedede;
+            padding: 12px 0;
+        }
+        .voteListl{
+            text-align: center;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+        .yuan{
+            width: 15px;
+            height: 15px;
+            border: 1px solid #dedede;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .dian{
+            border-radius: 50%;
+            background-color: #53beb7;
+            width: 10px;
+            height: 10px;
+        }
+        .voteListr{
+            flex: 6;
+        }
+        .sureVote{
+            border-radius: 6px;
+            padding: 10px 0;
+            text-align: center;
+            font-size: 16px;
+            background-color: #53beb7;
+            color: #fff;
+            border: 1px solid #dedede;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .progress{
+            background-color: #666666;
+            height: 5px;
+        }
+        ::-webkit-progress-value{
+            background:#53beb7;
+        }
+        .tag{
+            margin: 10px 0;
+        }
+        .tag-title{
+            font-size: 14px;
+        }
+        .tag-list{
+            margin-top: 10px;
+            font-size: 12px;
+        }
+        .tag-text{
+            display: inline-block;
+            margin-right:2%;
+            background-color:#fbf8f8;
+            border-radius:6px;
+            padding:2% 3%;
+            opacity:0.8;
+            color: #666666;
+        }
+        .read{
+            margin-top: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .read-row{
+            font-size: 14px;
+            margin-right: 15px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-items: center;
+            justify-content: center;
+        }
+
+        .pl{
+            font-size: 16px;
+            margin: 20px 0;
+        }
+        .pl-left{
+            color:red;
+            font-width:blod;
+        }
+        .pl-title{
+
+        }
+        .lpList{
+            margin-bottom: 50px;
+        }
+        .pl-block{
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: row;
+        }
+        .block-l{
+            flex: 1;
+        }
+        .block-c{
+            flex: 5;
+            display: flex;
+            flex-direction: column;
+        }
+        .bc-t,.bc-c{
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        .bc-b{
+            font-size: 12px;
+        }
+        .block-r{
+            flex: 1;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            font-size: 14px;
+        }
+
+        .foot{
+            z-index: 11;
+            bottom: 0;left: 0;
+            width: 100%; height: 40px;display: flex;flex-direction: row;
+            background-color: #ffffff;align-items: center;position: fixed;
+            border-top: 1px solid #dedede;
+        }
+        input{
+            border-width: 0;
+            text-indent: 10px;
+        }
+        .input{
+            flex: 9;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            height: 30px;
+        }
+        .input-box{
+            flex: 7;
+            background-color: #f8f8f8;
+            border-radius: 12px;
+            margin-left: 12px;
+            height: 30px;
+        }
+        .send{
+            font-size: 14px;
+            flex: 1.5;
+            display: flex;
+            justify-content: center;
+        }
+        .send-text{
+            color: #fff;
+            background-color: #53BEB7;
+            padding: 5px 9px;
+            border-radius: 6px;
+        }
+        .toast{
+            position: fixed;
+            width: 70%;
+            height: 40px;
+            bottom: 60px;
+            left: 15%;
+            line-height: 40px;
+            font-size: 12px;
+            text-align: center;
+            border-radius: 15px;
+            background-color: #666666;
+            color: #fff;
+            z-index: 11;
+        }
+    </style>
+</head>
+<body>
+<div id="app" v-cloak>
+    <div class="fix">
+        <div class="logo-box">
+            <img class="logo" src="https://image.aftdc.com/images/logo.png" alt="">
+        </div>
+        <div class="aftspan">阿凡提点餐</div>
+        <div class="open-box">
+            <div class="open">打开</div>
+        </div>
+    </div>
+    
+    <div class="center" :style="{color:article.template.fontColor}">
+        <div class="fix-color" :style="{backgroundColor: article.template.themeColor}"></div>
+
+        <div class="bg">
+            <img width="100%" :src="article.template.smallImgUrl" alt="">
+        </div>
+
+        <div v-if="article.music.length>0" class="music" :style="{animationPlayState:play?'running':'paused'}" @click="playMusic">
+            <img width="40px" src="https://image.aftdc.com/appBimg/icon_music_check.png" alt="">
+            <audio style="display: none" :src="'https://image.aftdc.com/'+article.music.musicPath" id="music1" autoplay loop></audio>
+        </div>
+
+        <div class="centers">
+            <div class="title">{{article.title}}</div>
+
+            <div class="head">
+                <div class='author' >
+                    <div class='L'>
+                        <img class="shopImg" :src="'https://image.aftdc.com/'+article.shopImg">
+                    </div>
+                    <div class='C' :style="{color: article.template.fontColorUname}">
+                        <div class='time'>
+                            <div class='time_l'>
+                                <div class="shopName">{{article.shopName}}</div>
+                                <div class="times">{{article.timestamp}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="R" @click="attention(article.attentionType)">
+                        <div class="gz" style='background-color: #00b8a5;' v-if="article.attentionType==1">已关注</div>
+                        <div class="gz" v-else>关　注</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content">
+                <div v-for="iemt in article.content">
+                    <div v-if="article.imageFontRadio===1">
+                        <video v-if="iemt.video" width="100%" :src="'https://image.aftdc.com/'+iemt.video" autoplay="autoplay"></video>
+                        <img v-if="!iemt.video&&iemt.articleImg" width="100%" :src="'https://image.aftdc.com/'+iemt.articleImg" alt="">
+                        <p class="content-text">{{iemt.content}}</p>
+                    </div>
+                    <div v-else>
+                        <p class="content-text">{{iemt.content}}</p>
+                        <video v-if="iemt.video" width="100%" :src="'https://image.aftdc.com/'+iemt.video" autoplay="autoplay"></video>
+                        <img v-if="!iemt.video&&iemt.articleImg" width="100%" :src="'https://image.aftdc.com/'+iemt.articleImg" alt="">
+                    </div>
+                </div>
+                <div class="vote" v-if="article.vote.length!==0">
+                    <div class="voteTitle">{{article.vote.voteTopic}}</div>
+                    <div class="voteType">{{article.vote.type===1?'(单选)':'(多选,无限制)'}}</div>
+                    <div v-if="article.myVote.length===0">
+                        <div class="voteList" v-for="(item,index) in article.vote.inputList">
+                            <div class="voteListl" @click="chooseVote(index)"><div class="yuan"><div class="dian" v-if="item.checked"></div></div></div>
+                            <div class="voteListr">{{item.value}}</div>
+                        </div>
+                        <div class="sureVote" @click="sureVote">确定</div>
+                    </div>
+                    <div v-else v-for="(item,index) in article.vote.inputList">
+                        <div class="voteListr" style="margin-top: 10px">{{item.value}}{{item.checked?'（已投票）':''}}</div>
+                        <div class="voteList" style="text-align: center;font-size: 14px;">
+                            <progress style="flex: 3" class="progress" value='70' max='100'></progress>
+                            <div style="flex: 1;">{{item.voteNum}}票</div>
+                            <div style="flex: 1">{{parseInt(item.voteNum/article.voteNum*100)}}%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tag" v-if="article.key_word.length>0">
+                    <div class="tag-title">文章标签</div>
+                    <div class="tag-list">
+                        <div class="tag-text" v-for="item in article.key_word">{{item}}</div>
+                    </div>
+                </div>
+                <div id="read" class="read">
+                    <div class="read-row">
+                        <span>阅读</span>
+                        <span style="margin-left: 5px">{{article.read_num}}</span>
+                    </div>
+                    <div class="read-row">
+                        <img width="20px" :src="article.isPraise===1?'https://image.aftdc.com/images/zhan.png':'https://image.aftdc.com/images/nozhan.png'" @click="praiseA">
+                        <span style="margin-left: 5px">{{article.praise_num}}</span>
+                    </div>
+                </div>
+                <div class="pl">
+                    <span class="pl-left">┃ </span>
+                    <span class="pl-title">{{article.commentOrleaveWord===1?'热门评论':'留言'}}</span>
+                </div>
+                <div class="lpList">
+                    <div v-if="pl.my.length>0" class="pl-block" v-for="(item,index) in pl.my">
+                        <div class="block-l">
+                            <img style="width: 30px;border-radius: 50%" :src="item.userPhoto" alt="">
+                        </div>
+                        <div class="block-c">
+                            <div class="bc-t" :style="{fontColor:article.template.fontColorUname}">{{item.userName}}</div>
+                            <div class="bc-c">{{item.content}}</div>
+                            <div class="bc-b" @click="deleteComment(index)">{{item.timestamp}} · 删除</div>
+                        </div>
+                        <div class="block-r">
+                            <img style="width: 20px;height: 20px" :src="item.isPraise===1?'https://image.aftdc.com/images/zhan.png':'https://image.aftdc.com/images/nozhan.png'" @click="praiseC(item.id,item.isPraise)">
+                            <span style="margin-left: 5px">{{item.praise_num}}</span>
+                        </div>
+                    </div>
+                    <div v-if="pl.other.length>0" class="pl-block" v-for="item in pl.other">
+                        <div class="block-l">
+                            <img style="width: 30px;border-radius: 50%" :src="item.userPhoto" alt="">
+                        </div>
+                        <div class="block-c">
+                            <div class="bc-t" :style="{fontColor:article.template.fontColorUname}">{{item.userName}}</div>
+                            <div class="bc-c">{{item.content}}</div>
+                            <div class="bc-b">{{item.timestamp}}</div>
+                        </div>
+                        <div class="block-r">
+                            <img style="width: 20px;height: 20px" :src="item.isPraise===1?'https://image.aftdc.com/images/zhan.png':'https://image.aftdc.com/images/nozhan.png'" @click="praiseC(item.id,item.isPraise)">
+                            <span style="margin-left: 5px">{{item.praise_num}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="foot">
+        <div class="input">
+            <input class="input-box" type="text" :placeholder="article.commentOrleaveWord===1?'写评论':'写留言'" v-model="inputText">
+            <div class="send" @click="send"><span class="send-text">发送</span></div>
+        </div>
+    </div>
+
+    <div class="toast" v-if="toast">{{toastText}}</div>
+</div>
+<script src="/static/js/mobile/vue.js"></script>
+<script src="https://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+
+<script type="text/javascript">
+    var app = new Vue({
+        el: '#app',
+        data: {
+            article: [],
+            pl: {
+                my: [],
+                other: [],
+            },
+            play:true,
+            inputText:'',
+            id:0,
+            toast:false,
+            toastText:'',
+            voteClickIndex: [], //投票的变量
+        },
+        created: function () {
+            var id = this.getQueryString('id');
+            var code = this.getQueryString('code');
+            if (code) {//未登录，通过code去登录
+                this.getUserInfo(code)
+            }else{
+                var userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+                var userId = userInfo?userInfo.userId:0;
+
+                this.id = id;
+                var that = this;
+                var param = 'id=' + id + '&userId=' + userId;
+                axios({
+                    method: "post",
+                    url: 'https://www.aftdc.com/userapp/Article/articleDetail',
+                    data: param,
+                }).then(function (res) {
+                    if (res.data.res === 1) {
+                        that.article = res.data.data;
+                        that.wxshare();//设置微信分享
+                    }
+                });
+                param += '&page=0'
+                axios({
+                    method: "post",
+                    url: 'https://www.aftdc.com/userapp/Article/getArticlePl',
+                    data: param,
+                }).then(function (res) {
+                    if (res.data.res === 1) {
+                        that.pl = res.data.data;
+                    }
+                });
+
+                var inputText = sessionStorage.getItem('inputText');
+                if (inputText) this.comment(id,userInfo.token,inputText);
+            }
+        },
+        methods: {
+            getCode: function () {
+                window.location.href = 'https://www.aftdc.com/mobile/Wxdecode/getCode?url=' + window.location.href;
+            },
+            getUserInfo: function (code) {
+                var that = this
+                var param = 'code=' + code;
+                axios({
+                    method: "post",
+                    url: 'https://www.aftdc.com/mobile/Wxdecode/getUserInfo',
+                    data: param,
+                }).then(function (res) {
+                    if (res.data.res == 1) {
+                        that.userInfo = res.data.data;
+                        sessionStorage.setItem('userInfo', JSON.stringify(that.userInfo));//缓存本次登录
+                        var url = that.delUrlParam(window.location.href,'code');
+                        url = that.delUrlParam(url,'state');
+                        window.location.href = url
+                    }
+                })
+            },
+            //获取 URL 传过来的值
+            getQueryString(name) {
+                var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+                var r = window.location.search.substr(1).match(reg);
+                if (r != null) return unescape(r[2]);
+                return null;
+            },
+            //删除url中的参数
+            delUrlParam : function(url, ref) {
+                if (url.indexOf(ref) === -1) return url;
+                var arr_url = url.split('?');
+                var base = arr_url[0];
+                var arr_param = arr_url[1].split('&');
+                var index = -1;
+                for (i = 0; i < arr_param.length; i++) {
+                    var paired = arr_param[i].split('=');
+                    if (paired[0] === ref) {
+                        index = i;
+                        break;
+                    }
+                }
+                if (index === -1) {
+                    return url;
+                } else {
+                    arr_param.splice(index, 1);
+                    return base + "?" + arr_param.join('&');
+                }
+            },
+            //微信分享设置
+            wxshare(){
+                var that = this
+                var param = 'url=' + window.location.href;
+                axios({
+                    method: "post",
+                    url: 'https://www.aftdc.com/mobile/Wxdecode/getShareSign',
+                    data: param,
+                }).then(function (res) {
+                    var r = res.data
+                    wx.config({
+                        debug: false, appId: r.appId, timestamp: r.timestamp,nonceStr: r.nonceStr,signature: r.signature,jsApiList: ['checkJsApi', 'onMenuShareTimeline', 'onMenuShareAppMessage' ]
+                    });
+                    wx.ready(function() {
+                        wx.onMenuShareTimeline({
+                            title: that.article.title, // 分享标题
+                            link: window.location.href, // 分享链接
+                            imgUrl: 'https://image.aftdc.com/'+that.article.shopImg, // 分享图标
+                        });
+                        wx.onMenuShareAppMessage({
+                            title: that.article.title, // 分享标题
+                            desc: '', // 分享描述
+                            link: window.location.href, // 分享链接
+                            imgUrl: 'https://image.aftdc.com/'+that.article.shopImg, // 分享图标
+                        });
+                    });
+                })
+            },
+
+            //音乐
+            playMusic(){
+                var audio = document.getElementById('music1');
+                if(audio!==null){//判断是否获得
+                    if(audio.paused){//获得播放状态,这个属性应该是是否是暂停状态,如果是就播放,如果不是暂停就暂停
+                        audio.play();
+                    }else{
+                        audio.pause();
+                    }
+                }
+                this.play = !this.play;
+            },
+            //发送
+            send(){
+                var content = this.inputText;
+                if (content===''){
+                    this.toast = true
+                    this.toastText = '不能为空'
+                    setTimeout(()=>this.toast = false,2000);
+                } else{
+                    var userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+
+                    if (userInfo) {//已登录
+                        this.comment(this.article.id,userInfo.token,content)
+                    }else {//未登录，去获取code
+                        sessionStorage.setItem('inputText', content);//缓存输入
+                        this.getCode()
+                    }
+                }
+            },
+            //留言或评论
+            comment(id,token,content){
+                var that = this
+                var param = 'token='+token+'&id='+id+'&content='+content
+                axios({
+                    method: "post",
+                    url: 'https://www.aftdc.com/mobile/Article/commentArticle',
+                    data: param,
+                }).then(function (res) {
+                    if (res.data.res == 1) {
+                        if (that.article.commentOrleaveWord===1){
+                            var obj = res.data.data
+                            var pl = that.pl
+                            pl.my.unshift(obj)
+                            that.pl = pl
+                        }
+                        that.inputText = ''
+                        sessionStorage.removeItem('inputText');//删除inputText缓存
+                    }
+
+                    $('html,body').animate({scrollTop:$('#read').offset().top}, 800);//跳到评论列表
+
+                    that.toast = true;
+                    that.toastText = res.data.info;
+                    setTimeout(()=>that.toast = false,2000);
+                })
+            },
+
+            //删除留言或评论
+            deleteComment(index){
+                var userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+                var that = this;
+                var param = 'token='+userInfo.token+'&id='+that.pl.my[index].id;
+                axios({
+                    method: "post",
+                    url: 'https://www.aftdc.com/mobile/Article/deleteComment',
+                    data: param,
+                }).then(function (res) {
+                    if (res.data.res == 1) {
+                        var pl = that.pl
+                        pl.my.splice(index, 1);
+                        that.pl = pl
+                    }
+                    that.toast = true;
+                    that.toastText = res.data.info;
+                    setTimeout(()=>that.toast = false,2000);
+                })
+            },
+
+            //点赞评论
+            praiseC(id,isPraise){
+                var userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+                if (userInfo) {//已登录
+                    var url = '';var praise = 0;var praise_num = 0;
+                    if (isPraise===1){
+                        url = 'https://www.aftdc.com/mobile/Article/cancelPraiseComment';
+                        praise = 0;
+                        praise_num = -1;
+                    }
+                    else{
+                        url = 'https://www.aftdc.com/mobile/Article/praiseComment';
+                        praise = 1;
+                        praise_num = 1;
+                    }
+
+                    var that = this;
+                    var param = 'token='+userInfo.token+'&id='+id;
+                    axios({
+                        method: "post",
+                        url: url,
+                        data: param,
+                    }).then(function (res) {
+                        if (res.data.res === 1) {
+                            var pl = that.pl;
+                            for (var i=0;i<pl.my.length;i++){
+                                if (pl.my[i].id === id) {
+                                    pl.my[i].isPraise = praise;
+                                    pl.my[i].praise_num = pl.my[i].praise_num + praise_num;
+                                    break;
+                                }
+                            }
+                            for (var s=0;s<pl.other.length;s++){
+                                if (pl.other[s].id === id) {
+                                    pl.other[s].isPraise = praise;
+                                    pl.other[s].praise_num = pl.other[s].praise_num + praise_num;
+                                    break;
+                                }
+                            }
+                            that.pl = pl
+                        }
+                        that.toast = true;
+                        that.toastText = res.data.info;
+                        setTimeout(()=>that.toast = false,2000);
+                    })
+
+                }else {//未登录，去获取code
+                    this.getCode()
+                }
+            },
+
+            //点赞文章
+            praiseA(){
+                var id = this.article.id
+                var isPraise = this.article.isPraise
+                var userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+                if (userInfo) {//已登录
+                    var url = '';var praise = 0;var praise_num = 0;
+                    if (isPraise===1){
+                        url = 'https://www.aftdc.com/mobile/Article/cancelPraiseArticle';
+                        praise = 0;
+                        praise_num = -1
+                    }
+                    else{
+                        url = 'https://www.aftdc.com/mobile/Article/praiseArticle';
+                        praise = 1;
+                        praise_num = 1;
+                    }
+
+                    var that = this;
+                    var param = 'token='+userInfo.token+'&id='+id;
+                    axios({
+                        method: "post",
+                        url: url,
+                        data: param,
+                    }).then(function (res) {
+                        if (res.data.res === 1) {
+                            that.article.isPraise = praise;
+                            that.article.praise_num = that.article.praise_num+praise_num;
+                        }
+                        that.toast = true;
+                        that.toastText = res.data.info;
+                        setTimeout(()=>that.toast = false,2000);
+                    })
+
+                }else {//未登录，去获取code
+                    this.getCode()
+                }
+            },
+
+            //关注
+            attention(attentionType){
+                var id = this.article.shopId
+                var userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+                if (userInfo) {//已登录
+                    var url = '';
+                    if (attentionType===1)
+                        url = 'https://www.aftdc.com/mobile/Index/cancelAttentShop';
+                    else
+                        url = 'https://www.aftdc.com/mobile/Index/attentShop';
+
+                    var that = this;
+                    var param = 'token='+userInfo.token+'&shopId='+id;
+                    axios({
+                        method: "post",
+                        url: url,
+                        data: param,
+                    }).then(function (res) {
+                        if (res.data.res === 1) {
+                            that.article.attentionType = attentionType===1?0:1;
+                        }
+                        that.toast = true;
+                        that.toastText = res.data.info;
+                        setTimeout(()=>that.toast = false,2000);
+                    })
+                }else {//未登录，去获取code
+                    this.getCode()
+                }
+            },
+
+            //选择投票
+            chooseVote(index){
+                var that = this
+                var vote = that.article.vote
+                var voteClickIndex = that.voteClickIndex
+                if (vote.type === 1) { // 单选
+                    for (let i = 0, len = vote.inputList.length; i < len; i++) {
+                        vote.inputList[i].checked = false
+                    }
+                    if (voteClickIndex[0] !== index) {
+                        vote.inputList[index].checked = true
+                        voteClickIndex[0] = index
+                    } else {
+                        voteClickIndex = []
+                    }
+                } else if (vote.type === 0) { // 多选,无限制
+                    if (vote.inputList[index].checked !== true) {
+                        voteClickIndex.push(index)
+
+                    } else {
+                        for (var i = 0; i < voteClickIndex.length; i++) {
+                            if (voteClickIndex[i] == index) {
+                                voteClickIndex.splice(i, 1)
+                            }
+                        }
+                    }
+                    vote.inputList[index].checked = !vote.inputList[index].checked
+
+                } else { // 多选,可选n项
+                    if (voteClickIndex.length < vote.type || vote.inputList[index].checked === true) {
+                        if (vote.inputList[index].checked !== true) {
+                            voteClickIndex.push(index)
+
+                        } else {
+                            for (var i = 0; i < voteClickIndex.length; i++) {
+                                if (voteClickIndex[i] == index) {
+                                    voteClickIndex.splice(i, 1)
+                                }
+                            }
+                        }
+                        vote.inputList[index].checked = !vote.inputList[index].checked
+                    }
+                }
+
+                that.vote = vote;
+                that.voteClickIndex = voteClickIndex;
+            },
+            //确认投票
+            sureVote(){
+                var userInfo = JSON.parse(sessionStorage.getItem('userInfo'));
+                if (userInfo) {//已登录
+                    var that = this;
+                    var voteClickIndex = this.voteClickIndex
+                    if (voteClickIndex.length===0) {
+                        that.toast = true;
+                        that.toastText = '请选择';
+                        setTimeout(()=>that.toast = false,2000);
+                        return false;
+                    }
+                    voteClickIndex = JSON.stringify(voteClickIndex)
+
+                    var param = 'token='+userInfo.token+'&id='+this.article.id+'&voteList='+voteClickIndex;
+                    axios({
+                        method: "post",
+                        url: 'https://www.aftdc.com/mobile/Article/voteArticle',
+                        data: param,
+                    }).then(function (res) {
+                        if (res.data.res == 1) {
+                            var voteClickIndex = that.voteClickIndex
+                            var inputList = that.article.vote.inputList
+                            for (var i = 0; i < voteClickIndex.length; i++) {
+                                inputList[voteClickIndex[i]].voteNum += 1
+                            }
+                            for (var i in inputList) {
+                                inputList[i].percentageVotes = (inputList[i].voteNum / res.data.voteNum * 100).toFixed(0) + '%'
+                            }
+                            that.article.vote.inputList = inputList;
+                            that.article.myVote = that.voteClickIndex;
+                            that.toast = true;
+                            that.toastText = res.data.info;
+                            setTimeout(()=>that.toast = false,2000);
+                        }
+                    })
+                }else{
+                    this.getCode()
+                }
+            }
+        },
+    });
+
+</script>
+</body>
+</html>
