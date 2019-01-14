@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>阿凡提</title>
+    <script src="/static/js/public/jquery.min.js"></script>
+    <link rel="stylesheet" href="/static/css/business/Huogroup.css">
+    <link rel="stylesheet" href="/static/css/business/time.css">
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/g2.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+</head>
+
+<body>
+    <div id="Huod" v-cloak>
+        <div id="Jian" style="width:407px; margin: 0 auto; padding-top:40px;">
+            <label>等级名称</label>
+            <input class="input" type="txet" name="name" v-bind:value="dataz.name" placeholder="请输入等级名称（限15字内）">
+            <label>享受折扣</label>
+            <input class="input" type="txet" name="zk" v-bind:value="dataz.zk" placeholder="请输入享受的折扣（限5~10折）">
+            <label>充值金额</label>
+            <input class="input" type="txet" name="money" v-bind:value="dataz.money" placeholder="请输入充值金额（单位：元）">
+            <input type="hidden" name="id" v-bind:value="dataz.id" >
+            <button class="Tyes" id="Bcun" @click="BcunClick()">保存</button>
+            <button class="Tyes" onclick="javascript:history.back(-1);"> 取消</button>
+        </div>
+    </div>
+    <script type="text/javascript" src="/static/js/business/upVip.js"></script>
+</body>
+
+
+</html>

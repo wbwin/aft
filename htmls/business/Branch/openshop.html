@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>我要入驻</title>
+    <!-- <link rel="stylesheet" href="css/all.css" /> -->
+    <link rel="stylesheet" href="/static/css/business/league/openshop.css" />
+    <script type="text/javascript" src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.js"></script>
+</head>
+
+<body>
+    <div id="openshop" v-cloak>
+        <!--头部-->
+        <div class="openshop-top">
+            <div class="minWidth">
+                <div class="header">
+                    <div class="header-left">
+                        <span>阿凡提商户中心</span>
+                    </div>
+                    <div class="header-right">
+                        <a>客户端下载</a>
+                        <a>在线客服</a>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="kd-but">
+                    <div class="item1">
+                        <button class="TanKuan" @click="openFn">我要开店</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <h4 class="content-title">开店小助手</h4>
+            <div class="content-word">
+                <div class="explain" v-for="(item,index) in explain">
+                    <p class="name">{{item.name}}</p>
+                    <p>{{item.txt}}</p>
+                </div>
+            </div>
+        </div>
+        <!--[申请入驻的弹框][申请入驻的弹框][申请入驻的弹框]-->
+        <div class="Sonder" v-if="togle">
+            <div class="Xperder">
+                <div class="touKun">申请入驻 <span class="righter" @click="openFn">×</span> </div>
+                <div class="Scde">
+                    <input type="text" class="Phone" name="phone" v-model="phone" @input="phoneTest()" maxlength="11" placeholder="联系人手机号">
+                    <input type="button" value="发送验证码" class="Vcode" :class="{'active':adopt}" v-if="butTogle" @click="getVerif">
+                    <span class="Timter" v-else>{{second}} 秒</span>
+                </div>
+                <div class="Vcde">
+                    <input type="text" class="Ycode" maxlength="8" v-model="inputCode" placeholder="验证码">
+                </div>
+                <div class="Bcde">
+                    <div class="Ruzhu" :class="{'active':adopt&&inputCode.length>5&&check==1}" @click="nextBut">立即入驻</div>
+                </div>
+                <div class="Fcde">
+                    <div class="Endless">
+                        <input type="checkbox" name="tess" :value="1" v-model="check">
+                        <span class="colorder">我已阅读并同意</span>
+                        <a href=""> 《阿凡提网上订餐平台服务协议》 </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--[申请入驻的弹框][申请入驻的弹框][申请入驻的弹框]-->
+    </div>
+    <script src="/static/js/business/Branch/openshop.js"></script>
+</body>
+
+</html>

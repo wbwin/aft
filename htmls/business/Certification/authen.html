@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/static/css/business/all.css" />
+    <link rel="stylesheet" href="/static/css/business/authen.css" />
+    <script type="text/javascript" src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+</head>
+<style type="text/css">
+    [v-cloak] {
+        display: none;
+    }
+</style>
+
+<body>
+    <div id="doc">
+        <div class="preOrder"v-cloak>
+            <div class="Sinfer">
+                <div class="Bing">
+                    <div class="neiti">
+                        <img class="DuiHao" src="/static/image/business/renz.png">
+                    </div>
+                    <div class="Sionpter">微信认证</div>
+                    <div class="shiFou">
+                        <span class="Cin wkai">{{put}}</span>
+                        <!--<span class="Cin ykai">已开通</span>-->
+                    </div>
+                    <div class="Andev">
+                        <span class="Din opkai" @click="opkaiClick"> 开通 </span>
+                        <span class="Din dekai"> 重新开通 </span>
+                    </div>
+                    <div class="Xerper">
+                        <span class="Peiche" @click="PeicheClick"> 查看订单 </span>
+                    </div>
+                </div>
+                <div class="Cing">
+                    <div class="Sindrt">客服指引</div>
+                    <div class="OnderOne">
+                        <div class="dianc">●</div>
+                        <div class="wenzi">如果您在微信认证中遇到困难，可查阅微信认证指引来解决。如果依旧无法解决，可关注"腾讯客服"公众号(Tencent_KF),会有客服人员为你解答。</div>
+                    </div>
+                    <div class="OnderOne">
+                        <div class="dianc">●</div>
+                        <div class="wenzi">微信认证的审核是委托第三方审核公司来审核的。您的订单在提交之后会通过站内信和微信模板消息告知被派到哪家公司，请认准观官方审核公司。</div>
+                    </div>
+                </div>
+            </div>
+
+            <!--【隐藏框】【隐藏框】【隐藏框】【隐藏框】-->
+            <div class="Sinde" v-bind:style="{display:display}">
+                <div class="Nebcing">
+                    <div class="XinPer">
+                        <div class="Honger"><span>开通微信认证</span> <span class="Cuoinder" @click="CuoinderClick">×</span></div>
+                        <div class="Eing">开通微信认证需要以下材料</div>
+                        <div class="Saner">
+                            <div class="Shuzi">1</div>
+                            <div class="minNi">微信认证公函的盖章电子档</div>
+                        </div>
+                        <div class="Engerkon">
+                            <div class="Kong"></div>
+                            <div class="DeiNi">按此下载微信公众函。完成填写后盖章，并准备好电子照片或扫描件。</div>
+                        </div>
+                        <div class="Saner">
+                            <div class="Shuzi">2</div>
+                            <div class="minNi">对公账户</div>
+                        </div>
+                        <div class="Engerkon">
+                            <div class="Kong"></div>
+                            <div class="DeiNi">认证时需要填写对公账户信息，包括账户名称，账号和开户银行，个体工商户可以用法人的银行账户代替</div>
+                        </div>
+                        <div class="Saner">
+                            <div class="Shuzi">3</div>
+                            <div class="minNi">资质证明文件</div>
+                        </div>
+                        <div class="Engerkon">
+                            <div class="Kong"></div>
+                            <div class="DeiNi">不同的机构类型需要不同的资质证明文件的电子照片或扫描件</div>
+                        </div>
+                        <!--<div class="EngBig">-->
+                            <!--<div class="Kong"></div>-->
+                            <!--<div class="nexter">机构类型</div>-->
+                            <!--<select class="CInei">-->
+                                <!--<option>企业法人</option>-->
+                                <!--<option>1</option>-->
+                                <!--<option>2</option>-->
+                                <!--<option>3</option>-->
+                                <!--<option>4</option>-->
+                            <!--</select>-->
+                        <!--</div>-->
+                        <div class="EngBig">
+                            <div class="Kong"></div>
+                            <div class="nexter">准备材料</div>
+                            <div class="Zhizhao">企业工商营业执照</div>
+                        </div>
+                        <div class="Saner">
+                            <div class="Shuzi">4</div>
+                            <div class="minNi">《商标注册书》和《商标授权书》(可选)</div>
+                        </div>
+                        <div class="Engerkon">
+                            <div class="Kong"></div>
+                            <div class="DeiNi">如果公正号包含商标名称，会需要上传次材料</div>
+                        </div>
+                        <div class="Saner">
+                            <div class="Shuzi">5</div>
+                            <div class="minNi">《税务登记副本》或《一般纳税人资格证书》(可选)</div>
+                        </div>
+                        <div class="Engerkon">
+                            <div class="Kong"></div>
+                            <div class="DeiNi">开具发票需要</div>
+                        </div>
+                        <div class="Saner">
+                            <div class="Shuzi">6</div>
+                            <div class="minNi">《企业开户许可证》(可选)</div>
+                        </div>
+                        <div class="Engerkon">
+                            <div class="Kong"></div>
+                            <div class="DeiNi">开具发票需要</div>
+                        </div>
+                        <div class="endless">
+                            <div class="SenQin" @click="SenQinClick">我知道了，开始申请</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--【隐藏框】【隐藏框】【隐藏框】【隐藏框】-->
+            <!--【隐藏框】【隐藏框】【隐藏框】【隐藏框】-->
+            <div class="CunTern" v-bind:style="{display:CunTern}">
+                <div class="Sfen">
+                    <div class="Sonttern"> <span>订单信息</span> <span class="Deting" @click="DetingClick()">×</span> </div>
+                    <div class="Sounfen">
+                        <div class="bin">订单id</div>
+                        <div class="bin">审核情况</div>
+                        <div class="bin">已付金额</div>
+                        <div class="bin">类型</div>
+                        <div class="bin">工商执照注册号</div>
+                        <div class="bin">经营者姓名</div>
+                        <div class="bin">一般经营范围</div>
+                        <div class="bin">前置许可经营范围</div>
+                        <div class="bin">银行账号</div>
+                        <div class="bin">联系人姓名</div>
+                        <div class="bin">联系人手机号码</div>
+                        <div class="bin">座机</div>
+                        <div class="bin">邮箱</div>
+                        <div class="bin">发票</div>
+                        <div class="bin">个体工商户营业执照</div>
+                        <div class="bin">其他证明材料</div>
+                        <div class="bin">开始时间</div>
+                    </div>
+                    <!-- {$too.addtime|date='Y-m-d H:i:s',###} -->
+                    <div class="Xunfen">
+                    <div class="cin" style="border-left:0px;">{{transaction_id}}</div>
+                    <div class="cin">{{state}}</div>
+                    <div class="cin">{{money}}</div>
+                    <div class="cin">{{type}}</div>
+                    <div class="cin">{{license}}</div>
+                    <div class="cin">{{operator}}</div>
+                    <div class="cin">{{General}}</div>
+                    <div class="cin">{{approved}}</div>
+                    <div class="cin">{{account}}</div>
+                    <div class="cin">{{number_bank}}</div>
+                    <div class="cin">{{Contact_name}}</div>
+                    <div class="cin">{{landline}}</div>
+                    <div class="cin">{{Emailo}}</div>
+                    <div class="cin">{{paper}}</div>
+                    <div class="cin"><img style="width: 50px;height: 50px;" v-bind:src="Individual"></div>
+                    <div class="cin"><img style="width: 50px;height: 50px;" v-bind:src="other"></div>
+                    <div class="cin">{{start_time}}</div>
+                    </div>
+                </div>
+            </div>
+            <!--【隐藏框】【隐藏框】【隐藏框】【隐藏框】-->
+        </div>
+    </div>
+    <script src="/static/js/business/authen.js"></script>
+</body>
+
+</html>

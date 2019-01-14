@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+    <title></title>
+</head>
+<meta charset="utf-8">
+<body>
+<div id="for_weixin_login" style="position:fixed;right:0;left:80px;"></div>
+</body>
+</html>
+<script src="https://res.wx.qq.com/connect/zh_CN/htmledition/js/wxLogin.js"></script>
+<script>
+    var obj = new WxLogin({
+        id:"for_weixin_login",//div的Id名字
+        appid: "wx81f79d12c16833a8",//appid
+        scope: "snsapi_login",//snsapi_login写死
+        redirect_uri: "https://www.aftdc.com/pc/Index/oauth_message?url=index&shopId=18",//回调地址
+        state: "",//密钥可不填
+        style: "",
+        href: "https://www.aftdc.com/static/css/pc/weixin.css",//填写css样式
+    });
+    // $(function(){
+    //     axios({
+    //         url:'https://www.aftdc.com/pc/Index/scanning_login',
+    //         method:'post',
+    //         data:{},
+    //     }).then(function(res){
+    //         document.getElementById("imageId").src = res.data;
+    //         console.log(res)
+    //     })
+    //     // var getting = {
+    //     //     url:'https://www.aftdc.com/pc/Index/lx',
+    //     //     dataType:'json',
+    //     //     success:function(res) {
+    //     //         console.log(res);
+    //     //     }
+    //     // };
+    //     // window.setInterval(function(){$.ajax(getting)},50000);
+    // })
+</script>

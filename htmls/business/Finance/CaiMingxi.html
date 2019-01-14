@@ -1,0 +1,276 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>阿凡提</title>
+    <link rel="stylesheet" href="/static/css/business/all.css"/>
+    <link rel="stylesheet" href="/static/css/business/CaiMingxi.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/business/time.css">
+    <link rel="stylesheet" href="/static/css/business/pages.css">
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script src="/static/js/public/dateSelectSum.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+</head>
+
+<body>
+<div class="dec" v-cloak>
+    <div class="skj_mingxisa">首页><span class="cxsdk">订单明细</span></div>
+    <div class="ekno">
+            <span class="aspam">
+             <span class="wenjia">{{datazm.createTime}}日账单</span>
+            </span>
+        <span class="jch_w"><img class="ewj_cfewf" src="/static/image/business/fv5.png" height="13" width="14">预计3个工作日内结算</span>
+    </div>
+    <!--   <script type="text/javascript">
+
+ $("#ftime").dateSelect();
+</script> -->
+    <div class="dsaoi_jjw">￥{{dataz.count}}</div>
+    <div class="biaotoi">
+        <div class="din_a" @click="din_aClick()">订单</div>
+        <!-- <div class="qit_b" @click="qit_bClick()">其他类0.00</div> -->
+    </div>
+    <!--【订单类】【订单类】【订单类】【订单类】【订单类】-->
+    <div class="cwej_ewjk">
+        <!--<div class="daoh_lan">-->
+            <!--<div class="all_all" @click="all_allClick()">全部</div>-->
+            <!--<div class="tan_wai" @click="tan_waiClick()">外卖订单</div>-->
+            <!--<div class="tui_fan" @click="tui_fanClick()">退款方式</div>-->
+        <!--</div>-->
+        <div class="allT">
+            <div class="ewij_dvk">
+                <div class="tit_zuo" style="justify-content: space-around;">
+                    <div class="sccJon">"外卖订单"显示的日期为下单时间。"退款订单"显示的日期为退款完成时间</div>
+                    <img class="in_ing" src="/static/image/business/jhk.png">
+                    <span>日期&订单编号<span class="scm_kiw" @mouseover="Eone()" @mouseout="Uone()">?</span></span>
+                    <span class="all_tothe">类型</span>
+                </div>
+                <div class="tit_zhong" style="justify-content: space-around;">
+                    <div class="towJon">订单中菜品金额总计</div>
+                    <img class="towJon_ing" src="/static/image/business/jhk.png">
+                    <span class="all_tothe">菜品原价<span class="scm_kiw" @mouseover="Etwo()"
+                                                      @mouseout="Utwo()">?</span></span>
+                    <div class="theJon">餐盒费用</div>
+                    <img class="theJon_ing" src="/static/image/business/jhk.png">
+                    <span class="all_tothe">餐盒费<span class="scm_kiw" @mouseover="Ethe()"
+                                                     @mouseout="Uthe()">?</span></span>
+                    <!-- <div class="fourJon">订单中商家补贴的活动款金额</div> -->
+                    <!-- <img class="fourJon_ing" src="/static/image/business/jhk.png"> -->
+                    <!-- <span class="all_tothe">商家活动支出<span class="scm_kiw" @mouseover="Efou()" @mouseout="Ufou()">?</span></span> -->
+                    <!-- <div class="fiveJon">订单丑佣费用</div> -->
+                    <!-- <img class="fiveJon_ing" src="/static/image/business/jhk.png"> -->
+                    <!-- <span class="all_tothe">平台服务费<span class="scm_kiw" @mouseover="Efive()" @mouseout="Ufive()">?</span></span> -->
+                    <span class="all_tothe">配送费</span>
+                </div>
+                <div class="tit_you" style="justify-content: space-around;">
+                    <div class="sixJon">商家实际收入,结算金额=菜品原价+餐盒费+商家活动支出+平台服务费</div>
+                    <img class="sixJon_ing" src="/static/image/business/jhk.png">
+                    <span>结算金额<span class="scm_kiw" @mouseover="Esix()" @mouseout="Usix()">?</span></span>
+                    <span>操作</span>
+                </div>
+            </div>
+            <!--qiehuanqiehuanqieh全部全部全部全部全部全部nqiehuanqiehuan-->
+            <template v-for="(item,index) in dataz.minxi">
+
+                <div id="fover_one">
+                    <div class="xws_mlk ">
+                        <div class="conter_a" style="justify-content: space-around;">
+                            <span>
+                  <p class="wairt">{{item.createTime}}</p>
+                  <p class="wairt">#{{item.orderNo}}</p>
+              </span>
+                            <span class="all_tothe">
+              
+              <span v-if="item.orderType==0" >外卖订单</span>
+              
+              <span v-else-if="item.orderType==1" >堂内</span>
+              
+              <span v-else-if="item.orderType==3" >订座点餐</span>
+              
+              <span v-else-if="item.orderType==4">团购单</span>
+              
+              <span v-else>自取单</span>
+             
+              </span>
+                        </div>
+                        <div class="conter_b" style="justify-content: space-around;">
+                            <span class="all_tothe">{{item.totalMoney}}</span>
+                            <span class="all_tothe">{{dataz.boxFee['boxFee']}}</span>
+                            <!-- <span class="all_tothe">0.00</span> -->
+                            <!-- <span class="all_tothe">-5.00</span> -->
+                            <span class="all_tothe">{{item.deliverMoney}}</span>
+                        </div>
+                        <div class="conter_c">
+                            <span class="qian_js">{{item.realTotalMoney}}</span>
+                            <span class="scok_csd"><a class="abiaoqian" href="javascript:0;"
+                                                      @click="abiaoqianClick(item)">详情</a></span>
+                        </div>
+                    </div>
+
+                </div>
+            </template>
+        </div>
+
+
+        <div class="waimai" style="display: none;">
+            <div class="ewij_dvk">
+                <div class="tit_zuo" style="justify-content: space-around;">
+                    <div class="sccJon">"外卖订单"显示的日期为下单时间。"退款订单"显示的日期为退款完成时间</div>
+                    <img class="in_ing" src="/static/image/business/jhk.png">
+                    <span>日期&订单编号<span class="scm_kiw" @mouseover="Eone()" @mouseout="Uone()">?</span></span>
+                    <span>类型</span>
+                </div>
+                <div class="tit_zhong" style="justify-content: space-around;">
+                    <div class="towJon">订单中菜品金额总计</div>
+                    <img class="towJon_ing" src="/static/image/business/jhk.png">
+                    <span class="all_tothe">菜品原价<span class="scm_kiw" @mouseover="Etwo()"
+                                                      @mouseout="Utwo()">?</span></span>
+                    <div class="theJon">餐盒费用</div>
+                    <img class="theJon_ing" src="/static/image/business/jhk.png">
+                    <span class="all_tothe">餐盒费<span class="scm_kiw" @mouseover="Ethe()"
+                                                     @mouseout="Uthe()">?</span></span>
+                    <!-- <div class="fourJon">订单中商家补贴的活动款金额</div> -->
+                    <!-- <img class="fourJon_ing" src="/static/image/business/jhk.png"> -->
+                    <!-- <span class="all_tothe">商家活动支出<span class="scm_kiw" @mouseover="Efou()" @mouseout="Ufou()">?</span></span> -->
+                    <!-- <div class="fiveJon">订单丑佣费用</div> -->
+                    <!-- <img class="fiveJon_ing" src="/static/image/business/jhk.png"> -->
+                    <!-- <span class="all_tothe">平台服务费<span class="scm_kiw" @mouseover="Efive()" @mouseout="Ufive()">?</span></span> -->
+                    <span class="all_tothe">配送费</span>
+                </div>
+                <div class="tit_you" style="justify-content: space-around;">
+                    <div class="sixJon">商家实际收入,结算金额=菜品原价+餐盒费+商家活动支出+平台服务费</div>
+                    <img class="sixJon_ing" src="/static/image/business/jhk.png">
+                    <span>结算金额<span class="scm_kiw" @mouseover="Esix()" @mouseout="Usix()">?</span></span>
+                    <span>操作</span>
+                </div>
+            </div>
+            <!--qiehuanqiehuanqieh全部全部全部全部全部全部nqiehuanqiehuan-->
+            <template v-for="(item,index) in dataz.waimai">
+
+                <div id="foverone">
+                    <div class="xws_mlk">
+                        <div class="conter_a" style="justify-content: space-around;">
+                            <span>
+                  <p class="wairt">{{item.createTime}}</p>
+                  <p class="wairt">#{{item.orderNo}}</p>
+              </span>
+                            <span>
+
+              <span v-if="item.orderType==0">外卖订单</span>
+
+              <span v-else-if="item.orderType==1">堂内</span>
+
+              <span v-else-if="item.orderType==3">订座点餐</span>
+
+              <span v-else-if="item.orderType==4">团购单</span>
+
+              <span v-else>自取单</span>
+
+              </span>
+                        </div>
+                        <div class="conter_b" style="justify-content: space-around;">
+                            <span class="all_tothe">{{item.totalMoney}}</span>
+                            <span class="all_tothe">{{dataz.boxFee['boxFee']}}</span>
+                            <!-- <span class="all_tothe">0.00</span> -->
+                            <!-- <span class="all_tothe">-5.00</span> -->
+                            <span class="all_tothe">{{item.deliverMoney}}</span>
+                        </div>
+                        <div class="conter_c">
+                            <span class="qian_js">{{item.realTotalMoney}}</span>
+                            <span class="scok_csd"><a class="abiaoqian" href="javascript:0;"
+                                                      @click="abiaoqianClick(item)">详情</a></span>
+                        </div>
+                    </div>
+
+                </div>
+            </template>
+        </div>
+
+        <div class="text-center ">
+            <ul class="pagination many-pagination">
+                <!--.kui-pagination-->
+                <li class="disabled" :class="[pageCurent==1?'disabledN':'disabledY']" @click="pageSub">
+                    <a>«</a>
+                </li>
+                <li :class="{'active':pageCurent==index+1}" v-for="(item,index) in pageNumb"
+                    @click="pageClick(index+1)">
+                    <a>{{index+1}}</a>
+                </li>
+                <li class="disabled" :class="[pageCurent==pageNumb?'disabledN':'disabledY']" @click="pageAdd">
+                    <a>»</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--qiehuanqiehuanqieh全部全部全部全部全部全部nqiehuanqiehuan-->
+    <!--qiehuanqiehuanqi外卖订单外卖订单外卖订单外卖订单外卖订单nqiehuanqiehuan-->
+    <!-- <div id="fover_two" style="display:none">
+<div class="xws_mlk">
+  <div class="conter_a">
+      <span>2017-10-27 #1</span>
+      <span>外卖订单</span>
+  </div>
+  <div class="conter_b">
+      <span class="all_tothe">26.00</span>
+      <span class="all_tothe">-</span>
+      <span class="all_tothe">0.00</span>
+      <span class="all_tothe">-5.00</span>
+      <span class="all_tothe">--</span>
+  </div>
+  <div class="conter_c">
+      <span class="qian_js">20.80</span>
+      <span class="scok_csd"><a class="abiaoqian" href="dingconter.html">详情</a></span>
+  </div>
+</div>
+
+<div class="ceo_ki">
+  <div><<</div>
+  <div class="active">1</div>
+  <div>>></div>
+</div>
+</div> -->
+    <!--qiehuanqiehuanqi外卖订单外卖订单外卖订单外卖订单外卖订单nqiehuanqiehuan-->
+    <!--qiehuanqiehuanqi外卖订单外卖订单外卖订单外卖订单外卖订单nqiehuanqiehuan-->
+    <!-- <div id="fover_three" style="display:none">
+<div class="xwem">暂无数据</div>
+</div> -->
+    <!--qiehuanqiehuanqi外卖订单外卖订单外卖订单外卖订单外卖订单nqiehuanqiehuan-->
+    <!-- <div class="cwekK_kj">
+<span>总计（共{$zongji}笔）</span>
+<span>59.00</span>
+<span>0.00</span>
+<span>-11.80</span>
+<span>0.00</span>
+<span>= 47.20</span>
+</div> -->
+</div>
+<!--【订单类】【订单类】【订单类】【订单类】【订单类】-->
+<!--【其他类】【其他类】【其他类】【其他类】【其他类】-->
+<!-- <div class="edcjo_pcd" style="display:none">
+<div class="dasc_lan">
+<div class="all_ont" @click="all_ontClick()">全部</div>
+<div class="tsc_vwai" @click="tsc_vwaiClick()">众包费用</div>
+<div class="tui_fdv" @click="tui_fdvClick()">餐损赔付</div>
+<div class="tui_gtg" @click="tui_gtgClick()">服务费返还</div>
+<div class="tui_hyv" @click="tui_hyvClick()">部分订单退款</div>
+<div class="tui_kin" @click="tui_kinClick()">部分退款冲抵</div>
+</div>
+
+<div class="cejn_wsk">
+ <span>日期&订单编号</span>
+ <span>类型</span>
+ <span>结算金额</span>
+ <span>操作</span>
+</div>
+
+<div class="ced_ijj">暂无数据</div>
+
+</div> -->
+<!--【其他类】【其他类】【其他类】【其他类】【其他类】-->
+</div>
+<script src="/static/js/business/CaiMingxi.js"></script>
+</body>
+
+</html>

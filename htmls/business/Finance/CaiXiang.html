@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>阿凡提</title>
+<link rel="stylesheet" href="/static/css/business/CaiXiang.css">
+<script src="/static/js/public/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+<script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+</head>
+<body>
+<div class="dec" v-cloak>
+
+   <div class="csakj_iw">首页>订单明细><span class="cdek">订单详情</span></div>
+   <div class="csacsdk_w">#{{dataz.ro_goods[0].orderNo}} 订单详情</div>
+   <div class="conry">
+        <div class="secdk_sk">
+              <div class="kcks_wdc"><img class="cdck" src="/static/image/business/123c.png" height="12" width="14" alt="">商品</div>
+              
+               <div class="kgtg_wdc" v-for="(item,index) in dataz.minxi"><span class="caibiaoti">{{item.goodsName}}</span><span class="number">×{{item.goodsNums}}</span><span class="money">+￥{{item.goodsPrice*item.goodsNums}}</span></div>
+              
+              <div class="kgtg_wdc"><span class="caibiaoti">餐盒</span><span class="number">×{{dataz.minxi[0]['goodsNums']}}</span><span class="money">+￥
+              
+              <span v-if="dataz.count==0">0</span>
+              
+              <span v-else>{{dataz.count}}</span>
+              
+              </span></div>
+        </div>
+        <div class="secdk_on">
+              <div class="kgtg_frr"><span class="caib_iaoti">平台服务费</span><span class="numb">- ¥{{dataz.feis}}</span></div>
+              <div class="kgtg_frr"><span class="caib_iaoti">菜品分成</span><span class="numb">- ¥</span></div>
+        </div>
+        <div class="secdk_df">
+              <div class="dhmkl_olol"><span class="cai_ti">已结算金额</span><span class="turnnumb">¥{{dataz.ro_goods[0]['realTotalMoney']}}</span></div>
+        </div>
+   </div>
+   <div class="tizhuansong">{{dataz.ro_goods[0]['createTime']}}下单 | {{dataz.ro_goods[0]['requireTime']}}订单完成 | 阿凡提专送 | 订单编号{{dataz.ro_goods[0].orderNo}}</div>
+
+</div>
+<script src="/static/js/business/CaiXiang.js"></script>
+</body>
+</html>
+

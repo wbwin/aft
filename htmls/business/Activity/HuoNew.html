@@ -1,0 +1,59 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>阿凡提</title>
+<link rel="stylesheet" href="/static/css/business/HuoNew.css">
+<link rel="stylesheet" href="/static/css/business/time.css">
+<script src="/static/js/public/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/public/vue.min.js" ></script>
+<script type="text/javascript" src="/static/js/public/axios.min.js" ></script>
+</head>
+<body>
+
+<div class="dec" v-cloak>
+   <div class="xwkj">
+         <div class="ojdwi"><span>●</span>活动信息</div>
+
+         <div class="ccsccvedek"> 新用户立减 <input type="text" id="dec" class="textoce" maxlength="10" oninput='this.value=this.value.replace(/^[0]+[0-9]*$/gi,"")' onkeyup="this.value=this.value.replace(/[^0-9,]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9,]/g,'')"> 元 </div>
+
+         <div class="xwjniOnm"><input type="checkbox" id="ddw"  name="ddw">已阅读并同意<span id="kje" @click="kjeClick()">商家自营销协议</span></div>
+
+         <div class="xwek">
+             <div class="ejk" @click="ejkClick()">取消</div>
+             <div class="enh" @click="enhClick()">提交</div>
+         </div>
+   </div>
+    
+
+
+    <!--商家自营销协议-->
+    <div class="cdeGjh_kw" style="display: none" >
+        <div class="c_Doi">
+            <div class="cH_wAj">
+                <div class="ck_Uio">商家自营销协议<span class="Hh_kjh" @click="Hh_kjhClick()">×</span></div>
+                <div class="creo">
+                    <h3>商家自营销协议</h3>
+                    1. 店铺优惠活动可以与美团外卖平台的其他活动同时进行, 如满减、满折等; 商家优惠可以和阿凡提外卖红包同时使用;<br/>
+                    2. 店铺优惠活动的促销成本由商家自己承担, 我公司(阿凡提)只是活动工具的提供方; 商家不得要求我公司  开具"店铺优惠"的发票;<br/>
+                    3. 店铺优惠的实际归属为各个开展活动的商家, 我公司(阿凡提)只负责代发, 归属权不属于我公司 (阿凡提) ;<br/>
+                    4. 与商家结算的金额中, 不包括商家店铺自己发放的优惠, 即: 合同中的结算为净值 (原订单金额-商家店铺优惠) ;<br/>
+                    5. 进行中的店铺优惠, 若商家在预先设置活动结束时间前结束活动, 则已发放的优惠仍然有效。<br/>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--商家自营销协议-->
+
+
+</div>
+<script src="/static/js/public/dateSelectSum.js"></script>
+<script src="/static/js/business/HuoNew.js"></script>
+</body>
+</html>
+
+
+

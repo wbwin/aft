@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/static/css/business/all.css" />
+    <link rel="stylesheet" href="/static/css/business/payment.css" />
+    <script type="text/javascript" src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+</head>
+
+<body>
+    <div class="preOrder">
+        <div class="Sinfer">
+            <div class="XinPin">
+                <span class="zuol">微信认证</span>
+                <span class="youl">微信认证流程详细说明</span>
+            </div>
+            <div class="TextEn">
+                <div class="lou Ain">1同意协议<span class="lvser"></span></div>
+                <div class="lou Bin">2填写资料<span class="lvser"></span></div>
+                <div class="lou Cin">3填写发票<span class="lvser"></span></div>
+                <div class="lou Din">4支付费用</div>
+            </div>
+            <div class="KunDer">
+                <div class="Money">微信支付300.00元</div>
+                <div class="TupIan"> <img class="ImgerTu" v-bind:src="code"> </div>
+                <div class="XinPun"><span class="sapn">请用微信扫描二维码已完成支付</span></div>
+                <div class="CunFin">
+                    <div class="Neiuer">审核流程中还需进行对公众账号/法人账号的大款验证,完成账号的审核一般需要1-5个工作日</div>
+                </div>
+                <div class="Cpouer">微信认证费用是腾讯支付给第三方审核公司的服务费,为300元/次每一次认证均需支付一次费用。</div>
+                <div class="Douer">若认证失败,费用不予退还。审核中30天内有3次补充或重填机会,我公司将通过公众平台通知中心进行通知,请留意</div>
+            </div>
+            <div class="Acunder">
+                <div class="SinSon" @click="step">上一步</div>
+            </div>
+        </div>
+        
+    </div>
+    <script type="text/javascript" src="/static/js/business/payment.js"></script>
+</body>
+
+</html>

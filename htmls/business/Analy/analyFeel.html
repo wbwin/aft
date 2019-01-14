@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="/static/css/business/all.css" />
+		<link rel="stylesheet" href="/static/css/business/analyFeel.css" />
+		<script type="text/javascript" src="/static/js/public/jquery.min.js"></script>
+		<script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+		
+	</head>
+	<!--经营分析 商家体验-->
+	<body>
+		
+		<div class="analyFeel" id="analyFeel" v-cloak>
+		<div class="alert alert-info">温馨提醒：每天11：00可查看最新历史数据。本页面数据仅供商家作为调整经营策略的参考，不作为结款与验证的准确依据。</div>
+		<div class="content-wrapper">
+			 <!--店铺体检情况-->
+		  <div class="panel panel-default examina-score">
+		  	<div class="examina-text">最近7天, 您的店铺体检情况</div>
+		  	<div class="panel-body">
+		  		<div class="row">
+		  			<div class="item-3">
+		  				<div class="loading-wrapper pull-right">
+		  					<div class="loading-inner j-loading" style="background-position: 0% 15px,-120px 15px;">
+		  						<div class="inner-score">
+		  							<div class="acount">
+		  								75<span class="small">分</span>
+		  							</div>
+		  						</div>
+		  					</div>
+		  				</div>
+		  			</div>
+		  			<div class="item-9">
+		  				<div class="examina-result">
+		  					<p class="fz-twenty">您的体检得分<span class="result-score">75</span>分,还有提升空间！</p>
+		  					<p class="recomand">共检测了8项，其中<span class="text-danger">3</span>项存在问题，建议立即优化。</p>
+		  					<p class="c-grayest">更新时间：2017-10-23</p>
+		  				</div>
+		  			</div>
+		  		</div>
+		  	</div>
+		  </div>
+		  <!-- 问题项-->
+		  <div class="panel panel-default clear problem">
+		  	<div class="examina-text"><i class="icon ">!</i>问题项（{{problem.length}}）</div>
+		  	<div class="clear problem-box">
+		  		<div class="pull-left mr ex-item" v-for="(item,index) in problem">
+		  			<div class="item-tap">{{item.title}}</div>
+		  			<!--更改类 giveIcon 就可以改变图片-->
+		  			<div class="feel-icon" :class="item.icon"></div>
+		  		<div class="item-text">
+		  			<div class="re-text text-center">{{item.problems}}</div>
+		  			<div class="inf-text text-center">{{item.affect}}</div>
+		  			<div class="det-text">{{item.txt}}</div>
+		  		   <div class="com-text">
+		  		   	<div class="com-icon pull-left"></div>
+		  		  {{item.sugger}}
+		  		   </div>
+		  		</div>
+		  		
+		  		<div class="text-center">
+		  			<a href="javascript:;" class="kui-button active">{{item.but}}</a>
+		  		</div>
+		  		</div>
+		  	</div>
+		  </div>
+		  <!--无问题项-->
+		    <div class="panel panel-default clear not-problem">
+		    	<div class="examina-text"><i class="icon">✔</i>无问题项（{{problemNot.length}}）</div>
+		    	<div class="clear not-problem-box">
+		    		<div class="no-item mr pull-left"  v-for="(item,index) in problemNot">
+		    			<div class="item-tap">{{item.title}}</div>
+		    			<div class="feel-icon " :class="item.icon"></div>
+		    			<div class="inf-text text-center">{{item.txt}}</div>
+		    			<div class="text-center">
+		    				<a class="menu-color small-13" href="javascript:;" v-show="item.but">{{item.but}} >></a>
+		    			</div>
+		    		</div>
+		    	</div>
+		    </div>
+				
+		</div>
+		</div>
+		
+			<script type="text/javascript" src="/static/js/business/analyFeel.js"></script>
+	</body>
+</html>

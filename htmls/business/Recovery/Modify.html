@@ -1,0 +1,62 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>阿凡提</title>
+    <link rel="stylesheet" href="/static/css/business/Modify.css">
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+</head>
+<style type="text/css">
+  [v-cloak] {
+    display: none;
+  }
+</style>
+<body>
+    <div id="dec">
+        <div class="sadkpf"v-cloak>
+            <div class="topzuo">
+                <div class="djasi">
+                    <div class="tulogin">
+                        <img src="/static/image/business/a.png" height="65" width="65">
+                    </div>
+                    <div class="lecdsf">智慧阿凡提</div>
+                    <div class="cdwee"><span>上阿凡提</span><span>随叫随到</span></div>
+                </div>
+                <div class="shanghjia">商家中心</div>
+            </div>
+            <div class="topyou">
+                <div class="qian">
+                    <img src="/static/image/business/1201.png" height="15" width="15"> 商家PC客户端
+                </div>
+                <div class="hou">
+                    <img src="/static/image/business/12122.png" height="15" width="15"> 商家手机客户端
+                </div>
+            </div>
+        </div>
+        <div class="esfwefcw">
+            <div class="allweid">
+                <span class="number">修改密码</span>
+            </div>
+            <!--【账号密码登录】【账号密码登录】【账号密码登录】【账号密码登录】-->
+            <div class="oneid">
+                <div class="cfmweo"><img src="/static/image/business/jskjds.png" height="12" width="12"><span id="spanone.info"></span></div>
+                <div class="jweozhanghao">
+                    <img class="toudenglu" src="/static/image/business/1563.png" height="16" width="16">
+                    <input class="zhanghao" name="username" type="password" v-model='enter' input='enter' onKeyUp="value=value.replace(/[^\w\.\/]/ig,'')" placeholder="输入新密码">
+                </div>
+                <div class="padkuang">
+                    <img class="toudenglu" src="/static/image/business/1563.png" height="16" width="15">
+                    <input class="thismima" name="password" type="password" v-model='again' input='again' onKeyUp="value=value.replace(/[^\w\.\/]/ig,'')" placeholder="再次输入密码">
+                </div>
+                <div id="dengluone" class="dengluone" @click='password'>修改</div>
+            </div>
+            <!--【账号密码登录】【账号密码登录】【账号密码登录】【账号密码登录】-->
+        </div>
+    </div>
+    <script src="/static/js/business/Modify.js"></script>
+</body>
+
+</html>

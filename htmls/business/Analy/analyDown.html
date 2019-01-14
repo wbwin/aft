@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/static/css/business/all.css"/>
+    <link rel="stylesheet" href="/static/css/business/analyDown.css"/>
+    <link rel="stylesheet" href="/static/css/business/time.css"/>
+    <!--<script type="text/javascript" src="http://www.daimasucai.com/daima/php/65/jquery.js"></script>-->
+    <script type="text/javascript" src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/dateSelectSum.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+
+    <script type="text/javascript" src="/static/js/public/g2.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+</head>
+<!-- 经营分析   报表下载-->
+<body>
+
+<div class="content-wrapper" id="analyDown" v-cloak>
+    <div class="itemBox">
+        <h4>报表内容</h4>
+        <ul class="contentBB report-items">
+            <li class="item" v-for="(item,index) in surfaceData">{{item}}</li>
+
+        </ul>
+    </div>
+
+    <form action="https://www.aftdc.com/Business/Analy/expUser" method="post">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <p class="panel-title">下载报表</p>
+            </div>
+            <div class="panel-body" style="padding: 10px 20px;">
+                <div class="form-group clear">
+                    <label class="control-label inline m-right">选择日期</label>
+                    <div class="inline">
+                        <div class="radio inline">
+                            <div class="inline input-times">
+                                <input type="text" id="date" name="date" v-model="time.start" @focus="time.name='start'"
+                                       value="{$date}">
+                                <span class="DataIncon">
+										  <img src="/static/image/business/calendar.png">
+										</span>
+                            </div>
+                            <span class="inline"> 至 </span>
+                            <div class="inline input-times">
+                                <input type="text" id="dateN" name="dateN" v-model="time.end" @focus="time.name='end'"
+                                       value="{$dateN}">
+                                <input type="hidden" id="token" name="token" :value="token">
+                                <span class="DataIncon">
+										<img src="/static/image/business/calendar.png">
+									</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="panel-footer text-left">
+                <!-- <span class="kui-button active" @click="downBut"><a href="{:U('Business/Analy/expUser')}" style="text-decoration:none; color: #fff;">下载报表</a></span> -->
+                <button type="submit" class="kui-button active" @click="downBut">下载报表</button>
+
+            </div>
+        </div>
+    </form>
+
+    <div class="panel panel-default commBox">
+        <div class="panel-heading">
+            <p class="panel-title">报表发送</p>
+        </div>
+        <input type="hidden" name="shopId" value="{$shops['shopId']}">
+        <div class="panel-body content">
+            <div class="multiline">
+                <span class="line-title">自动发送</span>
+                <p class="line-p">
+                    <label class="label-checkbox">
+                        <input type="checkbox" id="tian" name='checkBox'
+                               value="1" :checked="timeCheck[0].check"  />
+                        <!--<input type="checkbox" id="tian" name='checkBox'-->
+                               <!--value="1" <?php if($shops['checkBox']==1 || $shops['checkBox']==3) echo("checked");?> />-->
+                        <span class="custom-checkbox"></span>
+                        <span>{{timeCheck[0].txt}}</span>
+                    </label>
+                </p>
+                <p class="line-p">
+                    <label class="label-checkbox">
+                        <input type="checkbox" id="zhou" name='checkBox'
+                               value="2" :checked="timeCheck[1].check" />
+                        <!--<input type="checkbox" id="zhou" name='checkBox'-->
+                               <!--value="2" <?php if($shops['checkBox']==2 || $shops['checkBox']==3) echo("checked");?> />-->
+                        <span class="custom-checkbox"></span>
+                        <span>{{timeCheck[1].txt}}</span>
+                    </label>
+                </p>
+            </div>
+
+            <div class="multiline e	mails">
+                <span class="line-title">电子邮箱</span>
+                <input class="form-control" type="text" name="excelemail" id="excelemail" placeholder="输入邮箱"/>
+                <!--value="{$shops['excelemail']}"-->
+            </div>
+
+        </div>
+        <div class="panel-footer text-left">
+            <input type="submit" class="kui-button active" @click="check()" value="保存设置">
+
+        </div>
+    </div>
+</div>
+
+<script src="/static/js/business/analyDown.js"></script>
+</body>
+
+</html>

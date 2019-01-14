@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/static/css/business/all.css" />
+    <link rel="stylesheet" href="/static/css/business/Comder.css" />
+    <script type="text/javascript" src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.js"></script>
+</head>
+<style type="text/css">
+    [v-cloak] {
+        display: none;
+    }
+</style>
+<body>
+    <div class="preOrder">
+        <div class="Sinfer"v-cloak>
+            <div class="XinPin">
+                <span class="zuol">微信认证</span>
+                <span class="youl">微信认证流程详细说明</span>
+            </div>
+            <div class="TextEn">
+                <div class="lou Ain">1同意协议<span class="lvse"></span></div>
+                <div class="lou Bin">2填写资料<span class="lvser"></span></div>
+                <div class="lou Cin">3填写发票<span class="lvser"></span></div>
+                <div class="lou Din">4支付费用</div>
+            </div>
+            <div class="KunDer">
+                <div class="titler">微信公众平台认证服务协议</div>
+                <div class="togetering">【首部及导言】</div>
+                <div class="togetering">欢迎您使用微信公众平台</div>
+                <div class="Xinfer">
+                    为使用微信公众平台认证服务(以下简称"本服务"),你应当阅读并遵守《微信公众平台认证服务协议》(以下简称"本协议"),以及 《腾讯服务协议》,《腾讯微信软件许可及服务协议》,《微信公众平台服务协议》以及专项规则等。请你务必审慎阅读,充分理解各条款内容, 特别是免除或限制责任的相应条款,以及开通或使用某项服务的单独协议,并选择接受或不接受。限制,免责条款可能以加粗形式提示您注意。
+                </div>
+                <div class="Xinfer">
+                    除非你以阅读并接受本协议所有条款,否则你无权使用微信公众平台服务,你对本服务的登录,查看,发布信息等行为即视为您已阅读并同意本协议的约束。
+                </div>
+                <div class="Xinfer">
+                    如果您未满18周岁,请在法定监护人的陪同下阅读本协议及其他上述协议,并特别注意未成年人使用条款。
+                </div>
+                <div class="togetering">一,【协议的范围】</div>
+                <div class="togetering CS">1.1【协议适用主体范围】</div>
+                <div class="Xinfer">
+                    本协议时你与腾讯之间关于你使用微信公众平台认证服务所订立的协议。"腾讯" 是指腾讯公司及其他相关服务可能存在的运营关联串位。.......
+                </div>
+            </div>
+            <div class="FonDer">
+                <input class="CDSJ" type="checkbox" name="Fruit" value="1"> 我同意并遵守上述的(微信公众平台认证服务协议)
+            </div>
+            <div class="Acunder">
+                <div class="XinSon" @click="XinSonClick()">下一步</div>
+            </div>
+        </div>
+        
+        <!--【弹出框】【弹出框】【弹出框】【弹出框】-->
+        <div class="Sinden" v-bind:style="{display:display}">
+            <div class="XonDen">
+                <div class="Sinftin">
+                    <span class="Xiaoti">消息提示</span>
+                    <span class="Xoufer" @click="XouferClick">×</span>
+                </div>
+                <div class="Hinder">这里是错误提示信息</div>
+                <div class="Xper">
+                    <div class="Quxa" @click="QuxaClick">取消</div>
+                    <div class="Comfirm">确认</div>
+                </div>
+            </div>
+        </div>
+        
+        <!--【弹出框】【弹出框】【弹出框】【弹出框】-->
+    </div>
+    <script  src="/static/js/business/Comder.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/static/css/business/all.css" />
+    <link rel="stylesheet" href="/static/css/business/analyShop.css" />
+    <link rel="stylesheet" href="/static/css/business/time.css" />
+    <link rel="stylesheet" href="/static/css/business/pages.css">
+    <script type="text/javascript" src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/g2.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/dateSelect-over2.js"></script>
+    <script type="text/javascript" src="/static/js/public/dateSelect-over.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+    <script src="/static/js/public/pages.js"></script>
+</head>
+<!--经营分析  商品分析-->
+
+<body>
+    <div class="analyShop" id="analyShop" v-cloak>
+        <ul class="nav nav-horizontal clear">
+            <li :class="{'active':navs==1}" @click="navFn(1)">商品销售</li>
+            <!--<li :class="{'active':navs==2}" @click="navFn(2)">商圈热销榜</li>-->
+            <li :class="{'active':navs==3}" @click="navFn(3)">帮你选折扣菜</li>
+        </ul>
+        <div class="content-wrapper">
+            <!--**************************   商品销售  ***************************************-->
+            <div class="panel panel-default kui-panel" v-show="navs==1">
+                <div class="panel-heading">
+                    <div class="panel-title mid-gap">
+                        <span class="m-right-sm">门店商品销售</span>
+                        <span class="small">
+					    	<span class="kui-button-menu btn-sm " :class="{'active':shopTimeNav==1}" @click="shopNavFn(1)">昨日</span>
+                        <span class="kui-button-menu btn-sm" :class="{'active':shopTimeNav==2}" @click="shopNavFn(2)">近7日</span>
+                        <span class="kui-button-menu btn-sm" :class="{'active':shopTimeNav==3}" @click="shopNavFn(3)">近30日</span>
+                        <span class="kui-button-menu btn-sm" :class="{'active':shopTimeNav==4}" @click="shopNavFn(4)">自定义</span>
+                        </span>
+                        <div class="radio inline" v-show="shopTimeNav==4">
+                            <div class="inline input-times">
+                                <input type="text" id="date2" v-model="shopTime.start" @focus="shopTime.name='start'">
+                                <span class="DataIncon">
+										  <img src="/static/image/business/calendar.png">
+										</span>
+                            </div>
+                            <span class="inline"> 至 </span>
+                            <div class="inline input-times">
+                                <input type="text" id="dateN2" v-model="shopTime.end" @focus="shopTime.name='end'">
+                                <span class="DataIncon">
+										<img src="/static/image/business/calendar.png">
+									</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="clear sortNav">
+                        <ul class="pull-left pull-left-li">
+                            <li class="pointer m-right m-left-xs" :class="{'menu-color':busineNumb==1}" @click="sortFn('price',1)">
+                                商品销售额
+                                <span class="sort-three">
+									 <i class="up-three" :class="{'active':busineSort==2 &&  busineNumb==1}"></i>
+									 <i class="bot-three" :class="{'active':busineSort==1 &&  busineNumb==1}"></i>
+									</span>
+                            </li>
+                            <li class="pointer m-right m-left-xs" :class="{'menu-color':busineNumb==2}" @click="sortFn('numb',2)">
+                                销量
+                                <span class="sort-three">
+									 <i class="up-three " :class="{'active':busineSort==2 &&  busineNumb==2}"></i>
+									 <i class="bot-three" :class="{'active':busineSort==1 &&  busineNumb==2}"></i>
+									</span>
+                            </li>
+                        </ul>
+                        <div class="inline pull-left relative">
+                            <span class="m-right m-left-xs pointer" :class="{'menu-color':busineNumb==3}" @click="moneyFn">价格筛选</span>
+                            <span class="w-grayer small" v-if="!moneyTogle.togle && moneyTogle.txt">价格在 {{moneyTogle.txt}} 之间的商品</span>
+                            <div class="kui-tooltip" v-show="busineNumb==3 && moneyTogle.togle">
+                                <div class="tooltip-inner">
+                                    <span class="small-13 kui-input">
+							        	<input type="text" class="form-control" v-model="moneyData.start" />
+							         </span>
+                                    <span>-</span>
+                                    <span class="small-13 kui-input">
+										<input type="text" class="form-control"  v-model="moneyData.end" />
+									</span>
+                                    <span class="tooltipBut">
+							              <span class="kui-button-menu btn-sm active" @click="moneySort">确定</span>
+                                    <span class="kui-button-menu btn-sm" @click="moneyClose">清空</span>
+                                    </span>
+                                    <div class="arrow"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="split-line"></div>
+                    <div class="table-wrap" v-if="goods!=''">
+                        <table class="table">
+                            <thead class="table-head">
+                                <tr>
+                                    <th width="88px" class="text-center">排名</th>
+                                    <th width="220px">商品</th>
+                                    <th width="220px">销售额</th>
+                                    <th width="220px">销量</th>
+                                    <!--<th width="300px">评价</th>-->
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <template v-for="(item,index)item in goods">
+                                    <tr>
+                                        <td :rowspan="[index==chartNumb?2:1]" class="text-center">
+                                            <span class="index" :class="'index'+(index+1)">{{index+1}}</span>
+                                        </td>
+                                        <td>
+                                            <div class="commodity-name">{{item.name}}</div>
+                                        </td>
+                                        <td>
+                                            <div class="text-bold">￥{{item.price}}</div>
+                                            <div class="text-tip m-top">占比{{item.priceScal}}</div>
+                                        </td>
+                                        <td>
+                                            <div class="text-bold">{{item.numb}}</div>
+                                            <div class="text-tip m-top">占比{{item.numbScal}}</div>
+                                        </td>
+                                        <!--<td >-->
+                                        <!--<div>-->
+                                        <!--<span>赞</span>-->
+                                        <!--<span class="progress-wrap">-->
+                                        <!--<span class="agree-progress"></span>-->
+                                        <!--</span>-->
+                                        <!--<span class="agree-text">{{item.zan}}</span>-->
+                                        <!--</div>-->
+                                        <!--<div class="m-top">-->
+                                        <!--<span>赞</span>-->
+                                        <!--<span class="progress-wrap">-->
+                                        <!--<span class="not-agree-progress"></span>-->
+                                        <!--</span>-->
+                                        <!--<span class="not-agree-text">{{item.tread}}</span>-->
+                                        <!--</div>-->
+                                        <!--</td>-->
+                                        <td class="vertical">
+                                            <div class="operation-wrap">
+                                                <span class="m-right-sm pointer">
+												<img class="icon-sm" src="/static/image/business/modify1.png" />
+											   <a class="sclers" href="javascript:0;" @click="editClick(item)">编辑</a>
+											</span>
+                                                <span class="m-right-sm pointer" v-if="item.isSale==1&&item.goodsStatus==1" @click="sold(index,item.isSale)">
+												<img class="icon-sm" src="/static/image/business/botShelf.png" />
+											   下架
+											  </span>
+                                                <span class="m-right-sm pointer" v-if="item.isSale!=1&&item.goodsStatus==1" @click="sold(index,item.isSale)">
+												<img class="icon-sm" src="/static/image/business/botShelf.png" />
+											   上架
+											  </span>
+                                                <strong class="more" :class="{'moreTop':index==chartNumb}" @click="chartFn(index,item.goodsId)">›</strong>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr v-if="index==chartNumb">
+                                        <td colspan="5" class="no-padding no-border">
+                                            <div class="clear dashed pd-Bot">
+                                                <div class="detail-item">
+                                                    <div class="title">销售额</div>
+                                                    <div class="number">
+                                                        <span class="normal-text">￥</span>{{item.price}}<span class="normal-text">.00</span>
+                                                    </div>
+                                                    <div class="small c-grayest">占比{{item.priceScal}}</div>
+                                                </div>
+                                                <div class="detail-item">
+                                                    <div class="title">销量</div>
+                                                    <div class="number">
+                                                        <span class="normal-text"></span>{{item.numb}}<span class="normal-text">份</span>
+                                                    </div>
+                                                    <div class="small c-grayest">占比{{item.numbScal}}</div>
+                                                </div>
+                                                <div class="detail-item">
+                                                    <div class="title">带来订单量</div>
+                                                    <div class="number">
+                                                        <span class="normal-text"></span>{{item.sigleNumb}}<span class="normal-text">单</span>
+                                                    </div>
+                                                </div>
+                                                <div class="detail-item">
+                                                    <div class="title">订单交易额</div>
+                                                    <div class="number">
+                                                        <span class="normal-text">￥</span>{{item.siglesPrice}}<span class="normal-text">.00</span>
+                                                    </div>
+                                                </div>
+                                                <div class="detail-item">
+                                                    <div class="title">下单顾客</div>
+                                                    <div class="number">
+                                                        <span class="normal-text"></span>{{item.client}}<span class="normal-text"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="dashed bg-wit">
+                                                <div class="cacc-header small">
+                                                    <span class="kui-button-menu btn-sm" :class="{'active':timeNav==1}" @click="timeNavFn(1)">近7日</span>
+                                                    <span class="kui-button-menu btn-sm" :class="{'active':timeNav==2}" @click="timeNavFn(2)">近30日</span>
+                                                    <span class="kui-button-menu btn-sm" :class="{'active':timeNav==3}" @click="timeNavFn(3)">自定义</span>
+                                                    <div class="radio inline" v-show="timeNav==3">
+                                                        <div class="inline input-times">
+                                                            <input type="text" id="date" v-model="time.start" @focus="time.name='start'">
+                                                            <span class="DataIncon">
+																<img src="/static/image/business/calendar.png">
+															</span>
+                                                        </div>
+                                                        <span class="inline"> 至 </span>
+                                                        <div class="inline input-times">
+                                                            <input type="text" id="dateN" v-model="time.end" @focus="time.name='end'">
+                                                            <span class="DataIncon">
+																<img src="/static/image/business/calendar.png">
+															</span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="charts relative">
+                                                    <div id="explain" class="explain"></div>
+                                                    <div class="lenends">
+                                                        <div class="radio lenends-radio" id="countName"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="dashed m-top ">
+                                                    <div style="display: none">
+                                                        <span class="m-right-sm">筛选</span>
+                                                        <span class="radio inline">
+														<label class="label-radio inline">
+															<input type="radio" name="pre-status" v-model="plIndex"  :value="1" @click="commentFn" />
+															<span class="custom-radio"></span>
+                                                        <span class="custom-radio">全部商品(0)</span>
+                                                        </label>
+                                                        <label class="label-radio inline">
+                                                            <input type="radio" name="pre-status" v-model="plIndex" :value="2" @click="commentFn" />
+                                                            <span class="custom-radio"></span>
+                                                            <span class="custom-radio">只看赞(0)</span>
+                                                        </label>
+                                                        <label class="label-radio inline">
+                                                            <input type="radio" name="pre-status" v-model="plIndex" :value="3" @click="commentFn" />
+                                                            <span class="custom-radio"></span>
+                                                            <span class="custom-radio">只看踩(0)</span>
+                                                        </label>
+                                                        </span>
+                                                        <span class="small w-grayer m-left-xs">已过滤无内容评价</span>
+                                                    </div>
+                                                    <div class="empty-wrap">
+                                                        <div class="empty-content" v-show="comment.length<=0">
+                                                            <div class="notPl">
+                                                                <img class="tip-img" src="/static/image/business/noorders.png" />
+                                                                <div class="tips">暂无用户评价</div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                        <!--分页-->
+                        <div style='text-align:center;display: initial;' class="pages">
+                            <!-- 分页 -->
+                            <pages :page-numb="pageNumb" :page-curent="pageCurent" @pagefather="pageFn"></pages>
+                        </div>
+                    </div>
+                    <div class="empty-wrap" v-else>
+                        <div class="notPl">
+                            <img class="tip-img" src="/static/image/business/noorders.png" />
+                            <div class="tips">暂无数据 <a href="javascript:;" class="menu-color">做个体检，看看哪里可以改进 ></a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- ******************************************   商圈热销版       **************************************     -->
+            <div class="panel panel-default kui-panel" v-show="navs==2">
+                <div class="panel-heading">
+                    <p class="panel-title">
+                        <span class="m-right-sm">
+								商圈热销版
+								<span class="small c-grayest">(同商圈同行业)</span>
+                        </span>
+                        <span class="small">
+							<span class="kui-button-menu btn-sm " :class="{'active':listTime==1}" @click="listTimeFn(1)">近7日</span>
+                        <span class="kui-button-menu btn-sm" :class="{'active':listTime==2}" @click="listTimeFn(2)">近30日</span>
+                        </span>
+                    </p>
+                </div>
+                <div class="panel-body">
+                    <div>
+                        <span class="m-right m-left-xs pointer" :class="{'menu-color':listNav==1}" @click="listNavFn(1)">销售额最高</span>
+                        <span class="m-right m-left-xs pointer" :class="{'menu-color':listNav==2}" @click="listNavFn(2)">销量最高</span>
+                        <span class="m-right m-left-xs pointer" :class="{'menu-color':listNav==3}" @click="listNavFn(3)">热销新品</span>
+                    </div>
+                    <div class="split-line"></div>
+                    <div class="table-wrap">
+                        <table class="table">
+                            <thead class="table-head">
+                                <tr>
+                                    <th class="text-center">排名</th>
+                                    <th>商品</th>
+                                    <th>商品销售额</th>
+                                    <th>销量</th>
+                                    <th>好评度</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="(item,index) in listData">
+                                    <td class="text-center"><span class="index" :class="'index'+(index+1)">{{index+1}}</span></td>
+                                    <td>
+                                        <div class="commodity-name">{{item.goodsName}}</div>
+                                        <div class="commodity-poi-name m-top c-grayest small">
+                                            <img class="icon-sm" src="/static/image/business/icon-custom.png" /> {{item.shopName}}
+                                        </div>
+                                    </td>
+                                    <td class="large-text text-bold">￥{{item.price}}</td>
+                                    <td class="large-text">{{item.numb}}</td>
+                                    <td class="large-text">{{item.manner}}%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- ***************************************            帮你选折扣菜       ***************************** * -->
+            <div class="cw-panel" v-show="navs==3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <p class="panel-title">
+                            <span class="m-right-sm text-bold">
+								销量最高
+							</span>
+                            <span class="small">
+								<span class="kui-button-menu btn-sm"  :class="{'active':amoutTime==1}" @click="amoutFn(1)">昨日</span>
+                            <span class="kui-button-menu btn-sm" :class="{'active':amoutTime==2}" @click="amoutFn(2)">近7日</span>
+                            <span class="kui-button-menu btn-sm" :class="{'active':amoutTime==3}" @click="amoutFn(3)">近30日</span>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="panel-body">
+                        <template  v-if="amoutData.length>0">
+                        <div class="suggest-item-component" v-for="(item,index) in amoutData">
+                            <div class="sic-sequence-wrapper">
+                                <span class="sic-sequence sic-sequence-1" :class="'index'+(index+1)">{{index+1}}</span>
+                            </div>
+                            <div class="sic-content">
+                                <div class="sicc-name">{{item.goodsName}}</div>
+                                <div class="sicc-info">
+                                    <span class="m-right-sm" style="display: none">好评度{{item.manner}}%</span>
+                                    <span class="m-right-sm">销量{{item.numb}}</span>
+                                    <span class="m-right-sm">价格￥{{item.price}}</span>
+                                </div>
+                                <div class="sicc-create small">
+                                    <span class="kui-button active" @click="setDiscount(item.goodsId)">创建折扣菜</span>
+                                </div>
+                            </div>
+                        </div>
+                        </template>
+                        <div class="empty-wrap" v-else>
+                            <div class="notPl">
+                                <img class="tip-img" src="/static/image/business/noorders.png" />
+                                <div class="tips">暂无数据 <a href="javascript:;" class="menu-color">做个体检，看看哪里可以改进 ></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default" style="display: none">
+                    <div class="panel-heading">
+                        <p class="panel-title">
+                            <span class="m-right-sm text-bold">
+								好评度最高
+							</span>
+                            <span class="small">
+								<span class="kui-button-menu btn-sm" :class="{'active':praiseTime==1}" @click="praiseFn(1)">昨日</span>
+                            <span class="kui-button-menu btn-sm " :class="{'active':praiseTime==2}" @click="praiseFn(2)">近7日</span>
+                            <span class="kui-button-menu btn-sm" :class="{'active':praiseTime==3}" @click="praiseFn(3)">近30日</span>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="panel-body">
+                        <div v-if="praiseData && praiseData.length > 0">
+                            <div class="suggest-item-component" v-for="(item,index) in praiseData">
+                                <div class="sic-sequence-wrapper">
+                                    <span class="sic-sequence sic-sequence-1" :class="'index'+(index+1)">{{index+1}}</span>
+                                </div>
+                                <div class="sic-content">
+                                    <div class="sicc-name">{{item.goodsName}}</div>
+                                    <div class="sicc-info">
+                                        <span class="m-right-sm">好评度{{item.manner}}%</span>
+                                        <span class="m-right-sm">销量{{item.numb}}</span>
+                                        <span class="m-right-sm">价格￥{{item.price}}</span>
+                                    </div>
+                                    <div class="sicc-create small">
+                                        <span class="kui-button active">创建折扣菜</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="empty-wrap" v-else>
+                            <div class="notPl">
+                                <img class="tip-img" src="/static/image/business/noorders.png" />
+                                <div class="tips">暂无数据 <a href="javascript:;" class="menu-color">做个体检，看看哪里可以改进 ></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <p class="panel-title">
+                            <span class="m-right-sm">
+								<span class=" text-bold">高单价</span>
+                            <span class="small c-grayest">(当前售价最高的6个商品)</span>
+                            </span>
+                            <span class="small">
+								<span class="kui-button-menu btn-sm" :class="{'active':hignTime==1}" @click="hignFn(1)">昨日</span>
+                            <span class="kui-button-menu btn-sm " :class="{'active':hignTime==2}" @click="hignFn(2)">近7日</span>
+                            <span class="kui-button-menu btn-sm" :class="{'active':hignTime==3}" @click="hignFn(3)">近30日</span>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="panel-body">
+                        <div v-if="hignData && hignData.length > 0">
+                            <div class="suggest-item-component" v-for="(item,index) in hignData">
+                                <div class="sic-sequence-wrapper">
+                                    <span class="sic-sequence sic-sequence-1" :class="'index'+(index+1)">{{index+1}}</span>
+                                </div>
+                                <div class="sic-content">
+                                    <div class="sicc-name">{{item.goodsName}}</div>
+                                    <div class="sicc-info">
+                                        <span class="m-right-sm">好评度{{item.manner}}%</span>
+                                        <span class="m-right-sm">销量{{item.numb}}</span>
+                                        <span class="m-right-sm">价格￥{{item.price}}</span>
+                                    </div>
+                                    <div class="sicc-create small">
+                                        <span class="kui-button active">创建折扣菜</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="empty-wrap" v-else>
+                            <div class="notPl">
+                                <img class="tip-img" src="/static/image/business/noorders.png" />
+                                <div class="tips">暂无数据 <a href="javascript:;" class="menu-color">做个体检，看看哪里可以改进 ></a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--态度-->
+            <!-- <div class="panel panel-default">
+			<div class="panel-body">
+				<p>商品管理对你是否有帮助</p>
+				<div class="row" style="padding: 15px 0;">
+					<div class="item-4 text-center manner">
+						<div class="zan icon-wrapper "></div>
+						<div class="description">很好,鼓励一下</div>
+						<div class="count">1.41k</div>
+					</div>
+					<div class="item-4 text-center manner">
+						<div class="notZan icon-wrapper "></div>
+						<div class="description">不好,继续优化</div>
+						<div class="count">1.41k</div>
+					</div>
+					<div class="item-4 text-center manner">
+						<div class="infor icon-wrapper "></div>
+						<div class="description">很好,鼓励一下</div>
+						<div class="count"></div>
+					</div>
+				</div>
+			</div>
+		</div> -->
+            <!--错误提示-->
+            <div class="errBox modal" v-if="errTips['state']">
+                <div class="modal-dialog">
+                    <div class="errContent">
+                        <p class="errtips">{{errTips.txt}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/static/js/business/analyShop.js"></script>
+</body>
+
+</html>

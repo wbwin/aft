@@ -1,0 +1,71 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>阿凡提</title>
+<link rel="stylesheet" href="/static/css/business/ActMesg.css">
+<script src="/static/js/public/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+<script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+</head>
+
+<!--店铺设置  消息中心-->
+<body>
+
+<div class="dec" v-cloak>
+ <div class="ma_top">
+     <div class="ywwu_de" @click="ywwu_deClick()">业务通知</div>
+     <div class="xitg_de" @click="xitg_deClick()">系统消息</div>
+ </div>
+
+<!--【业务通知】【业务通知】【业务通知】【业务通知】【业务通知】【业务通知】-->
+<div class="efp">
+  <div class="skaj_ks"><span>时间</span><span>信息</span><span>详情</span></div>
+    
+  <div class="saik_ikwj" v-for="(item,index) in dataz"  ><span>{{item.time}}</span><span>{{item.title}}</span><span class="tan_all" @click="tan_allClick(index)" :data-id="item.id">查看</span></div>
+    
+     <!-- <div class="wekj_kj">
+            <div class="xioj_zuo"><<</div>
+            <div id="xioj_jian">1</div>
+            <div class="xioj_you">>></div>
+     </div> -->
+</div>
+<!--影藏框-->
+<div class="wekj_k" style="display:none">
+    <div class="tio_oopp">【重要通知】到店增值服务费率变化</div>
+    <div class="ewqj_kj">由于【首次开通到店取餐业务】，到店自取业务已开通</div>
+</div>
+
+<!--【业务通知】【业务通知】【业务通知】【业务通知】【业务通知】【业务通知】-->
+
+<!--【系统消息】【系统消息】【系统消息】【系统消息】【系统消息】【系统消息】-->
+<div class="cei_xc" style="display:none">
+
+    <div class="ocjes">
+         <div class="shik">时间</div>
+         <div class="xixixi">信息</div>
+    </div>
+    
+    <div class="ji_osxa" v-for="(item,index) in datas">
+         <div class="wj_kis">{{item.time}}</div>
+         <div class="xgfixi">{{item.content}}</div>
+    </div>
+    
+
+     <!-- <div class="wekxxj_kj">
+            <div class="xioj_zuo"><<</div>
+            <div id="xiojcxs_jian">1</div>
+            <div class="xioj_you">>></div>
+     </div> -->
+</div>
+<!--【系统消息】【系统消息】【系统消息】【系统消息】【系统消息】【系统消息】-->
+
+
+
+
+
+</div>
+</body>
+<script src="/static/js/business/ActMesg.js"></script>
+</html>

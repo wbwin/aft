@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+      <meta charset="UTF-8">
+      <title>阿凡提开店申请</title>
+      <link rel="stylesheet" href="/static/css/business/all.css" />
+      <link rel="stylesheet" href="/static/css/business/league/wait.css" />
+      <script type="text/javascript" src="/static/js/public/jquery.min.js" ></script>
+      <script type="text/javascript" src="/static/js/public/vue.js" ></script>
+
+</head>
+<body>
+<input type='hidden' name='wxcode' value="{$wxcode}">
+      <div id="wait">
+
+            <div class="top">
+                  <div class=" topCenter">
+                        <div class="topLeft">
+                              <a class="logo" href="javascript:">阿凡提商户中心</a>
+                              <a href="javascript:">点击查看《廉正告知书》</a>
+                        </div>
+
+                        <div class="topRight">
+                              <a class="dowm" href="javascript:">如开店遇到问题，请咨询 在线客服</a>
+                        </div>
+
+                  </div>
+            </div>
+
+            <div class="shop-content">
+            <div class="Kaier">开店申请记录</div>
+                  <div class="xuwanshan five" v-else>待提交开店申请</div>
+                  <div class="xuwanshan one"  v-if="choice == 1&&two == 1&&info.shopStatus==0">待审核</div>
+                  <div class="xuwanshan two" v-else-if="info.shopStatus==2">请支付</div>
+                  <div class="xuwanshan three" v-else-if="info.shopStatus==3">支付完成</div>
+            <div class="TheNext">
+                  <div class="Lefter">
+                        <div class="Imgert"><img src="/{$list.shopImg}" class="imge"></div>
+
+                        <div class="Wender">
+                               <div class="Title">{$list.shopName}</div>
+                               <div class="Mser">门店联系人 {$list.userName}({$list.phone})</div>
+                               <div class="Timeter">提交时间 ：{$list.createTime}</div>
+                        </div>
+                        <!-- <div class="TupIan"> <img class="ImgerTu" src="/static/image/business/s2.png"> </div> -->
+                  </div>
+                  <!-- <div class="rihter">查看详情</div> -->
+                   <div class="rihter">
+                   <span class="logout" @click="logoutClick()">注销店铺</span>
+                   <span class="delete" @click="deleteClick()">删除店铺</span>
+                  </div>
+            </div>
+            <div class="Masseger">
+                  <div class="THone">
+                         <div class="Topder">店铺信息</div> 
+                         <div class="needer">门店信息 ：需完善</div>
+                         <div class="needer">店铺头像 ：需完善</div>
+                         <div class="Shong" @click="ShongClick()">修改</div>
+                  </div>
+                  <div class="THtwo">
+                        <div class="Topder">资质信息</div> 
+                         <div class="needer">法人证件 ：需完善</div>
+                         <div class="needer">主体资质 ：需完善</div>
+                         <div class="needer">行业资质 ：需完善</div>
+                         <div class="Unong" @click="UnongClick()">修改</div>
+                  </div>
+                  <div class="THthr">
+                       <div class="Topder">合作方案</div> 
+                         <div class="needer">暂无信息</div>
+                         <div class="Gnong" @click="GnongClick()">修改</div>
+                  </div>
+                  <div style="display: none;" class="why">
+                        <input type="text" class="cause" value="">
+                        <input type="button" class="submit" value="确定" @click="submitClick()">
+                  </div>
+            </div>
+            <div class="wait-buts onebuts" style="display: none;" @click="togleEwm()">去支付</div>
+            <div class="wait-buts twobuts" style="display: none;" @click="toglePas()">设置密码</div>
+            <!-- 注册账号 -->
+          <!--   <div style="display: none;" class="password">
+                  <input type="password" class="pwdone" value="">
+                  <input type="password" class="pwdtwo" value="">
+                  <input type="button" class="pwd" value="确定">
+            </div> -->
+            </div>
+
+      <div class="dcwef ewm" style="display: none">
+          <div class="cve">
+              <div class="cef"> <span>请支付</span> <span class="cewce" onclick="togleEwm()">×</span>  </div>
+
+                <div class="cwcvweki">
+                    <img class="ImgerTu" src="/static/image/business/s2.png">
+                </div>
+
+          </div>
+      </div>
+
+      <div class="dcwef password" style="display: none">
+          <div class="cve">
+              <div class="cef"> <span>请设置密码</span> <span class="cewce" onclick="toglePas()">×</span>  </div>
+
+                <div class="cwcvweki password-word">
+                    <label>
+                           <span>密码</span>
+                            <input type="password" class="pwdone" value="">
+                    </label>
+                       <label class="password-label">
+                           <span>确认密码</span>
+                            <input type="password" class="pwdtwo" value="">
+                    </label>
+                </div>
+
+                <div class="pass-but pwd" @click="pwdClick()">提交 </div>
+
+          </div>
+      </div>
+ 
+`
+      </div>
+      <script type="text/javascript" src="/static/js/business/league/wait.js" ></script>
+</body>
+</html>
+

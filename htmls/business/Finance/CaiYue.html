@@ -1,0 +1,348 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>阿凡提</title>
+    <link rel="stylesheet" href="/static/css/business/all.css" />
+    <link rel="stylesheet" href="/static/css/business/CaiyYue.css">
+    <link rel="stylesheet" href="/static/css/business/time.css">
+    <link rel="stylesheet" href="/static/css/business/pages.css">
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/dateSelectSum.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+    <script src="/static/js/public/pages.js"></script>
+</head>
+<!--财务管理 账户余额-->
+
+<body>
+<div class="dec" v-cloak>
+    <div class="zhanghuyue"><span class="yuespan">●</span>账户余额</div>
+    <div class="qianshui">
+        <div class="xaijnjizonge">￥{{manageMy.userMoney}}</div>
+        <img style="display: none;" id="scs" src="/static/image/business/jhk.png">
+        <div style="display: none;" class="dcnho">余额是指当前账户中可以提取的金额，配送余额，保证金余额,推广费的总额：</div>
+        <div class="zongyue">总余额:<span class="wenhao" @mouseover="Cone()" @mouseout="Yone()">?</span></div>
+    </div>
+    <div class="qitayue">
+        <div class="onekuang">
+            <div class="kequmoney">
+                <span class="diyimoneyt">￥{{manageMy.userMoney}}</span>
+                <span class="onetixian" @click="onetixianClick()"><a href="javascript:0;">提现</a></span>
+            </div>
+            <img style="display: none;" id="scxssNcs" src="/static/image/business/jhk.png">
+            <div style="display: none;" class="dcnsho">可提取余额是指当前账户中可执行提现操作的那部分</div>
+            <div class="ketiquyur">可提取余额:<span class="wenghao" @mouseover="Ctwo()" @mouseout="Ytwo()">?</span></div>
+        </div>
+    </div>
+    <div class="gaoyue"><span class="gaospan">●</span>余额交易记录</div>
+    <div class="qiehuan">
+        <span id="theone" @click="theoneClick()">可提取余额</span>
+        <!-- <span class="onexian">|</span>
+ <span id="thetwo" @click="thetwoClick()">配送费余额</span>
+ <span class="twoxian">|</span>
+ <span id="thethree" @click="thethreeClick()">保证金余额</span>
+ <span class="threexian">|</span>
+ <span id="thefour" @click="thefourClick()">推广费余额</span> -->
+        <img style="display: none;" id="lster" src="/static/image/business/jhk.png">
+        <div style="display: none;" class="lster">6个月以上账单明细数据，请通过"订单对账"模块下下载查询。</div>
+        <span class="wenia" @mouseover="Cfive()" @mouseout="Yfive()">?</span>
+    </div>
+    <!--   选择性显示   -->
+    <div class="xuanzexin">
+        <div class="liuxiang">
+            <div class="liuxiangoidjq">资金流向</div>
+            <div class="xuansldj">
+                <span id="qun" @click="qunClick()">全部</span>
+                <span id="jinjru" @click="jinjruClick()">支出</span>
+                <span id="zhufu" @click="zhufuClick()">收入</span>
+            </div>
+        </div>
+        <div class="chuatione">
+            <div class="chaxunriqi">查询日期</div>
+            <div class="suoyouriqi">
+                <span id="timeonee" @click="timeoneeClick()">今天</span>
+                <span id="timwtwo" @click="timwtwoClick()">最近7天</span>
+                <span id="timethree" @click="timethreeClick()">最近30天</span>
+                <span id="timeziding" @click="timezidingClick()">自定义</span>
+            </div>
+        </div>
+
+        <div class="zidingyishi">
+            <!-- <input type="text" id="adate">-<input id="bdata" type="text" > -->
+            <input type='text' id='adate' class='laydate-icon' name='adate' value='' style='width:150px'
+                   placeholder='开始日期'/>
+            <input type='text' id='bdata' class='laydate-icon' name='bdata' value='' style='width:150px'
+                   placeholder='结束日期'/>
+            <!-- <div class="cewkjco">确定</div> -->
+            <button type="submit" class="cewkjco" style="width:60px;height:35px" @click="cewkjcoClick()">查询</button>
+        </div>
+
+    </div>
+    <!--   选择性显示   -->
+    <!-- -------------------------------------------------[今天]------------------------------- -->
+    <div class="keyitiquyuee" id="jinrian" style="display:none; ">
+        <div class="wd_JX">
+            <div class="top_Ones">交易日期</div>
+            <div class="top_Twos">收支类型|备注</div>
+            <div class="top_Threes">交易号</div>
+            <div class="top_Fours">收入/支出(元)</div>
+            <div class="top_Fives">可提余额(元)</div>
+            <div class="top_Sixs">状态</div>
+            <div class="top_Sevens">详情</div>
+        </div>
+        <template v-if="manage.jintian!=''">
+            <div class="GerJin" v-for="(msg,index) in manage.jintian">
+                <div class="rem_Ones">
+                    <div class="bine enbone">{{msg.time}}</div>
+                    <div class="bine enbtwo">{{msg.endtime}}</div>
+                </div>
+                <div class="rem_Twos">
+                    <div>余额转出</div>
+                    <div class="sseerr">阿凡提外卖提现</div>
+                </div>
+                <div class="rem_Threes">{{msg.moneyRemark}}</div>
+                <div class="rem_Fours">{{msg.money}}</div>
+                <div class="rem_Fives">{{manageMy.userMoney}}</div>
+                <div class="rem_Sixs">
+                    <span v-if="msg.cashSatus==1">交易成功</span>
+                    <span v-else>等待交易</span>
+                </div>
+                <div class="rem_Sevens"><a href="javascript:0;" @click="rem_SevensClick(msg,index)">详情</a></div>
+            </div>
+        </template>
+        <div class="GerJin" v-else>
+            <h4>今日暂无交易记录...</h4></div>
+
+    </div>
+    <!-- -------------------------------------------------[今天]------------------------------- -->
+    <!-- -------------------------------------------------[7天]------------------------------- -->
+    <div class="keyitiquyuee" id="qitian" style="display:none;">
+        <div class="wd_JX">
+            <div class="top_Ones">交易日期</div>
+            <div class="top_Twos">收支类型|备注</div>
+            <div class="top_Threes">交易号</div>
+            <div class="top_Fours">收入/支出(元)</div>
+            <div class="top_Fives">可提余额(元)</div>
+            <div class="top_Sixs">状态</div>
+            <div class="top_Sevens">详情</div>
+        </div>
+        <template v-if="manage.qitian!=''">
+            <div class="GerJin" v-for="(msg,index) in manage.qitian">
+                <div class="rem_Ones">
+                    <div class="bine enbone">{{msg.time}}</div>
+                    <div class="bine enbtwo">{{msg.endtime}}</div>
+                </div>
+                <div class="rem_Twos">
+                    <div>余额转出</div>
+                    <div class="sseerr">阿凡提外卖提现</div>
+                </div>
+                <div class="rem_Threes">{{msg.moneyRemark}}</div>
+                <div class="rem_Fours">{{msg.money}}</div>
+                <div class="rem_Fives">{{manageMy.userMoney}}</div>
+                <div class="rem_Sixs">
+                    <span v-if="msg.cashSatus==1">交易成功</span>
+                    <span v-else>等待交易</span>
+                </div>
+                <div class="rem_Sevens"><a href="javascript:0;" @click="rem_SevensClick(msg,index)">详情</a></div>
+            </div>
+        </template>
+        <div class="GerJin" v-else>
+            <h4>最近7天暂无交易记录...</h4></div>
+
+    </div>
+    <!-- -------------------------------------------------[7天]------------------------------- -->
+    <!-- -------------------------------------------------[30天]------------------------------- -->
+    <div class="keyitiquyuee" id="yigeyue" style="display:none;">
+        <div class="wd_JX">
+            <div class="top_Ones">交易日期</div>
+            <div class="top_Twos">收支类型|备注</div>
+            <div class="top_Threes">交易号</div>
+            <div class="top_Fours">收入/支出(元)</div>
+            <div class="top_Fives">可提余额(元)</div>
+            <div class="top_Sixs">状态</div>
+            <div class="top_Sevens">详情</div>
+        </div>
+        <template v-if="manage.yigeyue!=''">
+            <div class="GerJin" v-for="(msg,index) in manage.yigeyue">
+                <div class="rem_Ones">
+                    <div class="bine enbone">{{msg.time}}</div>
+                    <div class="bine enbtwo">{{msg.endtime}}</div>
+                </div>
+                <div class="rem_Twos">
+                    <div>余额转出</div>
+                    <div class="sseerr">阿凡提外卖提现</div>
+                </div>
+                <div class="rem_Threes">{{msg.moneyRemark}}</div>
+                <div class="rem_Fours">{{msg.money}}</div>
+                <div class="rem_Fives">{{manageMy.userMoney}}</div>
+                <div class="rem_Sixs">
+                    <span v-if="msg.cashSatus==1">交易成功</span>
+                    <span v-else>等待交易</span>
+                </div>
+                <div class="rem_Sevens"><a href="javascript:0;" @click="rem_SevensClick(msg,index)">详情</a></div>
+            </div>
+        </template>
+        <div class="GerJin" v-else>
+            <h4>近一个月暂无交易记录...</h4></div>
+
+    </div>
+    <!-- -------------------------------------------------[30天]------------------------------- -->
+    <!--[1-4][1-4][1-4][1-4][1-4][1-4][1-4][1-4][1-4][1-4][1-4][1-4][1-4][1-4][1-4][1-4][1-4][1-4][1-4]-->
+    <!--[可提取余额]-->
+    <div class="keyitiquyue">
+        <div class="wd_JX">
+            <div class="top_Ones">交易日期</div>
+            <div class="top_Twos">收支类型|备注</div>
+            <div class="top_Threes">交易号</div>
+            <div class="top_Fours">收入/支出(元)</div>
+            <div class="top_Fives">可提余额(元)</div>
+            <div class="top_Sixs">状态</div>
+            <div class="top_Sevens">详情</div>
+        </div>
+        <template v-if="manage.cash_draws!=''">
+            <div class="GerJin" v-for="(msg,index) in manage.cash_draws">
+                <div class="rem_Ones">
+                    <div class="bine enbone">{{msg.time}}</div>
+                    <div class="bine enbtwo">{{msg.endtime}}</div>
+                </div>
+                <div class="rem_Twos">
+                    <div>余额转出</div>
+                    <div class="sseerr">阿凡提外卖提现</div>
+                </div>
+                <div class="rem_Threes">{{msg.moneyRemark}}</div>
+                <div class="rem_Fours">{{msg.money}}</div>
+                <div class="rem_Fives">{{manageMy.userMoney}}</div>
+                <div class="rem_Sixs">
+                    <span v-if="msg.cashSatus==1">交易成功</span>
+                    <span v-else>等待交易</span>
+                </div>
+                <div class="rem_Sevens"><a href="javascript:0;" @click="rem_SevensClick(msg,index)">详情</a></div>
+            </div>
+        </template>
+        <div class="GerJin" v-else>
+            <h4>暂无交易记录...</h4></div>
+
+    </div>
+    <!-- -------------------------------------------------[收入]------------------------------- -->
+    <div class="keyitiquyuee " id="shouru" style="display:none;">
+        <div class="wd_JX">
+            <div class="top_Ones">交易日期</div>
+            <div class="top_Twos">收支类型|备注</div>
+            <div class="top_Threes">交易号</div>
+            <div class="top_Fours">收入/支出(元)</div>
+            <div class="top_Fives">可提余额(元)</div>
+            <div class="top_Sixs">状态</div>
+            <div class="top_Sevens">详情</div>
+        </div>
+        <template v-if="manage.sor!=''">
+            <div class="GerJin" v-for="(msg,index) in manage.sor">
+                <div class="rem_Ones">
+                    <div class="bine enbone">{{msg.time}}</div>
+                    <div class="bine enbtwo">{{msg.endtime}}</div>
+                </div>
+                <div class="rem_Twos">
+                    <div>余额转出</div>
+                    <div class="sseerr">阿凡提外卖提现</div>
+                </div>
+                <div class="rem_Threes">{{msg.moneyRemark}}</div>
+                <div class="rem_Fours">{{msg.money}}</div>
+                <div class="rem_Fives">{{manageMy.userMoney}}</div>
+                <div class="rem_Sixs">
+                    <span v-if="msg.cashSatus==1">交易成功</span>
+                    <span v-else>等待交易</span>
+                </div>
+                <div class="rem_Sevens"><a href="javascript:0;" @click="rem_SevensClick(msg,index)">详情</a></div>
+            </div>
+        </template>
+        <div class="GerJin" v-else>
+            <h4>暂无交易记录...</h4></div>
+
+    </div>
+    <!-- -------------------------------------------------[收入]------------------------------- -->
+    <!-- -------------------------------------------------[支出]------------------------------- -->
+    <div class="zhufu" id="zhufuf" style="display:none;">
+        <div class="wd_JX">
+            <div class="top_Ones">交易日期</div>
+            <div class="top_Twos">收支类型|备注</div>
+            <div class="top_Threes">交易号</div>
+            <div class="top_Fours">收入/支出(元)</div>
+            <div class="top_Fives">可提余额(元)</div>
+            <div class="top_Sixs">状态</div>
+            <div class="top_Sevens">详情</div>
+        </div>
+        <template v-if="manage.zhufu!=''">
+
+            <div class="GerJin" v-for="(msg,index) in manage.zhufu">
+                <div class="rem_Ones">
+                    <div class="bine enbone">{{msg.time}}</div>
+                    <div class="bine enbtwo">{{msg.endtime}}</div>
+                </div>
+                <div class="rem_Twos">
+                    <div>余额转出</div>
+                    <div class="sseerr">阿凡提外卖提现</div>
+                </div>
+                <div class="rem_Threes">{{msg.moneyRemark}}</div>
+                <div class="rem_Fours">{{msg.money}}</div>
+                <div class="rem_Fives">{{manageMy.userMoney}}</div>
+                <div class="rem_Sixs">
+                    <span v-if="msg.cashSatus==1">交易成功</span>
+                    <span v-else>等待交易</span>
+                </div>
+                <div class="rem_Sevens"><a href="javascript:0;" @click="rem_SevensClick(msg,index)">详情</a></div>
+            </div>
+        </template>
+        <div class="GerJin" v-else>
+            <h4>暂无交易记录...</h4></div>
+
+    </div>
+    <div style='text-align:center;display: initial;' class="pages">
+        <!-- 分页 -->
+        <pages :page-numb="pageNumb" :page-curent="pageCurent" @pagefather="pageFn"></pages>
+    </div>
+    <!-- -------------------------------------------------[支出]------------------------------- -->
+    <!--[可提取余额]-->
+    <!--[配送费余额]-->
+    <div class="keypeisongyue" style="display:none;">
+        <div class="wsd_ener">
+            <div class="Jaoi_One">交易日期</div>
+            <div class="Jaoi_Two">收入 | 支出（元）</div>
+            <div class="Jaoi_Three">余额（元）</div>
+            <div class="Jaoi_Four">相关操作</div>
+        </div>
+        <div class="edjkIskl">暂无交易记录</div>
+    </div>
+    <!--[配送费余额]-->
+    <!--[保证金余额]-->
+    <div class="keybaozhengjinyue" style="display:none;">
+        <div class="dwkehJon">
+            <div class="Koni_One">交易日期</div>
+            <div class="Koni_Two">收支类型|备注</div>
+            <div class="Koni_Three">交易号</div>
+            <div class="Koni_Four">收入/支出（元）</div>
+            <div class="Koni_Five">不可提余额（元）</div>
+            <div class="Koni_Six">状态</div>
+        </div>
+        <div class="eoIskl">暂无交易记录</div>
+    </div>
+    <!--[保证金余额]-->
+    <!--[推广费余额]-->
+    <div class="keytuiguangyue" style="display:none;">
+        <div class="dwksenJon">
+            <div class="send_One">交易完成时间</div>
+            <div class="send_Two">订单号</div>
+            <div class="send_Three">交易类型</div>
+            <div class="send_Four">交易号</div>
+            <div class="send_Five">状态</div>
+            <div class="send_Six">收入 支出</div>
+        </div>
+        <div class="eocsel">暂无交易记录</div>
+    </div>
+    <!--[推广费余额]-->
+    <!--[1-4][1-4][1-4][1-4][1-4][1-4][1-4][1-4][1-4][1-4][1-4][1-4][1-4][1-4][1-4][1-4][1-4][1-4][1-4]-->
+</div>
+<script src="/static/js/business/CaiYue.js"></script>
+</body>
+
+</html>

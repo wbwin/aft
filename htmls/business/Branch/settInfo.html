@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>阿凡提开店申请</title>
+	<link rel="stylesheet" href="/static/css/business/all.css" />
+	<link rel="stylesheet" href="/static/css/business/league/settInfo.css" />
+	<script type="text/javascript" src="/static/js/public/jquery.min.js" ></script>
+	<script type="text/javascript" src="/static/js/public/vue.js" ></script>
+	<script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp&key=AQMBZ-L4FCO-4VNWY-S5SGC-BNSG7-ALBIS"></script>
+</head>
+<body>
+	<div id="shop" @click="whole" v-cloak>
+		<div class="top">
+			<div class=" topCenter">
+				<div class="topLeft">
+					<a class="logo" href="javascript:">阿凡提商户中心</a>
+					<a href="javascript:">点击查看《廉正告知书》</a>
+				</div>
+
+				<div class="topRight">
+					<a class="dowm" href="javascript:">如开店遇到问题，请咨询 在线客服</a>
+				</div>
+
+			</div>
+		</div>
+		<div class="Prompt">
+			<ul>
+				<li :class="{'active':index==0}" v-for="(item,index) in title">
+					<span class="icon-circle" v-if="index!=0">{{index+1 }}</span>
+					<span class="icon-circle" v-else><img src="/static/image/business/sure.png"></span>
+					{{item}} 
+					<div class="step-before" v-if="index+1 < title.length">></div>
+				</li>
+			</ul>
+		</div>
+
+
+		<div class="shop-content page1">
+			<form>
+				
+				<div class="frow-group" v-for="(item,index) in infoData">
+					<label>
+						<span class="name" >{{item.txt}}</span>
+						<input :disabled="item.txt=='联系人电话'?true:false"  :class="[item.txt=='门店名称'?'long':'short']" type="text" :placeholder="item.place" v-model="item.val"/>
+					</label>
+					<!-- 0-3 -->
+					<p class="err" v-if="err!=0&&!item.val">{{item.errTxt}}</p>
+				</div>
+
+
+				<div class="frow-group">					
+					<span  class="name">店铺类型</span>
+					<div class="timeBox">
+						<label class="label-radio inline">	
+							<input type="radio" name="pre-clas" v-model="shopClas"  :value="'单店'" @click="shopClas='单店'" />
+							<span class="custom-radio"></span>
+							<span class="custom-radio">单店</span>
+						</label>
+						<label class="label-radio inline">	
+							<input type="radio" name="pre-clas" v-model="shopClas"  :value="'连锁店'" @click="shopClas='连锁店'" />
+							<span class="custom-radio"></span>
+							<span class="custom-radio">连锁店</span>
+						</label>					
+					</div>	
+				</div>
+				
+				<div class="frow-group" @click.stop>					
+					<span class="name">经营品类</span>
+					<div class="classBox">
+						<span  @click="showClass=!showClass">
+							<input class="short classTxt" type="text" placeholder="主营分类，必选" @click="clasChoice(1)" readonly="disabled"  v-model="rankDataTxt['main']"/>
+							<div class="triangle"></div>	
+							<ul class="classDetail" v-if="clasifyData&&togle==1">
+								<li class="item" v-for="(item,index) in clasifyData">
+									<span class="clas-name">{{item.name}}</span>
+									<div class="clas-radio">
+										 <label class="label-radio inline" v-for="(itemName,idx) in item.child" @click="rankChoiceFn(index,idx)">	
+											<input type="radio" name="clasmain" v-model="rankActive" :value="itemName.id"/>
+											<span class="custom-radio"></span>
+											<span class="custom-radio">{{itemName.name}}</span>
+										</label>
+									</div>
+								</li>
+							</ul>
+						</span>
+						<span  @click="showClass=!showClass">
+							<input class="short classTxt" type="text" placeholder="次营分类，选填" @click="clasChoice(2)" readonly="disabled"  v-model="rankDataTxt['next']"/>
+							<div class="triangle"></div>
+								<ul class="classDetail" v-if="clasifyData &&togle==2">
+								<li class="item" v-for="(item,index) in clasifyData">
+									<span class="clas-name">{{item.name}}</span>
+									<div class="clas-radio">
+										 <label class="label-radio inline" v-for="(itemName,idx) in item.child" @click="rankChoiceFn(index,idx)">	
+											<input type="radio" name="clasnext" v-model="rankActive" :value="itemName.id"/>
+											<span class="custom-radio"></span>
+											<span class="custom-radio">{{itemName.name}}</span>
+										</label>
+									</div>
+								</li>
+							</ul>
+						</span>
+						
+					</div>
+					<p class="err" v-if="err!=0&&!rankDataTxt['main']">请选择主营品类</p>
+				</div>
+				<div class="frow-group">					
+					<span  class="name">营业时间</span>
+					<div class="timeBox">
+						<label class="label-radio inline">	
+							<input type="radio" name="pre-status" v-model="switchs"  :value="0" @click="switchs=0" />
+							<span class="custom-radio"></span>
+							<span class="custom-radio">24小时</span>
+						</label>
+						<label class="label-radio inline">	
+							<input type="radio" name="pre-status" v-model="switchs"  :value="1" @click="switchs=1" />
+							<span class="custom-radio"></span>
+							<span class="custom-radio">自定义</span>
+						</label>
+						<div class="time-content" v-if="switchs==1" @click.stop>
+							<span class="choiceTime">
+								<img src="/static/image/business/time.png">
+								<input readonly="readonly" v-model="times['start']" @click="togleFn(3)" type="text" placeholder="开始时间" />
+								<ul class="timeSele" v-if="togle==3">
+									<li v-for="(item,index) in 24" @click="timeChoice(index)" v-if="index<endTime(times['end'])">{{index>9?index:'0'+index}}:00</li>
+								</ul>
+							</span>
+							&nbsp至 &nbsp
+							<span class="choiceTime">
+								<img src="/static/image/business/time.png">
+								<input readonly="readonly" v-model="times['end']" @click="togleFn(4)" type="text" placeholder="结束时间" />
+								<ul class="timeSele" v-if="togle==4">
+									<li v-for="(item,index) in 24" @click="timeChoice(index)" v-if="index>endTime(times['start'])">{{index>9?index:'0'+index}}:00</li>
+								</ul>
+							</span>
+						</div>
+						
+					</div>	
+						<p class="err"  v-if="err!=0&&switchs==1&&(!times['start']||!times['end'])">请选择时间</p>	
+				</div>
+				<!--  -->
+				
+
+				<div class="frow-group" @click.stop>
+					<span class="name">城市</span>
+					<div class="fill" id="fill">
+						<div class="adrsBox">
+							<input class="adrsSpan"  @click="togleFn(5)" readonly="readonly" v-model="address[0]"  placeholder="-省-"  />
+							<!-- <input class="province" v-if="togle==5"/> -->
+							<div class="triangle" @click="togleDb(5)"></div>
+							<p class="err err3"  v-if="err!=0&&!address[0]">城市不能为空</p>
+							<div id="provinceItem" v-if="togle==5 && province.length>0">
+								<div class="selectItem" :class="{'active':index==adrsNumb[0]}" v-for="(item,index) in province" @click="selectAdres(index,0)">{{item.name}}</div>			
+							</div>
+						</div>
+						<div class="adrsBox">
+							<input class="adrsSpan"  @click="togleFn(6)" readonly="readonly" v-model="address[1]" placeholder="-市-" />
+							<!-- <input class="city" v-if="togle==6" /> -->
+							<div class="triangle" @click="togleDb(6)"></div>
+							<p class="err err3"  v-if="err!=0&&!address[1]">城市不能为空</p>
+							<div id="cityItem" v-if="togle==6 && city.length>0">
+								<div class="selectItem" :class="{'active':index==adrsNumb[1]}" v-for="(item,index) in city" @click="selectAdres(index,1)">{{item.name}}</div>
+							</div>
+						</div>
+						<div class="adrsBox">
+							<input class="adrsSpan"  @click="togleFn(7)" readonly="readonly" v-model="address[2]" placeholder="-区/县-" />
+							<!-- <input class="town" v-if="togle==7" /> -->
+							<div class="triangle" @click="togleDb(7)"></div>
+							<p class="err err3"   v-if="err!=0&&!address[2]">城市不能为空</p>
+							<div id="townItem" v-if="togle==7 && town.length>0">
+								<div class="selectItem" :class="{'active':index==adrsNumb[2]}" v-for="(item,index) in town" @click="selectAdres(index,2)">{{item}}</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				
+				
+				<div class="frow-group">					
+					<span class="name">详细地址</span>
+					<div class="detailed">
+						<input class="long detailAdrs" type="text" placeholder="详细至门牌号,请与执照地址一致"   v-model="detailAddress"/>
+						<span class="godw" v-if="detailAddress" @click="detailAdrs(detailAddress)">去定位</span>
+					</div>
+					<p class="err"  v-if="err!=0&&!detailAddress">详细地址不能为空</p>
+				</div>
+				<div class="mapBox">
+					<div class="mapChoice">
+						<div class="title">请选择门店位置</div>
+						<ul v-if="streetData&&streetData.length>0">
+							<li class="addressLI" v-for="(item,index) in streetData" @click="selectDetail(index)">
+								<p class="suggent-name">{{item.name}}</p>
+								<p class="suggent-addr">{{item.address}}</p>
+							</li>
+						</ul>
+						<!--无结果时-->
+						<p class="notAdrs" v-else>未搜索到您输入的地址，请重新输入地址或直接在右侧地图中<span>标记位置</span>！</p>
+						
+					</div>
+					<div id="container"></div>
+					<p class="err err3"  v-if="err!=0&&!mapTrue">请点击[去定位]，并在地图上选择准确的地址</p>					
+					<p></p>
+				</div>
+
+
+				<div class="frow-group frow-img">			
+					<span  class="name">门店照片</span>
+					<div class="shopPhoto">
+						<div class="box-step" v-for="(item,index) in 2">
+							<span class="step">{{shopPhoto[index].txt}}</span>
+							<div class="upShop" >
+								<img class="upImg" src="/static/image/business/upImg.png" />
+								<p class="word">点击上传</p>
+								<img v-if="shopPhoto[index].okimg" class="upImgSure" :src="shopPhoto[index].okimg"/>
+								<input type="file" class="upfile" name="uploadPicture"  value="" title="上传照片" @change="uploadFn($event,index)" />
+
+							</div>
+							<span class="tips">{{shopPhoto[index].tips}}<i class="c-red">大小不超过500K</i>)</span>
+							<span class="img-box">
+								<span>示例</span>
+								<div class="img-preview" @mouseover="imgTogle=index" @mouseout="imgTogle=-1">
+									<img class="d-thumbnail" :src="'/static/image/business/'+shopPhoto[index].img" />
+									<img class="d-preview" :class="{'showImg':imgTogle==index}"  :src="'/static/image/business/'+shopPhoto[index].img" />
+								</div>
+							</span>
+						</div>
+					</div>
+						<p class="err"  v-if="err!=0&&!shopPhoto[0].okimg&&!shopPhoto[1].okimg">请上传门店照片</p>
+				</div>
+				
+				
+				<div class="frow-group frow-img">			
+					<span  class="name">门店logo</span>
+					<div class="shopPhoto">
+						<div class="box-step">
+							<span class="step">logo</span>
+							<div class="upShop">
+								<img class="upImg" src="/static/image/business/upImg.png" />
+								<p class="word">选择Logo</p>
+								<img v-if="shopPhoto[2].okimg" class="upImgSure" :src="shopPhoto[2].okimg"/>
+								<input type="file" class="upfile" name="uploadPicture"  value="" title="上传照片" @change="uploadFn($event,2)" />
+							</div>
+							<span class="tips"><i class="c-normal normal-text">上传与店铺气质吻合的logo，能提高用户进店的概率</i> (支持JPG、JPEG、PNG格式，<i class="c-red">大小不超过500K</i>)</span>
+							<span class="img-box">
+								<span>示例</span>
+								<div class="img-preview"  @mouseover="imgTogle=3" @mouseout="imgTogle=-1">
+									<img class="d-thumbnail" src="/static/image/business/logo.png" />
+									<img class="d-preview" :class="{'showImg':imgTogle==3}"  src="/static/image/business/logo.png" />
+								</div>
+							</span>
+						</div>
+					</div>
+					<p class="err"  v-if="err!=0&&!shopPhoto[2].okimg">请上传门店LOGO</p>
+				</div> 
+
+				
+			</form>
+			
+		</div>
+
+		
+		<div class="butChoice">
+			<a class="but cancel" v-if="ok==1" href="javascript:history.back(-1)">返回</a>
+			<button class="but sure" @click="formSubmit()" >提交进入下一步</button>
+		</div>
+
+
+	</div>	
+	<script type="text/javascript" src="/static/js/business/area.js" ></script>
+	<script type="text/javascript" src="/static/js/business/Branch/settInfo.js" ></script>
+</body>
+</html>
+

@@ -1,0 +1,295 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>阿凡提</title>
+    <link rel="stylesheet" href="/static/css/business/hongSa.css">
+    <link rel="stylesheet" href="/static/css/business/time.css">
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/g2.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/jquery.min.js"></script>
+</head>
+
+<!-- 营销活动   店铺活动 -->
+<body>
+<div id="HuoDong" v-cloak>
+    <div class="dec" v-cloak>
+        <input type="hidden" name="goodsId" :value="goodsIdName">
+        <div class="made_top" style="display:none">
+            活动类型 <input class="hou" id="houone" type="text" value="领取优惠劵" @click="houoneClick()"> 活动状态<input id="houtwo" class="hou" type="text" value="已过期" @click="houtwoClick()">
+            活动时间<input id="azuihou" type="text">至<input id="bzuihou" type="text">
+            <div class="made_chaxun" @click="made_chaxunClick()">查询</div>
+        </div>
+
+        <!--leixin类型-->
+        <div class="leixin">
+            <div class="div" @click="show(this)">折扣菜</div>
+            <div class="div" @click="show(this)">满返劵</div>
+            <div class="div" @click="show(this)">领取优惠劵</div>
+        </div>
+        <!--leixin类型-->
+
+        <!--leixin活动状态-->
+        <div class="zhuangtaia">
+            <div onclick="funp(this)" class="viv" @click="funp(this)">全部</div>
+            <div onclick="funp(this)" class="viv" @click="funp(this)">已过期</div>
+            <div onclick="funp(this)" class="viv" @click="funp(this)">待生效</div>
+            <div onclick="funp(this)" class="viv" @click="funp(this)">已生效</div>
+        </div>
+
+        <!--leixin活动状态-->
+
+        <div class="xuanhcaiping" style="display:none">
+            <div class="wu_kuan">
+                <div class="zq_kun">
+                    <div class="yk_one">添加菜品<span class="ongtuhgJpo" @click="ongtuhgJpoClick()">×</span></div>
+                    <!-- <div class="enow_ks">多规格商品不能参与折扣活动</div> -->
+                    <div class="da_kuang">
+                        <div class="zuo_kai">
+                            <div v-for="(item,index) in foodSele">
+                                <div class="p_onw" @click="foodNameFn('foodSele',index)">
+                                    <img src="/static/image/business/sdck.png" height="13" width="14"/>{{item.name}}
+                                    <span class="fz-d" @click.stop="foodAdd(index)">+</span>
+                                </div>
+                                <div v-show="item.togle">
+                                    <div class="sefck" v-for="(x,numb) in item.child" @click="foodChildFn(index,numb)">
+                                        ----<span class="foodChild">{{x.name}}</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="zon_jian">
+                            <div class="cjcm_o"><span class="xz_qb" @click="selAll()">选择全部</span></div>
+                            >
+                            <div class="cjcm_d"><span class="xz_ch" @click="delAll()">删除全部></span></div>
+                        </div>
+                        <div class="you_kai" id="neirongcent">
+                            <div v-for="(item,index) in foodMeet">
+                                <div v-if="item.name">
+                                    <div class="p_onwmore" id="p_onwtwomore" @click="foodNameFn('foodMeet',index)"><img
+                                            src="/static/image/business/sdck.png" height="13" width="14">{{item.name}}
+                                        <i class="iconX" @click.stop="foodSub(index)">✖</i></div>
+                                    <div v-show="item.togle">
+                                        <div class="kifckmore" v-for="(x,numb) in item.child">----<span
+                                                class="foodChild">{{x}}</span><i class="iconX"
+                                                                                 @click="childSub(index,numb)">✖</i>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div v-else class="foodChild">{{item.val}}<i class="iconX" @click.stop="foodSub(index)">✖</i>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="ckpoewqj">
+                        <div class="sks_oo" @click="sks_ooClick()">取消</div>
+                        <div class="sks_kk" @click="saveClick()">保存</div>
+                    </div>
+
+
+                </div>
+
+                <!--******************提示框**************************-->
+                <div class="errBox modal" v-show='errTips'>
+                    <div class="modal-dialog">
+                        <div class="errContent">
+                            <p class="errtips">请先拉取数据</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="hangius">{{namess}}</div>
+        <div class="shihuodong">仅在线支付支持该活动</div>
+        <div class="dfowkecvdk" style="display: none">
+            每单可购买折扣商品总数<input type="text" id="daichuan" value="-1" readonly="readonly">
+            <span class="xaiojnwe">(-1位不做限制)</span>
+            <span class="hsaidgai" @click="hsaidgaiClick()">修改</span>
+
+
+        </div>
+
+
+        <div class="efcoiweh">
+            <div class="diyihang">
+                <span id="xauhsping" @click="xauhspingClick()">选择菜品</span>
+            </div>
+            <div class="she_kjkj">
+                <span class="ppliangshz" @click="ppliangshzClick()">批量设置</span>
+                <span class="pplianshch" @click="pplianshchClick()">批量删除</span>
+            </div>
+            <table style="text-align: center;">
+                <tr>
+                    <td><input class="allBuXuanzhong" name="allname" type="checkbox" @click="allBuXuanzhongClick()">
+                    </td>
+                    <td>菜品名称</td>
+                    <td>原价</td>
+                    <td>折扣</td>
+                    <td>活动价</td>
+                    <td>活动日期</td>
+                    <td>活动状态</td>
+
+                    <td>操作</td>
+                </tr>
+
+                <tr style="height: 70px" v-for="(int,index) in discountGoods">
+                    <td><input class="BeiXuan" name="ener" type="checkbox" :value="int.id"></td>
+                    <td>{{int.goodsName}}</td>
+                    <td>{{int.price}}</td>
+                    <input type="hidden" name="price" id="price" value="{{int.price}}">
+                    <td v-if="int.discount">{{int.discount}}</td>
+                    <td v-else>--</td>
+                    <td v-if="int.discountPrice">{{int.discountPrice}}</td>
+                    <td v-else>--</td>
+                    <td v-if="int.startTime&&int.endTime">{{int.startTime}}至{{int.endTime}}</td>
+                    <td v-else>--</td>
+                    <td v-if="int.isSale==1&&int.goodsStatus ==1">进行中</td>
+                    <td v-if="int.isSale==0&&int.goodsStatus==1">下架中</td>
+                    <td v-if="int.isSale==1&&int.goodsStatus=='0'">待审核</td>
+                    <td v-if="!int.iSale&&!int.goodsStatus">--</td>
+
+                    <td><a @click="showSet(index)" href="#">编辑</a></td>
+                </tr>
+
+            </table>
+
+        </div>
+
+        <!--修改 影藏框修改 影藏框修改 影藏框修改 影藏框修改 影藏框修改 影藏框-->
+        <div class="cewo_iej" style="display:none">
+            <div class="ceio_e">
+                <div class="chosa_d">
+                    <div class="cewk_jhoi">每单限购折扣商品种类<span class="xdecf" @click="xdecfClick()">×</span></div>
+                    <div class="ced_jded">每单限购商品总数<input name="codj" type="text" placeholder="必须为整数">种<span
+                            class="dvcklj">(-1为不做限制)</span></div>
+                    <div class="cedswd">建议大于单品限购数</div>
+                    <div class="wefkoiw">
+                        <div class="qu_xwkc" @click="qu_xwkcClick()">取消</div>
+                        <div class="ba_kcfc" @click="ba_kcfcClick()">保存</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--修改 影藏框修改 影藏框修改 影藏框修改 影藏框修改 影藏框修改 影藏框-->
+
+
+        <!--影藏框 【批量设置】-->
+        <div class="wdWsw" style="display: none">
+            <div class="wqoDer">
+                <div class="swikDin">12</div>
+            </div>
+        </div>
+        <!--影藏框 【批量设置】-->
+
+        <!--11.15号 补影藏框11.15号 补影藏框-->
+        <div class="ThisToallys" style="display: none">
+            <!--<div class="ThisToallys">-->
+            <div class="Cue_IK">
+                <div class="zheshiHlkp">
+                    <div class="cdeojkK">设置折扣商品-<span class="goodsName">批量</span><span class="xcAcjk"
+                                                                                       @click="xcAcjkClick()">×</span>
+                    </div>
+                    <div class="ConterZho_xin">
+                        <div class="HonShiYon">活动时间</div>
+                        <div class="hueSkld">活动日期</div>
+                        <div class="Wei_cdk">
+                            <input type="text" id="zuotiomn" class="textVer"><img src="/static/image/business/911.png">
+                            ~ <input id="youtiomn" type="text" class="textVer"><img src="/static/image/business/911.png">
+                        </div>
+                        <!--<div class="hueSkld">周期循环</div>-->
+                        <!--<div class="x_hjpDS">-->
+                        <!--<input type="checkbox" name="oChow" checked="checked" class="wangTei" value="周一">周一-->
+                        <!--<input type="checkbox" name="oChow" checked="checked" class="wangTei" value="周二">周二-->
+                        <!--<input type="checkbox" name="oChow" checked="checked" class="wangTei" value="周三">周三-->
+                        <!--<input type="checkbox" name="oChow" checked="checked" class="wangTei" value="周四">周四-->
+                        <!--<input type="checkbox" name="oChow" checked="checked" class="wangTei" value="周五">周五-->
+                        <!--<input type="checkbox" name="oChow" checked="checked" class="wangTei" value="周六">周六-->
+                        <!--<input type="checkbox" name="oChow" checked="checked" class="wangTei" value="周日">周日-->
+                        <!--</div>-->
+                        <div class="Wei_cdk">
+                            <!--<div class="HonShiYon">活动信息</div>-->
+                            <!--<div class="hueSkld">面向用户</div>-->
+                            <!--<div class="sapc_kk">-->
+                            <!--<input type="radio" checked="checked" name="mianxiangyh" value=" 全部用户"> 全部用户<br/>-->
+                            <!--<input type="radio" name="mianxiangyh" value=" 仅限门店新客"> 仅限门店新客-->
+                            <!--</div>-->
+                            <div class="hueSkld">设置方式</div>
+                            <div class="sapc_kk">
+                                <input type="radio" id="zheIszheKou" name="zhekou" value="按折扣" checked="checked"
+                                       @click="zhekouClick()"> 按折扣<br/>
+                                <input type="radio" name="zhekou" value="按活动价" @click="zhekouClick()"> 按活动价
+                            </div>
+
+                            <!--[按折区][按折区][按折区][按折区][按折区][按折区][按折区][按折区]-->
+                            <div id="zhekou_aa">
+                                <div class="hueSkld">折扣</div>
+                                <input type="text" class="sonedr" placeholder="请输入1-9折" maxlength="2"
+                                       oninput='this.value=this.value.replace(/[^0-9,]/g,"")'
+                                       onafterpaste="this.value=this.value.replace(/[^0-9,]/g,'')"
+                                       onkeyup="this.value=this.value.replace(/^[,0。+-/*]+[0-9]*$/gi,'')">折
+                            </div>
+                            <!--[按折区][按折区][按折区][按折区][按折区][按折区][按折区][按折区]-->
+
+                            <!--[活动价][活动价][活动价][活动价][活动价][活动价][活动价][活动价]-->
+                            <div id="huodong_bb" style="display: none;">
+                                <div class="hueSkld">活动价</div>
+                                <input type="text" class="Vondr" placeholder="优惠后价格" maxlength="10"
+                                       oninput='this.value=this.value.replace(/^[,0。+-/*]+[0-9]*$/gi,"")'>元
+                            </div>
+                            <!--[活动价][活动价][活动价][活动价][活动价][活动价][活动价][活动价]-->
+
+                            <!--<div class="hueSkld">每单限购</div>-->
+                            <!--<div class="xqkoj_kow">-->
+                            <!--<input type="text" class="AerMerTop" placeholder="必须为整数">-->
+                            <!--</div>-->
+                            <!--<div class="enRwek">不限购填-1</div>-->
+                            <!--<div class="hueSkld">当日活动库存</div>-->
+                            <!--<div class="xqkoj_kow">-->
+                            <!--<input type="text" class="Ae_MonTop" placeholder="无限时输入：-1">-->
+                            <!--</div>-->
+                            <!--<div class="WanRwek">预设值"当日活动库存"为无限,请填写"-1"</div>-->
+                            <div class="end_zuohou">
+                                <input type="checkbox" id="zuoend" checked="checked">已阅读并同意 <span class="cohn_SDUC"
+                                                                                                  @click="cohn_SDUCClick()">商家自营销协议</span>
+                            </div>
+
+                        </div>
+                        <!--[商家自营销协议][商家自营销协议][商家自营销协议]-->
+                        <div class="skjkEJ_Evfgr" style="display: none">
+                            <div class="xwkj_sjk">商家自营销协议<span class="huqwe_kqd" @click="huqwe_kqdClick()">×</span>
+                            </div>
+                            <div class="ckwo_jiws">
+                                <h3 class="hsan">商家自营销协议</h3>
+                                1. 店铺优惠活动可以与阿凡提外卖平台的其他活动同时进行, 如满减、满折等; 商家优惠可以和阿凡提外卖红包同时使用;<br/>
+                                2. 店铺优惠活动的促销成本由商家自己承担, 我公司(阿凡提)只是活动工具的提供方; 商家不得要求我公司 (阿凡提) 开具"店铺优惠"的发票;<br/>
+                                3. 店铺优惠的实际归属为各个开展活动的商家, 我公司(阿凡提)只负责代发, 归属权不属于我公司 阿凡提 ;<br/>
+                                4. 与商家结算的金额中, 不包括商家店铺自己发放的优惠, 即: 合同中的结算为净值 (原订单金额-商家店铺优惠) ;<br/>
+                                5. 进行中的店铺优惠, 若商家在预先设置活动结束时间前结束活动, 则已发放的优惠仍然有效。<br/>
+                            </div>
+                        </div>
+                        <!--[商家自营销协议][商家自营销协议][商家自营销协议]-->
+                        <div class="cwoj_H">
+                            <div id="Fuck_qu" @click="Fuck_quClick()">取消</div>
+                            <div id="Fuck_bao" @click="Fuck_baoClick()">保存</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--11.15号 补影藏框11.15号 补影藏框-->
+        </div>
+    </div>
+</div>
+<script src="/static/js/public/dateSelect-after.js"></script>
+<script src="/static/js/business/hongSa.js"></script>
+</body>
+
+</html>
+
+
+

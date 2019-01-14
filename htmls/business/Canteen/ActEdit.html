@@ -1,0 +1,139 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>阿凡提</title>
+<link rel="stylesheet" href="/static/css/business/ActEdit.css">
+<script src="/static/js/public/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="/static/js/public/vue.js" ></script>
+</head>
+<body>
+<div class="dec" v-cloak>
+ <div class="maam_top">
+     <div id="fe_yewu" @click="fe_yewuClick()">业务通知</div>
+     <div id="fe_xitg" @click="fe_xitgClick()">系统消息</div>
+ </div>
+
+<!--门店装修门店装修门店装修门店装修门店装修门店装修门店装修-->
+<div class="mendian_zhaungxiu">
+    <div class="zhanshi">门店展示</div>
+    <div class="zhuangx_bai">
+          <div class="tomoreeng">
+              [热销]分类展示
+              <input id="man" type="radio" name="1" checked="checked" />开启
+              <input id="wom" type="radio"  name="1"/>关闭
+          </div>
+          <div class="bimai">
+              进店必买<span class="wen">?</span>
+              <input id="k_qi" type="radio" checked="checked" name="2" />开启
+              <input id="g_bi" type="radio"  name="2"/>关闭
+          </div>
+          <div class="fangshi">
+              商品展示方式
+              <input id="lie" type="radio" checked="checked" name="3" />列表式<sapn class="xiao_wenzi">适用于较多商品显示的商家</sapn>
+              <input id="dat" type="radio"  name="3"/>大图式 <span class="xiao_wenzi">适用于鲜花品类，商品大图展示商家</span>
+          </div>
+          <div class="tonh_hws">
+                <div class="one_tupian" @click="one_tupianClick()"><img src="/static/image/business/cs1.png" height="172" width="232"></div>
+                <div class="two_tupian" @click="two_tupianClick()"><img src="/static/image/business/cs2.png" height="172" width="232"></div>
+          </div>
+    </div>
+
+
+    <div class="next_all">
+           <div class="ekjio_mnjjk">门店装修</div>
+           <div class="er_hang">
+                 <div class="li_kuajh">通过对门店首页的装修，在用户端首页突出店里的特色类别、爆款单品；适当修改首页的导航结构，使各页面更好的串联起来</div>
+                 <div class="cojo_jjk"><div class="diJi_kaiqi" id="dianji.info" @click="diJi_kaiqiClick()">开启</div></div>
+           </div>
+<!--112-->
+           <div class="bug_uij" style="display:none">
+                 <div class="gaowuerlin">
+                        <div id="phongku"><img src="/static/image/business/phone.png" height="519" width="254"></div>
+                        <div class="uou_kkj">
+                              <p class="pa_one">您可上传多张宣传素材，仅3张可展示在门店首页</p>
+                              <p class="xsk_kj">图片要求：图片格式为jpg/png；长×宽不得小于720*240像素；图片长宽比为3:1；图片大小不得大于2M</p>
+                              <p class="tomkk_kkl"><span class="dian">●</span>已选图片</p>
+                              <p class="tomkk_kkl"><span class="dian">●</span>图库(0)</p>
+                              <div class="eo_kiw" @click="eo_kiwClick()">+上传图片</div>
+                              <input class="file" id="inputcool"  style="display: none;" type="file" name="" value=""
+                              @change="inputcoolChange(this.event)">
+                        </div>
+                 </div>
+
+
+                <div class="xmnowq_k">
+                      <div class="mobanshiy" @click="mobanshiyClick()">保存并使用模板</div>
+                </div> 
+           </div>
+<!--修改成功弹出框-->
+  <div class="xgcgtck" style="display:none">
+        <div class="cxkw_jw">
+              <div class="zhong_kuang"><span class="cds">√</span>操作成功</div>
+        </div>
+  </div>
+<!--修改成功弹出框-->
+<!--保存弹出框-保存弹出框-保存弹出框-->
+<div class="ton_on" style="display:none">
+      <div class="xwj_ko">
+            <div class="jh_kuang">
+                  <div class="toj_jkh">确认保存<spna class="cuo_color">×</spna></div>
+                  <div class="ejf_kwl">确定在用户端的商家首页使用该模板？</div>
+                  <div class="diko_keofow">
+                        <div id="qued" @click="quedClick()">确定</div>
+                        <div id="zaik" @click="zaikClick()">再看看</div>
+                  </div>
+            </div>
+      </div>
+</div>
+<!--保存弹出框-保存弹出框-保存弹出框-->
+<!--112-->           
+    </div>
+
+</div>
+<!--门店装修门店装修门店装修门店装修门店装修门店装修门店装修-->
+
+
+<!--系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息-->
+<div class="xitong_xiopxi" style="display:none">
+    <div class="bai_juiis">
+           <div class="sclp_kw">
+                 <div class="iwe_jiw">店铺招牌</div>
+                 <div class="ceep_ie"><span class="cedmc">●</span>请上传一张图片展示在门店首页，如右图所示；</div>
+                 <div class="wekocj">店铺招牌可用于突出品牌与商品特色，点击查看袋鼠学院的<span class="zhaopai">招牌教程</span></div>
+                 <div class="ceep_ie"><span class="cedmc">●</span>图片格式为JPG/PNG；</div>
+                 <div class="ceep_ie"><span class="cedmc">●</span>图片格式为JPG/长*宽不得小于750*400像素；</div>
+                 <div class="ceep_ie"><span class="cedmc">●</span>图片格式为JPG/长*宽不得小于750*图片长宽比需为75：40；</div>
+                 <div class="ceep_ie"><span class="cedmc">●</span>图片大小不得超过2M。</div>
+                 <div class="iwe_jiw">上传图片</div>
+                 <div class="os_kws">
+                      <div class="saco_kiw"><img class="edjoo_j" src="/static/image/business/seui.png" height="32" width="33" @click="edjoo_jClick()"></div>
+                      <div class="ewqpa">点击上传</div>
+                      <input style="display:none" id="ekcj" type="file" name="" value="" placeholder=""
+                      @change="ekcjChange(this.event)">
+                 </div>
+
+                 <div class="jckj_djweh">
+                       <div class="ekji_ke" @click="ekji_keClick()">保存</div>
+                 </div>
+           </div>
+           <div id="risjkis"><img src="/static/image/business/phoed.png" height="506" width="256"></div>
+    </div>
+</div>
+
+
+<!--保存成功弹出框-->
+  <div class="xg_cgtck" style="display:none">
+        <div class="cxkwfdjw">
+              <div class="zhonuang"><span class="cdsdcvd">√</span id="comd.info">保存成功</div>
+        </div>
+  </div>
+<!--保存成功弹出框-->
+
+<!--系统消息系统消息系统消息系统消息系统消息系统消息系统消息系统消息-->
+
+</div>
+</body>
+<script src="/static/js/business/ActEdit.js"></script>
+</html>
