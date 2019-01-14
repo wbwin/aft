@@ -1,1 +1,0 @@
-<view style='font-size: 26rpx;position: fixed;width: 80%;padding: 2%;left: 7%;bottom: 3%;background-color: #53beb7;opacity: 0.9;border-radius: 40rpx;text-align: center;color: #fff;z-index:999;' wx:if="{{hobbyTip}}">{{hobbyTips}}</view>
