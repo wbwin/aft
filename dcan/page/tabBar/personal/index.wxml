@@ -1,0 +1,282 @@
+<view class="personal">
+  <view class="userinfo" >
+    <image class="userinfo-avatar" src="{{userPhoto}}" background-size="cover" wx:if="{{userName}}"></image>
+    <view class="userinfo-word">
+        <view class="userinfo-nickname" wx:if="{{userName}}">{{userName}}</view>
+        <view class="userinfo-nickname" wx:else bindtap='login'>登录/注册</view>
+		<view class='vipImg'>
+			<image wx:if="{{grade>=0}}" src="https://image.aftdc.com/images/v{{grade}}.png" class='topImg'></image>
+		</view>
+    </view>
+  </view>
+
+  <view class='middle'>
+    <view class='middleItem' data-url='attention'>
+      <text class='number' style="color:#53beb7;">{{countNum.gzNum?countNum.gzNum:0}}</text>
+      <text class='text'>关注</text>
+    </view>
+    <view class='middleItem'>
+      <text class='number' style="color:#53beb7;">{{countNum.fsNum?countNum.fsNum:0}}</text>
+      <text class='text'>粉丝</text>
+    </view>
+    <!-- <view class='middleItem'>
+      <text class='number' style="color:#ff583d;">{{countNum.dongtai}}</text>
+      <text class='text'>动态</text>
+    </view> -->
+    <view class='middleItem' data-url='collect'  bindtap="block">
+      <!-- <text class='number' style="color:#67c400;">10</text> -->
+      <image class='scImg' src="https://image.aftdc.com/images/soucang.png"></image>
+      <text class='text'>收藏</text>
+    </view>
+    
+  </view>
+  
+	<view class='block'>
+		<!-- <view class='block_title'>资产</view>
+		<view class="content">
+				<view class="classify borderLeft" data-url='wallet'  bindtap="block">
+					<view class="left">
+						<image src="https://image.aftdc.com/images/wallet.png"></image>
+						<view>钱包</view>
+					</view>
+				</view> -->
+				 
+				<!-- <view class="classify borderLeft" data-url='coupon'  bindtap="block">
+					<view class="left">
+						<image src="https://image.aftdc.com/images/coupon.png"></image>
+						<view>优惠券</view>
+					</view>
+				</view> -->
+				<!--我的积分-->
+				<!-- <view class="classify borderLeft" data-url='integral'  bindtap="block">
+					<view class="left">
+						<image src="https://image.aftdc.com/images/jifen.png"></image>
+						<view>积分</view>
+					</view>
+				</view> -->
+					<!--我的会员卡-->
+				<!-- <view class="classify borderLeft" data-url='recharge'  bindtap="block">
+					<view class="left">
+						<image src="https://image.aftdc.com/images/vip.png"></image>
+						<view>会员卡</view>
+					</view>
+				</view> -->
+					<!--会员中心-->
+				<!-- <view class="classify borderLeft" data-url='myvip'  bindtap="block">
+					<view class="left">
+						<image src="https://image.aftdc.com/images/myvip.png"></image>
+						<view>成长值</view>
+					</view>
+				</view>
+				<view class="classify" data-url='news'  bindtap="block">
+					<view class="left">
+						<image src="https://image.aftdc.com/images/news.png"></image>
+						<view>消息</view>
+						<view wx:if='{{redDot}}' class='redDot'></view>
+					</view>
+				</view>  -->
+
+                <!-- <view class="classify" data-url='friend'  bindtap="block">
+					<view class="left">
+						<image src="https://image.aftdc.com/images/friendship.png"></image>
+						<view>朋友圈</view>
+					</view>
+				</view>  -->
+		<!-- </view> -->
+    <view class='listItem' data-url='wallet'  bindtap="block">
+      <view class='listItemLeft'>
+        <image src='https://image.aftdc.com/images/wallet.png'></image>
+        
+      </view>
+      <view class='listItemRight borderBottom'>
+        <text>钱包</text>
+        <image src='https://image.aftdc.com/appBimg/ic_text_right.png'></image>
+      </view>
+    </view>
+
+    <!-- <view class='listItem' data-url='myvip'  bindtap="block">
+      <view class='listItemLeft'>
+        <image src='https://image.aftdc.com/images/myvip.png'></image>
+        
+      </view>
+      <view class='listItemRight borderBottom'>
+        <text>成长值</text>
+        <image src='https://image.aftdc.com/appBimg/ic_text_right.png'></image>
+      </view>
+    </view> -->
+    <view class='listItem'  data-url='address'  bindtap="block">
+      <view class='listItemLeft'>
+        <image src='https://image.aftdc.com/images/dinwei.jpg'></image>
+      </view>
+      <view class='listItemRight borderBottom'>
+        <text>收货地址</text>
+        <image src='https://image.aftdc.com/appBimg/ic_text_right.png'></image>
+      </view>
+    </view>
+    <view class='listItem'  data-url='news'  bindtap="block">
+      <view class='listItemLeft'>
+        <image src='https://image.aftdc.com/images/news.png'></image>
+      </view>
+      <view class='listItemRight borderBottom'>
+        <text>下载APP</text>
+        <image src='https://image.aftdc.com/appBimg/ic_text_right.png'></image>
+      </view>
+    </view>
+    <button class='listItem'  open-type="share">
+      <view class='listItemLeft'>
+        <image src='https://image.aftdc.com/images/fenxian.png'></image>
+      </view>
+      <view class='listItemRight'>
+        <text>分享给朋友</text>
+        <image src='https://image.aftdc.com/appBimg/ic_text_right.png'></image>
+      </view>
+    </button>
+	</view>
+
+	<!-- <view class='block'> -->
+		<!-- <view class='block_title'>我的</view>
+		<view class="content">		
+				<view class="classify borderLeft" data-url='attention'  bindtap="block">
+					<view class="left">
+						<image src="https://image.aftdc.com/images/gz.png"></image>
+						<view>关注</view>
+					</view>
+				</view>		 
+				<view class="classify borderLeft" data-url='collect'  bindtap="block">
+					<view class="left">
+						<image src="https://image.aftdc.com/images/soucang.png"></image>
+						<view>收藏</view>
+					</view>
+				</view> -->
+				<!-- <view class="classify borderLeft" data-url='shield'  bindtap="block">
+					<view class="left">
+						<image src="https://image.aftdc.com/images/pingbi.png"></image>
+						<view>屏蔽</view>
+					</view>
+				</view> -->
+        		
+				<!-- <view class="classify borderLeft" data-url='fapiao'  bindtap="block">
+					<view class="left">
+						<image src="https://image.aftdc.com/images/fapiao.png"></image>
+						<view>发票助手</view>
+					</view>
+				</view>
+				<view class="classify" data-url='history'  bindtap="block">
+					<view class="left">
+						<image src="https://image.aftdc.com/images/lsjl.png"></image>
+						<view>历史记录</view>
+					</view>
+				</view>
+		</view> -->
+    <!-- <view class='listItem'  data-url='attention'  bindtap="block">
+      <view class='listItemLeft'>
+        <image src='https://image.aftdc.com/images/gz.png'></image>
+      </view>
+      <view class='listItemRight borderBottom'>
+        <text>关注</text>
+        <image src='https://image.aftdc.com/appBimg/ic_text_right.png'></image>
+      </view>
+    </view>
+    <view class='listItem'  data-url='collect'  bindtap="block">
+      <view class='listItemLeft'>
+        <image src='https://image.aftdc.com/images/soucang.png'></image>
+      </view>
+      <view class='listItemRight borderBottom'>
+        <text>收藏</text>
+        <image src='https://image.aftdc.com/appBimg/ic_text_right.png'></image>
+      </view>
+    </view> -->
+    <!-- <view class='listItem'  data-url='fapiao'  bindtap="block">
+      <view class='listItemLeft'>
+        <image src='https://image.aftdc.com/images/fapiao.png'></image>
+      </view>
+      <view class='listItemRight borderBottom'>
+        <text>发票助手</text>
+        <image src='https://image.aftdc.com/appBimg/ic_text_right.png'></image>
+      </view>
+    </view> -->
+    <!-- <view class='listItem'  data-url='history'  bindtap="block">
+      <view class='listItemLeft'>
+        <image src='https://image.aftdc.com/images/lsjl.png'></image>
+      </view>
+      <view class='listItemRight'>
+        <text>历史记录</text>
+        <image src='https://image.aftdc.com/appBimg/ic_text_right.png'></image>
+      </view>
+    </view> -->
+	<!-- </view>  -->
+
+	<view class='block borderBottom20'>
+		<!-- <view class='block_title'>服务</view>
+		<view class="content borderLeft"> -->
+				<!--商家加盟-->
+				<!-- <view  class="classify borderLeft" data-url='goSet'  bindtap="block">
+					<view class="left" >
+						<image src="https://image.aftdc.com/images/settled.png"></image>
+						<view>商家入驻</view>
+					</view>
+				</view> -->
+				<!--城市合伙人-->
+				<!-- <view  class="classify borderLeft" data-url='cooperation'  bindtap="block">
+					<view class="left" >
+						<image src="https://image.aftdc.com/images/hezuo.png"></image>
+						<view>城市合伙人</view>
+					</view>
+				</view> 
+                <navigator url="opinion/opinion"  class="classify borderLeft" >
+					<view class="left" >
+						<image src="https://image.aftdc.com/images/opinion.png"></image>
+						<view>意见反馈</view>
+					</view>
+				</navigator> -->
+				<!-- <view  class="classify borderLeft" bindtap='app'>
+					<view class="left" >
+						<image src="https://image.aftdc.com/images/android.png"></image>
+						<view>安卓APP</view>
+					</view>
+				</view> 
+				<view  class="classify" bindtap='app'>
+					<view class="left" >
+						<image src="https://image.aftdc.com/images/apple.png"></image>
+						<view>苹果APP</view>
+					</view>
+				</view>  -->
+		<!-- </view> -->
+		 <!-- <view class="content">
+				<navigator url="opinion/opinion"  class="classify borderLeft" >
+					<view class="left" >
+						<image src="https://image.aftdc.com/images/opinion.png"></image>
+						<view>意见反馈</view>
+					</view>
+				</navigator>
+		</view>  -->
+    <view class='listItem'  data-url='goSet'  bindtap="block">
+      <view class='listItemLeft'>
+        <image src='https://image.aftdc.com/images/settled.png'></image>
+      </view>
+      <view class='listItemRight borderBottom'>
+        <text>商家入驻</text>
+        <image src='https://image.aftdc.com/appBimg/ic_text_right.png'></image>
+      </view>
+    </view>
+    <!-- <view class='listItem'  data-url='cooperation'  bindtap="block">
+      <view class='listItemLeft'>
+        <image src='https://image.aftdc.com/images/hezuo.png'></image>
+      </view>
+      <view class='listItemRight borderBottom'>
+        <text>城市合伙人</text>
+        <image src='https://image.aftdc.com/appBimg/ic_text_right.png'></image>
+      </view>
+    </view> -->
+    <navigator url="../../personal/pages/opinion/opinion" class='listItem'>
+      <view class='listItemLeft'>
+        <image src='https://image.aftdc.com/images/opinion.png'></image>
+      </view>
+      <view class='listItemRight'>
+        <text>意见反馈</text>
+        <image src='https://image.aftdc.com/appBimg/ic_text_right.png'></image>
+      </view>
+    </navigator>
+	</view>
+ 
+</view>

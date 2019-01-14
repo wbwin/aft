@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>阿凡提</title>
+    <link rel="stylesheet" href="/static/css/business/huoMessage.css">
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+</head>
+
+<body>
+    <div class="dec" v-cloak>
+        <input type="hidden" name="couponId" value="{$couponId}">
+        <div class="yingcangkuzng_chankan" v-for="msg in Coupon">
+            <div class="fallthipe">
+                <div class="zheshi_xiuang">活动详情</div>
+                <div class="zhuang_tai">活动类型：商家优惠券</div>
+                <div class="zhuang_tai">活动状态：进行中</div>
+                <div class="zhuang_tai">活动时间：{{msg.validStartTime}} 至{{msg.validEndTime}}</div>
+                <div class="zhuang_tai">优惠信息：下单满{{msg.spendMoney}} 减{{msg.couponMoney}}</div>
+            </div>
+            <div class="this_anniv">
+                <div id="danhuy" @click="danhuyClick()">返回列表</div>
+                <div id="chexaio" @click="annulNewCou($event,msg.couponId)">撤销</div>
+            </div>
+        </div>
+    </div>
+    <script src="/static/js/business/seeCoupon.js"></script>
+</body>
+
+</html>

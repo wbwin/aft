@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>后台管理中心</title>
+    <link href="/static/css/admin/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/admin/AdminLTE.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/admin/pages.css" rel="stylesheet" type="text/css"/>
+    <script src="/static/js/public/axios.min.js"></script>
+    <script src="/static/js/public/vue.min.js"></script>
+    <!-- 分页组件 -->
+    <script src="/static/js/public/pages.js"></script>
+</head>
+<body>
+<div class=" panel-default wst-table" id="app">
+    <div class="panel panel-body">
+            <div class="form-group">
+                <label for="ptkfName">客服名称:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="text" class="input_search" id="ptkfName" placeholder="请输入名称" v-model="ptkfName" style="width:30%">
+            </div>
+
+            <div class="form-group">
+                <label for="login_name">客服账号:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                <input type="text" class="input_search" id="login_name" placeholder="请输入账号" v-model="login_name" style="width:30%">
+            </div>
+
+            <!--<div class="form-group">-->
+                <!--<label for="login_password">密码&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>-->
+                <!--<input type="password" class="form-control" id="login_password" placeholder="请输入密码" v-model="login_password" style="width:30%">-->
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+                <!--<label for="relogin_password">再次输入密码</label>-->
+                <!--<input type="password" class="form-control" id="relogin_password" placeholder="请再次输入密码" @blur="verity(this.value)" v-model="relogin_password" style="width:30%">-->
+            <!--</div>-->
+            <div class="form-group">
+                <span style="font-weight: 700">客服人员头像:</span>
+                <img src="/static/image/business/upload.png" @click="file" class="change" id="img-change">
+                <input  type="file" style="display: none" id="inputfile" @change="photo(event)" />
+
+                <image v-if="img" :src="'https://image.aftdc.com/'+img"  style="width: 128px;height: 128px"/>
+            </div>
+        <button class="btn btn-success" @click="add()" >提交</button>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/static/js/admin/serviceEdit.js"></script>
+</html>

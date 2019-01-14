@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>后台管理中心</title>
+    <link href="/static/css/admin/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/admin/AdminLTE.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/admin/pages.css" rel="stylesheet" type="text/css"/>
+    <script src="/static/js/public/axios.min.js"></script>
+    <script src="/static/js/public/vue.min.js"></script>
+    <!-- 分页组件 -->
+    <script src="/static/js/public/pages.js"></script>
+</head>
+<style type="text/css">
+
+</style>
+<body class='wst-page'>
+<div class='wst-body wst-table'  id="app" v-cloak>
+    <table class="table table-hover table-striped table-bordered wst-list">
+        <thead>
+        <tr>
+
+            <th>序号</th>
+            <th>公司名称</th>
+            <th>成立时间</th>
+            <th>公司地址</th>
+            <th>规模（人）</th>
+            <th>可投入资金</th>
+            <th>经营业务</th>
+            <th>代理城市</th>
+            <th>代理城市规模（家）</th>
+            <th>是否有相关行业经验</th>
+            <th>是否了解当地餐饮市场</th>
+            <th>相关市场资源</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="(item,index) in listData">
+            <td>{{index+1}}</td>
+            <td>{{item.company}}</td>
+            <td>{{item.time}}</td>
+            <td>{{item.address}}</td>
+            <td>{{item.scale}}</td>
+            <td>{{item.money}}</td>
+            <td>{{item.operation}}</td>
+            <td>{{item.city}}</td>
+            <td>{{item.cityScale}}</td>
+            <td>
+                <span v-if="item.experience==1">有经验</span>
+                <span v-if="item.experience==0">无经验</span>
+            </td>
+            <td>
+                <span v-if="item.realize==1">了解</span>
+                <span v-if="item.realize==0">不了解</span>
+            </td>
+            <td>{{item.resource}}</td>
+            <td>
+                <button class="btn btn-primary glyphicon glyphicon-eye-open" @click='see(index)'>详情</button>
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan='13' align='center'>
+                <!-- 分页 -->
+                <pages :page-numb="pageNumb" :page-curent="pageCurent" @pagefather="pageFn"></pages>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="seeBox" v-if="seeBox" @click="seeBox=false">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title"><b>详情</b></h4>
+            </div>
+            <div class="modal-body">
+                <table @click.stop class="table table-hover table-striped table-bordered wst-form"
+                       style="word-wrap:break-word; word-break:break-all;">
+                    <tbody>
+                    <tr>
+                        <td>姓名</td>
+                        <td>{{seeData.name}}</td>
+                    </tr>
+                    <tr>
+                        <td>电话号码</td>
+                        <td>{{seeData.phone}}</td>
+                    </tr>
+                    <tr>
+                        <td>公司名称</td>
+                        <td>{{seeData.company}}</td>
+                    </tr>
+                    <tr>
+                        <td>成立时间</td>
+                        <td>{{seeData.time}}</td>
+                    </tr>
+                    <tr>
+                        <td>公司地址</td>
+                        <td>{{seeData.address}}</td>
+                    </tr>
+                    <tr>
+                        <td>规模（人）</td>
+                        <td>{{seeData.scale}}</td>
+                    </tr>
+                    <tr>
+                        <td>可投入资金</td>
+                        <td>{{seeData.money}}</td>
+                    </tr>
+                    <tr>
+                        <td>经营业务</td>
+                        <td>{{seeData.operation}}</td>
+                    </tr>
+                    <tr>
+                        <td>代理城市</td>
+                        <td>{{seeData.city}}</td>
+                    </tr>
+                    <tr>
+                        <td>代理城市规模（家）</td>
+                        <td>{{seeData.cityScale}}</td>
+                    </tr>
+                    <tr>
+                        <td>是否有相关行业经验</td>
+                        <td>
+                            <span v-if="seeData.experience==1">有经验</span>
+                            <span v-if="seeData.experience==0">无经验</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>是否了解当地餐饮市场</td>
+                        <td>
+                            <span v-if="seeData.realize==1">有经验</span>
+                            <span v-if="seeData.realize==0">无经验</span>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>相关市场资源</td>
+                        <td>{{seeData.resource}}</td>
+                    </tr>
+                    <tr>
+                        <td>电子邮件</td>
+                        <td>{{seeData.email}}</td>
+                    </tr>
+                    <tr>
+                        <td>申请时间</td>
+                        <td>{{seeData.creatime}}</td>
+                    </tr>
+                    </tbody>
+                    <tr>
+                        <td colspan='4' style="text-align: center">
+                            <!--   <button type="button" class="btn btn-success" onclick='javascript:edit()'>确&nbsp;定</button> -->
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" id="back"
+                                    @click="seeBox=false">返&nbsp;回
+                            </button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+</script>
+<script type="text/javascript" src="/static/js/admin/partnerList.js"></script>
+</html>

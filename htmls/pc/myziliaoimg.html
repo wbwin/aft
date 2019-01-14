@@ -1,0 +1,205 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>afanti阿凡提订单</title>
+    <link rel="stylesheet" href="/static/css/pc/all.css">
+    <link rel="stylesheet" href="/static/css/pc/myziliaoimg.css">
+    <!--<link href="/static/css/pc/bootstrap.min.css" rel="stylesheet">-->
+    <script src="/static/js/public/jquery.min.js"></script>
+
+    <!--<link href="/static/css/pc/sitelogo.css" rel="stylesheet">-->
+    <!--<link href="/static/css/pc/cropper.css" rel="stylesheet">-->
+
+    <!--<script src="/static/js/pc/cropper.js"></script>-->
+    <!--<script src="/static/js/pc/sitelogo.js"></script>-->
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+    <script type="text/javascript" src="/static/js/pc/common.js"></script>
+    <!--<script src="/static/js/pc/bootstrap.min.js"></script>-->
+
+</head>
+
+<body>
+<!--头部-->
+
+<!--头部-->
+
+
+<!--主要内容-->
+<div class="conter" id="app" v-cloak>
+    <comheader></comheader>
+    <div id="all_inprotener">
+        <div class="title">当前位置：&nbsp;&nbsp;<a href="/pc/index.html" class="geographic">{{geographic}}</a>&nbsp;&nbsp;<a href="javascript:0;" @click="addressclick()"> [{{geographic==null?'选择地址':'切换地址'}}]</a>&nbsp;&nbsp;>&nbsp;&nbsp;近三个月的订单
+        </div>
+
+
+        <div class="all_left">
+            <div class="myall"><a href="/pc/onlyconter.html">个人中心</a></div>
+
+            <div class="mydingdan">我的订单</div>
+            <div class="er_fenlan "><a href="/pc/threemont.html">近三个月订单</a></div>
+            <div class="er_fenlan"><a href="/pc/daipjdingdan.html">待评价订单</a></div>
+            <div class="er_fenlan"><a href="/pc/tuidanjilu.html">退单记录</a></div>
+
+            <div class="myzichan">我的资产</div>
+            <div class="er_fenlan"><a href="/pc/myhongbao.html">我的红包</a></div>
+            <div class="er_fenlan"><a href="/pc/zhanghuyue.html">账户余额</a></div>
+            <div class="er_fenlan"><a href="/pc/myjifen.html">我的积分</a></div>
+
+            <div class="myziliao">我的资料</div>
+            <div class="er_fenlan"><a href="/pc/myziliao.html">个人资料</a></div>
+            <div class="er_fenlan"><a href="/pc/dizhiguanli.html">地址管理</a></div>
+            <div class="er_fenlan"><a href="/pc/safeconter.html">安全中心</a></div>
+            <div class="er_fenlan"><a href="/pc/ggpassword.html">修改密码</a></div>
+
+            <div class="myshoucang"><a href="/pc/wodeshoucang.html">我的收藏</a></div>
+
+        </div>
+        <!--  里面为右边白框   里面为右边白框   里面为右边白框   里面为右边白框   里面为右边白框   里面为右边白框  -->
+        <div class="all_right">
+
+
+            <div class="genren_ziliao">个人资料</div>
+
+            <div class="shangchuan">
+                <div style="margin-left: 90px;"> <img  :src="fileUrl" id="img" style="display: none; width: 150px; height: 150px; border: 1px solid rgb(0, 0, 0); padding: 10px; margin: 0px 10px 10px 0px;"></div>
+                <div class="felishang" @click="felishang()">选择图片</div>
+                <div class="felishang" id="update" style="display: none" @click="update()">点击上传</div>
+                支持小于2M的JPG和PNG图片
+                <input type="file" name="file" id="avatarInput"  style="width:150px;display: none;"
+                       @change="avatarInputChange();" />
+            </div>
+            <!--
+            <div class="zuidakuang">
+                <div class="betterbig">
+                    <div class="havezi">
+                         <img style="width:320px;height:320px;margin: 0px 0 0 0px;"  alt="" src="" id="loc_img" />
+                    </div>
+                    <input style="display:none;" type="file" name="pstimg" id="pstimg"/>
+                </div>
+                <div class="nextbig"><img style="width:210px;height:210px;margin: 0px 0 0 0px;" alt="" src=""  /></div><span class="bestwenzi">大尺寸</span>
+                <div class="threebig"><img style="width:50px;height:50px;margin: 0px 0 0 0px;" alt="" src=""  /></div><span class="zhongwanzi">中尺寸</span>
+                <div class="zuixiao"><img style="width:25px;height:25px;margin: 0px 0 0 0px;" alt="" src=""  /></div><span class="xaiowenzi">小尺寸</span>
+            </div>
+
+
+            <div class="thedowent">
+               <div class="save">保存头像</div>
+               <div class="quxiao">取消</div>
+            </div>
+
+            -->
+
+
+            <!--<div class="fade in" id="avatar-modal" aria-hidden="true" aria-labelledby="avatar-modal-label" role="dialog"-->
+                 <!--tabindex="-1" style="display:block;">-->
+                <!--<form class="avatar-form" action="{{url('admin/upload-logo')}}" enctype="multipart/form-data"-->
+                      <!--method="post">-->
+
+                    <!--<div class="modal-body">-->
+                        <!--<div class="avatar-body">-->
+                            <!--<div class="avatar-upload" style="display:none">-->
+                                <!--<input class="avatar-input" id="avatarInput" name="avatar_file" type="file">-->
+                            <!--</div>-->
+                            <!--<div class="rows" style="width:75%">-->
+                                <!--<div class="col-md-9">-->
+                                    <!--<div class="avatar-wrapper"></div>-->
+                                <!--</div>-->
+                                <!--<div class="col-md-3">-->
+                                    <!--<div class="avatar-preview preview-lg"></div>-->
+                                    <!--<div class="avatar-preview preview-md"></div>-->
+                                    <!--<div class="avatar-preview preview-sm"></div>-->
+                                <!--</div>-->
+                                <!--<div style="clear: both;"></div>-->
+                            <!--</div>-->
+                            <!--<div class="row avatar-btns">-->
+                                <!--<div class="col-md-3">-->
+                                    <!--<button class="avatar-save save" type="submit"><i class="fa fa-save"></i> 保存修改-->
+                                    <!--</button>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</form>-->
+
+            <!--</div>-->
+            <!--<div class="loading" aria-label="Loading" role="img" tabindex="-1"></div>-->
+
+
+            <script>
+
+
+                $(function () {
+                    $("#pstimg").change(function () {
+                        var file = this.files[0];
+                        // alert("文件大小:"+(file.size / 1024).toFixed(1)+"kB");
+                        if (window.FileReader) {
+                            var reader = new FileReader();
+                            reader.readAsDataURL(file);
+                            //监听文件读取结束后事件
+                            reader.onloadend = function (e) {
+                                showXY(e.target.result, file.fileName);
+                            };
+                        }
+                    });
+                });
+
+                function showXY(source) {
+                    var img = document.getElementById("loc_img");
+                    img.src = source;
+
+                    var imgsrc = $("#loc_img").attr("src")
+                    $('.nextbig img').attr("src", imgsrc);
+                    $('.threebig img').attr("src", imgsrc);
+                    $('.zuixiao img').attr("src", imgsrc);
+
+
+                    /*  $('.save').css({"background":"#1e89e0","cursor":"pointer"});
+                      $('.save').click(function(){
+                          $('.coumen').show();
+                      });*/
+                    $('.spaer').click(function () {
+                        $('.coumen').hide();
+                    });
+
+                    // alert("Width:"+img.width+", Height:"+img.height);
+
+                }
+
+            </script>
+
+
+            <!--  上传成功后的弹框    上传成功后的弹框    上传成功后的弹框    上传成功后的弹框  -->
+            <div class="coumen">
+                <div class="subdom">
+                    <div class="baikuang">
+                        <div class="chaone"><span class="spaer">×</span></div>
+                        <div class="biaoti">
+                            <span class="sessces">恭喜你，头像上传成功啦！</span>
+                            <span class="luzer"><span>×</span>抱歉，文件格式错误</span>
+                        </div>
+                        <div class="fanhui">
+                            <span class="yester">5秒后返回个人中心</span>
+                            <span class="noter">仅支持JPG,PNG格式图片</span>
+                        </div>
+                        <div class="zuixiabnain"><span class="queding">确定</span></div>
+                    </div>
+                </div>
+            </div>
+            <!--  上传成功后的弹框    上传成功后的弹框    上传成功后的弹框    上传成功后的弹框  -->
+
+        </div>
+        <!--  里面为右边白框   里面为右边白框   里面为右边白框   里面为右边白框   里面为右边白框   里面为右边白框  -->
+
+    </div>
+    <!--主要内容-->
+
+    <comfooter></comfooter>
+    <!--尾部-->
+
+</div>
+<script src="/static/js/pc/myziliaoimg.js"></script>
+
+</body>
+</html>

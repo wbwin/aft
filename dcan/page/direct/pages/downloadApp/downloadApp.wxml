@@ -1,0 +1,9 @@
+<view>
+  <view class='wrapper'>
+    <image class='appImg' src="https://image.aftdc.com/appBimg/icon_app2.png"></image>
+    <view class='viewText'>下载APP 目前只支持安卓系统</view>
+    <view class='viewText'><text>美好生活</text><text style='margin-left:28rpx'>智慧点餐</text></view>
+    <view class='button' >下载</view>
+  </view>
+</view>
+<include src="/page/common/toast.wxml" />

@@ -1,0 +1,55 @@
+<view class="group_state">
+
+
+  <view class="top">
+    <view class="topChoice">
+      <text class="name">退款金额</text>
+      <text>{{res.totalMoney}}元</text>
+    </view>
+    <view class="topChoice">
+      <text class="name">退回账户</text>
+      <text>原支付途径({{payType}})</text>
+    </view>
+    <!-- <view class="topChoice">
+      <text class="name">到账时间</text>
+      <text>已到账</text>
+    </view> -->
+  </view>
+
+  <view class="content">
+    <view class="title">
+      <text>退款流程</text>
+      <view class="titleRight">
+        <image src="https://image.aftdc.com/images/wh.png"></image>
+        <text>退款帮助</text>
+      </view>
+    </view>
+
+    <view class="detail">
+  
+      <view class="detailFlow {{flow==1?'last':''}}" hidden="{{flow<1}}">
+        <text class="name">阿凡提审核通过</text>
+        <text class="word">正在进行退款提交</text>
+        <view class="speedF"><view class="speedZ"></view></view>
+      </view>
+     
+      <view class="detailFlow {{flow==2?'last':''}}" hidden="{{flow<2}}">
+        <text class="name">受理退款成功</text>
+        <text class="word">您的退款已返回您的原支付途径,如有疑问请拨打客服电话</text>
+       
+        <view class="speedF"><view class="speedZ"></view></view>
+      </view>
+      <!-- <view class="detailFlow {{flow==3?'last':''}}" hidden="{{flow<3}}">
+        <text class="name">退款已入账</text>
+        <text class="word">支付宝已在2015年12月28日前将0.01元入账至您的支付宝支付账号。如有疑问请使用交易号<text style="color:#53beb7;">34165523252655532236455</text>拨打支付宝客服<text style="color:#53beb7;">55555</text>咨询</text>
+       
+        <view class="speedF"><view class="speedZ"></view></view>
+      </view>  -->
+    </view>
+
+
+
+  </view>
+
+
+</view>

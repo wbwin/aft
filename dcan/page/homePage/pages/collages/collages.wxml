@@ -1,0 +1,147 @@
+<view class='allPager'>
+
+  <view class='buttom col aiCenter'>
+    <view class='dropDown'></view>
+    <view class='buttomTitle'>{{shareStatus===""||shareStatus===0?"已完成选购,等待发起人提交订单":shareStatus===1?"已提交订单,等待完成拼单":"已完成拼单"}}</view>
+    <view class='collageState'>
+      <view class='collageStateIco row jcSb aiCenter'>
+        <view class='icon'>
+          <text>1</text>
+        </view>
+        <view class='line'></view>
+        <view class='icon {{shareStatus===""||shareStatus===0?"iconDisable":""}}'>
+          <text>2</text>
+        </view>
+        <view class='line {{shareStatus===""||shareStatus===0?"lineDisable":""}}'></view>
+        <view class='icon {{shareStatus===""||shareStatus===0||shareStatus===1?"iconDisable":""}}'>
+          <text>3</text>
+        </view>
+      </view>
+      <view class='collageStateText jcSb'>
+        <text>完成选购</text>
+        <text class='{{shareStatus===""||shareStatus===0?"lightGray":""}}'>提交订单</text>
+        <text class='{{shareStatus===""||shareStatus===0||shareStatus===1?"lightGray":""}}'>完成拼单</text>
+      </view>
+    </view>
+  </view>
+
+  <view class='main'>
+    <view class='mainTitle row aiCenter jcSb'>
+      <text class='shopName'>{{shopInfo.shopName}}</text>
+      <view class='distribution'>
+        <text>商家配送</text>
+      </view>
+    </view>
+
+    <block wx:for="{{goodsInfo}}" wx:for-item="item" wx:for-index="index" wx:key="">
+      <view class='collageItem' wx:if="{{unfolded||index===0}}">
+        <view class='userInfo row {{index!==0?"border":""}}'>
+          <image src='{{item.userPhoto}}'></image>
+          <view class='aiCenter'>
+            <text class='userName'>{{item.userName}}</text>
+            <text class='gray' wx-if="{{item.identity!==0}}">（{{item.identity===1?"发起人":"我"}}）</text>
+          </view>
+          <!-- <view class='collageBtn row aiCenter'> -->
+          <view class='collageBtn row aiCenter' wx:if="{{item.identity === 2 && !locking}}">
+            <view class='btn' bindtap="openPopup">
+              <text>退出拼单</text>
+            </view>
+            <view class='btn ml18'  bindtap="changeGoods">
+              <text>修改商品</text>
+            </view>
+          </view>
+        </view>
+        <block wx:for="{{item.goodsInfo}}" wx:for-item="food"  wx:key="">
+          <view class="orderDetails">
+            <image src="https://image.aftdc.com/{{food.goodsImg}}"></image>
+            <view class="word">
+              <view class="wordTop">
+                <view class="wordTopView">
+                  <text class="bl-zhe" wx:if="{{food.zkGoodsId}}">折</text>
+                  <text class="bl-kan" wx:if="{{food.bargainId}}">砍</text>
+                  <text class="bl-miao" wx:if="{{food.killId}}">秒</text>
+                  <text class="name">{{food.goodsName}}</text>
+                </view>
+                <text class="price">￥{{food.shopPrice*food.numb}}</text>
+              </view>
+              <view class="number">
+                <view class="numberLeft">
+                  <text class="nub">×{{food.numb}}</text>
+                  <text class="decide" wx:if="{{food.goodsAttrName}}">{{food.goodsAttrName}}</text>
+                </view>
+                <text class="numberRight" wx:if='{{food.zkGoodsId||food.bargainId||food.killId}}'>￥{{food.marketPrice*food.numb}}</text>
+              </view>
+            </view>
+          </view>
+        </block>
+        <view class='cost'>
+          <view class='packingfee aiCenter' wx:if="{{item.boxFee!==0}}">
+            <text>包装费</text>
+            <text>￥{{item.boxFee}}</text>
+          </view>
+          <view class='subtotal aiCenter'>
+            <text>小计</text>
+            <text class='red'>￥{{item.totalPrice}}</text>
+          </view>
+        </view>
+      </view>
+    </block>
+
+    <view class='open jcCenter' wx:if="{{goodsInfo.length > 1}}">
+      <view class='openBtn aiCenter' bindtap="open" wx:if="{{goodsInfo.length>1}}">
+        <text>{{!unfolded?'展开更多':'点击收起'}}</text>
+        <image class='openIco {{!unfolded?"":"shrink"}}' src='https://image.aftdc.com/appBimg/ic_expanded_down.jpg'></image>
+      </view>
+    </view>
+
+    <view class='distr aiCenter'>
+      <text>配送费</text>
+      <text>￥{{shopInfo.deliveryStartMoney}}</text>
+      <view class='circular topL'></view>
+      <view class='circular topR'></view>
+      <view class='circular bottomL'></view>
+      <view class='circular bottomR'></view>
+    </view>
+    <view class='total aiCenter'>
+      <text class='gray' wx:if="{{discountedPrice>0}}">已优惠￥{{discountedPrice}}</text>
+      <view class='sum'>
+        <text>共计</text>
+        <text class='red'>￥{{total}}</text>
+      </view>
+    </view>
+
+  </view>
+  <include src="/page/common/loadAnimation.wxml" />
+
+  <my-popup 
+    show="{{show}}"
+    cancel-btn="{{true}}"
+    title="{{false}}"
+    width="560"
+    height="240"
+    border-radius="16"
+    title-weight="bold"
+    content-top="30"
+    content-bottom="30"
+    title-text="拼单"
+    tips="是否退出拼单？"
+    text-direction="center"
+    cancel-text="取消"
+    confirm-text="确定"
+    bindcancel="wxClosePopup"
+    bindconfirm="wxQuitCollage">
+  </my-popup>
+
+  <!-- 订单已锁定，无法修改商品 -->
+  <my-popup 
+    show="{{change}}"
+    cancel-btn="{{false}}"
+    title="{{false}}"
+    width="560"
+    height="240"
+    border-radius="16"
+    tips="{{collageStateText}}"
+    confirm-text="确定"
+    bindconfirm="good">
+  </my-popup>
+</view>

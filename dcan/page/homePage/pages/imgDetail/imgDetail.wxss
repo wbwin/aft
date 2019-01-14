@@ -1,0 +1,49 @@
+page{
+  background-color: #F0F0F0;
+}
+
+.choiceNav{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #fff;
+  font-size: 30rpx;
+ 
+}
+.choiceNav .item{
+  flex: auto;
+  text-align: center;
+  line-height: 60rpx;
+   padding: 16rpx 0;
+     position: relative;
+     width: 200rpx;
+     box-sizing: border-box;
+}
+.choiceNav .active{
+border-bottom: solid 5rpx #53beb7;
+color: #53beb7;
+}
+.choiceNav .center::before{
+  content: "";
+display: block;
+background-color: #dedede;
+width: 1rpx;
+height: 60rpx;
+position: absolute;
+left: 0;
+top: 12rpx;
+}
+ 
+
+.shopImgsBox{
+  padding: 0 2% 150rpx;
+  display: flex;
+  flex-flow: wrap row;
+}
+.shopImgs{
+ width: 44%;
+ height: 300rpx;
+ box-sizing: border-box;
+ border:solid 8rpx #fff;
+ margin: 20rpx 3% 0;
+}

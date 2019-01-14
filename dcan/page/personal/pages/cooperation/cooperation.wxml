@@ -1,0 +1,156 @@
+<view class="table">
+    <view class="writeContent">
+        <view class="list-item" wx:for="{{imgData}}">
+            <text class="name">{{item.txt}}</text>
+            <image src="{{item.upImg}}" wx:if="{{item.upImg}}" bindtap="chooseimage" data-index="{{index}}"></image>
+            <image src="https://image.aftdc.com/images/upload.png" wx:else bindtap="chooseimage" data-index="{{index}}"></image>
+            <view class="uploadWord">
+                <text>{{item.word}}</text>
+                <text class="seeImg" bindtap="exampleFn" data-index="{{index}}">查看示例图片</text>
+            </view>
+        </view>
+    </view>
+    <form class="back" bindsubmit="formSubmit">
+        <view class="com">
+            <view class="line">
+                <view class="trueName">公司名称</view>
+                <view class="int">
+                    <input placeholder="" disabled="true" value='{{info.company}}' type="text" name="company" />
+                </view>
+            </view>
+            <view class="line">
+                <view class="trueName">公司地址</view>
+                <view class="int">
+                    <input placeholder="" disabled="true" value='{{info.address}}' type="text" name="address" />
+                </view>
+            </view>
+            <view class="line">
+                <view class="trueName">成立时间</view>
+                <view class="int">
+                    <view class="section">
+                        <picker mode="date" name="time" disabled="true" value="{{info.time}}" bindchange="bindDateChange">
+                            <view class="picker">
+                                — {{info.time}} —
+                            </view>
+                        </picker>
+                    </view>
+                </view>
+            </view>
+            <view class="line">
+                <view class="trueName">公司规模(人)</view>
+                <view class="int">
+                    <input placeholder="" type="number" name="scale" />
+                </view>
+            </view>
+            <view class="line">
+                <view class="trueName">可投入资金</view>
+                <view class="int">
+                    <input placeholder="" type="number" name="money" />
+                </view>
+            </view>
+            <view class="line">
+                <view class="trueName">公司主营业务</view>
+                <view class="int">
+                    <input placeholder="" type="text" name="operation" />
+                </view>
+            </view>
+            <view class="line">
+                <view class="trueName">代理城市</view>
+                <view class="int">
+                    <!--bindtap="open" <input placeholder="" value="{{province}}-{{city}}-{{county}}" type="text" name="city" disabled='true' /> -->
+                    <picker mode="region" bindchange="bindRegionChange" value="{{region}}">
+                        <input placeholder="" value="{{region[0]}} -{{region[1]}} -{{region[2]}}" type="text" name="city" disabled='true' />
+                    </picker>
+
+                </view>
+            </view>
+            <view class="line">
+                <view class="trueName">代理城市餐饮规模</view>
+                <view class="int">
+                    <input placeholder="单位（家）" type="number" name="cityScale" />
+                </view>
+            </view>
+            <view class="line">
+                <view class="trueName">是否有相关行业经验</view>
+                <view class="int">
+                    <radio-group class="radio-group" name="experience">
+                        <radio value="1" checked="true" />是
+                        <radio value="0" />否
+                    </radio-group>
+                </view>
+            </view>
+            <view class="line">
+                <view class="trueName">是否了解当地餐饮市场</view>
+                <view class="int">
+                    <radio-group class="radio-group" name="realize">
+                        <radio value="1" checked="true" />是
+                        <radio value="0" />否
+                    </radio-group>
+                </view>
+            </view>
+            <view class="line">
+                <view class="trueName">相关市场资源</view>
+                <view class="int">
+                    <input placeholder="" type="text" name="resource" />
+                </view>
+            </view>
+            <view class="line">
+                <view class="trueName">姓名</view>
+                <view class="int">
+                    <input placeholder="" disabled="true" value='{{info.name}}' type="text" name="name" />
+                </view>
+            </view>
+            <view style="color:red;font-size:28rpx" wx:if="{{noYan}}">该号码已被其它用户认证,请使用另一个号码</view>
+            <view class="line">
+                <view class="trueName">电话号码</view>
+                <view class="int intFlex">
+                    <input style="width:230rpx;flex:2" placeholder="" type="number" name="phone" disabled="true" bindinput="getphone" value="{{phone}}" />
+                </view>
+            </view>
+
+            <view class="line">
+                <view class="trueName">电子邮件</view>
+                <view class="int">
+                    <input placeholder="" name="email" />
+                </view>
+            </view>
+            <view class="line">
+                <view class="trueName">身份证</view>
+                <view class="int">
+                    <input placeholder="" disabled="true" value='{{info.identity}}' name="identity" />
+                </view>
+            </view>
+        </view>
+        <button class="buttom" formType="submit">提交</button>
+    </form>
+</view>
+<view wx:if="{{condition}}" class="citypicker">
+    <picker-view indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange" class="citybody">
+        <view class="cityheader">
+            <view bindtap="open" class="city-cancel">取消</view>
+            <view bindtap="open" class="city-true">确定</view>
+        </view>
+        <picker-view-column>
+            <view wx:for="{{provinces}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+            <view wx:for="{{citys}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+        </picker-view-column>
+        <picker-view-column>
+            <view wx:for="{{countys}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</view>
+        </picker-view-column>
+    </picker-view>
+</view>
+
+
+<!--查看示例图片  -->
+<view class="exampleBox" wx:if="{{togle==4}}">
+    <view class="example">
+        <image src="{{exampleData.exampleImg}}"></image>
+        <view class="words">
+            <text class="title">{{exampleData.txt}}示例图</text>
+            <text>{{exampleData.exampleTxt}}</text>
+        </view>
+    </view>
+    <view class="close-example" bindtap="togleFn">×</view>
+</view>

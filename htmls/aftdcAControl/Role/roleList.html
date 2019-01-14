@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>后台管理中心</title>
+    <link href="/static/css/admin/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/admin/pages.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/admin/AdminLTE.css" rel="stylesheet" type="text/css"/>
+    <script src="/static/js/public/axios.min.js"></script>
+    <script src="/static/js/public/vue.min.js"></script>
+    <!-- 分页组件 -->
+    <script src="/static/js/public/pages.js"></script>
+</head>
+
+<body class='wst-page'>
+<div id="app" v-cloak>
+    <div class='wst-tbar' >
+        <a class="btn btn-success glyphicon glyphicon-plus"  @click="operate()">新增</a>
+    </div>
+    <div class="wst-body wst-table">
+        <table class="table table-hover table-striped table-bordered wst-list">
+            <thead>
+            <tr>
+                <th >&nbsp;</th>
+                <th>角色名称</th>
+                <th >操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="(item,index) in listData">
+                <td>{{index+1}}</td>
+                <td>{{item.roleName}}</td>
+                <!-- roleId==3为超级管理员 不能修改权限 -->
+                <td>
+                <span v-if="item.roleId!=3">
+                   <a class="btn btn-warning glyphicon glyphicon-pencil" @click="operate(item.roleId)">修改</a>&nbsp;
+                   <button type="button" class="btn btn-danger glyphicon glyphicon-trash"
+                           @click="del(item.roleId,index)">刪除</button>
+                </span>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan='5' align='center'>
+                    <!-- 分页  -->
+                    <pages :page-numb="pageNumb" :page-curent="pageCurent" @pagefather="pageFn"></pages>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/static/js/admin/roleList.js"></script>
+</html>

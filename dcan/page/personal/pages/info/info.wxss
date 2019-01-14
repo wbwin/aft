@@ -1,0 +1,101 @@
+page{
+  background: #f8f8f8;
+}
+
+.info{
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  margin-top: 12rpx;
+  font-size: 32rpx;
+}
+.choice{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 12rpx;
+  border-bottom:solid 2rpx #f8f8f8;
+}
+
+
+.headImg{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.more{
+  font-size: 40rpx;
+  color: #A8A8A8;
+}
+.choiceRight{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.word{
+  margin-right: 10rpx;
+  font-size: 28rpx;
+  color: #A8A8A8;
+}
+
+.change{
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  font-size: 32rpx;
+
+}
+.change text{
+  margin: 12rpx;
+  font-size: 28rpx;
+}
+.input{
+
+   margin: 0 12rpx;
+   position: relative;
+   overflow: hidden;
+}
+.borderLeft{
+ height: 75%;
+ width: 3rpx;
+ position: absolute;
+ top: 0;
+ left: 0;
+ z-index: 99;
+ background: #fff;
+}
+.borderRight{
+   height: 75%;
+ width: 3rpx;
+ position: absolute;
+ top: 0;
+ right: 0;
+ z-index: 99;
+ background: #fff;
+}
+.input input{
+  height: 38rpx;
+  padding-left: 5rpx;
+ border-bottom: solid 3rpx #53beb7;
+ border-left: solid 3rpx #53beb7;
+ border-right: solid 3rpx #53beb7;
+}
+.but{
+  width: 90%;
+  background: #53beb7;
+  color: #fff;
+  margin-top: 50rpx;
+  margin-bottom: 20rpx;
+}
+.butClose{
+   width: 90%;
+}
+

@@ -1,0 +1,116 @@
+<view class="tops">
+  <view class="words">
+    <!--0待审核 -3已退款 -2退款中 -1审核失败 2未付款，初审通过 3 已付款，请设置登录密码 1 开店成功-->
+    <view wx:if="{{enterInfo.shopStatus==0}}" class='first'>
+      <text>待提交开店申请</text>
+      <text>请完善资质信息，提交开店申请</text>
+    </view>
+    <view wx:elif="{{enterInfo.shopStatus==1}}" class='step'>
+      <text>开店成功</text>
+    </view>
+    <view wx:elif="{{enterInfo.shopStatus==2}}" class='step'>
+      <text>审核通过,待付款</text>
+    </view>
+    <view wx:elif="{{enterInfo.shopStatus==3}}" class='step'>
+      <text>已付款，请设置登录密码</text>
+    </view>
+    <view wx:elif="{{enterInfo.shopStatus==4}}" class='step'>
+      <text>资质信息已提交，请耐心等待审核</text>
+    </view>
+    <view wx:elif="{{enterInfo.shopStatus==-1}}" bindtap='closeMsg' class='step'>
+      <text>审核失败，<text style='color:#53beb7;display:inline;'>点击查看原因</text></text>
+    </view>
+    <view wx:elif="{{enterInfo.shopStatus==-2}}" class='step'>
+      <text>退款中</text>
+    </view>
+    <view wx:elif="{{enterInfo.shopStatus==-3}}" class='step'>
+      <text>已退款</text>
+    </view>
+  </view>
+</view>
+
+<view class="content">
+  <view class="shop">
+    <image src="https://image.aftdc.com/{{enterInfo.shopImg}}"></image>
+    <view class="shop-info">
+      <text class="title">{{enterInfo.shopName}}</text>
+      <text>门店联系人：{{enterInfo.userName}}</text>
+      <text>(<text class="phone">{{enterInfo.phone}}</text>)</text>
+      <text>创建时间：{{enterInfo.createTime}}</text>
+    </view>
+  </view>
+    <view wx:if="{{enterInfo.progress>0 && enterInfo.shopStatus !=-1}}">
+      <view class="info-item">
+      <text>店铺信息</text>
+      <view> <text class="more"><text>已填写 </text>></text> </view>
+      </view>
+    </view>
+    <navigator url="../settInfo/settInfo?phone={{phone}}&token={{token}}&is_fill_in={{enterInfo.shopStatus==-1 ? 1 : 0}}" wx:else>
+      <view class="info-item">
+      <text>店铺信息</text>
+      <view> <text class="more"><text>{{enterInfo.shopStatus==-1 ? '请修改' : '未填写'}} </text>></text> </view>
+      </view>
+    </navigator>
+    <view wx:if="{{enterInfo.progress>1 && enterInfo.shopStatus !=-1}}">
+      <view class="info-item">
+      <text>资质信息</text>
+      <view> <text class="more"><text>已填写 </text>></text> </view>
+      </view>
+    </view>
+    <view bindtap='is_complete' data-num='2' wx:else>
+      <view class="info-item">
+      <text>资质信息</text>
+      <view> <text class="more"><text>{{enterInfo.shopStatus==-1 ? '请修改' : '未填写'}} </text>></text> </view>
+      </view>
+    </view>
+    <view wx:if="{{enterInfo.progress>2 && enterInfo.shopStatus !=-1}}">
+      <view class="info-item">
+      <text>合作方案</text>
+      <view> <text class="more"><text>已填写 </text>></text> </view>
+      </view>
+    </view>
+    <view bindtap='is_complete' data-num='3' wx:else>
+      <view class="info-item">
+      <text>合作方案</text>
+      <view> <text class="more"><text>{{enterInfo.shopStatus==-1 ? '请修改' : '未填写'}} </text>></text> </view>
+      </view>
+    </view>
+    <form class='formStyle' report-submit='true'>
+      <button class="nextBut" form-type='submit' wx:if="{{enterInfo.shopStatus==1}}" bindtap="deleteShop" disabled='{{disabled}}'>注销店铺</button>
+      <button class="nextBut" disabled="{{password}}" wx:if="{{enterInfo.shopStatus==2}}" bindtap="setMima" disabled='{{disabled}}'>审核通过,待付款</button>
+      <button class="nextBut" disabled="{{password}}" wx:if="{{enterInfo.shopStatus==3}}" bindtap="setMima" disabled='{{disabled}}'>设置登录密码</button>
+    </form>
+</view>
+<!--密码弹出  -->
+<view class="modal-box" hidden="{{flag}}">
+  <view class="modal-body">
+    <view class="modal-content">
+      <form bindsubmit="formSubmit" >
+        <input type="password" value="" bindinput="detaone" placeholder="设置密码" placeholder-class="placClass" />
+        <input type="password" value="" bindinput="detatwo" placeholder="确定密码" placeholder-class="placClass" />
+        <button class="knowBtn" formType="submit" disabled='{{disabled}}'>保存</button>
+      </form>
+    </view>
+  </view>
+</view>
+<!--注销弹出  -->
+<!-- <view class="modal-box" hidden="{{popup}}" bindtap="popup">
+  <view class="modal-body">
+    <view class="modal-content">
+      <form bindsubmit="formcause" >
+        <input type="text" value="" bindinput="cause" placeholder="请说明原因" placeholder-class="placClass" />
+        <button class="knowBtn" formType="submit">确定</button>
+      </form>
+    </view>
+  </view>
+</view> -->
+<!-- 失败弹出 -->
+<view class="loadingBack"  wx:if="{{msg}}">
+  <view class="msgBox">
+    <text class="pwBoxTitle">审核失败原因</text>
+    <text class="msgText" wx:for="{{enterInfo.error_msg}}">{{index+1}}. {{item}}</text>
+    <view class="btn" bindtap='closeMsg'>
+      <text class="failBtn">确定</text>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/static/css/business/all.css" />
+    <link rel="stylesheet" href="/static/css/business/edit.css" />
+    <link rel="stylesheet" href="/static/css/business/ActAddDesk.css" />
+    <script type="text/javascript" src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+    <script type="text/javascript" src=""></script>
+</head>
+<!--菜品编辑-->
+
+<body>
+<div class="content-wrapper padding-md" id="eait" v-cloak>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="shopTitle">
+               桌位<span v-if="state==false">添加</span><span v-if="state==true">修改</span>
+                <!-- <a href="javascript:;" class="pull-right menu-color">返回</a> -->
+            </div>
+        </div>
+        <div class="panel-body">
+
+
+                <!--桌位名称-->
+                <div class="form-group">
+                    <label class="control-label item-2">
+                        <span class="text-danger">*</span>
+                        桌位名称
+                    </label>
+                    <div class="item-4">
+                        <input type="text" name="deskName" class="form-control" maxlength="12" placeholder="请输入桌位名称（12字内）" />
+                    </div>
+                </div>
+                <!--桌位人数-->
+                <div class="form-group">
+                    <label class="control-label item-2">
+                        <span class="text-danger">*</span>
+                        桌位人数
+                    </label>
+                    <div class="item-4">
+                        <input type="text" class="form-control" name="deskPersonNum" oninput='this.value=this.value.replace(/^[0]+[0-9]*$/gi,"")' onkeyup="this.value=this.value.replace(/[^0-9,]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9,]/g,'')" placeholder="请输入桌位人数"/>
+                    </div>
+                </div>
+
+                <!--商品描述-->
+                <div class="form-group">
+                    <label class="control-label item-2">
+
+                        桌位号码
+                    </label>
+                    <div class="item-4">
+                        <input class="form-control"  name="deskNum"oninput='this.value=this.value.replace(/^[0]+[0-9]*$/gi,"")' onkeyup="this.value=this.value.replace(/[^0-9,]/g,'')" onafterpaste="this.value=this.value.replace(/[^0-9,]/g,'')" placeholder="请输入桌位号码">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label item-2">
+
+                        桌位类型
+                    </label>
+                    <div class="item-4">
+                        <div class="wrapper-demo">
+                            <div id="dd" class="wrapper-dropdown-2" tabindex="1"><span class="deskType">请选择类型</span>
+                                <ul class="dropdown">
+                                    <li @click="getType(this.event)"><a href="#"><i class="icon-twitter icon-large" ></i>散台</a></li>
+                                    <li @click="getType(this.event)"><a href="#"><i class="icon-github icon-large" ></i>包厢</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+        </div>
+        <div class="panel-footer text-center">
+            <button class="kui-button-menu active paddings" @click="editDesk()">保存</button>
+            <button class="kui-button-menu paddings" onClick="javascript :history.back(-1);">取消</button>
+        </div>
+
+    </div>
+
+
+
+
+  <!---->
+    <!--&lt;!&ndash;错误提示&ndash;&gt;-->
+    <!--<div class="errBox modal" v-if="errTips['state']" >-->
+        <!--<div class="modal-dialog">-->
+            <!--<div class="errContent">-->
+                <!--<p class="errtips">{{errTips.txt}}</p>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+
+    <!--&lt;!&ndash;提示框&ndash;&gt;-->
+    <!--<div class="HoverBox"  v-if="hoverTips['state']" :style="hoverTips.styles">-->
+        <!--<div class="arrow"></div>-->
+        <!--{{hoverTips.txt}}-->
+    <!--</div>-->
+
+</div>
+
+
+
+<script type="text/javascript" src="/static/js/business/ActAddDesk.js"></script>
+</body>
+
+</html>

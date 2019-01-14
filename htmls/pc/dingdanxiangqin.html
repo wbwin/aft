@@ -1,0 +1,191 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>afanti阿凡提订单</title>
+    <link rel="stylesheet" href="/static/css/pc/all.css">
+    <link rel="stylesheet" href="/static/css/pc/dingdanxiangqin.css">
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+    <script type="text/javascript" src="/static/js/pc/common.js"></script>
+</head>
+
+<body>
+<!--头部-->
+
+<!--头部-->
+
+
+<!--主要内容-->
+<div class="conter" id="app" v-cloak>
+    <comheader></comheader>
+    <div id="all_inprotener">
+        <div class="title">当前位置：&nbsp;&nbsp;<a href="/pc/index.html" class="geographic">{{geographic}}</a>&nbsp;&nbsp;<a href="javascript:0;" @click="addressclick()"> [{{geographic==null?'选择地址':'切换地址'}}]</a>&nbsp;&nbsp;>&nbsp;&nbsp;订单详情
+        </div>
+
+
+        <div class="all_left">
+            <div class="myall"><a id="active" href="/pc/onlyconter.html">个人中心</a></div>
+
+            <div class="mydingdan">我的订单</div>
+            <div class="er_fenlan "><a href="/pc/threemont.html">近三个月订单</a></div>
+            <div class="er_fenlan"><a href="/pc/daipjdingdan.html">待评价订单</a></div>
+            <div class="er_fenlan"><a href="/pc/tuidanjilu.html">退单记录</a></div>
+
+            <div class="myzichan">我的资产</div>
+            <div class="er_fenlan"><a href="/pc/myhongbao.html">我的红包</a></div>
+            <div class="er_fenlan"><a href="/pc/zhanghuyue.html">账户余额</a></div>
+            <div class="er_fenlan"><a href="/pc/myjifen.html">我的积分</a></div>
+
+            <div class="myziliao">我的资料</div>
+            <div class="er_fenlan"><a href="/pc/myziliao.html">个人资料</a></div>
+            <div class="er_fenlan"><a href="/pc/dizhiguanli.html">地址管理</a></div>
+            <div class="er_fenlan"><a href="/pc/safeconter.html">安全中心</a></div>
+            <div class="er_fenlan"><a href="/pc/ggpassword.html">修改密码</a></div>
+
+            <div class="myshoucang"><a href="/pc/wodeshoucang.html">我的收藏</a></div>
+
+        </div>
+        <!--  里面为右边白框   里面为右边白框   里面为右边白框   里面为右边白框   里面为右边白框   里面为右边白框  -->
+        <div class="all_right">
+            <div class="ddan_xqin">订单详情</div>
+
+            <!--  退单时显示   退单时显示   退单时显示   退单时显示   退单时显示   退单时显示   退单时显示  -->
+            <!--<div class="hui_bj">-->
+                <!--<div class="jindu">-->
+                    <!--<div class="zuo">订单已提交</div>-->
+                    <!--<div class="you">订单已取消</div>-->
+                <!--</div>-->
+                <!--<div class="line"></div>-->
+                <!--<img class="zuoimg" src="/static/image/pc/020.jpg" height="8" width="18">-->
+                <!--<img class="youimg" src="/static/image/pc/020.jpg" height="8" width="18">-->
+            <!--</div>-->
+            <!--&lt;!&ndash;  退单时显示   退单时显示   退单时显示   退单时显示   退单时显示   退单时显示   退单时显示  &ndash;&gt;-->
+
+            <!--&lt;!&ndash;  订单完成时显示     订单完成时显示     订单完成时显示     订单完成时显示     订单完成时显示   &ndash;&gt;-->
+            <!--<div class="dingdanwanchen">-->
+                <!--<div class="topkuang_shang">-->
+                    <!--<div class="left">订单已提交</div>-->
+                    <!--<div class="centers">商家已接单</div>-->
+                    <!--<div class="right">已送达</div>-->
+                <!--</div>-->
+                <!--<div class="line"></div>-->
+                <!--<img class="comone" src="/static/image/pc/020.jpg" height="8" width="18">-->
+                <!--<img class="comtwo" src="/static/image/pc/020.jpg" height="8" width="18">-->
+                <!--<img class="comthree" src="/static/image/pc/202.jpg" height="8" width="18">-->
+            <!--</div>-->
+            <!--&lt;!&ndash;  订单完成时显示     订单完成时显示     订单完成时显示     订单完成时显示     订单完成时显示   &ndash;&gt;-->
+
+
+            <div class="quxaiok">
+                <div class="zzuo">
+                    <div class="topment">{{dataz.orderStatus==1?'待发货已受理':dataz.orderStatus==0?'已支付未受理':dataz.orderStatus==3?'配送中':
+                        dataz.orderStatus==-3?'退款中':dataz.orderStatus==2?'打包中':dataz.orderStatus==4?'已收货待评价':dataz.orderStatus==-1?'已取消':
+                        dataz.orderStatus==-4?'取消退款成功':dataz.orderStatus==-7?'商家取消订单':dataz.orderStatus==-8?'平台申退款中':
+                        dataz.orderStatus==8?'平台退款成功':dataz.orderStatus==-9?'平台拒绝退款':dataz.orderStatus==-2?'等待付款':'未知状态'}}</div>
+                    <!--<div class="subment">系统于17:55取消订单,取消理由:用户超时未支付</div>-->
+                </div>
+                <div class="yyou"><a href="javascript:0;" v-if="dataz.orderStatus==-2" @click="cencelClick()">取消订单</a><a href="javascript:0;" style="margin-left: 20px" @click="againClick()">再来一单</a><a href="javascript:0;" v-if="dataz.orderStatus==-2" @click="payClick()" class="pay">去付款</a></div>
+            </div>
+
+            <div class="xiangxi_conter">
+                <div class="theone">
+                    <div class="imggg"><img src="/static/image/pc/xiaio.jpg" height="44" width="44" alt=""></div>
+                    <div class="neirong">
+                        <div class="all_jk">
+                            <a href="javascript:0;" @click="nameClick()"> {{dataz.shopName}}</a>
+                            <span>
+                      <a href="javascript:0;" @click="collectClick()"><img src="/static/image/pc/101.jpg">{{dataz.collect==0?'收藏':'已收藏'}}</a>
+                      <a class="alltousu" @click="alltousuClick()"><img src="/static/image/pc/102.jpg">投诉</a>
+                  </span>
+                        </div>
+                        <div class="all_jkkj">
+                            <span>订单号：{{dataz.orderNo}}</span>
+                            <span>商家电话：{{dataz.shopTel}}{{dataz.shopTel1?' / '+dataz.shopTel1:''}}{{dataz.shopTel2?' / '+dataz.shopTel2:''}} </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="thetwo">
+                    <div class="myleft">
+                        <div class="nbsp">
+                            <span class="s_yi">菜品</span>
+                            <span class="s_er">数量</span>
+                            <span class="s_san">小计(元)</span>
+                        </div>
+                        <div class="nb_sp" v-for="(item,index) in dataz.goods">
+                            <span class="syi">{{item.goodsName}}</span>
+                            <span class="ser">{{item.goodsNums}}</span>
+                            <span class="ssan">{{item.goodsPrice}}</span>
+                        </div>
+                        <div class="nb_sssp">
+                            <span class="syi">餐盒</span>
+                            <span class="ser">{{dataz.boxFee}}.00</span>
+
+                        </div>
+                        <div class="nb_topsp">
+                            <span class="syi">配送费</span>
+                            <span class="ser">{{dataz.deliverMoney}}</span>
+                        </div>
+                        <div class="nb_topsp">
+                            <span class="syi">会员折扣</span>
+                            <span class="ser">{{vip==0?'非会员':vip.zk+'折'}}</span>
+                        </div>
+                        <div class="need_pay"><span>{{dataz.needPay}}</span><span class="shiji">实际支付：</span></div>
+                    </div>
+                    <div class="myright">
+                        <div class="hte_psxx">配送信息</div>
+                        <div class="hte_psfs">配送方式 ：{{dataz.deliverType==1?'商家配送':''}}</div>
+                        <div class="hte_psfs">送达时间 ：尽快送出</div>
+
+                        <div class="lain_xi">
+                            <div class="people">联系人；{{dataz.userName}} {{dataz.userSex==0||dataz.userSex==3?'':dataz.userSex==1?'先生':'女士'}}</div>
+                            <div class="phone">联系电话：{{dataz.userPhone}}</div>
+                            <div class="shou_diz">
+                                <div class="key">收货地址：</div>
+                                <div class="vamler"> {{dataz.userAddress}}</div>
+                            </div>
+                        </div>
+
+                        <div class="hte_help">发票信息 ：{{dataz.kills==0?'无发票':''}}</div>
+                        <div class="hte_help">备注： {{dataz.orderRemarks==''?'无备注':dataz.orderRemarks}}</div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+        <!--  里面为右边白框   里面为右边白框   里面为右边白框   里面为右边白框   里面为右边白框   里面为右边白框  -->
+    </div>
+
+
+    <!-- 投诉框  投诉框  投诉框  投诉框  投诉框  投诉框  投诉框  投诉框  投诉框  投诉框 -->
+    <div class="thistousu">
+        <div class="all_kuang">
+            <div class="bai_kuang">
+                <div class="out"><span @click="logout()">×</span></div>
+                <div class="tit_tousu">投诉举报</div>
+                <div class="dan_xuan" v-for="(item,index) in complain"><input type="radio" name="1"  :value="index">{{item}}</div>
+                <!--<div class="dan_xuan"><input type="radio" name="1"  value="2">商家参加了活动，但没有优惠</div>-->
+                <!--<div class="dan_xuan"><input type="radio" name="1" value="3" checked="true">其他</div>-->
+                <textarea class="textear"  id="textear"></textarea>
+                <bottom class="bottom" @click="bottomClick()">提交</bottom>
+            </div>
+        </div>
+    </div>
+    <!-- 投诉框  投诉框  投诉框  投诉框  投诉框  投诉框  投诉框  投诉框  投诉框  投诉框 -->
+
+
+
+    <comfooter></comfooter>
+</div>
+
+<!--主要内容-->
+
+
+<!--尾部-->
+
+<script src="/static/js/pc/dingdanxiangqin.js"></script>
+</body>
+</html>

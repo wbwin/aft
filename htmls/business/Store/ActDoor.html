@@ -1,0 +1,952 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>阿凡提</title>
+    <link rel="stylesheet" href="/static/css/business/ActDoor.css">
+    <link rel="stylesheet" href="/static/css/business/time.css">
+    <link rel="stylesheet" href="/static/js/public/lib/honeySwitch.css">
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script src="/static/js/public/dateSelectSum.js"></script>
+    <script type="text/javascript" src="/static/js/public/lib/honeySwitch.js"></script>
+    <script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp&key=AQMBZ-L4FCO-4VNWY-S5SGC-BNSG7-ALBIS"></script>
+    <script src="/static/js/public/jquery.uploadify.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+</head>
+
+<!--店铺设置   门店管理-->
+
+<body>
+<div class="dec" id="door" v-cloak>
+    <input type="hidden" name="lat" :value="shops.latitude">
+    <input type="hidden" name="lng" :value="shops.longitude">
+    <input type="hidden" name="range" :value="shops.range">
+    <div class="edcf_mendo">
+        <div id="men_xxi" @click="pageFn(1)" :class="{'pageNav':pages==1}">门店信息</div>
+        <div id="men_zshi" @click="pageFn(8)" :class="{'pageNav':pages==8}">门店展示</div>
+        <!-- <div id="pei_xxi" @click="pageFn(2)"  :class="{'pageNav':pages==2}">配送信息</div> -->
+        <div id="fuu_xxi" @click="pageFn(3)" :class="{'pageNav':pages==3}">配送管理</div>
+        <div id="dao_ziqu" @click="pageFn(4)" :class="{'pageNav':pages==4}">到店自取</div>
+        <div id="da_zizhi" @click="pageFn(5)" :class="{'pageNav':pages==5}">营业资质</div>
+        <div id="lo_heton" @click="pageFn(6)" :class="{'pageNav':pages==6}">合同下载</div>
+        <div id="en_zuihi" @click="pageFn(7)" :class="{'pageNav':pages==7}">商家管理规范</div>
+    </div>
+    <div class="xewqj" style="display:none;">
+        为了贯彻《食品安全法》，更好地服务餐厅和用户，请您上传餐厅营业资质（包括但不限于营业执照、餐饮服务许可证、法人身份证）。如有疑问请致电客服1010-5557或您的业务经理。
+    </div>
+    <div class="tio_bu">
+        <div class="deikow">
+            <div class="tuioz_ai">{{shops.shopName}}</div>
+            <div class="wen_zo">地址：{{shops.shopAddress}}</div>
+        </div>
+        <div class="cdkjjd"><span class="cwkn"><a href="/HomePc/index/shop/shopId/{$shops.shopId}"
+                                                  style="text-decoration: none; color: #fff; padding: 9px 24px;"
+                                                  @click="cwknClick()">进入门店</a></span></div>
+    </div>
+
+    <div v-show="pages==8" class="conEngth">
+        <div class="huanJin">商家环境</div>
+        <div id="img" class="Sonier_Pere">
+            <div class="imgbox1">
+                <div class="imgnum1">
+                    <input type="file" id="ufile" @change="ufileChange" class="filepath1"
+                           style="background-image: url(/static/image/business/upload.png);"/>
+                    <img src="/static/image/business/upload.png" class="img11"/>
+                    <span class="close1">X</span>
+                </div>
+            </div>
+
+
+            <div class="imgbox1 leison ends" v-for="(item,index) in datazr2">
+                <div class="imgnum1">
+                    <input type="file" class="filepath1"/>
+                    <!--<span class="close1" @click="closeFnend()" style="display: inline;">X</span>-->
+                    <span class="close1" @click="closeFnend($event,item.id)" style="display: inline;">X</span>
+                    <img src="/static/image/business/upload.png" style="display: none;" class="img11"/>
+                    <img :src="'https://image.aftdc.com/'+item.ImgUrl" class="img22"/>
+                </div>
+            </div>
+
+            <div class="imgbox1 leison news" v-for="(item,index) in fileUrl">
+                <div class="imgnum1">
+                    <input type="file" class="filepath1"/>
+                    <span class="close1" @click="closeFn(index)" style="display: inline;">X</span>
+                    <img src="/static/image/business/upload.png" style="display: none;" class="img11"/>
+                    <img :src="item" class="img22"/>
+                </div>
+            </div>
+        </div>
+        <div class="edcvljwio">
+            <div class="zuoHinwe">视频链接：</div>
+            <div class="youHinwe">
+                <textarea class="Xtextera">{{datazr.video}}</textarea>
+            </div>
+        </div>
+        <!--<div class="edcvljwioS">-->
+            <!--<div class="zuoHinweS">商家后堂：</div>-->
+            <!--<div class="youHinweS">-->
+                <!--<textarea class="XtexteraS">{{datazr.zhibo}}</textarea>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="baiOn">
+            <div class="savere" @click="savereClick()">保存</div>
+        </div>
+    </div>
+
+    <input type="hidden" name="shopId" id="shopId" :value="shops.shopId">
+    <div class="all_mendianxingxi" v-show="pages==1" id="infor">
+        <div class="jiben">基本信息
+            <div class="nvfwioh">
+                <div class="xiugai" @click="xiugaiClick()">修改</div>
+                <div class="kejoce">
+                    <span class="tui_chu" @click="tui_chuClick()">退出</span> |
+                    <!-- <input type="submit" class="bao_cun" value="保存"> --><span class="bao_cun"
+                                                                                   @click="bao_cunClick()">保存</span>
+                </div>
+            </div>
+        </div>
+        <div class="er_bu">
+            <!--yingcang-->
+            <div class="dqweof" style="display:none">
+                <div class="vcnmlo">
+                    店铺电话
+                    <input class="inp_ut" type="text" name="shopTel" placeholder="店铺电话" :value="shops.shopTel"
+                           id="shopTel">
+                </div>
+                <div class="vcnmlo">
+                    <input class="inp_ut1" style="margin-left: 173px" type="text" placeholder="店铺电话" name="shopTel1"
+                           :value="shops.shopTel1" id="shopTel1">
+                </div>
+                <div class="vcnmlo">
+                    <input class="inp_ut2" style="margin-left: 173px" type="text" placeholder="店铺电话" name="shopTel2"
+                           :value="shops.shopTel2" id="shopTel2">
+                </div>
+                <!-- <div class="ksxjq"><span class="ccws">+添加</span>最多添加三个店铺电话</div> -->
+            </div>
+            <div class="ecdkneowq" style="display:none">
+                <div class="ckwejw">
+                    <span class="ckw_ejw">店铺公告：</span>
+                    <textarea class="xcsdll" name="notice" placeholder="店铺公告" id="notice">{{shops.notice}}</textarea>
+                </div>
+            </div>
+            <!--yingcang-->
+            <!--[门店信息]【店铺头像】【点击重新上传】【弹出框】-->
+            <!--[门店信息]【店铺头像】【点击重新上传】【保存弹出框】-->
+            <!-- <form action="{:U('Business/Act/Basic')}" method="post"> -->
+            <div class="bao_cunkuang" style="display:none;left: 0px">
+                <div class="cjoi_on">
+                    <div class="baoc_nei">
+                        <div class="wejckwhi">修改店铺基本信息请输入登录密码：<span class="cdwko_cuo" @click="cdwko_cuoClick()">×</span>
+                        </div>
+                        <div class="cwnio_oinx">登录密码：
+                            <input class="mi_m" type="password" name="loginPwd" id="loginPwd">
+                        </div>
+                        <div class="zuzi_i">
+                            <input type="submit" value="保存" class="b_cun" id="baocn" @click="save()">
+                            <input type="hidden" name="userId" id="userId" value="{$pwd.userId}">
+                            <span class="q_xixao" @click="q_xixaoClick()">取消</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--[门店信息]【店铺头像】【点击重新上传】【保存弹出框】-->
+            <!--[门店信息]【营业设置】【保存弹出框】-->
+            <!--[门店信息]【营业设置】【保存弹出框】-->
+            <!--[门店信息]【营业设置】【退出弹出框】-->
+            <div class="sdgvws">
+                店铺电话：<span id="huopohon">{{shops.shopTel}}</span>
+
+                <span v-if="shops.shopTel1!=''">  |</span> <span id="huopohon1" v-if="shops.shopTel1!=''">{{shops.shopTel1}}</span>
+                <span v-if="shops.shopTel2!=''">  |  </span><span id="huopohon2" v-if="shops.shopTel2!=''">{{shops.shopTel2}}</span>
+
+            </div>
+            <div class="sebws">
+                <span class="cio">店铺公告：</span>
+                <span class="dvcwlk">{{shops.notice}}</span>
+            </div>
+            <div class="sedcvdsbws">
+                <span class="ciocds">店铺头像：</span>
+                <span class="dvfwasdk">
+              <div class="cckd">
+                <img :src="'https://image.aftdc.com/'+shops.shopImg" name="shopImg" class="cecxl" height="120"
+                     width="160">
+                  <!--<input type="hidden" style="display: none" name="shopImg"  id="shopImg" value="">-->
+                <span class="efvcwev" @click="efvcwevClick()">点击重新上传</span>
+                </div>
+                <ul>
+                    <li>图片不得大于2MB</li>
+                    <li>图片分辨率最小需为320*240，最优为800*600</li>
+                    <li>图片格式需为jpg/png</li>
+                    <li>图片长宽比为4:3</li>
+                    <!-- <li class="elcdv">查看审核标准></li> -->
+                </ul>
+                </span>
+            </div>
+            <!--[门店信息]【店铺头像】【点击重新上传】【弹出框】-->
+            <div class="me_dwjc" style="left: 0">
+                <div class="cwekoo">
+                    <div class="cweojh">
+                        <div class="si_ij">修改店铺头像<span class="si_cuo" @click="si_cuoClick()">×</span></div>
+                        <div class="si_line">
+                            <span class="si_chuan" @click="si_chuanClick()"
+                                  style="border-bottom: 3px solid #06c1ae; color:#06c1ae">本地上传</span>
+                        </div>
+                        <!--【图库选择】本地上传-->
+                        <!-- <form action="__URL__/upload" method="post"  enctype="multipart/form-data"> -->
+                        <div class="ben_tup">
+                            <input type="file" id="cdefunck" style="display:none;"
+                                   @change="cdefunckChange(this.event)"/>
+                            <div class="cfjwoe">
+                                <div class="ckjsa" @click="ckjsaClick()">选择本地图片</div>
+                                <!--  <input type="file" id="inputnei" style="display:none"> -->
+                            </div>
+                            <!--<input type="hidden" name="shopId" id="shopId" :value="shops.shopId">-->
+                            <!-- </form> -->
+
+                            <div class="cfwoe_injwe">错误图片示例</div>
+                            <div class="wecjoweij_xic">
+                                <div class="tu_ind">
+                                    <img src="/static/image/business/msd.png" height="160" width="199" alt="">
+                                    <div class="heio_imh">直接翻拍菜单</div>
+                                </div>
+                                <div class="tu_ind">
+                                    <img src="/static/image/business/msd.png" height="160" width="199" alt="">
+                                    <div class="heio_imh">图片模糊</div>
+                                </div>
+                                <div class="tu_ind">
+                                    <img src="/static/image/business/msd.png" height="160" width="199" alt="">
+                                    <div class="heio_imh">图片翻转、变形</div>
+                                </div>
+                                <div class="tu_ind">
+                                    <img src="/static/image/business/msd.png" height="160" width="199" alt="">
+                                    <div class="heio_imh">图片含有水印、马赛克</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--【图库选择】本地上传-->
+                        <!--上传图片完成之后的截取-->
+                        <!-- <form action="__URL__/upload" method="post" id="uploadForm"  enctype="multipart/form-data"> -->
+                        <input type="hidden" name="shopImg" id="shopImg" :value="shops.shopImg">
+                        <div class="shanmwango" style="display:none">
+                            <div class="dceko_dci">
+                                <div id="cvdkjv">
+                                    <!-- <img src="images/ces1.png" height="300" width="250"> --></div>
+                                <div class="wekncfo"><span class="scw_su" @click="scw_suClick()">选择图片</span></div>
+                            </div>
+                            <div class="qwcjqwh">
+                                <div class="eskoo_ckc"><img src="" height="200" width="250" alt=""></div>
+                                <div class="decjnw">预览
+                                    <div class="cdek_shiy" @click="cdek_shiyClick()">确定使用</div>
+                                    <div class="qu_wsh" @click="qu_wshClick()">取消</div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- </form> -->
+                        <!-- </form> -->
+                        <!--  -->
+
+                        <!--  -->
+                        <div class="guan_lian">
+                            <div class="guan_bi" @click="guan_biClick()">关闭</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cdegvwgbvwrbgw">
+                <span class="ciocsfvfds">店铺二维码：</span>
+
+                <span class="dvfbnrswwsdk">
+             <div class="dvacckd">
+                <img :src="'https://image.aftdc.com/'+shops.wxCode" class="dsvvbsvb" height="90" width="90">
+                 <input type="hidden" name="img" :value="shops.wxCode">
+             </div>
+             <div class="dvwkln">该二维码是您店铺的手机网址；</div>
+             <div class="cvdsvvd">您可以将此二维码通过网上或线下宣传展示给您的用户；</div>
+             <div class="cvdsvvd">用户使用手机扫描该二维码，就可以访问您的店铺网页并下单哦！</div>
+             <div class="cwploja"><a :href="'https://image.aftdc.com/'+shops.wxCode" :download="shops.wxCode"
+                                     class="cwploja"
+                                     style="background: #fff; text-decoration: none">[下载二维码]</a></div>
+         </span>
+
+            </div>
+            <div class="cdewrbgw">
+                <span class="cifbhdds">店铺小程序二维码：</span>
+
+                <span class="dvfbnwsdk">
+             <div class="dvavckd">
+                <img :src="'https://image.aftdc.com/'+shops.wxAppCode" class="dsvfsvb" height="113" width="116">
+                  <input type="hidden" name="img" :value="shops.wxAppCode">
+             </div>
+             <div class="dvwkvfln">该二维码是阿凡提外卖小程序您店铺的手机网址；</div>
+             <div class="cvdsdvvsvvd">您可以将此二维码通过网上或线下宣传展示给您的用户；</div>
+             <div class="cvdsdvvsvvd">用户使用微信APP扫描该二维码，就可以访问您的店铺网页并下单哦！</div>
+             <div class="cjfpce">抓住新的推广方式，快来试试吧！</div>
+             <div class="cwplodsavja"><a :href="'https://image.aftdc.com/'+shops.wxAppCode" :download="shops.wxAppCode"
+                                         class="cwploja"
+                                         style="background: #fff; text-decoration: none">[下载二维码]</a></div>
+       </span>
+
+            </div>
+        </div>
+        <div class="efjpocw">营业设置
+            <div class="nvfwidevcoh">
+                <!-- <div class="xicdsugai">修改</div> -->
+
+                <!-- <div class="kejcdoce" style="display:none">
+
+
+                    <span class="tui_vfchu">退出</span> | <span class="bao_vfcun">保存</span>
+                </div> -->
+            </div>
+        </div>
+        <div class="askcjqo">
+            <div class="pocjfw"><span class="cwko">订餐时间：</span>如果您使用的是阿凡提配送，营业时间的设置需在配送营业时间内：00:00-01:30，07:00-24:00
+            </div>
+            <div style="width:410px;height:55px; margin:0 auto;">
+                <select id="select1" style="border-radius:5px;width:60px;height:28px;background: #06c1ae; color:#fff;">
+                    <option :value="shops.StartTime">{{shops.StartTime}}</option>
+
+                    <template v-for="i in 23">
+                        <option value="'0'i" v-if="i<=9">0{{i}}</option>
+                        <option value="i" v-else>{{i}}</option>
+                    </template>
+                </select> :
+                <select id="select2" style="border-radius:5px;width:60px;height:28px;background: #06c1ae; color:#fff;">
+                    <option :value="shops.time">{{shops.time}}</option>
+
+                    <template v-for="i in 59">
+                        <option value="'0'i" v-if="i<=9">0{{i}}</option>
+                        <option value="i" v-else>{{i}}</option>
+                    </template>
+                </select> 至
+                <select id="select3" style="border-radius:5px;width:60px;height:28px;background: #06c1ae; color:#fff;">
+                    <option :value="shops.EndTime">{{shops.EndTime}}</option>
+                    <template v-for="i in 23">
+                        <option value="'0'i" v-if="i<=9">0{{i}}</option>
+                        <option value="i" v-else>{{i}}</option>
+                    </template>
+
+                </select> :
+                <select id="select4" style="border-radius:5px;width:60px;height:28px;background: #06c1ae; color:#fff;">
+                    <option :value="shops.End">{{shops.End}}</option>
+
+                    <template v-for="i in 59">
+                        <option value="'0'i" v-if="i<=9">0{{i}}</option>
+                        <option value="i" v-else>{{i}}</option>
+                    </template>
+                </select>
+                <input type="submit"
+                       style="border-radius:5px; background:#06c1ae; color:#fff; border:none; padding:6px 12px; float:right;"
+                       class="baovfcun bao_vfcun" value="保存设置" @click="bao_vfcunClick()">
+            </div>
+            <!--2-->
+            <!-- </div> -->
+            <div class="ckwojh" style="display: none">
+                非营业时间下单:
+                <input id="zhichi" type="radio" name="1"/>支持
+                <input id="buzhichi" type="radio" checked="checked" name="0"/>不支持
+                <span class="cwo_wen">?</span>
+            </div>
+            <div class="cwlekjp" style="display: none">
+                <div class="xcwekjo">
+                    <!--    <div class="maskBox"></div>-->
+                    预订单时间范围:
+                    <ul class="ewkpj">
+                        <li>&nbsp; <span id="title">&nbsp;</span>
+                            <div class="scale_panel">
+                                <span class="r">100</span>0
+                                <div class="scale" id="bar">
+                                    <div></div>
+                                    <span id="btn" @mousedown="drag(event)"></span>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <!--           <div class="di_chang">
+                                 <div class="dclk"></div>
+                              </div> -->
+                </div>
+                <div class="cowi">
+                    <span>当天</span>
+                    <span>明天</span>
+                    <span>后天</span>
+                    <span>第3天</span>
+                    <span>第4天</span>
+                    <span>第5天</span>
+                    <span>第6天</span>
+                    <span>第7天</span>
+                </div>
+                <div class="weoo">当天门店支持从<span class="fspan">当天</span>到<span class="fspan">明天</span>的预订单 <span
+                        class="cwclwj">?</span></div>
+            </div>
+        </div>
+        <div class="vwevas">其他服务（如需调整，请联系业务经理15918746862）</div>
+        <div class="lcjwoe">
+
+            <div class="k_yi" v-if="shops.bill==1">开具发票：支持</div>
+
+            <div v-else class="k_yi">开具发票：不支持</div>
+
+            <div class="k_er">发票最低金额：0 元 （提示：发票金额请以订单中实际支付金额为准！）</div>
+            <!-- <div class="k_san">发票提示信息：</div> -->
+        </div>
+        <div class="vwevfrvas">店铺分类（如需调整，请联系业务经理15918746862）<span class="xqwekcno" @click="xqwekcnoClick()"
+                                                                  style="display: none;">查看全部店铺分类</span></div>
+        <div class="weoch">
+            <div class="in_cj"><span class="spaned">当前所属主分类：</span> {{dataz.cuisine}} -> {{datazc.name}}
+            </div>
+
+            <div class="in_cj" v-if="dataz.secondary_name"><span class="spaned">当前所属次营分类：</span>
+            {{dataz.secondary_name}} -> {{secondary.name}}
+            </div>
+
+        </div>
+        <!-- ......................................... -->
+        <div class="cw_tuichu" style="display:none;left: 0px;">
+            <div class="we_juhw">
+                <div class="ewqn_iuh">
+                    <div class="cwelkkj">提示<span class="cwck_oi" @click="cwck_oiClick()">×</span></div>
+                    <div class="wevjw">退出编辑后，此次修改将不会生效，是否确定退出？</div>
+                    <div class="ewqfho_tu">
+                        <span class="cweck" @click="cweckClick()">确定</span>
+                        <span class="scloo" @click="sclooClick()">取消</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--[门店信息]【营业设置】【退出弹出框】-->
+        <!--[门店信息]【基本信息】【退出弹出框】[门店信息]【基本信息】【退出弹出框】-->
+        <div class="cw_tuidvfdchu" style="display:none;left:0px;">
+            <div class="wde_juhw">
+                <div class="ewqn_cdiuh">
+                    <div class="cwel_kkj">提示<span class="cwck_ocdsi" @click="cwck_ocdsiClick()">×</span></div>
+                    <div class="wevjsw">退出编辑后，此次修改将不会生效，是否确定退出？</div>
+                    <div class="ewqfho_cdtu">
+                        <span class="cw_eck" @click="cw_eckClick()">确定</span>
+                        <span class="sc_loo" @click="sc_looClick()">取消</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--[门店信息]【基本信息】【退出弹出框】[门店信息]【基本信息】【退出弹出框】-->
+        <!--[门店信息]【查看全部店铺分类】【弹出框】-->
+        <div class="chankan_alldenlei" style="display:none;">
+            <div class="wkojp_un">
+                <div class="dneofj_uiouyuj">
+                    <div class="ktioo_top">查看全部店铺分类<span class="soan_yio" @click="soan_yioClick()">×</span></div>
+                    <!---->
+                    <div class="jcpo_whjh">
+                        <div class="xokefce">鲜花绿植</div>
+                        <div class="cew_litetr">绿植 鲜花</div>
+                        <div class="lwkejjc">美食</div>
+                        <select name="type" size="1" id="type" class="xia_lakuang" @click="xia_lakuangClick()">
+                            <template v-for="(item,index)in datazl1">
+                                <!--<option value="item.name">{{item.name}}</option>-->
+                            </template>
+                        </select>
+                        -->
+                        <select name="lable" size="1" id="lables" class="xia_lakuang">
+                            <template v-for="(item,index)in datazl">
+                                <!--<option value="item.name">{{item.name}}</option>-->
+                            </template>
+                        </select>
+                        <div class="xokefce">甜点饮品:</div>
+                        <div class="cew_litetr">冰淇淋 其他饮品 凉茶/龟苓膏 奶茶果汁 咖啡 中西糕点 面包蛋糕 甜品</div>
+                        <div class="xokefce">生鲜果蔬:</div>
+                        <div class="cew_litetr">大闸蟹 其他海鲜水产 肉禽蛋奶 冷冻速食 其他生鲜果蔬 蔬菜 鲜切水果 整装水果</div>
+                        <div class="xokefce">生活超市:</div>
+                        <div class="cew_litetr">五金日用 日化美妆 文具店 书店 酒水/茶行 宠物用品 地方特产 进口食品 水站/奶站 便利店 粮油调味 超市 零食/干果</div>
+                        <div class="xokefce">医药健康:</div>
+                        <div class="cew_litetr">成人用品 OTC 中药 保健药</div>
+                    </div>
+                    <!---->
+                    <div class="wejh_juie">
+                        <span class="que_renl" @click="que_renlClick()">确认</span>
+                        <span class="qu_xxiao" @click="qu_xxiaoClick()">取消</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--门店信息门店信息门店信息门店信息门店信息门店信息门店信息门店信息门店信息门店信息门店信息门店信息门店信息门店信息门店信息门店信息门店信息门店信息-->
+    <!--配送信息配送信息配送信息配送信息配送信息配送信息配送信息配送信息配送信息配送信息配送信息配送信息配送信息配送信息配送信息配送信息配送信息配送信息-->
+    <div class="all_peisongxingxi" v-show="pages==2">
+        <div class="pei_zijian">自建 <span class="peiliter_zijian">（由阿凡提专送团队提供配送服务）</span></div>
+        <div class="map_allkuang">
+            <div class="mapleft_all">
+                <div class="mapleft_fanwei">区域及配送范围</div>
+                <div class="mapleft_fankuan">
+                    <div class="lwe_xwjkx">配送范围 <span class="wn_ahol">?</span></div>
+                    <div class="left_alwo">起送价 {{shops.deliveryStartMoney}} 元配送费 动态定价 <span class="wn_ahol">?</span>
+                    </div>
+                </div>
+                <div class="mapetop_fankuan" style="display: none">
+                    <div class="lwe_xsdkds">恶劣天气配送范围 <span class="wei_shen">未生效</span><span class="wn_ahol">?</span>
+                    </div>
+                    <div class="afnsa">显示范围</div>
+                    <div class="wefcklwnj">起送价 {{shops.deliveryStartMoney}}元配送费 动态定价<span class="wn_ahol">?</span></div>
+                </div>
+            </div>
+            <div class="mapright_all" id="overboh">
+            </div>
+        </div>
+    </div>
+    <!--配送信息配送信息配送信息配送信息配送信息配送信息配送信息配送信息配送信息配送信息配送信息配送信息配送信息配送信息配送信息配送信息配送信息配送信息-->
+    <!--配送服务配送服务配送服务配送服务配送服务配送服务配送服务配送服务配送服务配送服务配送服务配送服务配送服务配送服务配送服务配送服务配送服务配送服务-->
+
+    <div class="all_peisongfuwu" v-show="pages==3">
+        <div class="cewk_fuwu">本餐厅已绑定的配送团队（如有疑问请联系您的业务经理15918746862）</div>
+        <!-- <div class="xqwc"><div class="zijian_jian">自建</div></div> -->
+        <div class="xqwc">
+            <div class="common-row">
+
+                <!--<input v-if="datazi.isdelivery==1" type="hidden" name="ps" value="1" class="ps">-->
+
+
+                <!--<input v-else type="hidden" value="0" name="ps" class="ps">-->
+
+                <div class="Xptending">
+                    <div class="cell-left" style="margin: 0 0 20px 0">是否开启配送</div>
+                    <div v-if="datazi.isdelivery==1">
+                        <input style="width:54px; height:24px; display: none;" name="isdelivery" type="checkbox"
+                               value="1"
+                        />
+                    </div>
+                    <div v-else>
+                        <input style="width:54px; height:24px; display: none;" name="isdelivery" type="checkbox"
+                               value="0"/>
+                    </div>
+                    <div class="isdeliverys" @click="isdeliveryClick()">
+                        <div class="Rungers"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="directory_content" v-if="datazi.isdelivery==1">
+
+                <div v-if="datazresult.dlvService=='1,2'" class="peiz">
+                    <!--<input class="is" name="dlvService" checked type="checkbox" value="1"/>蜂鸟配送-->
+                    <input class="is" name="dlvServic" checked type="checkbox" value="2"/>商家自配送
+                </div>
+
+
+                <div v-else-if="datazresult.dlvService==1" class="peiz">
+                    <!--<input class="is" name="dlvService" checked type="checkbox" value="1"/>蜂鸟配送-->
+                    <input class="is" name="dlvServic" type="checkbox" value="2"/>商家自配送
+                </div>
+
+
+                <div v-else-if="datazresult.dlvService==2" class="peiz">
+                    <!--<input class="is" name="dlvService" type="checkbox" value="1"/>蜂鸟配送-->
+                    <input class="is" name="dlvServic" checked type="checkbox" value="2"/>商家自配送
+                </div>
+
+                <div v-else class="peiz">
+                    <!--<input class="is" name="dlvService" type="checkbox" value="1"/>蜂鸟配送-->
+                    <input class="is" name="dlvServic" type="checkbox" value="2"/>商家自配送
+                </div>
+
+                <div class="peiz" style="display: flex"><span class="CondeSper">配送范围<span
+                        class="tipsUnit">(公里)</span></span>
+                    <input class="inp" type="text" name="ranges" placeholder="单位：公里" :value="datazresult.range">
+                </div>
+                <div class="peiz" style="display: flex"><span class="CondeSper">配送时间<span
+                        class="tipsUnit">(分钟)</span></span>
+                    <input class="inp" type="text" maxlength="4"
+                           oninput='this.value=this.value.replace(/^[0]+[0-9]*$/gi,"")'
+                           onkeyup="this.value=this.value.replace(/[^0-9,]/g,'')"
+                           onafterpaste="this.value=this.value.replace(/[^0-9,]/g,'')" name="deliveryCostTime"
+                           placeholder="单位：分钟" :value="datazresult.deliveryCostTime">
+                </div>
+                <div class="peiz" style="display: flex"><span class="CondeSper">配送费<span
+                        class="tipsUnit">(元)</span></span>
+                    <input class="inp" type="text" name="deliveryStartMoney" placeholder="单位：元"
+                           :value="datazresult.deliveryStartMoney">
+                </div>
+                <div class="peiz" style="display: flex"><span class="CondeSper">起送价<span
+                        class="tipsUnit">(元)</span></span>
+                    <input style="margin-bottom: 24px;" class="inp" type="text" :value="datazresult.deliveryFreeMoney"
+                           name="deliveryFreeMoney" placeholder="单位：元">
+                </div>
+            </div>
+            <a id="yes" class="TiJiao" @click="TiJiaoClick()">确定并保存</a>
+        </div>
+
+    </div>
+
+    <!--配送服务配送服务配送服务配送服务配送服务配送服务配送服务配送服务配送服务配送服务配送服务配送服务配送服务配送服务配送服务配送服务配送服务配送服务-->
+    <!--到店自取-到店自取-到店自取-到店自取-到店自取-到店自取-到店自取-到店自取-到店自取-到店自取-到店自取-到店自取-到店自取-到店自取-到店自取-到店自取-->
+    <!--<input type="hidden" name="id" value="{$id}">-->
+    <div class="all_daodianziqu" v-show="pages==4">
+        <div class="daodian_one">
+            <div class="cdskckd">
+                顾客到店自取
+            </div>
+            <div class="tom_wei">到店增值服务费率：5% <span class="big_soan">到店增值服务费率：5%服务费率可能随平台规则变化，详情请查看<span
+                    class="somer_lie" @click="somer_lieClick()">《到店自取服务补充协议》</span></span>
+            </div>
+        </div>
+        <div class="cfewaklj">
+            功能设置
+        </div>
+        <div class="fcokej">
+            <div class="cwlkjwo" style="display: flex;align-items: center; height: 60px;line-height: 60px">是否开启到店自取功能
+                <div v-if="shops.isTostore==1">
+                    <input style="width:54px; height:24px; display: none;" name="isTostore" type="checkbox" value="1"
+                    />
+                </div>
+                <div v-else>
+                    <input style="width:54px; height:24px; display: none;" name="isTostore" type="checkbox" value="0"/>
+                </div>
+                <div class="KounLouis" @click="KounLouisClick()">
+                    <div class="Runger"></div>
+                </div>
+            </div>
+            <div class="cwlkjwo">
+                <div v-if="shops.isTostore==1" style="display: inline-block">备餐时间 <span>（分钟）</span>
+                    <input type="hidden" class="isTostore" :value="shops.isTostore">
+                    <input type="text" :value="shops.mealTime" name="mealTime"
+                           style="width:210px; height:40px;text-indent:1em;border-radius: 5px;outline:none;border: 1px solid #06c1ae; margin-right: 12px; "
+                           placeholder="请输入备餐时间(限30分钟内)"></div>
+                <a href="#" class="Baocun"
+                   style="color:#fff; text-decoration: none; background: #06c1ae;padding:12px 20px;border-radius: 5px;"
+                   @click="BaocunClick()">保存</a>
+            </div>
+            <div class="sclkqj"><img class="zui_sdjqo" src="/static/image/business/ldp.png" height="15" width="14">请在指定时间内完成备餐。
+            </div>
+        </div>
+
+        <div class="cfewa_klj">自取流程说明</div>
+        <div class="cwelnkmco">
+            <div class="wefcjw_sdsw">
+                <div class="sej">
+                    <div class="clwep">
+                        <div class="ewljfkp">
+                            <img src="/static/image/business/csa1.png" height="36" width="38">
+                        </div>
+                    </div>
+                    <div class="qewd_fljp">注意订单卡片和小票的特殊标记</div>
+                </div>
+                <div class="ssdej">
+                    <div class="cnwa">
+                        <div class="zhednh_kuianj"><img src="/static/image/business/xc1.png" height="30" width="30">
+                        </div>
+                    </div>
+                </div>
+                <div class="sej">
+                    <div class="clwep">
+                        <div class="ewljfkp">
+                            <img src="/static/image/business/csa1.png" height="36" width="38">
+                        </div>
+                    </div>
+                    <div class="qewd_fljp">注意订单卡片和小票的特殊标记</div>
+                </div>
+                <div class="ssdej">
+                    <div class="cnwa">
+                        <div class="zhednh_kuianj"><img src="/static/image/business/xc1.png" height="30" width="30">
+                        </div>
+                    </div>
+                </div>
+                <div class="sej">
+                    <div class="clwep">
+                        <div class="ewljfkp">
+                            <img src="/static/image/business/csa1.png" height="36" width="38">
+                        </div>
+                    </div>
+                    <div class="qewd_fljp">注意订单卡片和小票的特殊标记</div>
+                </div>
+                <div class="ssdej">
+                    <div class="cnwa">
+                        <div class="zhednh_kuianj"><img src="/static/image/business/xc1.png" height="30" width="30">
+                        </div>
+                    </div>
+                </div>
+                <div class="sej">
+                    <div class="clwep">
+                        <div class="ewljfkp">
+                            <img src="/static/image/business/csa1.png" height="36" width="38">
+                        </div>
+                    </div>
+                    <div class="qewd_fljp">注意订单卡片和小票的特殊标记</div>
+                </div>
+            </div>
+            <div class="cewpojp">
+                <div class="celcjp"><img src="/static/image/business/ces1.png" height="502" width="555"></div>
+                <div class="cedkw"><img src="/static/image/business/ce1.jpg" height="502" width="185"></div>
+            </div>
+            <div class="cedp_enf">
+                <div class="ewka_pian">订单卡片</div>
+                <div class="ewk_ikw">商家小片</div>
+            </div>
+            <div class="edkj">
+                <div class="cwef_cjwo"><span class="cwkoj">1</span>自取订单特殊标识</div>
+                <div class="cwef_cjwo"><span class="cwkoj">2</span>顾客到店时间</div>
+                <div class="cwef_cjwo"><span class="cwkoj">3</span>手机号作为取餐凭证</div>
+            </div>
+        </div>
+        <!--[向右时的弹框]-[向右时的弹框]-[向右时的弹框]-[向右时的弹框]-->
+        <div class="vcjc_sdvw" style="display:none">
+            <div class="cewkjo">
+                <div class="cdkljcde">
+                    <div class="baik_hu">确认停用<span class="cew_qkn" @click="cew_qknClick()">×</span></div>
+                    <div class="cwelj_cxjke">停用后不会产生新的自取订单</div>
+                    <div class="cwekjmk">
+                        <div class="cewqlj_okk" @click="cewqlj_okkClick()">取消</div>
+                        <div class="ekf_olol" @click="ekf_ololClick()">确认停用</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--[向右时的弹框]-[向右时的弹框]-[向右时的弹框]-[向右时的弹框]-->
+        <!--补充协议影藏框-->
+        <div class="sdcfkj" style="display:none;left: 0px">
+            <div class="cxe_wio">
+                <div class="cweko_neikuang">
+                    <div class="kjkjs_jio">到店自取服务补充协议<span class="dvwjk" @click="dvwjkClick()">×</span></div>
+                    <div class="cewweoi_lklklc">
+                        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp鉴于您与阿凡提外卖已签署《阿凡提外卖服务合同》（以下简称“原合同”）。本协议将作为原合同的重要组成部分，一旦您点击“接受”按钮，即表示您已接受了以下所述的条款和条件，同意受本协议约束。如果您对本协议条款的部分或全部不予接受或有异议的，请不要点击”接受“并联系客服【电话：10105557】。
+                        本协议内容同时包括阿凡提外卖网上订餐平台到店自取服务项目可能不断发布或更新的相关协议、业务规则等内容。上述内容一经正式发布，即为本协议不可分割的组成部分。
+                        本协议项下的您为通过阿凡提外卖（包括但不限于阿凡提网、阿凡提外卖运营或管理的网络服务平台）开展相关经营活动的商家。本协议项下的阿凡提外卖为阿凡提网的管理者北京三快在线科技有限公司及其关联公司或合作方，包括但不限于阿凡提网实际运营者北京三快科技有限公司等现有关联公司及未来可能设立的关联公司。
+                        请您务必审慎阅读、充分理解各条款内容，特别是免除或者限制责任的条款。限制、免责条款可能以黑体加粗形式提示您注意。
+                        根据《中华人民共和国合同法》及相关法律、法规的规定,甲乙双方在互惠互利、合作共赢的基础上,经充分友好协商达成如下合同,以兹共同遵守。
+                        <br/> 一、到店自取服务内容
+                        <br/> 1.1
+                        您自行点击增加商家系统的到店自取功能后，系统将为您在阿凡提外卖用户端向用户展示您的门店支持到店自取。用户可以在支持到店自取服务的线上门店下单，并根据阿凡提外卖用户端线上的提示在用户和您约定的时间内到店自取商品，不再依赖于配送服务；
+                        <br/> 1.2 您可自行设置到店自取功能服务中的商品准备时间；
+                        <br/> 1.3 在您首次此项服务后，可自行设置到店自取功能服务打开或关闭，在操作打开或关闭到店自取功能后，您在阿凡提外卖用户端的线上门店将会同步相应开启或关闭该功能标识及操作入口。
+                        <br/> 1.4 阿凡提外卖会向用户展示并提供供用户选择到店自取订单的领取时间，并在相应时间点对用户进行领取商品提醒。
+                        <br/> 二、协议有效期:
+                        <br/> 1.2.1 自您点击本协议之时开始生效；
+                        <br/> 1.2.2 本协议约定的期限届满或约定的其他终止情形发生时,本协议终止。
+                        <br/> 三、 服务费用与相关说明
+                        <br/> 3.1
+                        费用类型：您开通到店自取功能后，到店自取服务订单根据订单金额按比例向阿凡提外卖支付到店增值服务费。阿凡提外卖收取到店增值服务费的到店自取订单不必再支付原合同中规定的服务费及配送补充协议中规定的增值服务费；
+                        <br/> 3.2 到店自取服务订单的到店增值服务费率计算规则为：
+                        <br/> 3.2.1 如您仅与阿凡提外卖签订了《阿凡提外卖服务合同》，则阿凡提外卖收取的到店增值服务费率与《阿凡提外卖服务合同》中约定的费率一致；
+                        <br/> 3.2.2
+                        如您与阿凡提外卖同时签订了《配送补充协议》或《快送补充协议》，则系统会判定您已经签署的《配送补充协议》或《快送补充协议》中约定的费率是否高于商家后台公示的基准到店增值服务费率，以其中较低费率为准（如：高于或等于，则该公示的基准到店增值服务费率则为阿凡提外卖收取的到店增值服务费率；如低于该费率，则您已签署的《配送补充协议》或《快送补充协议》中约定的费率为阿凡提外卖收取的到店增值服务费率。
+                        <br/> 3.3
+                        基准到店增值服务费率会于您的商家后台公示，并随实际情况进行调整。如发生变动，系统会进行告知，如您不同意变更后的基准到店增值服务费率，可自行选择关闭到店取餐服务功能，如您继续使用到店取餐功能视为您同意并认可该公示的基准到店增值服务费率和阿凡提外卖收取的到店增值服务费率。
+                        <br/> 3.4 到店自取服务订单的到店增值服务费的计算方式：到店增值服务费=（菜品原价+餐盒费+赠品原价-商家承担活动成本）*到店增值服务费率
+                        <br/> 3.5 结算方式：针对到店自取确认收货的订单，阿凡提外卖按原合同约定结算时间向您支付结算价，每笔订单的结算价=菜品原价+餐盒费+赠品原价-商家承担活动款-到店增值服务费。
+                        <br/> 3.6 如阿凡提外卖用户要求提供发票，由您根据用户实际支付金额(扣减用户购买其他第三方产品或服务的费用，包括但不限于准时保服务之服务费等）提供等额的发票。
+                        <br/> 四、订单取消的损失责任划分
+                        <br/> 3.1 您取消：您接单后如若需要取消或部分取消外卖用户的到店自取订单，需在接单后的5分钟内通知阿凡提外卖，并协助阿凡提外卖与用户沟通联系；
+                        <br/> 3.2 用户取消：
+                        <br/> 3.2.1 在您将外卖商品合理包装前取消，双方认定无损失；
+                        <br/> 3.2.2 在您将外卖商品合理包装后，用户发起取消，需您自行与用户协商处理；
+                        <br/> 3.3 因您的商品及其包装的质量问题、准备商品延误等您自身原因导致的订单取消，损失全部由您自行承担。
+                        <br/> 五、双方权利义务
+                        <br/> 5.1 您的权利和义务
+                        <br/> 5.1.1
+                        您需保证您的商家地址及联系信息准确无误，并便于用户进行辨识寻找。如您的商家地址及联系信息有任何变更，需提前3天通知阿凡提外卖并及时自行修改，否则产生的一切损失有您来承担。
+                        <br/> 5.1.2 您需保证在用户下单时选择的自取时间之前完成商品的准备，如用户到店后商品未完成准备并引起用户申请退款行为，如与用户协商无果，必须同意用户的退款请求。
+                        <br/> 5.1.3 如用户超过订单上的自取时间仍未来领取商品，您应及时通知阿凡提外卖并协助与用户协商领取时间或解决办法。
+                        <br/> 5.1.4
+                        您不可利用到店自取服务的特性及相关特性，进行损害或影响阿凡提外卖利益的行为，该行为包括但不限于利用程序漏洞或业务特性伪造到店自取服务订单，提升商家排名或骗取阿凡提外卖商家活动补贴费用及用户活动补贴费用。如有发现则根据情节严重性进行违规处理或移交司法机关处理，并赔偿阿凡提外卖因此造成的全部损失。
+                        <br/> 5.2 阿凡提外卖的权利和义务
+                        <br/> 5.2.1 在您选择开启到店自取功能后，阿凡提外卖负责提供相应的到店自取系统功能，并在此基础上收取到店增值服务费。
+                        <br/> 5.2.2 如您违反本协议约定，未能履行协议义务的，阿凡提外卖有权随时解除本协议，并操作您的商品下线。
+                        <br/> 5.2.3 阿凡提外卖为您提供本协议项下第一条约定的服务，并按照协议约定向您收取到店增值服务费。
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--补充协议影藏框-->
+    </div>
+    <!--到店自取-到店自取-到店自取-到店自取-到店自取-到店自取-到店自取-到店自取-到店自取-到店自取-到店自取-到店自取-到店自取-到店自取-到店自取-到店自取-->
+    <!--营业资质营资质营业资质营业资质营业资质营业资质营业资质营业资质营业资质营业资质营业资质营业资质营业资质营业资质营业资质-->
+    <div id="yezz" style="display:none;">
+        <div class="all_yingyezizhi" v-show="pages==5">
+            <div class="e_lfkwp">营业执照 &nbsp&nbsp
+
+                <span id="shenhe" style="color:#87CEFA" v-if="dataza.shopStatus==1">审核通过</span>
+
+            </div>
+        </div>
+        <div class="juhvcs_shu">
+            <div class="esc_kojh" style="margin-left:30%">
+                <template v-for="(item,index) in datazs2">
+                    <!--<img style="width:186px; height:148px; margin:4px; " :src="/item">-->
+                </template>
+            </div>
+        </div>
+        <div class="all_yingyezizhi" v-show="pages==5">
+            <div class="e_lfkwp">个人证件&nbsp&nbsp
+                <!--<span id="shenhe" style="color:#87CEFA" v-if="dataza.shopStatus==1">审核通过</span>-->
+                <span id="shenhe1" style="color:#87CEFA" v-if="dataza.shopStatus==1">审核通过</span>
+
+            </div>
+        </div>
+        <div class="juhvcs_shu">
+            <div class="esc_kojh" style="margin-left:30%">
+                <template v-for="(item,index) in datazs1">
+                    <!--<img style="width:186px; height:148px; margin:4px; " :src="/item">-->
+                </template>
+            </div>
+            <!-- <div class="xqxx" style="width:400px;height:126px; margin:0 auto;">
+                  <span>个人证件号类型：</span><br /><br />
+                  <span style="padding-left: 80px;">姓名：</span><br /><br />
+                  <span style="padding-left: 32px">身份证号码：</span>
+            </div> -->
+        </div>
+    </div>
+    <!--营业资质营业资质营业资质营业资质营业资质营业资质营业资质营业资质营业资质营业资质营业资质营业资质营业资质营业资质营业资质营业资质营业资质营业资质-->
+    <!--合同下载-合同下载-合同下载-合同下载-合同下载-合同下载-合同下载-合同下载-合同下载-合同下载-合同下载-合同下载-合同下载-合同下载-合同下载-合同下载-->
+    <div class="all_hetongxiazai" v-show="pages==6">
+        <div class="heton_xso">
+            <div class="he_one">电子合同版本号</div>
+            <div class="he_two">状态</div>
+            <div class="he_three">生效时间</div>
+            <div class="he_four">操作</div>
+        </div>
+        <div class="hh_xso">
+            <div class="hh_one">025665751500427978</div>
+            <div class="hh_two">生效中</div>
+            <div class="hh_three">2017-07-19 09:32</div>
+            <div class="hh_four"><span class="chh_h" @click="chh_hClick()">查看</span></div>
+        </div>
+    </div>
+    <!--弹出框-->
+    <div class="ewjkdh" style="display:none">
+        <div class="cdei_kk">合同状态： 生效中 <span class="fasn_jhij" @click="fasn_jhijClick()">返回</span> <span
+                class="hei_yohn">下载合同</span></div>
+        <div class="ckowoj">121212121</div>
+    </div>
+    <!--弹出框-->
+
+    <!--合同下载-合同下载-合同下载-合同下载-合同下载-合同下载-合同下载-合同下载-合同下载-合同下载-合同下载-合
+        同下载-合同下载-合同下载-合
+        同下载-合同下载-->
+    <!--商家管理规范商家管理规范商家管理规范商家管理规范商家管理规范商家管理规范商家管理规范商家管理规范商家管理规范商家管理规范商家管理规范商家管理规范-->
+    <div class="all_shanhjiaguanliguifan" v-show="pages==7">
+        <div class="tnoo_oi">
+            <div class="cslkc_oiohv">
+                <div @click="scrollFn(0)">《阿凡提外卖商家入驻流程》</div>
+                <div @click="scrollFn(1)">《阿凡提外卖商家名称命名规范》</div>
+                <div @click="scrollFn(2)">《阿凡提外卖商品发布规则》</div>
+                <div @click="scrollFn(3)">《阿凡提外卖商家线上管理规范》</div>
+                <div @click="scrollFn(4)">《阿凡提外卖不当使用他人权利规则》</div>
+                <div @click="scrollFn(5)">《阿凡提外卖商家环保倡议书》</div>
+            </div>
+            <div class="cejhco_jkc">
+                <div class="contentBox">
+                    <div class="hesrrt">阿凡提外卖商家入驻流程</div>
+                    <div class="zhu_ruiyaoqu">一、入驻要求</div>
+                    <div class="zhu_ruiyaoqu">1.1门店环境：商家需要有实体经营店面，店内环境干净整洁，必须符合《中华人民共和国食品安全法》、国家标准以及行业标准。</div>
+                    <div class="zhu_ruiycdaoqu">
+                        1.2
+                        经营资质：商家应当取得当地工商局、食药局授予的营业执照、行业许可证件等法律法规、行政规定的必需经营资质。具体办证流程可参考袋鼠学院《商家办证流程引导及证件查询》，或直接登录官方工商局、食药局等政府官网查询。
+                    </div>
+                    <div class="cwer_cxsecvw">二、入驻标准</div>
+                    <div class="cwer_cxsecvcsdw">2.1 资质信息</div>
+                    <div class="cwek_kjk">
+                        <div class="ewqj_ikdwq">
+                            <div class="ekcs_sj">资质项目</div>
+                            <div class="gvbe_ik">图片要求</div>
+                        </div>
+                        <div class="eo_iei">
+                            <div class="cdkcs_scj">营业执照</div>
+                            <div class="cowi_cikz">
+                                <div>（1）营业执照需提供原件；真实有效、提交审核时未过期；</div>
+                                <div>（2）营业执照需边框、国徽完整，拍摄清晰；</div>
+                                <div>（3）营业执照中注册号、名称、经营地址、经营范围、有效期、发证日期、发照机关等重要信息不能被遮挡或涂改；</div>
+                                <div>（4）营业执照图片中不得出现除阿凡提网及商家自己品牌以外的其他水印；</div>
+                                <div>（5）营业执照图片不得造假（包括P图、假证等）；</div>
+                                <div>（6）营业执照的黑白复印件可以替代营业执照原件，复印件必须加盖红色公章，公章文字需清晰且与营业执照名称一致（合同章不可以）；</div>
+                            </div>
+                        </div>
+                        <div class="eco_iei">
+                            <div class="cds_scj">行业许可证 （包括但不限于食品经营许可证、餐饮服务许可证、 食品流通许可证）</div>
+                            <div class="coi_ciz">
+                                <div>（1）许可证需原件、真实有效、提交审核时证件未过期；</div>
+                                <div>（2）许可证需边框完整，拍摄清晰；</div>
+                                <div>（3）许可证中单位名称、证字号、地址、发证机关等重要信息不能被遮挡或涂改；</div>
+                                <div>（4）许可证图片中不得出现除阿凡提网及商家自己品牌以外的其他水印；</div>
+                                <div>（5）许可证图片不得造假（包括P图、假证等）；</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="hesrrt">阿凡提外卖商家入驻流程</div> -->
+            </div>
+        </div>
+    </div>
+    <!--商家管理规范商家管理规范商家管理规范商家管理规范商家管理规范商家管理规范商家管理规范商家管理规范商家管理规范商家管理规范商家管理规范商家管理规范-->
+</div>
+<!--<script src="__ROOT__/App/Admin/View/Allfood/js/jquery.min.js"></script>-->
+<script type="text/javascript" src="/static/js/business/ActDoor.js"></script>
+</body>
+
+
+<!-- //    $(function() {
+//        $(".filepath").on("change",function() {
+//
+//            alert($('.imgbox').length);
+//
+//            var srcs = getObjectURL(this.files[0]);   //获取路径
+//            $(this).nextAll(".img1").hide();   //this指的是input
+//            $(this).nextAll(".img2").show();  //fireBUg查看第二次换图片不起做用
+//            $(this).nextAll('.close').show();   //this指的是input
+//            $(this).nextAll(".img2").attr("src",srcs);    //this指的是input
+//            $(this).val('');    //必须制空
+//            $(".close").on("click",function() {
+//                $(this).hide();     //this指的是span
+//                $(this).nextAll(".img2").hide();
+//                $(this).nextAll(".img1").show();
+//            })
+//        })
+//    })
+
+
+
+
+// function getObjectURL(file) {
+//     var url = null;
+//     if (window.createObjectURL != undefined) {
+//         url = window.createObjectURL(file)
+//     } else if (window.URL != undefined) {
+//         url = window.URL.createObjectURL(file)
+//     } (else) if (window.webkitURL != undefined) {
+//         url = window.webkitURL.createObjectURL(file)
+//     }
+//     return url
+
+// };
+
+
+
+
+// $(function() {
+//     $('#upload_image').change(function(event) {
+//         // 根据这个 <input> 获取文件的 HTML5 js 对象
+//         var files = event.target.files,
+//             file;
+//         if (files && files.length > 0) {
+//             // 获取目前上传的文件
+//             file = files[0];
+//             // 来在控制台看看到底这个对象是什么
+//             console.log(file);
+//             // 那么我们可以做一下诸如文件大小校验的动作
+//             if (file.size > 1024 * 1024 * 2) {
+//                 alert('图片大小不能超过 2MB!');
+//                 return false;
+//             }
+//             // !!!!!!
+//             // 下面是关键的关键，通过这个 file 对象生成一个可用的图像 URL
+//             // 获取 window 的 URL 工具
+//             var URL = window.URL || window.webkitURL;
+//             // 通过 file 生成目标 url
+//             var imgURL = URL.createObjectURL(file);
+//             // 用这个 URL 产生一个 <img> 将其显示出来
+//             $('body').append($('<img/>').attr('src', imgURL));
+//             // 使用下面这句可以在内存中释放对此 url 的伺服，跑了之后那个 URL 就无效了
+//             // URL.revokeObjectURL(imgURL);
+//         }
+//     });
+// }); -->
+
+
+</html>

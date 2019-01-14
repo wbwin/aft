@@ -1,0 +1,28 @@
+/* pages/read/read.wxss */
+.head{
+  text-align: center;
+  font-weight: 600;
+  font-size: 46rpx;
+}
+.time {  
+  display: flex;  
+  /* align-items: flex-end;   */
+  justify-content: flex-end;  
+  margin-top: 6%;
+  margin-bottom: 6%;
+  margin-right: 5%;
+}  
+.one{
+  font-size: 28rpx;
+  margin-left: 6%;
+  margin-bottom: 6%;
+  width: 90%;
+}
+.two{
+  margin-left: 6%;
+  font-size: 28rpx;
+  margin-bottom: 6%;
+}
+.fontWidth{
+  font-weight: bold;
+}

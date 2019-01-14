@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>后台管理中心</title>
+    <link href="/static/css/admin/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/admin/AdminLTE.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/admin/pages.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/admin/all.css" rel="stylesheet" type="text/css"/>
+    <script src="/static/js/public/axios.min.js"></script>
+    <script src="/static/js/public/vue.min.js"></script>
+    <!-- 分页组件 -->
+    <script src="/static/js/public/pages.js"></script>
+</head>
+<!-- 订单列表 -->
+<body class='wst-page'>
+<div id="app" v-cloak>
+    <div class='wst-tbar'>
+        店铺：<input type='text' name='shopName' id='shopName' class="input_search" v-model='shopName'/>
+        订单：<input type='text' name='orderNo' id='orderNo' class="input_search" v-model='orderNo'/>
+        订单状态： <select name='orderStatus' id='orderStatus' class="input_search" v-model="orderStatus">
+        <option value='-9999'>请选择</option>
+        <option value='-2'>未支付</option>
+        <option value='0'>未受理</option>
+        <option value='1'>已受理</option>
+        <option value='2'>打包中</option>
+        <option value='3'>配送中</option>
+        <option value='4'>已到货</option>
+        <option value='-100'>用户取消</option>
+        <option value='-3'>用户拒收</option>
+        <option value='-4'>取消退款成功</option>
+        <option value='-5'>店铺不同意拒收</option>
+    </select>
+        <button type="submit" class="btn btn-search glyphicon glyphicon-search" @click="pageFn(1)">查询</button>
+    </div>
+
+    <div class="wst-body wst-table" v-if="listData.length>0">
+        <table class="table table-hover table-striped table-bordered wst-list">
+            <template v-for="(item,index) in listData">
+                <thead>
+                <tr>
+                    <th colspan='6'>{{index+1}}.订单：{{item.orderNo}}<span
+                            style='margin-left:100px;'><a href="javascript:0;" @click="nameSearch(item.shopName)">{{item.shopName}}</a></span></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td width='350'>
+                        <div style='width:350px;'>
+
+                            <img style='margin:2px;' v-for="(x,imgdx) in item.goodslist" :src="'https://image.aftdc.com/'+x.goodsImg" height="50"
+                                 width="50" :title='x.goodsName'/>
+
+                        </div>
+                    </td>
+                    <td>{{item.userName}}</td>
+                    <td width='120'> ￥{{numbs(item.totalMoney,item.deliverMoney)}}<br/>
+                        <span v-if="item.payType==1">在线支付</span>
+                        <span v-else>货到付款</span>
+                    </td>
+                    <td width='150'>{{item.createTime}}</td>
+                    <td width='120'>
+                        <span v-if="item.orderStatus==3">用户拒收</span>
+                        <span v-else-if="item.orderStatus==-5">店铺不同意拒收</span>
+                        <span v-else-if="item.orderStatus==-4">店铺同意拒收</span>
+                        <span v-else-if="item.orderStatus==-2">未付款</span>
+                        <span v-else-if="item.orderStatus==-6||item.orderStatus==-7||item.orderStatus==-1">用户取消</span>
+                        <span v-if="item.orderStatus==0">未受理</span>
+                        <span v-else-if="item.orderStatus==1">已受理</span>
+                        <span v-else-if="item.orderStatus==2">打包中</span>
+                        <span v-else-if="item.orderStatus==3">配送中</span>
+                        <span v-else-if="item.orderStatus==4">已到货</span>
+                    </td>
+                    <td width='60'>
+                        <a class="btn btn-primary glyphicon glyphicon-eye-open" href="javascript:" style="display: initial" @click="see(item.orderId)">查看</a>&nbsp;
+                    </td>
+                </tr>
+            </template>
+            <tr>
+                <td colspan='6' align='center'>
+                    <pages :page-numb="pageNumb" :page-curent="pageCurent" @pagefather="pageFn"></pages>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="wu_mei"  v-else>
+        <img src="/static/image/pc/21.jpg" height="113" width="85">
+        <div style="display:block" class="panduan">暂无该查询条件的内容 换个条件试试吧！</div>
+
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/static/js/admin/orderList.js"></script>
+</html>

@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>阿凡提</title>
+    <link rel="stylesheet" href="/static/css/business/ActFuyuan.css">
+    <link rel="stylesheet" href="/static/css/business/all.css"/>
+
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+</head>
+
+<!--店铺设置  消息中心-->
+<body>
+
+
+
+
+
+<div id="desk" v-cloak>
+    <input type="hidden" name="shopId" id="shopId" :value="shopId">
+
+    <div class="header">
+        <a class="kui-button inline menu-color" href="javascript:0;"
+           style="background-color: #06c1ae; color:#fff" @click="ActAddFuyuanClick()">添加服务员</a>
+    </div>
+
+
+    <div class="Dabiank">
+        <div class="Sinderon">
+
+
+            <template v-for="(item,index) in fuyuan">
+                <div class="xunhu" v-if="item!=''">
+                    <div class="binlei ">姓名：<span class="neiron">{{item.waiterName}}</span></div>
+                    <div class="binlei ">编号：<span class="neiron">{{item.waiterNum}}</span></div>
+
+                    <div class="binlei " v-if="item.goods!=''">评分：<span class="neiron">{{item.goods}}</span></div>
+
+                    <div class="binlei " v-else>评分：<span class="neiron">本服务员暂无评分...</span></div>
+
+                    <div class="caozuo">
+                        <span class="caio" @click="ActxgClick(item)"><a href="javascript:0;" >编辑</a></span>
+                        <span class="caio dater"  @click="daterClick(item)">删除</span>
+                    </div>
+                </div>
+            </template>
+
+
+        </div>
+    </div>
+</div>
+<script src="/static/js/business/ActFuyuan.js"></script>
+</body>
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

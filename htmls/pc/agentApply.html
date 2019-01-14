@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>城市代理商申请表</title>
+    <link rel="stylesheet" href="/static/css/pc/agentApply.css">
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/pc/area.js" ></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+</head>
+<body id="body" >
+<div class="agent" @click="bodyClick()" v-cloak>
+    <header class="agent-top">
+        <h1>城市代理商<strong>申请表</strong></h1>
+    </header>
+
+    <div class="container">
+        <div>
+            <h2 class="page-subtitle">请填写代理基本信息</h2>
+            <div>
+                <div class="group">
+                    <h3 class="group-title">公司信息</h3>
+                    <div class="group-item">
+                        <span class="group-item_span ">公司名称</span>
+                        <div class="group-item_content">
+                            <div class="group-item_input is-disabled">
+
+                                <input class="group-item_input_inner" disabled="disabled" :value="companyName" placeholder="上传营业执照后自动获取"/>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="group-item">
+                        <span class="group-item_span">成立时间</span>
+                        <div class="group-item_content">
+                            <div class="group-item_input is-disabled">
+
+                                <input class="group-item_input_inner" disabled="disabled" :value="companyTime" placeholder="上传营业执照后自动获取"/>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="group-item">
+                        <span class="group-item_span">公司地址</span>
+                        <div class="group-item_content">
+                            <div class="group-item_input is-disabled">
+
+                                <input class="group-item_input_inner" disabled="disabled" :value="companyAddress" placeholder="上传营业执照后自动获取"/>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="group-item">
+                        <span class="group-item_span">公司规模（人）</span>
+                        <div class="group-item_content">
+                            <div class="group-item_input">
+
+                                <input class="group-item_input_inner" type="number" name="scale" @focus="inputFocus(event)" @blur="inputBlur(event)" @input="inputInput(event)"/>
+                            </div>
+                            <div class="group-item_error">不能为空</div>
+                        </div>
+                    </div>
+                    <div class="group-item">
+                        <span class="group-item_span">可投入资金(元)</span>
+                        <div class="group-item_content">
+                            <div class="group-item_input">
+
+                                <input class="group-item_input_inner" type="number" name="money"  @focus="inputFocus(event)" @blur="inputBlur(event)" @input="inputInput(event)"/>
+                            </div>
+                            <div class="group-item_error">不能为空</div>
+                        </div>
+                    </div>
+                    <div class="group-item">
+                        <span class="group-item_span">公司主营业务</span>
+                        <div class="group-item_content">
+                            <div class="group-item_input">
+
+                                <input class="group-item_input_inner" name="operation" @focus="inputFocus(event)" @blur="inputBlur(event)" @input="inputInput(event)"/>
+                            </div>
+                            <div class="group-item_error">不能为空</div>
+                        </div>
+                    </div>
+                    <div class="group-item license">
+                        <span class="group-item_span">营业执照</span>
+                        <div class="group-item_content">
+                            <div class="group-item_upload">
+                                <button class="button-primary" @click="buttonFtClick()"><span>点击上传</span></button>
+                                <input type="file" name="file" @change="fileChange(1,event)" id="fileFt" class="input_file"/>
+                            </div>
+                        </div>
+                        <div>
+                            <img :src="fileFt" id="ftImg" />
+                        </div>
+                    </div>
+                </div>
+                <div class="group">
+                    <h3 class="group-title">代理信息</h3>
+                    <div class="group-item">
+                        <span class="group-item_span">代理城市</span>
+                        <div class="group-item_content">
+                            <div class="group-item_input" @click="stopClick(event)">
+
+                                <input class="group-item_input_inner" style="cursor: pointer"  @click="placeClick()"  readonly="readonly" :value="placeVal" placeholder="请输入城市搜索" @focus="inputFocus(event)"  />
+                                <div class="place" >
+                                    <ul id="province" v-show="toggle==1" ><li class="placeCss" v-for="(item,index) in province" @click="provinceClick(index)">{{item.name}}</li></ul>
+                                    <ul id="city" v-show="toggle==2"><li class="placeCss" v-for="(item,index) in city" @click="cityClick(index)">{{item.name}}</li></ul>
+                                    <ul id="county" v-show="toggle==3"><li class="placeCss" v-for="(item,index) in county" @click="countyClick(index,event)">{{item}}</li></ul>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="group-item">
+                        <span class="group-item_span">代理城市餐饮规模</span>
+                        <div class="group-item_content">
+                            <div class="group-item_input">
+
+                                <input class="group-item_input_inner" placeholder="单位（家）" type="number"   name="cityScale" @focus="inputFocus(event)" @blur="inputBlur(event)" @input="inputInput(event)"/>
+                            </div>
+                            <div class="group-item_error">不能为空</div>
+                        </div>
+                    </div>
+                    <div class="group-item">
+                        <span class="group-item_span">相关市场资源</span>
+                        <div class="group-item_content">
+                            <div class="group-item_input">
+
+                                <input class="group-item_input_inner" @focus="inputFocus(event)" name="resource" @blur="inputBlur(event)" @input="inputInput(event)"/>
+                            </div>
+                            <div class="group-item_error">不能为空</div>
+                        </div>
+                    </div>
+                    <div class="group-item">
+                        <span class="group-item_span" style="padding: 0">是否有相关行业经验</span>
+
+                        <input type="radio" name="experience" id="1" value="1"><label for="1">是</label>
+                        <input type="radio" name="experience" id="2" value="0"><label for="2">否</label>
+
+                    </div>
+                    <div class="group-item">
+                        <span class="group-item_span" style="padding: 0">是否了解当地餐饮市场</span>
+                        <input type="radio" name="realize" id="3" value="1"><label for="3">是</label>
+                        <input type="radio" name="realize" id="4" value="0"><label for="4">否</label>
+                    </div>
+                </div>
+                <div class="group">
+                    <h3 class="group-title">个人信息</h3>
+                    <div class="group-item">
+                        <span class="group-item_span">姓名</span>
+                        <div class="group-item_content">
+                            <div class="group-item_input is-disabled">
+
+                                <input class="group-item_input_inner" disabled="disabled" :value="name" placeholder="上传身份证后自动获取"/>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="group-item">
+                        <span class="group-item_span">电话号码</span>
+                        <div class="group-item_content">
+                            <div class="group-item_input is-disabled">
+                                <input class="group-item_input_inner" disabled="disabled" :value="phone" />
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="group-item">
+                        <span class="group-item_span">身份证</span>
+                        <div class="group-item_content">
+                            <div class="group-item_input is-disabled">
+
+                                <input class="group-item_input_inner" disabled="disabled" :value="idCard" placeholder="上传身份证后自动获取"/>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="group-item">
+                        <span class="group-item_span">电子邮件</span>
+                        <div class="group-item_content">
+                            <div class="group-item_input">
+
+                                <input class="group-item_input_inner" name="email" @focus="inputFocus(event)" @blur="inputBlur(event)" @input="inputInput(event)"/>
+                            </div>
+                            <div class="group-item_error">不能为空</div>
+                        </div>
+                    </div>
+                    <div class="group-item license">
+                        <span class="group-item_span">身份证照片</span>
+                        <div class="group-item_content">
+                            <div class="group-item_upload">
+                                <button class="button-primary" @click="buttonSdClick()"><span>点击上传</span></button>
+                                <input type="file" name="file"  @change="fileChange(0,event)" id="fileSd" class="input_file"/>
+
+                            </div>
+
+                        </div>
+                        <div>
+                            <img :src="fileSd" id="sdImg"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button  type="button" class=" btn-block button-primary" @click="submintClick()"><span>提交申请</span></button>
+        </div>
+    </div>
+</div>
+<script src="/static/js/pc/agentApply.js"></script>
+</body>
+
+
+</html>

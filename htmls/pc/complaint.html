@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>阿凡提智慧点餐</title>
+    <link href='/static/css/pc/question.css' rel="stylesheet" type="text/css"/>
+
+    <link href='/static/css/pc/toJoin.css' rel="stylesheet" type="text/css"/>
+
+    <link href="/static/css/pc/all.css" rel="stylesheet"/>
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+    <script type="text/javascript" src="/static/js/pc/common.js"></script>
+
+    <head>
+
+
+<body class="body">
+
+<div id="app" v-cloak>
+    <comheader></comheader>
+
+    <div class="top-body">
+        <div>
+            <ul class="question_top">
+                <li>
+                    <div><a href="/pc/index.html">首页</a><i>/</i></div>
+                </li>
+                <li>
+                    <div><a href="/pc/server.html">服务中心</a><i>/</i></div>
+                </li>
+                <li>
+                    <div>
+                        <a href="/pc/complaint.html">投诉建议</a><i>/</i>
+                    </div>
+                </li>
+                <li><span>{{complaint[questionCount]}}</span></li>
+            </ul>
+            <div class="question_center">
+                <div class="center_left">
+                    <h1>投诉建议</h1>
+                    <ul>
+                        <li v-for="(item,index) in complaint" @click="questionClick(index)" :class="[questionCount==index?'active':'']">
+                            <span>{{item}}</span>
+                        </li>
+                    </ul>
+                    <div class="left_footer">
+                        <a href="#"> <img src="/static/image/pc/kf.png" class="footer_img"/>联系客服</a>
+                    </div>
+                </div>
+                <div class="center_right">
+                <div  v-if="questionCount==0"><h1>{{complaint[questionCount]}}</h1>
+                    <div class="right_p">
+                        <p>请您打开阿凡提APP，点击“订单”-打开您要投诉的订单，点击右上角“耳机标志”-订单投诉选择需要投诉的问题即可：</p>
+                        <p><img src="/static/image/pc/complaint1.jpeg" style="width: 213px; height: 140px;"/></p>
+                        <p><img src="/static/image/pc/complaint2.jpeg" style="width: 213px; height: 140px;"/></p>
+                        <p>注：阿凡提APP投诉超过24小时无法提交。</p>
+                        <!--<div class="_btnBox_1xkuj_82">-->
+                        <!--<button ubt-click="100607" ubt-data-app="eleme" ubt-data-from="eleme-pc"-->
+                        <!--bt-data-name="我的订单超时了怎么办？" ubt-data-questionid="11522"><i-->
+                        <!--class="_good_1xkuj_98"></i>已解决-->
+                        <!--</button>-->
+                        <!--<button ubt-click="100608" ubt-data-app="eleme" ubt-data-from="eleme-pc"-->
+                        <!--bt-data-name="我的订单超时了怎么办？" ubt-data-questionid="11522"><i-->
+                        <!--class="_bad_1xkuj_100"></i>未解决-->
+                        <!--</button>-->
+                        <!--</div>-->
+                    </div>
+
+                </div>
+                <div  v-if="questionCount==1"><h1>{{complaint[questionCount]}}</h1>
+                    <div class="right_p">
+                        <p>非常抱歉给您带来不便，如出现商家少送或错送的情况，您可以按照以下方式进行操作：</p>
+                        <p>1、您可以直接在订单上申请部分退单（订单要确认收货方可申请部分退款）。</p>
+                        <p><img src="/static/image/pc/complaint3.png" style="width: 213px; height: 140px;"/></p>
+                        <p><img src="/static/image/pc/complaint4.jpeg" style="width: 213px; height: 140px;"/></p>
+                        <p><img src="/static/image/pc/complaint5.jpeg" style="width: 213px; height: 140px;"/></p>
+                        <p>2、如果无法部分退款或商家拒绝了退款，您可以联系商家补送或退款。</p>
+                        <p><img src="/static/image/pc/complaint6.jpeg" style="width: 213px; height: 140px;"/></p>
+
+                    </div>
+                </div>
+                    <div class="right_bottom">
+                        <h2><span>此答案是否解决您的问题？</span></h2>
+                        <div class="bottom_button">
+                            <button @click="solveClick()"><img src="/static/image/pc/iconThumb1.png" />已解决</button>
+                            <button @click="solveClick()"><img src="/static/image/pc/iconThumb2.png" />未解决</button>
+                        </div>
+                        <div class="bottom_success">
+                            <img src="/static/image/pc/yes.jpg" />
+                            评价成功，感谢您的支持
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="/static/js/pc/question.js"></script>
+</body>
+
+
+</html>

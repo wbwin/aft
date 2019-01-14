@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>afanti阿凡提订单</title>
+    <link rel="stylesheet" href="/static/css/pc/all.css">
+
+    <link rel="stylesheet" href="/static/css/pc/pages.css">
+    <link rel="stylesheet" href="/static/css/pc/threemont.css">
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+    <script type="text/javascript" src="/static/js/pc/common.js"></script>
+    <script src="/static/js/public/pages.js"></script>
+</head>
+
+<body>
+<!--头部-->
+
+
+<!--头部-->
+
+
+<!--主要内容-->
+<div class="conter" id="app" v-cloak>
+    <comheader></comheader>
+    <div id="all_inprotener">
+        <div class="title">当前位置：&nbsp;&nbsp;<a href="/pc/index.html" class="geographic">{{geographic}}</a>&nbsp;&nbsp;<a
+                href="javascript:0;" @click="addressclick()"> [{{geographic==null?'选择地址':'切换地址'}}]</a>&nbsp;&nbsp;>&nbsp;&nbsp;近三个月的订单
+        </div>
+
+        <div class="all_left">
+            <div class="myall"><a href="/pc/onlyconter.html">个人中心</a></div>
+
+            <div class="mydingdan">我的订单</div>
+            <div class="er_fenlan "><a id="active" href="/pc/threemont.html">近三个月订单</a></div>
+            <div class="er_fenlan"><a href="/pc/daipjdingdan.html">待评价订单</a></div>
+            <div class="er_fenlan"><a href="/pc/tuidanjilu.html">退单记录</a></div>
+
+            <div class="myzichan">我的资产</div>
+            <div class="er_fenlan"><a href="/pc/myhongbao.html">我的红包</a></div>
+            <div class="er_fenlan"><a href="/pc/zhanghuyue.html">账户余额</a></div>
+            <div class="er_fenlan"><a href="/pc/myjifen.html">我的积分</a></div>
+
+            <div class="myziliao">我的资料</div>
+            <div class="er_fenlan"><a href="/pc/myziliao.html">个人资料</a></div>
+            <div class="er_fenlan"><a href="/pc/dizhiguanli.html">地址管理</a></div>
+            <div class="er_fenlan"><a href="/pc/safeconter.html">安全中心</a></div>
+            <div class="er_fenlan"><a href="/pc/ggpassword.html">修改密码</a></div>
+
+            <div class="myshoucang"><a href="/pc/wodeshoucang.html">我的收藏</a></div>
+
+        </div>
+
+        <div class="all_right">
+            <div class="time_dingdan">近三个月订单</div>
+            <div id="tit_wenti">
+                <div class="sa_sp"><a href="/pc/server.html">热门问题</a>&nbsp;&nbsp;&nbsp;<a href="">随时关注订单状态</a></div>
+            </div>
+            <div class="wu_daipjdingdan" v-if="dataz.length==0">
+                <img src="/static/image/pc/21.jpg" height="113" width="85">
+                <span>暂无记录，现在就去<a href="/pc/index.html">订餐</a>吧！</span>
+            </div>
+            <div class="all_zhuangtai" v-if="dataz.length!=0">
+                <span class="one">下单时间</span>
+                <span class="two">订单内容</span>
+                <span class="three">支付金额(元)</span>
+                <span class="four">状态</span>
+                <span class="five">操作</span>
+            </div>
+
+            <!---11111111111111111111111111111111111111111后台循环后台循环后台循环后台循环后台循环后台循环11111111111111111111111-->
+
+
+            <template  v-if="dataz.length!=0">
+                <div class="dai_xunhuan" v-for="(item,index) in dataz">
+                    <div class="this_left">{{item.open}}<br/><span>{{item.end}}</span></div>
+                    <div class="xiao_biao"></div>
+
+                    <div class="this_right"><img :src="'https://image.aftdc.com/'+item.shopImg" style="cursor: pointer"
+                                                 @click="shopImgClick(item)" height="70" width="70">
+                    </div>
+                    <div class="this_zuizuo">
+                        <div class="all_xinxi">
+                            <span>{{item.shopName}}</span>
+
+
+                            <div class="divs" style="position: relative" @click="dingdanxiangqinClick(item)" @mouseenter="dingdanxiangqinOver(event)" @mouseleave="dingdanxiangqinOut()">
+                                <div class="goodsNameHide" >{{goodsNameHide(item)}}</div>{{goodsName(item)}}<b> {{goodsLength(item)}}</b>个菜品</div>
+                            <div class="divs" @click="dingdanxiangqinClick(item)">订单号：{{item.orderNo}}</div>
+
+                        </div>
+
+                        <div class="all_zhifu">
+                            <span>{{item.realTotalMoney}}</span>
+                            <div class="divs">{{item.payType}}</div>
+                        </div>
+
+                        <div class="all_zhuangtai">
+                            {{item.orderStatus}}
+                        </div>
+                        <div class="all_caozuo">
+                            <a href="javascript:0;" @click="dingdanxiangqinClick(item)">
+                                <div class="xiang_qing">订单详情</div>
+                            </a>
+                            <a href="javascript:0;" v-if="item.orderStatus=='等待付款'" @click="payClick(item)">
+                                <div class="fu_kuan">立即付款</div>
+                            </a>
+                            <div class="all_agaen" v-if="item.orderStatus!='等待付款'"><a href="javascript:0;" @click="againClick(item)">再来一份</a></div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+            <!--/**********************/-->
+            <div class="backG" @click="out()"></div>
+            <div class="msgbox">
+                <span @click="out()">×</span>
+                <div><img src="/static/image/pc/error.png"/></div>
+                <div class="msgbox_title">温馨提示</div>
+                <div class="msgbox_content">
+                    {{msg}}
+                </div>
+                <div class="msg_btn" @click="out()">确定</div>
+            </div>
+            <!--/**********************/-->
+
+
+            <!---1111111111111111111111111后台循环后台循环后台循环后台循环后台循环后台循环11111111111111-->
+
+
+            <div style='text-align:center;display: initial;' class="pages">
+                <!-- 分页 -->
+                <pages :page-numb="pageNumb" :page-curent="pageCurent" @pagefather="pageFn"></pages>
+            </div>
+
+        </div>
+
+    </div>
+
+    <comfooter></comfooter>
+</div>
+
+<!--主要内容-->
+
+
+<!--尾部-->
+
+
+<script src="/static/js/pc/threemont.js"></script>
+
+</body>
+</html>

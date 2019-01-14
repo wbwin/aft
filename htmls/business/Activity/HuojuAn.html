@@ -1,0 +1,126 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>阿凡提</title>
+<link rel="stylesheet" href="/static/css/business/all.css" />
+<link rel="stylesheet" href="/static/css/business/HuoJuAn.css">
+<link rel="stylesheet" href="/static/css/business/time.css">
+<script src="/static/js/public/jquery.min.js"></script>
+<script src="/static/js/public/vue.min.js"></script>
+</head>
+<body>
+<div class="dec" v-cloak>
+
+    <div class="ocfwjeh">精准营销 <span class="cwseoi">(您本月剩余优惠券 5000 张)</span>   <a class="wj" href="{:U('Business/Activity/HuoRenqun')}">+自定义人群</a> </div>
+
+   <div class="eweScedi">
+
+       <div class="vverxcbe">
+             <div class="dj">粉丝顾客</div>
+             <div class="edjcve">近30天内下单2次及以上，且单价较高的顾客</div>
+             <div class="cedji">截止昨日 32 人</div>
+             <div class="faajun"><a href="{:U('Business/Activity/HuoFaJuan')}">立刻发劵</a></div>
+       </div>
+
+   </div>
+
+
+<div class="cewi">
+    <div class="cdjio">
+          <div class="ben zuotoip" @click="zuotoipClick()">当前有效</div>
+          <div class="ben youtoip" @click="youtoipClick()">历史记录</div>
+    </div>
+
+    <div class="zuobb" >
+
+       <div class="cekvir">
+           券状态 <div class="crjvr" @click="crjvrClick()"><span id="daison">待发送</span> <span id="cej">▼</span></div>
+             <div class="ecwkojHk" style="display: none">
+                  <div class="ener" id="a" @click="denr(this.event)" >全部</div>
+                  <div class="ener" id="b" @click="denr(this.event)">已发送</div>
+                  <div class="ener" id="c" @click="denr(this.event)">待发送</div>
+             </div>
+       </div>
+    </div>
+
+    <div class="youbb" style="display: none">
+       121321
+    </div>
+
+</div>
+
+
+<!--<div class="ceoio">-->
+     <!--<div class="cekovAjklk">以上功能是否对您有帮助：</div>-->
+     <!--<div class="wejiuHkl">-->
+           <!--<div>-->
+                 <!--<div id="wekd"><div></div></div>-->
+           <!--</div>-->
+           <!--<div>2</div>-->
+           <!--<div>3</div>-->
+     <!--</div>-->
+
+<!--</div>-->
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p>商品管理对你是否有帮助</p>
+            <div class="row" style="padding: 15px 0;">
+                <div class="item-4 text-center manner">
+                    <div class="zan icon-wrapper "></div>
+                    <div class="description">很好,鼓励一下</div>
+                    <div class="count">1.41k</div>
+                </div>
+                <div class="item-4 text-center manner">
+                    <div class="notZan icon-wrapper "></div>
+                    <div class="description">不好,继续优化</div>
+                    <div class="count">1.41k</div>
+                </div>
+                <div class="item-4 text-center manner">
+                    <div class="infor icon-wrapper "></div>
+                    <div class="description">很好,鼓励一下</div>
+                    <div class="count"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="/static/js/public/dateSelectSum.js"></script>
+<script src="/static/js/business/HuoJuAn.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

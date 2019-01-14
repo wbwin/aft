@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>后台管理中心</title>
+    <link href="/static/css/admin/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/admin/AdminLTE.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/admin/all.css" rel="stylesheet" type="text/css"/>
+    <script src="/static/js/public/axios.min.js"></script>
+    <script src="/static/js/public/vue.min.js"></script>
+</head>
+
+
+<body class="wst-page">
+<div id="app" style="margin: 20px;" v-cloak>
+    <input type='hidden' id='id' value='{$object.id}'/>
+    <table class="table table-hover table-striped table-bordered wst-form">
+        <tbody>
+        <tr>
+            <th width='120' align='right'>店铺</th>
+            <td>{{goods.shopName}}</td>
+        </tr>
+        <tr>
+            <th width='120' align='right'>所属订单：</th>
+            <td>{{goods.orderNo}}</td>
+        </tr>
+        <tr>
+            <th width='120' align='right'>用户：</th>
+            <td>{{goods.loginName}}</td>
+        </tr>
+        <tr>
+            <th width='120' align='right'>评价：</th>
+            <td>
+                <div style='width:500px;'>
+                    <div style='float:left;width:70px;'>商品评分：</div>
+                    <div style='float:left;width:430px;'>
+                        <div class="goodsScore" style='float: left; cursor: pointer; width: 200px;'>
+                            <img v-for="(x,index) in 5" @mouseover="mouseover('goodsHover',index)"
+                                 @mouseout="mouseout('goodsHover')" @click="changeStars('goodsScore',index)"
+                                 :src="'/static/image/admin/'+[goods.goodsHover >= x?'star-on-big.png':'star-off-big.png']">
+                        </div>
+                        <div id="goodsScore_hint" style='float:left'>{{hints[goods.goodsHover]}}</div>
+                    </div>
+                </div>
+                <div style='width:500px;'>
+                    <div style='float:left;width:70px;'> 时效评分：</div>
+                    <div style='float:left;width:430px;'>
+                        <div class="timeScore" style='float: left; cursor: pointer; width: 200px;'>
+                            <img v-for="(x,index) in 5" @mouseover="mouseover('timeHover',index)"
+                                 @mouseout="mouseout('timeHover')" @click="changeStars('timeScore',index)"
+                                 :src="'/static/image/admin/'+[goods.timeHover >= x?'star-on-big.png':'star-off-big.png']">
+
+                        </div>
+                        <div id="timeScore_hint" style='float:left'>{{hints[goods.timeHover]}}</div>
+                    </div>
+                </div>
+                <div style='width:500px;'>
+                    <div style='float:left;width:70px;'>服务评分：</div>
+                    <div style='float:left;width:430px;'>
+                        <div class="serviceScore" style='float: left; cursor: pointer; width: 200px;'>
+                            <img v-for="(x,index) in 5" @mouseover="mouseover('serviceHover',index)"
+                                 @mouseout="mouseout('serviceHover')" @click="changeStars('serviceScore',index)"
+                                 :src="'/static/image/admin/'+[goods.serviceHover >= x?'star-on-big.png':'star-off-big.png']">
+                        </div>
+                        <div id="serviceScore_hint" style='float:left'>{{hints[goods.serviceHover]}}</div>
+                    </div>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <th width='120' align='right'>状态：</th>
+            <td>
+                <input type='radio' id='isShow1' name='isShow' value='1' v-model="goods.isShow"/>显示
+                <input type='radio' id='isShow0' name='isShow' value='0' v-model="goods.isShow"/>隐藏
+            </td>
+        </tr>
+        <tr>
+            <th width='120' align='right'>评语：</th>
+            <td><textarea id='content' name='content' style='width:450px;height:100px;' v-model="goods.content">{{goods.content}}</textarea>
+            </td>
+        </tr>
+        <tr>
+            <td colspan='2' style='padding-left:250px;'>
+                <button type="submit" class="btn btn-success" @click="keeps">保&nbsp;存</button>
+                <button type="button" class="btn btn-primary" @click="close">返&nbsp;回</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+<script type="text/javascript" src="/static/js/admin/AppraiseModify.js"></script>
+</html>

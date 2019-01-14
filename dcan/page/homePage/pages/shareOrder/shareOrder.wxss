@@ -1,0 +1,505 @@
+/*新版  */
+
+page {
+  background-color: #f7f7f7;
+}
+
+.sharOrder {
+  font-size: 30rpx;
+  margin-bottom: 130rpx;
+}
+
+.sharTop {
+  background-color: #53beb7;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  align-items: center;
+  font-size: 28rpx;
+  padding:3% 0;
+}
+
+.sharTop .butadd {
+  width: 80%;
+  background-color: #fff;
+  height: 90rpx;
+  margin: 20rpx 0;
+  font-size: 36rpx;
+  color: #53beb7;
+  border-radius: 10rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.sharTop .butadd image {
+  width: 26px;
+  height: 26px;
+  margin-right: 2px;
+}
+
+/*点餐人  */
+
+.people-box, .content {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+
+.content {}
+
+.content-title{
+  padding: 3%;
+  font-size:34rpx;
+}
+
+.people {
+  border-bottom: 1rpx solid #eee;
+  padding: 30rpx 20rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.people .title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.people .title .name {
+  font-size: 34rpx;
+  flex: auto;
+  overflow: hidden;
+  display: flex;
+  flex-flow: nowrap row;
+}
+
+.name-txt {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.name-image {
+  width: 34rpx;
+  height: 34rpx;
+  margin-left: 5rpx;
+  flex: none;
+}
+
+.people-numb {
+  background-color: #ff4040;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  width: 50rpx;
+  height: 50rpx;
+  font-size: 34rpx;
+  margin-right: 12rpx;
+  flex: none;
+}
+
+.people .title .but {
+  flex: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 26rpx;
+}
+
+.but-revise, .but-close {
+  border-radius: 8rpx;
+  padding: 10rpx 0;
+  width: 140rpx;
+  margin-left: 16rpx;
+  text-align: center;
+}
+
+.but-revise {
+  color: #53beb7;
+  border: solid 1rpx #53beb7;
+}
+
+.but-close {
+  color: #a0a0a0;
+  border: solid 1rpx #a0a0a0;
+}
+
+.foods-box {
+  margin-left: 70rpx;
+  margin-top: 26rpx;
+  color: #a0a0a0;
+  display: flex;
+  flex-direction: column;
+  font-size: 28rpx;
+  flex: auto;
+}
+
+.foods {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16rpx;
+}
+.foodDetail{
+   display: flex;
+  flex-direction: row;
+}
+.remaksTwo{
+    font-size: 22rpx;
+    color: #999;
+    width: 270rpx!important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    margin-top: 5rpx;
+}
+.remaksTwoDiv{
+    width: 270rpx!important;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    font-size: 22rpx;
+    color: #999;
+    margin-top: 5rpx;
+}
+.foodName {
+  width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.foodNumb {
+  width: 10%;
+}
+
+.foodPrice {
+  width: 20%;
+  text-align: right;
+  font-size: 30rpx;
+  color: #909090;
+}
+
+/* 底部购买 */
+
+.botton {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  font-size: 30rpx;
+  height: 100rpx;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #404040;
+  display: flex;
+  flex-direction: row;
+  padding: 0 20rpx;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.notfod {
+  color: #a0a0a0;
+}
+
+.botton .word {
+  font-size: 38rpx;
+  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+}
+
+.mjhd{
+	font-size: 26rpx;
+}
+
+.word .small {
+  font-size: 24rpx;
+  font-weight: 500;
+  margin-top: 5rpx;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.pay {
+  height: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  color: #a0a0a0;
+  background-color: #404040;
+  /* width: 220rpx; */
+  padding: 0 20rpx;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  font-size: 32rpx;
+}
+
+.payTrue {
+  color: #fff;
+  background-color: #53beb7;
+}
+
+/* 删除提示弹出框 */
+
+.closeBack {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeBox {
+  width: 80%;
+  border-radius: 5rpx;
+  background-color: #fff;
+  color: #989898;
+  padding: 5%;
+  font-size: 32rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.choice {
+  align-self: flex-end;
+  font-size: 28rpx;
+  color: #53beb7;
+  margin-top: 40rpx;
+}
+
+.mr {
+  margin-right: 40rpx;
+}
+
+/*邀请成功弹出框  */
+
+.inviteBox {
+  width: 80%;
+  border-radius: 5rpx;
+  background-color: #fff;
+  padding: 5%;
+  font-size: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inviteBox .title {
+  font-size: 34rpx;
+  color: #000;
+  margin: 40rpx 0 30rpx;
+}
+
+.inviteBox .tips {
+  color: #888;
+}
+
+.inviteBox .okBut {
+  background-color: #53beb7;
+  color: #fff;
+  margin-top: 30rpx;
+  width: 95%;
+}
+
+/*邀请好友  */
+
+.boxback {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 199;
+}
+
+.jubaosBox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 299;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.jubaos {
+  border-radius: 10rpx;
+  background-color: #fff;
+  width: 80%;
+  height: 280rpx;
+  text-align: center;
+  flex-direction: column;
+  display: flex;
+}
+
+.canBox {
+  display: flex;
+  height: 50%;
+  font-size: 35rpx;
+  font-weight: 10rpx;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+	color:#808080;
+}
+
+.butcanBox {
+  display: flex;
+  height: 50%;
+  width: 100%;
+  background-color: #fff;
+  border: none;
+  font-size: 35rpx;
+	color: #53beb7;
+  font-weight: 10rpx;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tips {
+  font-size: 24rpx;
+  color: #808080;
+}
+
+/* 修改名字 */
+
+.reviseBox {
+  width: 80%;
+  border-radius: 5rpx;
+  background-color: #fff;
+  padding: 5%;
+  font-size: 30rpx;
+  display: flex;
+  flex-direction: column;
+}
+
+.reviseTitle {
+  font-weight: 700;
+  font-size: 36rpx;
+  margin-bottom: 30rpx;
+}
+
+.reviseInput {
+  border: solid 1rpx #dedede;
+  height: 70rpx;
+  line-height: 70rpx;
+  padding-left: 10rpx;
+}
+
+/*点餐人颜色  */
+
+.people-box .people:nth-child(1n+0) .people-numb {
+  background-color: #ff4040;
+}
+
+.people-box .people:nth-child(2n+0) .people-numb {
+  background-color: #ff6000;
+}
+
+.people-box .people:nth-child(3n+0) .people-numb {
+  background-color: #ffb038;
+}
+
+.people-box .people:nth-child(4n+0) .people-numb {
+  background-color: #72d53b;
+}
+
+.people-box .people:nth-child(5n+0) .people-numb {
+  background-color: #6dd3dc;
+}
+
+.people-box .people:nth-child(6n+0) .people-numb {
+  background-color: #3199e8;
+}
+
+.people-box .people:nth-child(7n+0) .people-numb {
+  background-color: #bc97ff;
+}
+
+/*全部拼单*/
+.other-people{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 3%;
+}
+
+.other-people-l{
+  flex: 2;
+}
+
+.other-people-c{
+  flex: 7;
+  height: 90rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.other-people-r{
+  flex: 2.5;
+}
+
+.other-people-img{
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+}
+
+.other-people-c-t{
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+
+.other-people-name{
+  font-size: 34rpx;
+  max-width: 200rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space:nowrap;
+  margin-right: 15rpx;
+}
+
+.differ{
+  font-size: 28rpx;
+  color: #666;
+}
+
+.other-people-c-b{
+  font-size: 24rpx;
+  color: #999;
+}
+
+.enter{
+  width: 100%;
+  padding:0; 
+  text-align: center;
+  background-color: #53beb7;
+  color: #fff;
+  font-size: 30rpx;
+  border-radius: 8rpx;
+}

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 , user-scalable=no, minimal-ui">
+    <title>地图</title>
+</head>
+<style>
+
+    .containers {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 98%;
+        background-color: #fff;
+    }
+
+    .top {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-content: center;
+        width: 94%;
+        padding: 3%;
+        color: #fff;
+        background-color: #53beb7;
+    }
+    .left{
+        flex: 1;
+    }
+    .img{
+        width: 20px;
+        height: 20px;
+    }
+    .center{
+        flex: 3;
+        text-align: center;
+        font-size: 18px;
+    }
+    .right{
+        flex: 1;
+        text-align: right;
+        font-size: 16px;
+    }
+    #backgb{
+        display: none;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: #999;
+        opacity: 0.5;
+    }
+    @-webkit-keyframes fadeIn {
+        0% {
+            opacity: 0; /*初始状态 透明度为0*/
+        }
+        20% {
+            opacity: 0.2; /*中间状态 透明度为0*/
+        }
+        50% {
+            opacity: 0.5; /*中间状态 透明度为0*/
+        }
+        70% {
+            opacity: 0.7; /*中间状态 透明度为0*/
+        }
+        100% {
+            opacity: 1; /*结尾状态 透明度为1*/
+        }
+    }
+    #alertBox{
+        -webkit-animation-name: fadeIn; /*动画名称*/
+        -webkit-animation-duration: 300ms; /*动画持续时间*/
+        -webkit-animation-iteration-count: 1; /*动画次数*/
+        -webkit-animation-delay: 0s;
+        display: none;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 10%;
+        margin: auto;
+        background-color: #fff;
+        border: 1px solid #999;
+        box-shadow:  0 0 10px #999;
+        border-radius: 10px;
+        width: 80%;
+        height: 200px;
+        text-align: center;
+        -webkit-transition: all .5s ease-in;
+        -moz-transition: all .5s ease-in;
+        transition: all .5s ease-in;
+    }
+
+    .alertTop{
+        height: 50px;
+        width: 100%;
+        line-height: 50px;
+        border-bottom: 2px solid #53beb7;
+        font-size: 20px;
+    }
+    .alertCenter{
+        height: 100px;
+        width: 100%;
+        line-height: 100px;
+        font-size: 18px;
+    }
+    .alertBottom{
+        height: 50px;
+        width: 100%;
+        border-top: 1px solid #999;
+        line-height: 50px;
+        font-size: 18px;
+    }
+</style>
+<body>
+<div class="containers">
+    <div class="top">
+        <div class="left" onclick='back()'>
+            <image class="img"  src="https://image.aftdc.com/appBimg/icon_back_normal.png"></image>
+            <!--<img class="img" src="https://image.aftdc.com/appBimg/icon_back_normal.png" alt="">-->
+        </div>
+        <div class="center">
+            <text>选择地理位置</text>
+        </div>
+        <div class="right" onclick='mapWord()'>
+            <text>确定</text>
+        </div>
+    </div>
+    <iframe id='mapPage' width='100%' height='100%' frameborder=0
+            src='https://apis.map.qq.com/tools/locpicker?search=1&type=1&key=KNSBZ-YHL33-UMJ3A-YVGQ6-4WDOK-FQFYR&referer=myapp'></iframe>
+</div>
+<div id="backgb"></div>
+<div id="alertBox">
+    <div class="alertTop">
+        <text>提示</text>
+    </div>
+    <div class="alertCenter">
+        <text>请选择地理位置</text>
+    </div>
+    <div class="alertBottom" onclick="ok()">
+        <text>确定</text>
+    </div>
+</div>
+</body>
+<script>
+    var mapAddress = '';
+    window.addEventListener('message', function (event) {
+        // 接收位置信息，用户选择确认位置点后选点组件会触发该事件，回传用户的位置信息
+        var loc = event.data;
+        if (loc && loc.module == 'locationPicker') {//防止其他应用也会向该页面post信息，需判断module是否为'locationPicker'
+            mapAddress = loc
+        }
+    }, false);
+
+    window.alert=function(title,content)
+    {
+        execScript('MsgBox   "'+content+'",0,"'+title+'"','VBScript');
+    }
+
+    function mapWord() {
+        if (mapAddress!='') {
+            var txt = JSON.stringify(mapAddress);
+            window.Android.returnAddress(txt)
+        }else{
+            document.getElementById('alertBox').style.display='block';
+            document.getElementById('backgb').style.display='block';
+        }
+    }
+
+    function ok() {
+        document.getElementById('alertBox').style.display='none';
+        document.getElementById('backgb').style.display='none';
+    }
+
+    function back() {
+        window.Android.returnAddress('back');
+    }
+
+</script>
+</html>

@@ -1,0 +1,22 @@
+<view>
+  <view class="top">会员卡详情</view>
+  <view class="body">
+    <view class="part">
+      <view class="text1">特权说明</view>
+      <text class="text2">1.此卡同时具有消费积分抵现金，储值尊享优惠，电子代金券优惠，积分还礼等多项功能</text>
+    </view>
+
+    <view class="part">
+      <view class="text1">有效日期</view>
+      <view class="text2">永久有效</view>
+    </view>
+
+    <view class="part">
+      <view class="text1">使用须知</view>
+      <text class="text2">每人限领一张
+      1.此卡仅限本人使用，结账时出示此卡，卡内积分不可兑换现金，不予以开具发票；
+      2.此卡不与其他优惠券，代金券及店内优惠活动同时使用
+      </text>
+    </view>
+  </view>
+</view>

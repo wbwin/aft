@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>后台管理中心</title>
+    <link href="/static/css/admin/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/admin/AdminLTE.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/admin/pages.css" rel="stylesheet" type="text/css"/>
+    <script src="/static/js/public/axios.min.js"></script>
+    <script src="/static/js/public/vue.min.js"></script>
+    <!-- 分页组件 -->
+    <script src="/static/js/public/pages.js"></script>
+</head>
+<!-- 意见详情 -->
+<body class='wst-page'>
+<div id="app" class="wst-table" v-cloak>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <table class="table table-hover table-striped table-bordered wst-list">
+                <tr>
+                    <td>商家昵称：</td>
+                    <td>{{shopFeedbackDetail.login_name}}</td>
+                </tr>
+                <tr>
+                    <td>意见内容：</td>
+                    <td>{{shopFeedbackDetail.content}}</td>
+                </tr>
+                <tr>
+                    <td>意见类型：</td>
+                    <td>{{shopFeedbackDetail.feedbackType}}</td>
+                </tr>
+                <tr>
+                    <td>意见图片：</td>
+                    <td>
+                        <span v-for="(item,index) in shopFeedbackDetail.img">
+                          <image style="width:100px" :src="'https://image.aftdc.com/'+item"/>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+
+
+        </div>
+    </div>
+
+    <div class='wst-page'>
+
+
+        <div class="form-group">
+            <textarea v-model="reply" class="form-control" rows="3" name=reply ></textarea>
+        </div>
+
+        <button class="btn btn-success" @click="replay()">提交</button>
+
+    </div>
+</div>
+
+</body>
+<script type="text/javascript" src="/static/js/admin/shopFeedbackDetail.js"></script>
+</html>

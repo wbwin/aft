@@ -1,0 +1,59 @@
+<view class="Conall">
+<!-- 
+  <view class='erKun'>
+    <view class='foodGsi'>食品安全监督</view>
+
+    <view class='Sonner'>
+      <view class='Zuoin'>门店名称：</view>
+      <view class='Youin'>{{info.shopName}}</view>
+    </view>
+
+    <view class='Sonner'>
+      <view class='Zuoin'>经营地址：</view>
+      <view class='Youin'>{{info.unitAdres}}</view>
+    </view>
+
+    <view class='Sonner'>
+      <view class='Zuoin'>法定代表人：</view>
+      <view class='Youin'>{{info.unitPeople}}</view>
+
+    </view>
+
+    <view class='Sonner'>
+      <view class='Zuoin'>许可证号：</view>
+      <view class='Youin'>{{info.unitNumb}}</view>
+    </view>
+
+    <!-- <view class='Sonner'>
+              <view class='Zuoin'>经营范围：</view>
+              <view class='Youin'>{{info.range}}</view>
+            </view> -->
+<!-- 
+    <view class='Sonner'>
+      <view class='Zuoin'>有效期：</view>
+      <view class='Youin' wx:if="{{info.unitFixed}}">{{info.unitFixed}}</view>
+      <view class='Youin' wx:else>无限</view>
+    </view>
+  </view> -->
+
+  <view class='Eunpter'>
+    <view class='foodGsi'>商家从业资质</view>
+
+    <view class='imgeter'>
+      <view class='bin Oneimg'>
+        <image bindtap="enlargeImg" class='tuone' data-src="{{info[0]}}" src="{{info[0]}}" /> </view>
+      <view class='bin Twoimg'>
+        <image bindtap="enlargeImg" class='tutwo' data-src="{{info[1]}}" src="{{info[1]}}" /> </view>
+    </view>
+
+  </view>
+
+
+  <view class='YingKo' wx:if="{{maxSrcBox}}" bindtap='hide'>
+    <image class='' src="{{maxSrc}}" />
+  </view>
+
+
+
+
+</view>

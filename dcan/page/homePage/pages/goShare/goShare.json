@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "拼单",
+  "backgroundColor": "#dedede",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark"
+}

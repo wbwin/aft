@@ -1,0 +1,108 @@
+/*发票备注弹出框  */
+
+.remarkBox{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+ z-index: 99;
+  font-size: 28rpx;
+  background-color: #eaeaea;
+}
+
+.remarkBox-top{
+  width: 92%;
+  padding: 2% 4%;
+  background: #fff;
+}
+.remarkView{
+  width: 100%;
+  position: relative;
+}
+.remarkTxt{
+  border: solid 1rpx #dedeed;
+  background-color: #F8F8F8;
+  padding: 3%;
+  width: 93%;
+  height: 240rpx;
+}
+.remarkNumb{
+position: absolute;
+bottom: 10rpx;
+right: 20rpx;
+color: #989898;
+}
+.remarkLabel{
+  display: flex;
+  flex-flow: wrap row;
+  margin-top: 27rpx;
+  font-size: 27rpx;
+}
+.remarkLabel .items{
+  border: solid 1rpx #dedeed;
+  padding:18rpx;
+  margin-bottom: 18rpx;
+  margin-right: 16rpx;
+  border-radius: 5rpx;
+}
+
+.tableware{
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+ background-color: #fff;
+ margin-top: 20rpx;
+  width: 92%;
+  padding: 4%;
+  font-size: 28rpx;
+}
+.tableware-color{
+	display: flex;
+	align-items: center;
+	color: #989898;
+}
+.black-color{
+ color: #333;
+}
+
+.pickerbox{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  width: 100%;
+  background: #fff;
+}
+.pickTop{
+  text-align: center;
+  padding: 26rpx 0;
+  color: #A0A0A0;
+}
+.pickerbox .scroll{
+  border-top: solid 2rpx #F0F0F0;
+}
+.picks{
+  text-align: center;
+  padding: 26rpx 0;
+  border-bottom: solid 2rpx #F0F0F0;
+}
+.picksYes{
+  color: #53beb7;
+}
+.lt{
+	width: 32rpx;
+	height: 32rpx;
+}
+.remarkBox-but{
+  margin-top: 50rpx;
+}
+
+.remarkBox-but button{
+  width: 90%;
+  margin: 35rpx auto;
+}
+.remarkBox-sure{
+  color: #fff;
+    background: #53beb7;
+}

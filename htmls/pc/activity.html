@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>阿凡提智慧点餐</title>
+    <link href='/static/css/pc/question.css' rel="stylesheet" type="text/css"/>
+
+    <link href='/static/css/pc/toJoin.css' rel="stylesheet" type="text/css"/>
+
+    <link href="/static/css/pc/all.css" rel="stylesheet"/>
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+    <script type="text/javascript" src="/static/js/pc/common.js"></script>
+
+    <head>
+
+
+<body class="body">
+
+<div id="app" v-cloak>
+    <comheader></comheader>
+
+    <div class="top-body">
+        <div>
+            <ul class="question_top">
+                <li>
+                    <div><a href="/pc/index.html">首页</a><i>/</i></div>
+                </li>
+                <li>
+                    <div><a href="/pc/server.html">服务中心</a><i>/</i></div>
+                </li>
+                <li>
+                    <div>
+                        <a href="/pc/activity.html">活动问题</a><i>/</i>
+                    </div>
+                </li>
+                <li><span>{{activity[questionCount]}}</span></li>
+            </ul>
+            <div class="question_center">
+                <div class="center_left">
+                    <h1>活动问题</h1>
+                    <ul>
+                        <li v-for="(item,index) in activity" @click="questionClick(index)" :class="[questionCount==index?'active':'']">
+                            <span>{{item}}</span>
+                        </li>
+                    </ul>
+                    <div class="left_footer">
+                        <a href="#"> <img src="/static/image/pc/kf.png" class="footer_img"/>联系客服</a>
+                    </div>
+                </div>
+                <div class="center_right">
+                <div  v-if="questionCount==0"><h1>{{activity[questionCount]}}</h1>
+                    <div class="right_p">
+                        <p>新用户需要满足以下3个条件，请您核实下是否符合</p>
+                        <p>1、下单设备需首次使用阿凡提/阿凡提合作平台下单；</p>
+                        <p>2、阿凡提账号需首次使用阿凡提/阿凡提合作平台下单；</p>
+                        <p>3、绑定号码和收餐号码需首次使用阿凡提/阿凡提合作平台下单。</p>
+
+                        <!--<div class="_btnBox_1xkuj_82">-->
+                        <!--<button ubt-click="100607" ubt-data-app="eleme" ubt-data-from="eleme-pc"-->
+                        <!--bt-data-name="我的订单超时了怎么办？" ubt-data-questionid="11522"><i-->
+                        <!--class="_good_1xkuj_98"></i>已解决-->
+                        <!--</button>-->
+                        <!--<button ubt-click="100608" ubt-data-app="eleme" ubt-data-from="eleme-pc"-->
+                        <!--bt-data-name="我的订单超时了怎么办？" ubt-data-questionid="11522"><i-->
+                        <!--class="_bad_1xkuj_100"></i>未解决-->
+                        <!--</button>-->
+                        <!--</div>-->
+                    </div>
+
+                </div>
+                <div  v-if="questionCount==1"><h1>{{activity[questionCount]}}</h1>
+                    <div class="right_p">
+                        <p>如果获得的红包不可用，请您点击以下按钮，然后点击红包去使用，可以查看到具体红包不可用的原因：</p>
+                        <p>我的红包</p>
+                        <p>获得红包后如不能使用可能存在以下情况：</p>
+                        <p>1.不满足红包使用条件，例如金额、餐厅、手机号等；</p>
+                        <p>2.使用红包已达每天最大上限，每人每天限使用2个红包；</p>
+                        <p>3.订单非在线支付无法使用红包。</p>
+
+                    </div>
+                </div>
+                <div  v-if="questionCount==2"><h1>{{activity[questionCount]}}</h1>
+                    <div class="right_p">
+                        <p>以下几种情况红包会返还：</p>
+                        <p>1.您自己主动取消的订单，红包仍在有效期内，订单无效后红包会返还。</p>
+                        <p>2.商家取消的订单，红包仍在有效期内，订单无效后红包会返还。</p>
+                        <p>注：部分订单异常取消或红包已过期，红包不会返还。</p>
+
+                    </div>
+                </div>
+                <div  v-if="questionCount==3"><h1>{{activity[questionCount]}}</h1>
+                    <div class="right_p">
+                        <p>准时达订单是指在带有【准时达】标签的商家下的订单，若商品送达时间超过承诺送达时间10分钟，订单完成后系统将自动赔付一个无门槛红包：</p>
+                        <p><img src="/static/image/pc/activity1.png" style="width: 213px; height: 140px;"/></p>
+                    </div>
+                </div>
+                <div  v-if="questionCount==4"><h1>{{activity[questionCount]}}</h1>
+                    <div class="right_p">
+                        <p>可通过以下两种途径取消超级会员自动续费功能：</p>
+                        <p>1、登陆阿凡提app ，点击超级会员—点击续费管理，选择管理自动续费—点击取消连续包月，确认取消。如图所示：</p>
+                        <p><img src="/static/image/pc/activity2.png" style="width: 213px; height: 140px;"/></p>
+                        <p>2、登录支付宝，点击我的—设置—支付设置—免密支付/自动扣款，选择阿凡提免密支付—点击解约，确定即可。如图所示：</p>
+                        <p><img src="/static/image/pc/activity3.jpeg" style="width: 213px; height: 140px;"/></p>
+                    </div>
+                </div>
+                <div  v-if="questionCount==5"><h1>{{activity[questionCount]}}</h1>
+                    <div class="right_p">
+                        <p>新用户注册完阿凡提平台后，会收到阿凡提送给您的【新用户红包】奖励，在使用时，需注意以下事项：</p>
+                        <p>1、新用户红包只有平台的新用户方可使用，新用户条件即：手机号码、下单设备、阿凡提账户均需是首次使用阿凡提下单；</p>
+                        <p>2、新用户优惠不得与其他活动同享，默认选择最大优惠，如您需要使用新用户红包，可手动修改；</p>
+                        <p>3、在阿凡提合作平台（淘宝、支付宝等）有下过订单无法使用新用户优惠及新用户红包;</p>
+                        <p>4、红包限制在领取的城市下单使用。</p>
+                        <p>祝您用餐愉快!</p>
+                    </div>
+                </div>
+                <div  v-if="questionCount==6"><h1>{{activity[questionCount]}}</h1>
+                    <div class="right_p">
+                        <p>在满足满减的使用条件的情况下，满减金额会在支付之前自动享受的，参加满减活动注意事项如下：</p>
+                        <p>1、需要满足餐厅的使用金额；</p>
+                        <p>2、仅限在线支付时使用；</p>
+                        <p>3、一天可以享受3次优惠活动。</p>
+                    </div>
+                </div>
+
+                <div class="right_bottom">
+                    <h2><span>此答案是否解决您的问题？</span></h2>
+                    <div class="bottom_button">
+                        <button @click="solveClick()"><img src="/static/image/pc/iconThumb1.png" />已解决</button>
+                        <button @click="solveClick()"><img src="/static/image/pc/iconThumb2.png" />未解决</button>
+                    </div>
+                    <div class="bottom_success">
+                        <img src="/static/image/pc/yes.jpg" />
+                        评价成功，感谢您的支持
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<script src="/static/js/pc/question.js"></script>
+</body>
+
+
+</html>

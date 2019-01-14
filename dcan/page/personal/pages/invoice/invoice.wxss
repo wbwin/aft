@@ -1,0 +1,117 @@
+page{
+  background-color: #F8F8F8;
+  font-size: 28rpx;
+}  
+.invoice{
+  padding: 4%;
+}
+.top{
+  height: 40rpx;
+  display: flex;
+}
+.top-L{
+  flex:1;
+  text-align: left 
+}
+.top-R{
+  flex: 1;
+  text-align: right;
+  color: #53beb7;
+}
+.tips{
+  width: 100%;
+  height: 300rpx;
+  line-height: 300rpx;
+  text-align: center;
+}
+.myinvoice{
+  margin-top: 5%;
+  background-color:#fff;
+  box-shadow: 0 0 5px #999;
+  display: flex;
+  border-radius: 10rpx;
+  width: 100%;
+  height: 200rpx;
+}
+.c1{
+  color: #53beb7;
+  font-weight: bolder;
+}
+.c2{
+  color: #666;
+}
+.myinvoiceView{
+  flex: 3;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.myinvoiceTips{
+  background-color: #53beb7;
+  color: #fff;
+  padding: 5rpx 10rpx;
+  margin-left: 20rpx;
+  font-size:24rpx;
+}
+.name{
+  flex: 1;
+  /* line-height: 200rpx; */
+  /* padding:50rpx 100rpx; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+}
+.name text{
+  max-width: 300rpx;
+    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  /* padding:50rpx 100rpx; */
+}
+.edit text{
+  padding:50rpx 40rpx;
+  border-left: 1rpx solid #dedede;
+}
+.edit{
+  flex: 1;
+  line-height: 200rpx;
+  color: red;
+}
+.back{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #F8F8F8;
+}
+.line{
+  display: flex;
+  width: 100%;
+  padding: 4%;
+  background-color: #fff;
+}
+.line view{
+  flex: 1; 
+  line-height: 52rpx;
+}
+.line .int{
+  flex: 3;
+  margin-right: 60rpx
+}
+.com{
+  margin-top: 3%;
+}
+.buttom{
+  margin-top: 5%;
+  width: 90%;
+  color: #fff;
+  background-color: #53beb7;
+}
+.cancel{
+  margin-top: 3%;
+  width: 90%;
+  background-color: #fff;
+}

@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>阿凡提</title>
+    <link rel="stylesheet" href="/static/css/business/all.css"/>
+    <link rel="stylesheet" href="/static/css/business/CaiDuizhang.css">
+    <link rel="stylesheet" href="/static/css/business/time.css"/>
+    <link rel="stylesheet" href="/static/css/business/pages.css">
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/dateSelectSum.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+    <script src="/static/js/public/pages.js"></script>
+</head>
+<!-- 财务管理  账单对账-->
+
+<body>
+<div class="dec" v-cloak>
+    <div class="herder">
+        <div id="yijie" @click="yijieClick()">已结算账单</div>
+        <div id="weijie" @click="weijieClick()">未结算账单</div>
+    </div>
+    <!--结算单-->
+
+    <div id="zheshijiesuan">
+        <div id="topbu">时间
+            <input type='text' id='frister' class='laydate-icon' name='frister' value='{$frister}' style='width:150px'
+                   placeholder='开始日期'/>
+            <input type='text' id='nexter' class='laydate-icon' name='nexter' value='{$nexter}' style='width:150px'
+                   placeholder='结束日期'/>
+
+            <button type="submit" class="chaxun" style="height:23px" id="fpcx" @click="chaxunClick()"
+                    @change="chaxunChange()">查询
+            </button>
+            <span class="quanbu" @click="quanbuClick()">全部</span>
+        </div>
+
+        <div class="cwe_ohw">
+            <span class="wek_time">日期</span>
+            <span class="okh_ckc">
+               <span class="dvov_nsdk">实际收入</span>
+            <span class="cwvwk_ojs">操作</span>
+            </span>
+            <span class="dvs_kvdk">实际收入</span>
+        </div>
+        <div class="whdohufwoecfh">
+
+            <template v-if="zhang.revenue!=''">
+                <div class="alllk_uahnh">
+                    <div class="we_fkjw">
+                        <template v-for="(msg,index) in zhang.revenue">
+                            <div class="xu_dwh">{{msg.createTime}}</div>
+                        </template>
+                    </div>
+                    <div class="qish_iwu">
+                        <div class="cdk_we">
+                            <div class="over_cda">
+                                <template v-for="(msg,index) in zhang.revenue">
+                                    <div class="on_angh"><span class="ckjk_jc">￥ {{msg.money}}</span><span
+                                            class="casui_an"><a href="javascript:0;" @click="casui_anClick(msg)">查看</a></span>
+                                    </div>
+                                </template>
+                            </div>
+                            <div class="over_clr">
+                                <div class="sjl_jsk">已结算总额</div>
+                                <div class="dcjk_sk">￥ {{zhang.revcount}}</div>
+                                <div class="svfr_jsk">已汇入余额></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+            <div class="alllk_uahnh" v-else>
+                <h3 style="margin: 10px">暂无已结算账单...</h3>
+            </div>
+
+        </div>
+        <div style='text-align:center;display: initial;' class="pages">
+            <!-- 分页 -->
+            <pages :page-numb="pageNumb" :page-curent="pageCurent" @pagefather="pageFn"></pages>
+        </div>
+    </div>
+    <!--结算单-->
+    <!--未结算账单-->
+    <div id="zheshiweijiesuan">
+        <div class="cweohw">
+            <span class="wekvncwo">日期</span>
+            <span class="rej_kckc">
+               <span class="dvovnsdk">实际收入</span>
+                <span class="cwvwkojs">操作</span>
+                </span>
+            <span class="dvsjkvdk">实际收入</span>
+        </div>
+        <div class="alllkuahnh">
+            <template v-if="zhang.not_revenue!=''">
+
+                <div class="wefkjw">
+                    <template v-for="(item,index) in zhang.not_revenue">
+                        <div class="xuiha_s">{{item.createTime}}</div>
+                    </template>
+                </div>
+                <div class="qishiwu">
+                    <div class="cdkwe">
+                        <div class="oversk_ja">
+                            <template v-for="(item,index) in zhang.not_revenue">
+                                <div class="on_hsangh"><span class="ck_skjc">￥{{item.money}}</span><span
+                                        class="cask_kan">查看</span></div>
+                            </template>
+                        </div>
+                        <div class="oversk_fr">
+                            <div class="sjk_jsk">未结算总额</div>
+                            <div class="dcjkoe_sk">￥ {{zhang.not_revcount}}</div>
+                        </div>
+                    </div>
+                </div>
+            </template>
+            <div class="alllkuahnh" v-else>
+                <h3 style="margin: 10px">暂无未结算账单...</h3>
+            </div>
+
+        </div>
+        <div style='text-align:center;display: initial;' class="pages">
+            <!-- 分页 -->
+            <pages :page-numb="pageNumb" :page-curent="pageCurent" @pagefather="pageFn"></pages>
+        </div>
+    </div>
+</div>
+</body>
+<script src="/static/js/business/CaiDuizhang.js"></script>
+
+</html>

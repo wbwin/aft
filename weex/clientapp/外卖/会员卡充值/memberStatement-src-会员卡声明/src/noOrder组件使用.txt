@@ -1,0 +1,11 @@
+
+<noOrder img="https://image.aftdc.com/appBimg/icon_no_order.png" textOne="暂无订单" textTwo="可以去看看那些想买的"></noOrder>
+
+<script>
+
+import noOrder from './noOrder.vue';
+export default {
+    components: { noOrder},
+}
+
+</script>

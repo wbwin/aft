@@ -1,0 +1,107 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>阿凡提</title>
+    <link rel="stylesheet" href="/static/css/business/HuoFaJuan.css">
+    <link rel="stylesheet" href="/static/css/business/time.css">
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js" ></script>
+</head>
+<body>
+<div class="dec" v-cloak>
+   
+<div class="ckewfe">创建很优惠劵</div>
+
+<div class="xkiw_xjn">
+   <div class="cej_Jon">
+     <div class="zuo"><img src="/static/image/business/1.png" height="50px" height="50px"></div>
+     <div class="zhong">
+         <div class="cek">周瑜良品(体育西店)</div>
+         <div class="reea">在线支付专享</div>
+         <div class="deew">在线支付专享</div>
+     </div>
+     <div class="cejkK">
+          <div class="ions">￥3</div>
+          <div class="wscc">满43可用</div>
+     </div>
+   </div>
+</div>
+
+
+<div class="oner">
+  <div class="toumin"><sub>*</sub>优惠劵名称</div>
+  <input type="text" id="minchen" class="onertext" value="周瑜良品(体育西电)优惠劵">
+</div>
+
+<div class="oner"><div class="toumin"><sub>*</sub>优惠劵数量</div><span class="cico"><span id="shuzi">1</span>张</span></div>
+
+<div class="oner">
+  <div class="toumin"><sub>*</sub>优惠劵金额</div>
+  <input type="text" id="cveko" class="onertext" value="3"> 元 <span class="dewi">最多花费：1*3元=3元</span>
+</div>
+
+<div class="oner">
+  <div class="toumin"><sub>*</sub>使用门槛</div>
+  <span class="cekoo">满</span><input type="text" id="cejHjk" class="onertext" value="3"> 元可用
+</div>
+
+<div class="oner">
+     <div class="toumin"><sub>*</sub>使用门槛</div>
+     <input type="radio" class="ckiisk" checked="checked" name="fr" value="立即发放"/>立即发放
+     <input type="radio" class="ckiisk" name="fr" value="定时发放" />定时发放
+</div>
+
+
+
+<div class="oner">
+  <div class="toumin"><sub>*</sub>优惠劵有效期</div>
+  <span class="cekoo">发卷之日起</span><input type="text" id="ceJonj" class="onecefcxt" value="30"> 元可用 <span class="timexc">失效时间：2017-10-11 23:25:59</span>
+</div>
+
+
+<div class="onercdcve">
+  <input type="checkbox" name="padcoed">我同意 <span class="cekos" @click="cekosClick()"><<商家自营销协议>></span>
+</div>
+
+
+<div class="ondeve">
+  <div class="sjwi" @click="sjwiClick()">确认发布</div>
+  <div class="xwic" @click="xwicClick()">返回</div>
+</div>
+
+
+
+
+
+
+    <!--商家自营销协议-->
+    <div class="cdeGjh_kw" style="display: none" >
+        <div class="c_Doi">
+            <div class="cH_wAj">
+                <div class="ck_Uio">商家自营销协议<span class="Hh_kjh" @click="Hh_kjhClick()">×</span></div>
+                <div class="creo">
+                    <h3>商家自营销协议</h3>
+                    1. 店铺优惠活动可以与美团外卖平台的其他活动同时进行, 如满减、满折等; 商家优惠可以和阿凡提外卖红包同时使用;<br/>
+                    2. 店铺优惠活动的促销成本由商家自己承担, 我公司(阿凡提)只是活动工具的提供方; 商家不得要求我公司  开具"店铺优惠"的发票;<br/>
+                    3. 店铺优惠的实际归属为各个开展活动的商家, 我公司(阿凡提)只负责代发, 归属权不属于我公司 (阿凡提) ;<br/>
+                    4. 与商家结算的金额中, 不包括商家店铺自己发放的优惠, 即: 合同中的结算为净值 (原订单金额-商家店铺优惠) ;<br/>
+                    5. 进行中的店铺优惠, 若商家在预先设置活动结束时间前结束活动, 则已发放的优惠仍然有效。<br/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--商家自营销协议-->
+
+
+
+
+</div>
+<script src="/static/js/public/dateSelectSum.js"></script>
+<script src="/static/js/business/HuoFaJuan.js"></script>
+</body>
+</html>
+
+
+

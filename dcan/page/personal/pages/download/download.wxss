@@ -1,0 +1,16 @@
+.download{
+	padding: 3%;
+}
+.downloadworld{
+	text-align: center;
+	padding: 10% 0 20% 0;
+}
+.backColor{
+	background-color: #53beb7;
+	color: #fff;
+}
+.downButton{
+	position: fixed;
+	width: 94%;
+	bottom: 2%;
+}

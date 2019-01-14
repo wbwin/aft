@@ -1,0 +1,35 @@
+/* pages/personal/vip/shengMing.wxss */
+Page{
+    padding:3%;
+    width:94%;
+}
+.body{
+    display:flex;
+    flex-direction: column;
+}
+.part{
+    display:flex;
+    margin-top:30rpx;
+}
+
+.text1{
+  color:#969696;
+  font-size:30rpx;
+  display:inline-block;
+  width:30%;
+}
+
+.text2{
+   color:#4B4B4B;
+   font-size:30rpx;
+
+    display:inline-block;
+    width:70%;
+}
+
+.top{
+    color:#4B4B4B;
+   font-size:38rpx;
+   border-bottom: 1px solid #c0c0c0;
+   line-height:2.5
+}

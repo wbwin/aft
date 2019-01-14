@@ -1,0 +1,81 @@
+<view class="invoice">
+
+   <view class="top">
+    <view class="top-L">我的发票抬头</view>
+    <view class="top-R" bindtap="add">+ 添加抬头</view>
+   </view>
+   <view class="tips" wx:if="{{tips}}">{{tips}}</view>
+   <block wx:for="{{da}}">
+    <view class="myinvoice" data-id="{{item.id}}" data-name="{{item.trueName}}" data-index="{{index}}" bindtouchstart="bindTouchStart" bindtouchend="bindTouchEnd" bindtap="chooseinvoice" catchlongtap="deletclang">
+    <view class="myinvoiceView">
+    <text class="myinvoiceTips">{{item.type}}</text>
+      <view class="name" catchlongtap="deletclang" data-id="{{item.id}}">
+        <text>{{item.trueName}}</text>
+        <text>{{item.dutyNum}}</text>
+      </view>
+      </view>
+      <view class="edit" style='color:#53beb7' data-id="{{item.id}}" data-name="{{item.trueName}}" data-index="{{index}}" catchtap="chooseinvoice">
+        <text>选择</text>
+      </view>
+      <view class="edit" data-id="{{item.id}}" catchtap="edit">
+        <text>编辑</text>
+      </view>
+    </view>
+   </block>
+
+   <!--添加发票弹框-->
+    <form class="back" bindsubmit="formSubmit" wx:if="{{back}}">
+     <view class="line">
+       <view>抬头类型</view>
+       <view class="{{type1?'c1':'c2'}}" hidden="{{hid1}}" bindtap="danwei" style="{{hid2?'flex:3':''}}">单位</view>
+       <view class="{{type2?'c1':'c2'}}" hidden="{{hid2}}" bindtap="geren" style="{{hid1?'flex:3':''}}">个人</view>
+     </view>
+     <view class="line">
+       <view class="trueName">抬头名称</view>
+       <view class="int"><input placeholder="请输入准确的抬头名称" maxlength="20" name="trueName" value="{{arr.trueName}}"/></view>
+     </view>
+     <view class="com" wx:if="{{type1}}">
+        <view class="line">
+          <view class="trueName">税号</view>
+          <view class="int"><input placeholder="请输入税号或社会信用代码" type="text" name="dutyNum" value="{{arr.dutyNum}}"/></view>
+        </view>
+        <view class="line">
+          <view class="trueName">电话号码</view>
+          <view class="int"><input placeholder="请输入单位电话号码" maxlength="11" type="number" name="comTel" value="{{arr.comTel}}"/></view>
+        </view>
+        <view class="line">
+          <view class="trueName">电子邮件</view>
+          <view class="int"><input placeholder="提供邮箱地址以接收发票" type='email' name="email" value="{{arr.email}}"/></view>
+        </view>
+        <!-- <view class="line">
+          <view class="trueName">单位地址</view>
+          <view class="int"><input placeholder="请输入单位地址" name="comAddress" value="{{arr.comAddress}}"/></view>
+        </view>
+        <view class="line">
+          <view class="trueName">开户银行</view>
+          <view class="int"><input placeholder="请输入单位开户银行" name="bank" value="{{arr.bank}}"/></view>
+        </view>
+        <view class="line">
+          <view class="trueName">银行账号</view>
+          <view class="int"><input placeholder="请输入单位银行账号" type="number" name="bankNo" value="{{arr.bankNo}}"/></view>
+        </view> -->
+     </view>
+     <view class="com" wx:if="{{type2}}">
+        <view class="line">
+          <view class="trueName">电话号码</view>
+          <view class="int"><input placeholder="您常用的手机号" type="number"  maxlength="11" name="phone" value="{{arr.phone}}"/></view>
+        </view>
+        <view class="line">
+          <view class="trueName">电子邮件</view>
+          <view class="int"><input placeholder="提供邮箱地址以接收发票" type='email' name="email" value="{{arr.email}}"/></view>
+        </view>
+        <!-- <view class="line">
+          <view class="trueName">邮寄地址</view>
+          <view class="int"><input placeholder="输入邮寄地址以接收纸质发票" name="address" value="{{arr.address}}"/></view>
+        </view> -->
+     </view>
+     <button class="buttom" formType="submit">保存</button>
+     <button class="cancel" bindtap="cancel">取消</button>
+   </form>
+
+</view>

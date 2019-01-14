@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>阿凡提</title>
+
+    <link rel="stylesheet" href="/static/css/business/member.css">
+    <link rel="stylesheet" href="/static/css/business/all.css" />
+    <link rel="stylesheet" href="/static/css/business/time.css">
+    <link rel="stylesheet" href="/static/css/business/pages.css">
+    <link rel="stylesheet" href="/static/css/business/frame.css">
+    <!-- <script src="/static/js/public/dateSelectSum.js"></script> -->
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+    <script src="/static/js/public/pages.js"></script>
+</head>
+
+<body>
+    <form action="" method="post">
+        <div class="Huod" v-cloak>
+            <!--<h1 ><a href="/index.php/Business/Setshop/shopVip" class="laijie" >设置会员等级</a></h1>-->
+            <div class="Dingder">
+                <input name="mobile" class="Cinpr" type="text" placeholder="通过搜索手机号查找会员"> <span class="Xin" @click="Submit()">搜索</span> </div>
+
+            <!--<div class="Minew"> <span class="Xince">发送短信</span> </div>-->
+            <div class="Sinew">
+            <input id="btn3" type="button" value="导入" @click="File">
+            <input style="display: none;" id="file" type="file" ref="searchDom" @change="getFile($event)">
+                <!--<input id="btn1" type="button" value="全选" @click="btn1Click()">-->
+                <!--<input id="btn2" type="button" value="全不选" @click="btn2Click()">-->
+                <!--<input style="display:none;" id="btn3" type="button" value="反选" @click="btn3Click()">-->
+            </div>
+            <div class="Jian">
+                <div class="hangius" style="display:none;">店铺名：{{dataz['shopName']}}</div>
+                <table id="div1">
+                    <thead>
+                        <tr>
+                            <td>
+                                <input type="checkbox" class="allINte" name="allINte" value="" @click="allINteClick()"/>
+                            </td>
+                            <td>姓名</td>
+                            <td>余额</td>
+                            <td>积分</td>
+                            <td>折扣</td>
+                            <td>电话</td>
+                            <td>操作</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="(item,index) in dataz">
+                            <td>
+                                <input type="checkbox" name="vehicle" value="" />
+                            </td>
+                            <td>{{item.userName}}</td>
+                            <td>{{item.money}}</td>
+                            <td>{{item.userScore}}</td>
+                            <td v-if="item.zk!=''">{{item.zk}}</td>
+                            <td v-else>暂无折扣</td>
+                            <td> {{item.userPhone}} </td>
+                            <td> <button @click="box(item.id)" type="button">会员认证</button> <a class="ATERN" href="javascript:0;"
+                            @click="ATERNClick(index)" > 历史订单 </a></td>
+                        </tr>
+                        <!-- <volist name="applyshop" id="vo">
+                                        <tr>
+                                            <td>
+                                                <input type="checkbox" name="vehicle" value="" />
+                                            </td>
+                                            <td>{{dataz['userName']}}</td>
+                                            <td>{{dataz['money']}}</td>
+                                            <td>{{dataz['userScore']}}</td>
+                                            <td v-if="dataz.zk!=''">{{dataz['zk']}}</td>
+                                            <td v-else>暂无折扣</td>
+                                            <td> {{dataz['userPhone']}} </td>
+                                            <td> <a class="ATERN" href="/index.php/Business/Setshop/history/phone/{$vo.userPhone}"> 历史订单 </a></td>
+                                        </tr>
+                                    </volist>
+                                     -->
+                    </tbody>
+                </table>
+                <div style='text-align:center;display: initial;' class="pages">
+                    <!-- 分页 -->
+                    <pages :page-numb="pageNumb" :page-curent="pageCurent" @pagefather="pageFn"></pages>
+                </div>
+            </div>
+            <div class="dcwef" v-bind:style="{display: display}">
+                <div class="cve">
+                    <div class="cef"> <span class="cewce" @click="togleEwm">X</span>  </div>
+                    <div class="cwcvweki">
+                        <img class="ImgerTu" style="max-width:100%;overflow:hidden;" v-bind:src="img"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <script type="text/javascript" src="/static/js/business/member.js"></script>
+</body>
+
+</html>

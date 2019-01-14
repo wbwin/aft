@@ -1,0 +1,41 @@
+<view>
+    <view class="title">
+        <view class="img">?</view>
+        <text> {{content[index].title}}</text>
+    </view>
+
+    <view class="body">
+        {{content[index].content}}
+        <!-- <view>
+            <view wx:if="{{content[index].img}}" style="text-align:left">
+                <image src="{{content[index].img}}" style="width:40%;display:inline-block;margin-top:20px" />
+            </view>
+            <view class="pingjia">
+                <image src="https://image.aftdc.com/images/{{userful}}" class="good" bindtap="clickgood" />
+                <text>  有用</text>
+                <image src="https://image.aftdc.com/images/{{Unuserful}}" class="nogood" bindtap="clicknogood" />
+                <text>  没用</text>
+            </view>
+        </view> -->
+    </view>
+
+
+    <!-- <view class="lianxiqishou">
+    <view class="juan">
+     <image src="https://image.aftdc.com/images/abroad.png" class="motor"/>
+     <text class="contanc" bindtap="">联系骑手</text>
+    </view>
+  </view> -->
+
+
+    <view class="foot">
+        <view class="buttons">
+            <button class="phone" bindtap="clickPhone">
+                电话客服
+            </button>
+            <button class="buttonTapKnow" bindtap="clickKnow">
+                知道了
+            </button>
+        </view>
+    </view>
+</view>

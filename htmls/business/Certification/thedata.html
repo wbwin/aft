@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/static/css/business/all.css" />
+    <link rel="stylesheet" href="/static/css/business/thedata.css" />
+    <script type="text/javascript" src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+</head>
+
+<body>
+
+    <div class="preOrder" id="preOrder">
+        <div class="Sinfer">
+            <div class="XinPin">
+                <span class="zuol">微信认证</span>
+                <span class="youl">微信认证流程详细说明</span>
+            </div>
+            <div class="TextEn">
+                <div class="lou Ain">1同意协议<span class="lvser"></span></div>
+                <div class="lou Bin">2填写资料<span class="lvse"></span></div>
+                <div class="lou Cin">3填写发票<span class="lvser"></span></div>
+                <div class="lou Din">4支付费用</div>
+            </div>
+            <div class="KunDer">
+                <div class="Winxd">
+                    <div class="Lever">类型</div>
+                    <div class="Ruver">
+                        <div class="delei">
+                            <input class="radio" type="radio" v-model="Min" value="0" name="Min" />企业法人</div>
+                        <div class="delei">
+                            <input class="radio" type="radio" v-model="Min" value="1" name="Min" />个体工商户</div>
+                        <div class="delei">
+                            <input class="radio" type="radio" v-model="Min" value="2" name="Min" />媒体</div>
+                        <div class="delei">
+                            <input class="radio" type="radio" v-model="Min" value="3" name="Min" />政府及事业单位</div>
+                        <div class="delei">
+                            <input class="radio" type="radio" v-model="Min" value="4" name="Min" />其他组织</div>
+                    </div>
+                </div>
+                <div class="Gouxd">
+                    <div class="Zuver">工商执照注册号</div>
+                    <div class="Yvmer">
+                        <input class="Mader ZuCeNu" type="text" :disabled="true" v-model="license" value="license" placeholder="请输入工商执照注册号"> </div>
+                </div>
+                <div class="GouxdOne oneSinde" style="display:none">工商执照号码不能为空</div>
+                <div class="Gounder">
+                    <!-- {$list.operator} -->
+                    <div class="Zuver">经营者姓名</div>
+                    <div class="Yvmer">
+                        <input class="Xonpr XinMIng" type="text" v-model="operator" :disabled="true" value="operator" placeholder="请输入经营者姓名"> </div>
+                </div>
+                <div class="Goundertwo twoSinde" style="display:none">经营者姓名不能为空</div>
+                <div class="RVuxd">
+                    <div class="YinHao"> 经营范围
+                        <br/>
+                        <div class="Xingin">(一般经营范围)</div>
+                    </div>
+                    <div class="Facker">
+                        <textarea class="etxtun yiban" v-on:input="one" v-model="General" value="General"></textarea>
+                    </div>
+                </div>
+                <div class="RVuxdthree sanSinde err" v-bind:style="{display: a}">一般经营范围错误</div>
+                <div class="RVuxd">
+                    <div class="YinHao">经营范围
+                        <br/>
+                        <div class="Xingin">(前置许可经营范围)</div>
+                    </div>
+                    <div class="Facker">
+                        <textarea class="etxtun QianZhi" v-on:input="two" v-model="approved" value="approved"></textarea>
+                    </div>
+                </div>
+                <div class="RVuxdfour Sinert" v-bind:style="{display:b}">前置许可范围不能为空</div>
+                <div class="Xptern">对公银行账户信息</div>
+                <div class="Gouxd">
+                    <div class="Zuver">开户名称</div>
+                    <div class="Yvmer">
+                        <input class="Mader khmc" type="text" v-model="account" :disabled="true" value="account" placeholder="请输入开户名称"> </div>
+                </div>
+                <div class="RVuxdfiver khmcA" style="display:none">一般经营范围不能为空</div>
+                <div class="Sxperting">若有对公账户，填写个体工商户对公账户名称。若无对公账户，填写营业执照上经营者个人开户名称。</div>
+                <div class="Gouxd">
+                    <div class="Zuver">开户银行</div>
+                    <div class="Yvmer">
+                        <input class="Mader khyh" type="text" v-model="bank" :disabled="true" value="bank" placeholder="请输入开户银行"> </div>
+                </div>
+                <div class="RVuxdsix cejo" style="display:none">一般经营范围不能为空</div>
+                <div class="Sxperting">如有个体工商户对公账户,也可填写个体工商户开户银行。</div>
+                <div class="Endles">
+                    <div class="Zuver">银行账号</div>
+                    <div class="Yvmer">
+                        <input class="Solide" id="bankCard" v-on:input="three" :disabled="true" onkeyup="this.value =this.value.replace(/\s/g,'').replace(/[^\d]/g,'').replace(/(\d{4})(?=\d)/g,'$1 ');" v-model="number_bank" value="number_bank" type="text" placeholder="请输入银行账号"> </div>
+                </div>
+                <div class="RVuenght backnur" v-bind:style="{display:c}">银行账号错误</div>
+                <div class="Sxperting"> 我们会给该账户汇入一笔非常小的金额和备注信息，需要你后续跟审核人员确认。 </div>
+                <div class="Xptern">认证联系人信息：个体工商户联系人必须为法人</div>
+                <div class="Endles">
+                    <div class="Zuver">联系人姓名</div>
+                    <div class="Yvmer">
+                        <input class="Solide Namert" v-on:input="four" v-model="Contact_name" value="Contact_name" type="text" placeholder="请输入联系人姓名"> </div>
+                </div>
+                <div class="RVuenght minNaer" v-bind:style="{display:d}">联系人姓名不能为空</div>
+                <div class="Sxperting"> 认证审核过程中将会致电该联系人 </div>
+                <div class="Endles">
+                    <div class="Zuver">联系人手机号码</div>
+                    <div class="Yvmer">
+                        <input class="phonew haomaPhon" v-on:input="five" type="text" v-model="phone" value="phone" placeholder="请输入手机号">
+                        <input class="XinSin" @click="yzm" v-bind:style="{background:color}" type="button" value="获取验证码">
+                        <span class="ScterSin" style="display: none">90秒</span>
+                    </div>
+                </div>
+                <div class="ewfji cvrfvk" v-bind:style="{display:e}">手机号码错误</div>
+                <div class="Jonder"> 请填写联系人的手机号码，认证审核过程中会致电联系人。验证码有效期为10分钟 </div>
+                <div class="Endles">
+                    <div class="Zuver">短信验证码</div>
+                    <div class="Yvmer">
+                        <input class="Solide  Sttx" type="text" v-model="code" value="code" placeholder="请输入短信验证码"> </div>
+                </div>
+                <div class="ewfji Phonxyam" style="display: none;">短息验证码不能为空</div>
+                <div class="Endles">
+                    <div class="Zuver">联系人座机</div>
+                    <div class="Yvmer">
+                        <input class="Solide zuoJi" v-model="landline" v-on:input="six" value="landline" type="text" placeholder="请输入联系人座机"> </div>
+                </div>
+                <div class="ewfji ZjiXinx" v-bind:style="{display:f}">联系人座机错误</div>
+                <div class="Jonder"> 包括区号，电话分机号，以 "." 分隔，座机用于在手机联系不到您的时候使用。 </div>
+                <div class="Endles">
+                    <div class="Zuver">联系人电子邮箱</div>
+                    <div class="Yvmer">
+                        <input class="Solide Emailo" v-model="Emailo" v-on:input="seven" value="Emailo" type="text" placeholder="请输入电子邮箱"> </div>
+                </div>
+                <div class="ewfji csaf" v-bind:style="{display:g}">邮箱格式错误</div>
+                <div class="Jonder"> 电子邮箱用于在审核沟通中告知可能存在的问题，以及如何完善。 </div>
+                <div class="Xptern" style="display:none">个体工商户基本资料</div>
+                <!--【已经隐藏】【已经隐藏】【已经隐藏】【已经隐藏】【已经隐藏】【已经隐藏】--->
+                <div style="display:none;">
+                    <div class="cfwevwrd">
+                        <div class="Emalicde">申请公函</div>
+                        <div class="Xine">格式要求：上传加盖企业公章的原件照片或扫描件，支持JPE,JPEJ,BMP,GIF 格式照片,大小不超过5M</div>
+                    </div>
+                    <div class="Junder">
+                        <div class="dionde">下载公函</div>
+                        <div class="cfercv">重新上传</div>
+                        <input type="file" name="" id="Fubher" class="Fubher">
+                    </div>
+                    <div class="Xinevd">
+                        <div class="Fenter">请点击下载公函,认证核对公函信息,打印->签字->加盖公章后上传;若个体户没有公章可以使用法人签字代替</div>
+                    </div>
+                </div>
+                <!--【已经隐藏】【已经隐藏】【已经隐藏】【已经隐藏】【已经隐藏】【已经隐藏】--->
+                <div class="cfwevwrd" style="display:none">
+                    <div class="Emalicde">个体工商户营业执照</div>
+                    <div class="Xine"> 只支持中国大陆工商局或市场监督管理局颁发的工商营业执照，且必须在有效期内。 </div>
+                </div>
+                <div class="Ellipse" style="display:none">
+                    <div class="Senter">格式要求：原件照片或者加盖公章复印件,支持JPE,JPEJ,BMP,GIF,PNG 格式照片,大小不超过5M</div>
+                </div>
+                <div class="Xinjder" style="display:none">
+                    <span class="Chjon">重新上传</span>
+                    <input type="file" id="ufile" name="" class="ChonAher">
+                </div>
+                <div class="cfwevwrd" style="display:none">
+                    <div class="Emalicde">其他证明材料(选填)</div>
+                    <div class="Xine"> 此处提交其他证明 </div>
+                </div>
+                <div class="Ellicefvwpse" style="display:none">
+                    <div class="Srfrsd"> 格式要求：支持JPG,BMP,JPEG GIF,PNG格式照片,大小不超过5M </div>
+                </div>
+                <div class="cedfRin" style="display:none">
+                    <span class="Subon">选择文件</span>
+                    <input type="file" name="" id="Chdher" class="Chdher">
+                </div>
+                <!--【已经隐藏】【已经隐藏】【已经隐藏】【已经隐藏】【已经隐藏】【已经隐藏】--->
+                <div style="display:none;">
+                    <div class="Xptern">确认名称</div>
+                    <div class="Xerped">
+                        <div class="Elicde">微信认证账号命名原则</div>
+                    </div>
+                    <div class="Xerdesped"> 命名唯一原则：账号名称不得与平台其他账号名称重复，否则将不能通过账号名称审核. </div>
+                    <div class="Winxd">
+                        <div class="Lever">命名方式</div>
+                        <div class="Ruver">
+                            <div class="delei">
+                                <input class="radioo" type="radio" value="0" name="Minn">商标名</div>
+                            <div class="delei">
+                                <input class="radioo" type="radio" value="1" name="Minn">媒体名</div>
+                            <div class="delei">
+                                <input class="radioo" type="radio" value="2" name="Minn">自选词汇</div>
+                        </div>
+                    </div>
+                    <div class="Endles">
+                        <div class="Zuver">申请认证的公众号名称</div>
+                        <div class="Yvmer">
+                            <input class="Solide gzhao" type="text" placeholder="请输入公众号名称"> </div>
+                    </div>
+                    <div class="ewfji cdeer">公众号不能为空</div>
+                </div>
+                <!--【已经隐藏】【已经隐藏】【已经隐藏】【已经隐藏】【已经隐藏】【已经隐藏】-->
+                <div>
+                </div>
+                <div class="Sinder">
+                    <div class="Acunder">
+                        <div class="SinSon" @click="step">上一步</div>
+                        <div class="XinSon" @click="next">下一步</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="/static/js/business/thedata.js"></script>
+</body>
+
+</html>

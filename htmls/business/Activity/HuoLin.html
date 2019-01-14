@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>阿凡提</title>
+<link rel="stylesheet" href="/static/css/business/HuoLin.css">
+<link rel="stylesheet" href="/static/css/business/time.css">
+<script src="/static/js/public/jquery.min.js"></script>
+<script src="/static/js/public/vue.min.js"></script>
+    <script src="/static/js/public/dateSelect-after.js"></script>
+<script src="/static/js/public/axios.min.js"></script>
+
+</head>
+<body>
+<div class="dec" v-cloak>
+
+<div class="cedwkl"><span class="xeko">创建活动</span>  </div>
+
+<div class="xewkl">
+    <div class="sews">优惠券名称</div>
+    <input type="text" style="width: 409px;" class="cejk" placeholder="请输入不得超过12个字符的名称">
+</div>
+
+
+<div class="xewkl">
+    <div class="sews">活动时间</div>
+    <input type="text" id="zuotext" class="zuotext"><div class="cewojk"><img src="/static/image/business/911.png"></div>
+       <span style="margin: 0 10px">至</span>
+    <input type="text" id="csdevwe"  class="csdevwe"><div class="cewojk"><img src="/static/image/business/911.png"></div>
+</div>
+
+
+
+<div class="xewkl">
+    <div class="sews">满足金额</div>
+    <input type="text" style="width:409px;" class="cejvck" placeholder="元" name="spendMoney" maxlength="10" oninput='this.value=this.value.replace(/^[0]+[0-9]*$/gi,"")' >
+</div>
+    <div class="xewkl">
+        <div class="sews">优惠金额</div>
+        <input type="text" style="width:409px;" class="cejvck" placeholder="元" name="couponMoney" maxlength="10"  oninput='this.value=this.value.replace(/^[0]+[0-9]*$/gi,"")'>
+    </div>
+
+
+
+<div class="xewkl">
+    <div class="sews">发放渠道</div>
+    <input type="radio" name="frr" value="1"><span class="seng">店铺领取</span>
+    <input type="radio" name="frr" value="2"><span >分享领取</span>
+</div>
+
+
+
+<!--<div class="xewkl">-->
+    <!--<div class="sews">优惠劵</div>-->
+   <!--<div class="cdejk" @click="cdejkClick()">+添加优惠劵</div>-->
+<!--</div>-->
+
+
+
+<!---->
+    <div class="xewkl_er" style="display: none">
+        <div class="sewsdv"></div>
+        <div class="cedwoj">
+              <div class="cedo"><span class="cedkvregbver"><span class="cwej">￥3</span><br/>满33可用</span></div>
+             <div class="cedjk">
+                  <div class="cdkjl"><span id="bianji">编辑</span><span class="shanchu">删除</span></div>
+                  <div class="cedi">领券后15天内有效</div>
+             </div>
+        </div>
+
+    </div>
+<!---->
+
+
+
+
+    <div class="xewkl">
+    <div class="sews"></div>
+    <input type="checkbox" id="diajjh"> 已阅读并同意 <span class="cedvvbn" @click="cedvvbnClick()">商家自营销协议</span>
+</div>
+
+
+<div class="vrver">
+    <div class="cedj" @click="cedjClick()">取消</div>
+    <div class="cevddj" @click="cevddjClick()">确认</div>
+</div>
+
+
+
+
+
+
+
+
+<!--添加优惠券-->
+    <div class="cdeocdjkw"  style="display: none">
+        <div class="cwedDoi">
+            <div class="cewAj">
+                <div class="cUio">添加优惠券<span class="Hikjh" @click="HikjhClick()">×</span></div>
+
+                <div class="xHkkl">
+                    <div class="sdFws">优惠券金额</div>
+                    <input type="text" class="cTRBHk" value="3"> <span class="esoi">元</span>
+                </div>
+                <div class="cdkoj">门店近30天客单价为36元, 建议值2~4元</div>
+
+                <div class="xHkkl">
+                    <div class="sdFws">使用条件</div>
+                    订单满 <input type="text" class="cTvHk" value="33"> <span class="esoi">元可以使用</span>
+                </div>
+                <div class="cdkoj">门店近30天客单价为36元, 建议值29~36元</div>
+
+                <div class="xHkkl">
+                    <div class="sdFws">优惠券有效期</div>
+                    领券后 <input type="text" class="cTvffrb" value="12" @click="cTvffrbClick()"> <span class="esoi"> 天内有效</span>
+                </div>
+
+<!--21212122-->
+  <div class="cedjkbh" style="display: none">
+      <div class="ceJre" @click="Shoe(this.event)">1</div>
+      <div class="ceJre" @click="Shoe(this.event)">2</div>
+      <div class="ceJre" @click="Shoe(this.event)">3</div>
+      <div class="ceJre" @click="Shoe(this.event)">4</div>
+      <div class="ceJre" @click="Shoe(this.event)">5</div>
+      <div class="ceJre" @click="Shoe(this.event)">6</div>
+      <div class="ceJre" @click="Shoe(this.event)">7</div>
+      <div class="ceJre" @click="Shoe(this.event)">8</div>
+      <div class="ceJre" @click="Shoe(this.event)">9</div>
+      <div class="ceJre" @click="Shoe(this.event)">10</div>
+
+  </div>
+<!--21212122-->
+
+
+               <div class="fgnbrHO">
+                   <div class="decvw" @click="decvwClick()">确认并添加</div>
+                   <div class="csdjmhy" @click="csdjmhyClick()">取消</div>
+               </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+<!--添加优惠券-->
+
+<!--商家自营销协议-->
+    <div class="cdeGjh_kw" style="display: none" >
+        <div class="c_Doi">
+            <div class="cH_wAj">
+                <div class="ck_Uio">商家自营销协议<span class="Hh_kjh" @click="Hh_kjhClick()">×</span></div>
+                <div class="creo">
+                     <h3>商家自营销协议</h3>
+                    1. 店铺优惠活动可以与美团外卖平台的其他活动同时进行, 如满减、满折等; 商家优惠可以和阿凡提外卖红包同时使用;<br/>
+                    2. 店铺优惠活动的促销成本由商家自己承担, 我公司(阿凡提)只是活动工具的提供方; 商家不得要求我公司  开具"店铺优惠"的发票;<br/>
+                    3. 店铺优惠的实际归属为各个开展活动的商家, 我公司(阿凡提)只负责代发, 归属权不属于我公司 (阿凡提) ;<br/>
+                    4. 与商家结算的金额中, 不包括商家店铺自己发放的优惠, 即: 合同中的结算为净值 (原订单金额-商家店铺优惠) ;<br/>
+                    5. 进行中的店铺优惠, 若商家在预先设置活动结束时间前结束活动, 则已发放的优惠仍然有效。<br/>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--商家自营销协议-->
+
+
+
+</div>
+
+<script src="/static/js/business/HuoLin.js"></script>
+</body>
+
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

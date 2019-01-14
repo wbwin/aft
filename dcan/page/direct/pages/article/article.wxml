@@ -1,0 +1,287 @@
+<view wx:if="{{articleInfo.video}}">
+  <video style='width:100%;height:400rpx' id="myVideo" bindplay='stop' bindpause='onVideoPause' bindended='onVideoEnd' autoplay='true' src='https://image.aftdc.com/{{articleInfo.video}}'>
+    <!-- <cover-view class='title' wx:if="{{videoStop}}" style='color:#fff;padding:2%;white-space:pre-wrap'>{{articleInfo.title}}</cover-view> -->
+  </video>
+</view>
+
+<view class='article' style="top:{{articleInfo.video?'400rpx':'0'}}">
+  <scroll-view scroll-y="true" upper-threshold="100" class='bgImg' style="height:100%;background-color:{{template.themeColor}}" scroll-with-animation='true' scroll-into-view="{{toView}}" lower-threshold='20' bindscrolltolower='onReachBottom'>
+    <image wx:if="{{isLoad&&template.imgUrl}}" mode='widthFix' class="bgImg" src="{{template.imgUrl}}"></image>
+
+    <view class='details'>
+      <view id='detail' class='detail'>
+        <view class='title' style="color:{{template.fontColor}}">{{articleInfo.title}}</view>
+
+        <view class='author' style='margin:0' wx:if='{{!articleInfo.video}}'>
+          <!-- <image class='musicImg' style="animation-play-state:{{play?'running':'paused'}}" wx:if="{{articleInfo.music}}" bindtap='plays' src='https://image.aftdc.com/appBimg/icon_music_check.png'></image> -->
+          <view class='L'>
+            <!-- <navigator hover-class='none' style="position:relative" url='/pages/order/shopdetail/shopdetail?shopId={{articleInfo.shopId}}'> -->
+            <image class="shopImg" src='https://image.aftdc.com/{{articleInfo.shopImg}}'>
+            </image>
+            <image class="cerification" style="width:15px;height:15px" wx:if="{{articleInfo.certification}}" src='https://image.aftdc.com/images/daV.png'></image>
+            <!-- </navigator> -->
+          </view>
+          <view class='C'>
+            <view class='time'>
+              <view class='time_l'>
+                <text style='color: {{template.fontColorUname}};font-size:28rpx;font-weight:700;'>{{articleInfo.shopName}}</text>
+                <!-- <text>　{{articleInfo.time}}
+                            </text> -->
+                <text style="color:{{template.fontColorTime}}">
+                {{articleInfo.time}}</text>
+                <!-- <text>{{articleInfo.city}}　{{articleInfo.distance}}</text> -->
+              </view>
+
+              <form class="R Collection" bindsubmit="formatten" report-submit='true' wx:if="{{!is_me}}">
+                <button form-type='submit' class="word" style='	background-color: #00b8a5;' wx:if="{{attentionType==1}}">已关注</button>
+                <button class="word" form-type='submit' wx:else>关　注</button>
+              </form>
+
+              <!-- <view class='address'>
+                            <image src='https://image.aftdc.com/images/nearDW.png'></image> {{articleInfo.distance}} {{articleInfo.shopAddress}}
+                        </view>  -->
+            </view>
+          </view>
+        </view>
+
+        <!-- <view class='music' wx:if="{{articleInfo.music&&!articleInfo.video}}" bindtap='plays'>
+          <view class='play'>{{play?'=':'▲'}}</view>
+          <view class='musicName'>{{articleInfo.music.musicName}}</view>
+        </view> -->
+      </view>
+
+      <!-- <view>
+      <video wx:if="{{articleInfo.video}}" id="myVideo" bindplay='stop' autoplay='true' style='width:94%;margin:3% 3% 0 3%;' src='https://image.aftdc.com/{{articleInfo.video}}'></video>
+    </view> -->
+
+      <view  class='detail' wx:if="{{!articleInfo.video}}">
+
+        <view class='content'>
+          <!-- <view class='content-left'>
+                  <image src='https://image.aftdc.com/{{articleInfo.shopImg}}'></image> 
+              </view> -->
+          <view class='content-right'>
+            <view wx:if="{{articleInfo.imageFontRadio==0}}">
+              <block wx:for="{{articleInfo.content}}">
+                <text wx:if='{{item.content}}' style="color:{{template.fontColor}}">{{item.content}}</text>
+                <image data-index='{{index}}' mode='widthFix' wx:if="{{item.articleImg}}" src='https://image.aftdc.com/{{item.articleImg}}'></image>
+              </block>
+            </view>
+            <view wx:else>
+              <block wx:for="{{articleInfo.content}}">
+                <image data-index='{{index}}' mode='widthFix' wx:if="{{item.articleImg}}" src='https://image.aftdc.com/{{item.articleImg}}'></image>
+                <text style="color:{{template.fontColor}}">{{item.content}}</text>
+              </block>
+            </view>
+
+            <!-- <view class='title'>{{articleInfo.title}}</view> -->
+            <!-- <text>{{articleInfo.content.text}}</text>
+          <view class='img' wx:if="{{articleInfo.content.img}}">
+            <block wx:for="{{articleInfo.content.img}}">
+              <image data-index='{{index}}' bindtap='seeImg' mode='aspectFill' src='https://image.aftdc.com/{{item}}'></image>
+            </block>
+          </view> -->
+            <!--投票-->
+            <block wx:if="{{vote}}">
+              <view class="vote">
+                <view class="voteTop" style="color:{{template.fontColor}}">
+                  <text class="voteTitle">{{vote.voteTopic}}</text>
+                  <view class="row">
+                    <!--<text class="subTitle">截止时间：{{vote.time}}&nbsp;00:00</text>-->
+                    <text class="subTitle" wx:if="{{vote.type<2}}">{{vote.type===1?'(单选)':'(多选,无限制)'}}</text>
+                    <text class="subTitle" wx:else>(最多可选{{vote.type}}项)</text>
+                  </view>
+                  <view wx:if="{{voteSure==0}}">
+                    <block wx:for="{{vote.inputList}}">
+                      <view class="option row {{index===vote.inputList.length-1?'optionNoBorder':''}}" data-index='{{index}}' bindtap="voteClick">
+                        <view class="optionIcon">
+                          <view class="optionIconInside {{item.checked?'optionIconChecked':''}}"></view>
+                        </view>
+                        <text class="optionText" style="color:{{template.fontColor}}">{{item.value}}</text>
+                      </view>
+                    </block>
+                  </view>
+                  <view wx:else>
+                    <block wx:for="{{inputList}}">
+                      <view class='voteComp'>
+                        <text class='voteCompTitle' style="color:{{template.fontColor}}">{{item.value}} {{item.checked?'（已投票）':''}}</text>
+                        <view class='voteCompTicket' style="margin-bottom:{{index==voteTicket.length-1?'20rpx':''}}">
+                          <view class='ticketLine' style="background-color:{{template.fontColor}}">
+                            <view class='ticketLineTrue' style="width:{{item.percentageVotes}}"></view>
+                          </view>
+                          <text class='ticketText' style="color:{{template.fontColor}}">{{item.voteNum}}票</text>
+                          <text class='ticketText' style="color:{{template.fontColor}}">{{item.percentageVotes}}</text>
+                        </view>
+                      </view>
+                    </block>
+                  </view>
+                </view>
+                <view class="voteBottom" bindtap="{{voteSure==0&&voteClickIndex.length>0?'sureVote':''}}">
+                  <text style="color:{{template.fontColor}};font-size:32rpx;opacity:{{voteClickIndex.length>0||voteSure==1?1:0.7}}">{{voteSure==0?'确定':'你已投票'}}</text>
+                </view>
+              </view>
+            </block>
+          </view>
+        </view>
+
+        <view class='tags' wx:if="{{articleInfo.key_word}}">
+          <view style="color:{{template.fontColor}}">文章标签</view>
+          <view class='tag'>
+            <block wx:for="{{articleInfo.key_word}}">
+              <view>{{item}}</view>
+            </block>
+          </view>
+        </view>
+
+      </view>
+
+      <view class='read' wx:if="{{!articleInfo.video}}">
+        <view class='read_left'>
+          <text style="color:{{template.fontColor}}">阅读 {{articleInfo.read_num}}　</text>
+          <image data-type='1' bindtap='Praise' src="https://image.aftdc.com/images/{{articleInfo.is_praise==0?'nozhan.png':'zhan.png'}}"></image>
+          <text style="color:{{template.fontColor}}"> {{articleInfo.praise_num}}　</text>
+        </view>
+        <!-- <view class='tousu' data-id='{{articleInfo.id}}' style="color:{{template.fontColor}}" bindtap='report'>投诉</view> -->
+      </view>
+
+      <view class='author'>
+        <image class='musicImg' style="animation-play-state:{{play?'running':'paused'}}" wx:if="{{articleInfo.music&&!articleInfo.video}}" bindtap='plays' src='https://image.aftdc.com/appBimg/icon_music_check.png'></image>
+        <view class='L'>
+          <!-- <navigator hover-class='none' style="position:relative" url='/pages/order/shopdetail/shopdetail?shopId={{articleInfo.shopId}}'> -->
+          <image class="shopImg" src='https://image.aftdc.com/{{articleInfo.shopImg}}'>
+          </image>
+          <image class="cerification" style="width:15px;height:15px" wx:if="{{articleInfo.certification}}" src='https://image.aftdc.com/images/daV.png'></image>
+          <!-- </navigator> -->
+        </view>
+        <view class='C'>
+          <view class='time'>
+            <view class='time_l'>
+              <text style='color: {{template.fontColorUname}};font-size:28rpx;font-weight:700;'>{{articleInfo.shopName}}</text>
+              <!-- <text>　{{articleInfo.time}}
+                          </text> -->
+              <text style="color:{{template.fontColorTime}}">
+              {{articleInfo.time}}</text>
+              <!-- <text>{{articleInfo.city}}　{{articleInfo.distance}}</text> -->
+            </view>
+
+            <form class="R Collection" bindsubmit="formatten" report-submit='true' wx:if="{{!is_me}}">
+              <button form-type='submit' class="word" style='	background-color: #00b8a5;' wx:if="{{attentionType==1}}">已关注</button>
+              <button class="word" form-type='submit' wx:else>关　注</button>
+            </form>
+
+            <!-- <view class='address'>
+                          <image src='https://image.aftdc.com/images/nearDW.png'></image> {{articleInfo.distance}} {{articleInfo.shopAddress}}
+                      </view>  -->
+          </view>
+        </view>
+      </view>
+
+      <view style='padding:3%' id='comment'>
+        <test style='color:red;font-width:blod;font-size: 32rpx;'>┃ </test>
+        <test style='font-size: 32rpx;color:{{template.fontColor}}'>{{articleInfo.commentOrleaveWord==1?'热门评论':'精选留言'}}</test>
+      </view>
+
+      <view id='lyq' class='ly'>
+
+        <block wx:for="{{lyData}}">
+          <view class='lyBlock'>
+            <view class='userphoto'>
+              <image src='{{item.userPhoto}}'></image>
+            </view>
+            <view class='middle'>
+              <view class='userName' style="color:{{template.fontColor}}">{{item.userName}}
+                <text class='totop' wx:if='{{item.top==1}}'>置顶</text>
+              </view>
+              <view class='pl' style="color:{{template.fontColor}}" wx:if="{{item.content}}">{{item.content}}</view>
+              <view class='pl' wx:if="{{item.img}}">
+                <image mode='widthFix' style='width:70%' src='https://image.aftdc.com/{{item.img}}'></image>
+              </view>
+              <view class='plTime' style='font-size:22rpx;color:#999'>
+                <text style="color:{{template.fontColor}}">{{item.timestamp}}</text>
+                <!-- <text class='replay' style="color:{{template.fontColor}}" bindtap='toTextBox' data-type='replay' data-appraises_id="{{item.id}}"> · 回复</text> -->
+                <text class='replay' style="color:{{template.fontColor}}" bindtap='{{firstClick?"del":""}}'  data-appraises_id="{{item.id}}" data-index="{{index}}" wx-if="{{item.userId === userId}}"> · 删除</text>
+              </view>
+            </view>
+            <view class='zanPl' style="color:{{template.fontColor}}" data-index='{{index}}' data-type='2' bindtap='{{firstClick?"Praise":""}}'>
+              <image src="https://image.aftdc.com/images/{{item.is_praise&&item.is_praise==1?'zhan.png':'nozhan.png'}}" style="margin-right: 10rpx;"></image>{{item.praise_num}}
+            </view>
+          </view>
+        </block>
+        <text class="noLy" wx:if="{{lyData.length==0}}">暂无{{articleInfo.commentOrleaveWord==1?'评论':'留言'}}</text>
+        <view class='more' wx:if="{{load}}">
+          <image src="https://image.aftdc.com/images/flash.gif"></image>
+        </view>
+        <view class="with-line" wx:if="{{!onReachBottom && pullUp && articleInfo.commentOrleaveWord==1}}">没有更多{{articleInfo.commentOrleaveWord==1?'评论':'留言'}}了</view>
+
+      </view>
+      <view wx:if="{{articleInfo.commentOrleaveWord==2}}">
+        <view class='lwTip' wx:if="{{lyData!=''}}">
+          <view class='saixuan' style="color:{{template.fontColor}}">以上留言由商家筛选后显示</view>
+        </view>
+        <view class='lwTip' style='padding:8% 0 15% 0;' wx:if="{{lyData!=''}}" bindtap='lwTip'>
+          <view style='color:#53beb7'>了解留言功能详情</view>
+        </view>
+      </view>
+
+    </view>
+
+
+    
+  </scroll-view>
+
+  <!-- <view class='jiayou' bindtap="comeOn">
+    <text>帮TA
+		加油</text>
+  </view> -->
+
+</view>
+
+<view class='bottoms'>
+  <view class='textBox' wx:if='{{focus}}'>
+    <view class='textarea'>
+      <input placeholder="{{articleInfo.commentOrleaveWord==1?'评论':'留言'}}审核后可见" cursor-spacing='15' bindinput='getTest' value='{{content}}' bindblur='toTextBox' focus='{{focus}}'></input>
+    </view>
+    <form class='sendText' bindsubmit="send" report-submit='true'>
+      <button class='' form-type='submit'>发送</button>
+    </form>
+  </view>
+  <view class='textBox' wx:if='{{!focus}}'>
+    <button class='textBox_flex readTextBox' bindtap='toTextBox' data-type='send'>
+      <view class='textBoxView'>
+        <image class='pancli' src="https://image.aftdc.com/appBimg/icon_leaveWord.png"></image>
+        <text class='lybuttom'>写{{articleInfo.commentOrleaveWord==1?'评论':'留言'}}...</text>
+      </view>
+      <!-- <image  src="http://chuantu.biz/t6/338/1530751608x-1566688712.png"></image> -->
+    </button>
+    <button class='textBox_flex' style='position:relative' bindtap='toViewClick'>
+      <image src="https://image.aftdc.com/appBimg/icon_articleComment.png"></image>
+      <text class='commentNumb' wx:if="{{articleInfo.comment_num>0}}">{{articleInfo.comment_num}}</text>
+      <!-- <text>餐头条</text> -->
+
+    </button>
+    <form bindsubmit="touchCollect" style='flex:1' report-submit='true'>
+      <button class='textBox_flex' hover-class="none" form-type='submit'>
+        <image src="https://image.aftdc.com/images/{{collectType==0?'sooucan':'Collection1'}}.png"></image>
+      </button>
+    </form>
+    <button class='textBox_flex' bindtap="comeOn"  hover-class="none">
+      <image src='https://image.aftdc.com/images/share.png'></image>
+      <!-- <text>分享</text> -->
+    </button>
+  </view>
+  <!-- <view class='file' wx:if="{{add}}">
+			<view class='block' bindtap='chooseImg'>
+				<image src='https://image.aftdc.com/images/xc.png'></image>
+				<text>相册</text>
+			</view>
+		</view> -->
+</view>
+
+<view class='dzanBack' hidden="{{!dzan}}"></view>
+<view class="zanBox {{dzan?'cartoonZan':''}}" hidden="{{!dzan}}">
+  <image src="https://image.aftdc.com/images/zan.png"></image>
+</view>
+
+<!-- <view class='hobbyTip' wx:if="{{hobbyTip}}">{{hobbyTipTitle}}</view> -->
+<include src="/page/common/toast.wxml" />
+<include src="/page/common/loadAnimation.wxml" />

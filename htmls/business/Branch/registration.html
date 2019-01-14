@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>阿凡提</title>
+    <link rel="stylesheet" href="/static/css/business/registration.css">
+    <script src="/static/js/public/jquery-2.1.4.min.js"></script>
+    <script src="/static/js/public/layer/2.4/layer.js"></script>
+    <!-- 三级联动 -->
+    <script src="/static/js/public/distpicker.data.js"></script>
+    <script src="/static/js/public/distpicker.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.js"></script>
+</head>
+<script>
+$(function() {
+
+    //  location.href="{:U('Business/Annex/registration')}"
+});
+</script>
+<style type="text/css">
+</style>
+<!--店铺设置  账号设置-->
+
+<body>
+    <!--<div class="sadkpf">-->
+    <!--<div class="topzuo">-->
+    <!--<div class="djasi">-->
+    <!--<div class="tulogin">-->
+    <!--<img  src="/static/image/business/a.png" height="65" width="65">-->
+    <!--</div>-->
+    <!--<div class="lecdsf">智慧阿凡提</div>-->
+    <!--<div class="cdwee"><span>上阿凡提</span><span>随叫随到</span></div>-->
+    <!--</div>-->
+    <!--<div class="shanghjia">商家中心</div>-->
+    <!--</div>-->
+    <!--<div class="topyou">-->
+    <!--<div class="qian">-->
+    <!--<img src="/static/image/business/1201.png" height="15" width="15"> 商家PC客户端-->
+    <!--</div>-->
+    <!--<div class="hou">-->
+    <!--<img src="/static/image/business/12122.png" height="15" width="15"> 商家手机客户端-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <div class="dec" v-cloak>
+        <!--11111111111111-->
+        <div class="on_kuabn">
+            <div class="ocdowqe">店铺信息</div>
+            <div class="id_haoss"><span class="nei_conters">店铺名称<input type="text" class="inpu" name="shopName" placeholder="请输入店铺名称"></span></div>
+            <div class="id_mimas"><span class="nei_conters">商家姓名<input type="text" class="inpu" name="userName" placeholder="请输入商家姓名"></span> </div>
+            <div class="id_mimas"><span class="nei_conters">银行卡号<input type="text" class="inpu" name="bankNo" placeholder="请输入银行卡号"></span> </div>
+            <div class="id_mimas"><span class="nei_conters">持卡姓名<input type="text" class="inpu" name="bankUserName" placeholder="请输入银行卡持卡人姓名"></span> </div>
+            <!--地址-->
+            <div data-toggle="distpicker" class="AllSinqu">
+                <span class="cotyint">选择省市</span>
+                <select class="province" data-province="---- 选择省 ----"></select>
+                <select class="city" data-city="---- 选择市 ----"></select>
+                <select class="area" data-district="---- 选择区 ----"></select>
+            </div>
+            <div class="id_mimas"><span class="nei_conters">店铺详细地址<input type="text" @click="init()" class="inpu adrs" name="shopAddress" placeholder="请输入店铺详细地址"></span> </div>
+            <!-- 地图盒子 -->
+            <div class="containers"></div>
+            <div class="id_mimas Gzhonhao"><span class="nei_conters Ghao">是否有微信公众号<input type="radio" class="weixin" name="dlvServi" value="1" checked  >是<input type="radio" class="weixin" name="dlvServi" value="2">否</span> </div>
+            <div class="id_mimas"><span class="nei_conters Leixin">商家类型<input type="radio" class="shangjia" name="dlvServic" value="1" checked  >单店<input type="radio" class="shangjia" name="dlvServic" value="2">连锁店</span> </div>
+            <div class="id_mimas"><span class="nei_conters">配送方式<input type="radio" class="radio" name="dlvService" value="1" checked  >商家自配送<input type="radio" class="radio" name="dlvService" value="2">平台</span> </div>
+            <div class="id_mimas"><span class="nei_conters">营业面积<input type="text" class="inpu" name="acreage" placeholder="请输入营业面积（单位:平方米）"></span> </div>
+            <div class="id_mimas"><span class="nei_conters">在其他平台开过店<input type="text" class="inpu" name="weburl" placeholder="请输入店铺链接"></span> </div>
+            <div class="id_mimas"><span class="nei_conters">电子邮件<input type="text" class="inpu" name="email" placeholder="请输入您常用的电子邮件"></span> </div>
+            <input type="hidden" class="inpu" name="phon" value="{$phone}">
+            <div class="id_mimas"><span class="nei_conters">菜系分类
+        <select id="select">
+            <option value ="-1">请选择</option>
+            <volist name="shop" id="vo">
+                <option value="{$vo['id']}">{$vo['name']}</option>
+            </volist>
+        </select>
+        </span></div>
+            <div class="tHreesanss">
+                <div class="wentuziss">
+                    <div>上传店铺头像</div>
+                    <div><span id="numberimgertss">0</span>/1</div>
+                </div>
+                <div class="imgKuangss">
+                    <div class="imhonss">
+                    </div>
+                    <div class="xcsDikss" @click="xcsDikssClick()">+</div>
+                    <input id="inpfiless" @change="getImgss()" type="file" style="display: none">
+                    <div class="zhushji">
+                        <div>图片上传格式支持PNG、JPG、GIF</div>
+                        <div>每张图片大小不超过2M，最多可上传1张</div>
+                    </div>
+                </div>
+            </div>
+            <div class="tHreesan">
+                <div class="wentuzi">
+                    <div>上传身份证正反面和手持身份证</div>
+                    <div><span id="numberimgert">0</span>/3</div>
+                </div>
+                <div class="imgKuang">
+                    <div class="imhon">
+                    </div>
+                    <div class="xcsDik" @click="xcsDikClick()">+</div>
+                    <input id="inpfile" @change="getImg()" type="file" style="display: none">
+                    <div class="zhushji">
+                        <div>图片上传格式支持PNG、JPG、GIF</div>
+                        <div>每张图片大小不超过2M，最多可上传3张</div>
+                    </div>
+                </div>
+            </div>
+            <div class="tHreesans">
+                <div class="wentuzis">
+                    <div>上传营业执照/餐饮许可证/特许证件</div>
+                    <div><span id="numberimgerts">0</span>/3</div>
+                </div>
+                <div class="imgKuangs">
+                    <div class="imhons">
+                    </div>
+                    <div class="xcsDiks" @click="xcsDiksClick()">+</div>
+                    <input id="inpfiles" @change="getImgs()" type="file" style="display: none">
+                    <div class="zhushjis">
+                        <div>图片上传格式支持PNG、JPG、GIF</div>
+                        <div>每张图片大小不超过2M，最多可上传3张</div>
+                    </div>
+                </div>
+            </div>
+            <div class="sajdio">
+                <img class="imsh_cuo" style="display:none" src="/static/image/business/cuo.png" height="12" width="12" alt="">
+                <span class="ziticolor" id="confo.info"></span>
+            </div>
+            <button class="Tijiao" @click="TijiaoClick()">提交</button>
+        </div>
+    </div>
+    <!--提示  【弹出框】-->
+    <div class="jihuws_wj" style="display: none">
+        <div class="xcewcjswj">
+            <div class="xmokJ">
+                <span class="tanhao">√</span><span id="cont.info"></span>
+            </div>
+        </div>
+    </div>
+    <!--提示  【弹出框】-->
+    <script src="/static/js/business/main.js"></script>
+    <script src="/static/js/business/ActNum.js"></script>
+    <script src="/static/js/business/registration.js"></script>
+</body>
+
+</html>

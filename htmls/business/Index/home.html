@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta  charset="UTF-8">
+    <title>阿凡提商家版</title>
+    <link rel="stylesheet" href="/static/css/business/all.css"/>
+    <link rel="stylesheet" href="/static/css/business/home.css"/>
+    <link rel="stylesheet" href="/static/css/business/ActNum.css">
+    <script type="text/javascript" src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+</head>
+
+<body>
+<input type="hidden" name="shopId" :value="datas.shopId"/>
+<div class="content-wrapper home" id="home" v-cloak>
+    <div class="poi-summary">
+        <div class="summary-header clear">
+            <div class="pull-left poi-grade">
+                <img :src="'https://image.aftdc.com/'+shops.shopImg" class="shopIcon"/>
+                <span class="shopName">{{shops.shopName}}</span>
+                <span class="starsBox">
+                                 <img v-for="item in shops.flooravg
+                   " src="/static/image/business/stars-yellow.png"/>
+                           <img v-for="item in 5-shops.flooravg
+                   " src="/static/image/business/stars.png"/>
+                                 <span class="numb">&nbsp; {{shops.avg}}</span>
+                    </span>
+            </div>
+            <div class="pull-right poi-manage">
+                <a class="pull-left">
+                    <img src="/static/image/business/home1.png">
+                    <span class="name grger" @click="GoodsClick()">商品管理</span>
+                </a>
+                <a class="pull-left yue" @mousemove="YTmousemove()" @mouseout="YTmouseout()">
+                    <img src="/static/image/business/home2.png">
+                    <span class="name">账户余额</span>
+                    <span class="moreBot">></span>
+                </a>
+                <div class="thisCai" @mousemove="YTmousemove()" @mouseout="YTmouseout()">
+                    <div class="colert"><span>可提现余额</span><span>￥{{datas.money.userMoney}} </span></div>
+                    <!-- <div class="colert"><span>配送费余额</span><span>￥0.00</span></div> -->
+                    <div class="colert"><span>保证金余额</span><span>￥{{datas.shopMoney.shopMoney}} </span></div>
+                    <!-- <div class="colert"><span>推广费余额</span><span>￥0.00</span></div> -->
+                </div>
+                <a class="pull-left conmer">
+                    <img src="/static/image/business/home3.png">
+                    <span class="name" @click="ActDoorClick()">门店管理</span>
+                </a>
+            </div>
+        </div>
+        <div class="summary-body  clear">
+            <div class="pull-left today-total clear">
+                <div class="pull-left item-6">
+                    <div class="c-grayest">今日有效订单
+                        <span class="askIcon" id="hoveren" :mousemove="Hmousemove()" :mouseout="Hmouseout()">
+                                    <div class="xianshione">交易成功且用户未退的订单</div>
+                                    <img class="sanimg" src="/static/image/business/jhk.png">
+                                </span>
+                    </div>
+                    <div class="num-wrapper">
+                        <a href="javascript:0;" @click="orderHistoryClick()" class="num">
+                  <span class="fz-hover" style="color:#A0A0A0">
+                  <strong>{{Statistics.order.todayCount[0].orderNum?Statistics.order.todayCount[0].orderNum:'0'}}</strong>
+                  <b class="f-normal">单</b>
+                  </span>
+                            <i class="c-grayest">›</i>
+                        </a>
+                        <span class="c-grayest">昨日{{Statistics.order.YesterdayCount[0].orderNum?Statistics.order.YesterdayCount[0].orderNum:'0'}}单</span>
+                        <div class="v-line"></div>
+                    </div>
+                </div>
+                <div class="pull-left item-6">
+                    <div class="c-grayest">今日订单收入
+                        <span class="askIcon" id="snanei" :mousemove="Smousemove()" :mouseout="Smouseout()">
+                                     <div class="astuk">扣除相关支出费用(营销活动支出,平台服务费等)后的净收入</div>
+                                     <img class="teoimg" src="/static/image/business/jhk.png">
+                                </span>
+                    </div>
+                    <div class="num-wrapper">
+                        <a href="javascript:0;" @click="CaiDuizhangClick()" class="num">
+                  <span class="fz-hover" style="color:#A0A0A0">
+                  <b class="f-normal">￥</b>
+                  <strong>{{Statistics.order.todayCount[0].income?Statistics.order.todayCount[0].income:'0.00'}}</strong>
+                  </span>
+                            <i class="c-grayest">›</i>
+                        </a>
+                        <span class="c-grayest">昨日{{Statistics.order.YesterdayCount[0].income?Statistics.order.YesterdayCount[0].income:'0'}}元</span>
+                    </div>
+                </div>
+            </div>
+            <div class="pull-right today-order ">
+                <div class="today-order-box">
+                    <div class="pull-left item-4" v-for="(item,index) in yy">
+                        <div class="c-grayest">{{item.name}}</div>
+                        <div class="num-wrapper2">
+                            <a href="javascript:;" class="num c-grayest">
+                                <strong>{{item.index}}</strong>
+                                <i class="c-grayest">›</i>
+                            </a>
+                            <div class="v-line" v-if="index+1 < 3"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <template v-if="datas.money.login_password==''">
+        <form method="POST" action="" onsubmit="return sub()">
+            <div class="this_kiai" style="left: 0px;">
+                <div class="cmwp">
+                    <div class="cwmcjo">
+                        <div class="scw_dsa">完善信息 <span class="olwjop" @click="ss">×</span></div>
+                        <div class="xqwklj">完善信息</div>
+                        <div class="zhang_a"></div>
+                        <div class="new_mima">密码
+                            <input type="password" name="password" class="cmima" placeholder="请输入6-16位，包含数字和字母">
+                        </div>
+                        <div class="zhang_c"><img class="cimg" src="/static/image/business/cuo.png" height="12"
+                                                  width="12"><span id="c.info"></span></div>
+                        <div class="new_agen">确认密码<input type="password" name="repassword" class="dmima"
+                                                         placeholder="请再次填写上面的密码"></div>
+                        <div class="zhang_d"><img class="dimg" src="/static/image/business/cuo.png" height="12"
+                                                  width="12"><span id="d.info"></span></div>
+                        <button class="ench" @click="sub">完成</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </template>
+
+    <!--  -------------------------0000000000000000000000000000000000000000000000000--------------------------------------- -->
+    <div class="main-content item-7" style="padding-left: 0px;">
+        <!-- <div class="panel-default bg-wit">
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                <strong>昨日经营分析</strong>
+                <span class="pull-right jump-out f-normal">
+                  <a href="/index.php/Business/Analy/analyFlow" class="c-normal fz-hover">流量分析</a>
+                  <a href="/index.php/Business/Analy/analyShop" class="c-normal fz-hover">商品分析  </a>
+                </span>
+                    </h3>
+                </div>
+                <div class="panel-body" style="height: 122px;">
+                    <div class="analysis" style="width:300px;">
+                        <p>顾客分析 </p>
+                        <div class="w-grayer clear">
+                            <div class="left-side pull-left">0
+                                <strong>{{datas.order.YesterdayCount[0].orderNum?datas.order.YesterdayCount[0].orderNum:'0'}}</strong>人
+                                <div class="small">昨日成交顾客数</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="analysis" style="width:300px;">
+                        <p>订单分析 </p>
+                        <div class="w-grayer clear">
+                            <div class="left-side pull-left">0
+                                <strong>{{datas.order.YesterdayCount[0].orderNum?datas.order.YesterdayCount[0].orderNum:'0'}}</strong>单
+                                <div class="small">昨日成交订单数</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="analysiss" style="width:300px;">
+                        <p>订单收入 </p>
+                        <div class="w-grayer clear">
+                            <div class="left-side pull-left">0
+                                <strong>{{datas.order.YesterdayCount[0].income?datas.order.YesterdayCount[0].income:'0'}}</strong>元
+                                <div class="small">昨日订单收入</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-bodt panel-active ">
+                    <table>
+                        <tr>
+                            <td style="border-right:1px solid #a0a0a0; padding:0 120px 20px;">顾客分析</td>
+                            <td style="border-right:1px solid #a0a0a0; padding:0 120px 20px;">订单分析</td>
+                            <td style="padding:0 136px 20px;">订单收入</td>
+                        </tr>
+                        <tr style="height: 56px">
+                            <td style="border-right:1px solid #a0a0a0; padding:0 120px 20px;">&nbsp<a href="/index.php/Business/Setshop/member" style="color:#000; font-size:27px; text-decoration: none">&nbsp 0{{datas.order.YesterdayCount[0].orderNum?datas.order.YesterdayCount[0].orderNum:'0'}}</a>人</td>
+                            <td style="border-right:1px solid #a0a0a0; padding:0 120px 20px;">&nbsp<a style="color:#000; font-size:27px">&nbsp 0{{datas.order.YesterdayCount[0].orderNum?datas.order.YesterdayCount[0].orderNum:'0'}}</a>单</td>
+                            <td style="padding:0 136px 20px;">&nbsp<a style="color:#000; font-size:27px">&nbsp 0{{datas.order.YesterdayCount[0].income?datas.order.YesterdayCount[0].income:'0'}}</a>元</td>
+                        </tr>
+                    </table>
+                </div> -->
+        <div class="panel-bodt panel-active ">
+            <div class="WaiKuan">
+                <div class="Biner">
+                    <div class="titlert">顾客分析</div>
+                    <div class="xiunHou">
+                        {{Statistics.order.YesterdayCount[0].orderNum?Statistics.order.YesterdayCount[0].orderNum:'0'}}
+                        <span class="dunger">人</span></div>
+                </div>
+                <div class="Biner">
+                    <div class="titlert">订单分析</div>
+                    <div class="xiunHou">
+                        {{Statistics.order.YesterdayCount[0].orderNum?Statistics.order.YesterdayCount[0].orderNum:'0'}}
+                        <span class="dunger">单</span></div>
+                </div>
+                <div class="Biner" style="border:0px;">
+                    <div class="titlert">订单收入</div>
+                    <div class="xiunHou">
+                        {{Statistics.order.YesterdayCount[0].income?Statistics.order.YesterdayCount[0].income:'0'}}<span
+                            class="dunger">元</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="item-5 pull-right panel-right" style="padding-right:0px;">
+        <div class="panel-default bg-wit">
+            <div class="panel-heading">
+                <h3 class="panel-title">
+                    <strong>会员</strong>
+                    <!-- <span class="pull-right panel-more w-grayer chankanall"><a href="/index.php/Business/Activity/HuoDong" style="text-decoration: none; color: #6a6a6a">查看全部></a></span> -->
+                </h3>
+            </div>
+            <div class="panel-bodt panel-active">
+                <div class="Nonderty">
+                    <div class="Ninter">
+                        <div class="Uderin">商家会员</div>
+                        <!-- <if condition="$shopcoupon neq 0"> -->
+                        <div class="PinHou">
+                            {{datas.shopcoupon}}<span class="Funger">人</span></div>
+                        <!-- <else />
+                                                    <div class="PinHou">0<span class="Funger">人</span></div>
+                                                                                </if>
+                                                     -->
+                    </div>
+                    <div class="Ninter">
+                        <div class="Uderin">我的粉丝</div>
+                        <!-- <if condition="$user_attention neq 0"> -->
+                        <div class="PinHou">{{datas.user_attention}}<span class="Funger">人</span></div>
+                        <!-- <else />
+                            <div class="PinHou">0<span class="Funger">人</span></div>
+                                                        </if> -->
+                    </div>
+                    <div class="Ninter">
+                        <div class="Uderin">屏蔽</div>
+                        <!-- <if condition="$user_shield neq 0"> -->
+                        <div class="PinHou">{{datas.user_shield}}<span class="Funger">人</span></div>
+                        <!-- <else />
+                            <div class="PinHou">0<span class="Funger">人</span></div>
+                                                        </if> -->
+                    </div>
+                    <div class="Ninter" style="border:0px">
+                        <div class="Uderin">口味不符</div>
+                        <!-- <if condition="$user_taste neq 0"> -->
+                        <div class="PinHou">{{datas['user_taste']}}<span class="Funger">人</span></div>
+                        <!-- <else />
+                            <div class="PinHou">0<span class="Funger">人</span></div>
+                                                        </if> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- -------------------------0000000000000000000000000000000000000000000000000--------------------------------------- -->
+    <div class="baisedakuangh">
+        <!-- <div class="panel-heading">
+            <h3 class="panel-title">
+                    <strong>我的活动</strong>
+                    <span class="pull-right panel-more w-grayer chankanall"><a href="/index.php/Business/Activity/HuoDong" style="text-decoration: none; color: #06c1ae">查看更多></a></span>
+                </h3>
+        </div> -->
+        <!-- 切换切换切换切换 -->
+        <!--当前活动-->
+        <div class="diyikuang">
+            <div class="toubu" style="background:#FAFAFA;border-top: 1px solid #eee;">
+                <div class="ac_one" style="border-right: 1px solid #FAFAFA;">活动名称</div>
+                <div class="ac_two" style="border-right: 1px solid #FAFAFA;">活动状态</div>
+                <div class="ac_three" style="border-right: 1px solid #FAFAFA;">活动时间</div>
+                <div class="ac_four" style="border-right: 1px solid #FAFAFA;">活动内容</div>
+                <div class="ac_five" style="border-right: 1px solid #FAFAFA;">操作</div>
+            </div>
+            <div class="centerbu" v-if="datas.newCou!=0">
+                <div class="htc_a">
+                    <div class="jiaoixsj">
+                        <span style="background: #c183e2;">新</span>新用户立减活动
+                    </div>
+                </div>
+                <div class="htc_b">
+                    <div class="loging">进行中</div>
+                    <!--<div class="cwicow">剩余1天</div>-->
+                </div>
+                <div class="htc_c">
+                    <div>无限制</div>
+                </div>
+                <div class="htc_d">
+                    <div>新用户下单立减{{datas['newCou']}}元</div>
+                </div>
+                <div class="htc_e">
+                    <div class="dcvjnwo"><a href="javascript:void(0);" id="xyhlj" @click="xyhljClick()">查看详情</a></div>
+                </div>
+            </div>
+            <!-- <volist name="coupon" id="vo"> -->
+            <template v-for="(item,index) in datas.coupon">
+                <div class="centerbu">
+                    <div class="htc_a">
+                        <div class="jiaoixsj">
+                            <span style="background-color: #ff7298">领</span>商家优惠券
+                        </div>
+                    </div>
+                    <div class="htc_b">
+                        <div class="loging">进行中</div>
+                        <!--<div class="cwicow">剩余1天</div>-->
+                    </div>
+                    <div class="htc_c">
+                        <div>{{item.validStartTime}}
+                        </div>
+                        <div>至</div>
+                        <div>{{item.validEndTime}}</div>
+                    </div>
+                    <div class="htc_d">
+                        <div>满{{item.spendMoney}}减{{item.couponMoney}}</div>
+                    </div>
+                    <div class="htc_e">
+                        <div class="dcvjnwo"><a href="javascript:0;" @click="seeCouponClick(item)">查看详情</a></div>
+                    </div>
+                </div>
+            </template>
+            <!-- </volist> -->
+            <div class="centerbu" v-if="datas.youhui!=null">
+                <div class="htc_a">
+                    <div class="jiaoixsj">
+                        <span style="background-color: #ff635b">减</span>满减活动
+                    </div>
+                </div>
+                <div class="htc_b">
+                    <div class="loging">进行中</div>
+                    <!--<div class="cwicow">剩余1天</div>-->
+                </div>
+                <div class="htc_c">
+                    <!--<div>{$vo.validStartTime}</div>-->
+                    <!--<div>至</div>-->
+                    <!--<div>{$vo.validEndTime}</div>-->
+                    <div>请看详情页</div>
+                </div>
+                <div class="htc_d">
+                    <div>{{datas['youhui']}}</div>
+                </div>
+                <div class="htc_e">
+                    <div class="dcvjnwo"><a href="javascript:void(0);" id="mjhd" @click="mjhdClick()">查看详情</a></div>
+                </div>
+            </div>
+            <div class="centerbu" v-if="datas.discount!=0">
+                <div class="htc_a">
+                    <div class="jiaoixsj">
+                        <span id="NoZhe">折</span>折扣活动
+                    </div>
+                </div>
+                <div class="htc_b">
+                    <div class="loging">进行中</div>
+                    <!--<div class="cwicow">剩余1天</div>-->
+                </div>
+                <div class="htc_c">
+                    <!--<div>{$vo.validStartTime}</div>-->
+                    <!--<div>至</div>-->
+                    <!--<div>{$vo.validEndTime}</div>-->
+                    <div>请看详情页</div>
+                </div>
+                <div class="htc_d">
+                    <div>{{datas['discount']}}个商品参与</div>
+                </div>
+                <div class="htc_e">
+                    <div class="dcvjnwo"><a href="javascript:void(0);" id="zkhd" @click="zkhdClick()">查看详情</a></div>
+                </div>
+            </div>
+            <div class="centerbu" v-if="datas.bargain!=0">
+                <div class="htc_a">
+                    <div class="jiaoixsj">
+                        <span id="NoKan">砍</span>砍价活动
+                    </div>
+                </div>
+                <div class="htc_b">
+                    <div class="loging">进行中</div>
+                    <!--<div class="cwicow">剩余1天</div>-->
+                </div>
+                <div class="htc_c">
+                    <!--<div>{$vo.validStartTime}</div>-->
+                    <!--<div>至</div>-->
+                    <!--<div>{$vo.validEndTime}</div>-->
+                    <div>请看详情页</div>
+                </div>
+                <div class="htc_d">
+                    <div>{{datas['bargain']}} 个商品参与</div>
+                </div>
+                <div class="htc_e">
+                    <div class="dcvjnwo"><a href="javascript:void(0);" id="kjhd" @click="kjhdClick()">查看详情</a></div>
+                </div>
+            </div>
+            <div class="centerbu" v-if="datas.groups!=0">
+                <div class="htc_a">
+                    <div class="jiaoixsj">
+                        <span id="NoTuan">团</span>团购活动
+                    </div>
+                </div>
+                <div class="htc_b">
+                    <div class="loging">进行中</div>
+                    <!--<div class="cwicow">剩余1天</div>-->
+                </div>
+                <div class="htc_c">
+                    <!--<div>{$vo.validStartTime}</div>-->
+                    <!--<div>至</div>-->
+                    <!--<div>{$vo.validEndTime}</div>-->
+                    <div>请看详情页</div>
+                </div>
+                <div class="htc_d">
+                    <div>共{{datas['groups']}} 个团购活动</div>
+                </div>
+                <div class="htc_e">
+                    <div class="dcvjnwo"><a href="javascript:void(0);" id="tghd" @click="tghdClick()">查看详情</a></div>
+                </div>
+            </div>
+            <if condition="$seckill neq 0">
+                <div class="centerbu" v-if="datas.seckill!=0">
+                    <div class="htc_a">
+                        <div class="jiaoixsj">
+                            <span id="NoMiao">秒</span>秒杀活动
+                        </div>
+                    </div>
+                    <div class="htc_b">
+                        <div class="loging">进行中</div>
+                        <!--<div class="cwicow">剩余1天</div>-->
+                    </div>
+                    <div class="htc_c">
+                        <!--<div>{$vo.validStartTime}</div>-->
+                        <!--<div>至</div>-->
+                        <!--<div>{$vo.validEndTime}</div>-->
+                        <div>请看详情页</div>
+                    </div>
+                    <div class="htc_d">
+                        <div>共{{datas['seckill']}} 个秒杀活动</div>
+                    </div>
+                    <div class="htc_e">
+                        <div class="dcvjnwo"><a href="javascript:void(0);" id="mshd" @click="mshdClick()">查看详情</a></div>
+                    </div>
+                </div>
+            </if>
+        </div>
+        <!--当前活动-->
+    </div>
+    <!--<div class="panel home-footer w-grayer">-->
+        <!--<div class="row clear">-->
+            <!--<div class="item-3 pull-left fz-hover">-->
+                <!--<div class="title mid-gap ">-->
+                    <!--<strong class="c-grayer">商户服务中心</strong><i class="f-large c-grayer">﹥</i>-->
+                <!--</div>-->
+                <!--<span>订单、商家问题在线客服咨询</span>-->
+            <!--</div>-->
+            <!--<div class="item-3 pull-left fz-hover">-->
+                <!--<div class="title mid-gap ">-->
+                    <!--<strong class="c-grayer">产品意见反馈</strong><i class="f-large c-grayer">﹥</i>-->
+                <!--</div>-->
+                <!--<span>产品问题或建议，欢迎反馈</span>-->
+            <!--</div>-->
+            <!--<div class="item-2 pull-left">-->
+                <!--<div class="title mid-gap ">-->
+                    <!--<strong class="c-grayer">业务经理</strong><i class="f-large c-grayer">﹥</i>-->
+                <!--</div>-->
+                <!--<span>137546559</span>-->
+            <!--</div>-->
+            <!--<div class="item-4 pull-left">-->
+                <!--<img class="home-ewm inline" src="/static/image/business/ewm.jpg"/>-->
+                <!--<div class="inline">-->
+                    <!--<div class="title"><strong class="c-grayer">手机版</strong></div>-->
+                    <!--<span>扫描下载手机版</span>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+</div>
+</body>
+<script type="text/javascript" src="/static/js/business/home.js"></script>
+
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/static/css/business/all.css" />
+    <link rel="stylesheet" href="/static/css/business/fensi.css" />
+    <link rel="stylesheet" href="/static/css/business/pages.css">
+    <script type="text/javascript" src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+    <script src="/static/js/public/pages.js"></script>
+</head>
+<!--菜品编辑-->
+
+<body>
+    <input type="hidden" name="shopId" value="{$shopId}">
+    <div id="desk" v-cloak>
+        <div class="header">
+            <a class="kui-button inline menu-color" href="javascript:;" style="cursor: default;background-color: #06c1ae; color:#fff">我的粉丝</a>
+        </div>
+        <div class="Dabiank">
+            <div class="Sinderon">
+                <div class="Zyon_zuo">
+                    <a id="fanA"  href="javascript:0;"  v-for="(item,index) in datas" @click="fanAClick(index)">
+                        <div class="XunHuan">
+                            <span class="swclk">
+						<span><img class="tupian" :src="item.userPhoto"></span>
+                            <span class="minxazi" style="color: #000">{{item.userName}}</span>
+                            </span>
+                            <span> ({{item.noReplayNum}}) </span>
+                        </div>
+                    </a>
+
+                    <div style='text-align:center;display: initial;' class="pages">
+                        <!-- 分页 -->
+                        <pages :page-numb="pageNumb" :page-curent="pageCurent" @pagefather="pageFn"></pages>
+                    </div>
+                </div>
+                <div class="Zyon_you">
+                    <div class="SinDuo">
+                        <span>收藏</span>
+                        <span>({{dataz.collectNum}})</span>
+                    </div>
+                    <div class="SinDuo">
+                        <span>屏蔽</span>
+                        <span>({{dataz.shieldNum}})</span>
+                    </div>
+                    <div class="SinDuo">
+                        <span>口味不符</span>
+                        <span>({{dataz.tasteNum}})</span>
+                    </div>
+                    <div class="SinDuo">
+                        <span>价格贵</span>
+                        <span>({{dataz.expensiveNum}})</span>
+                    </div>
+                    <div class="SinDuo">
+                        <span>不喜欢本店的菜</span>
+                        <span>({{dataz.dislikeCuisineNum}})</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="/static/js/business/fensi.js"></script>
+</body>
+
+</html>

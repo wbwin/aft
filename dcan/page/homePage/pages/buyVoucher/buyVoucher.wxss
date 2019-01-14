@@ -1,0 +1,390 @@
+page {
+  background-color: #f0f0f0;
+  font-size: 32rpx;
+}
+
+.grayColor {
+  color: #999;
+}
+
+.orange {
+  color: #f90;
+}
+
+.smallFont {
+  font-size: 28rpx;
+}
+
+.foodInfor {
+  margin: 20rpx 0;
+  background-color: #fff;
+}
+
+.foodDetail {
+  display: flex;
+  flex-direction: row;
+  font-size: 28rpx;
+  padding: 20rpx 30rpx;
+}
+
+.foodDetail image {
+  width: 160rpx;
+  height: 160rpx;
+  flex: none;
+}
+
+.foodDetail .word {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-left: 20rpx;
+  flex: auto;
+  overflow: hidden;
+}
+
+.foodDetail .word .title {
+  display: flex;
+  flex-flow: nowrap row;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30rpx;
+  overflow: hidden;
+}
+
+.foodDetail .worName {
+  color: #333;
+  font-size: 32rpx;
+  max-width: 80%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.foodDetail .word .time {
+  font-size: 28rpx;
+}
+
+.foodDetail .servic {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.allowDetail {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color:#53beb7;
+  margin-right: 18rpx;
+}
+
+.allowDetail image {
+  width: 48rpx;
+  height: 48rpx;
+  margin-right: 6rpx;
+}
+
+.sorts {
+  padding: 30rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+}
+
+.sorts text:last-child {
+  flex: auto;
+  text-align: right;
+}
+
+.foodNumb {
+  padding: 20rpx 30rpx;
+  border-top: solid 1px #f0f0f0;
+  border-bottom: solid 1px #f0f0f0;
+}
+
+.foodNumb .count {
+  display: flex;
+  flex-direction: row;
+  height: 64rpx;
+  line-height: 64rpx;
+  border: solid 3rpx #dedede;
+  border-radius: 8rpx;
+  font-size: 40rpx;
+}
+
+.foodNumb .count input {
+  width: 90rpx;
+  text-align: center;
+  height: 62rpx;
+}
+
+.foodNumb .count .sub, .foodNumb .count .add {
+  text-align: center;
+  width: 70rpx;
+  font-weight: 700;
+}
+
+.foodNumb .count .sub {
+  border-right: solid 3rpx #dedede;
+  color: #787878;
+}
+
+.foodNumb .count .add {
+  border-left: solid 3rpx #dedede;
+  color: #53beb7;
+}
+
+.borBot {
+  border-top: solid 1px #f0f0f0;
+}
+
+.paybut {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  color: #fff;
+  background-color: #53beb7;
+  font-size: 36rpx;
+  text-align: center;
+}
+
+/*可用优惠券*/
+
+.docoupon {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 99;
+}
+
+.couponscroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  background: #fff;
+  border-radius: 10rpx;
+}
+
+.couponName {
+  font-size: 32rpx;
+  font-weight: bold;
+  padding: 36rpx 0rpx;
+  border-bottom: solid 1px #dedede;
+  text-align: center;
+  width: 100%;
+}
+
+.receive {
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+  background: #fff;
+  font-size: 30rpx;
+  border-radius: 12rpx;
+  margin: 20rpx 0;
+  width: 96%;
+}
+
+.receiveLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: auto;
+  padding: 30rpx 10rpx;
+  border-right: dashed 5rpx #dedede;
+  position: relative;
+}
+
+.receiveLeft .mj {
+  font-size: 40rpx;
+  font-weight: bold;
+}
+
+.time {
+  padding: 3% 2%;
+  font-size: 26rpx;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.pricetj {
+  margin: 12rpx 0rpx;
+  font-size: 30rpx;
+}
+
+.yuan {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background: #f8f8f8;
+  position: absolute;
+  right: -10rpx;
+  top: -10rpx;
+}
+
+.yuan2 {
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background: #f8f8f8;
+  position: absolute;
+  right: -10rpx;
+  bottom: -10rpx;
+}
+
+.receiveRight {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 200rpx;
+  color: #f08080;
+}
+
+.price {
+  font-size: 26rpx;
+  /* font-weight: bold; */
+}
+
+.priceNub {
+  font-size: 70rpx;
+}
+
+.name {
+  font-size: 26rpx;
+}
+
+.scrool {
+  background: #dedede;
+}
+
+.qxScroll {
+  width: 80%;
+  margin: 26rpx 0rpx;
+}
+
+.box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bill {
+  height: 50rpx;
+  padding: 2%;
+  background: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.bills {
+  color: gray;
+}
+/*yzm  */
+.inputPhone{
+	position: fixed;
+	background-color: #fff;
+	box-shadow: 0 0 5px #999;
+	left: 10%;
+	top: 30%;
+	width: 74%;
+	padding:5% 3%;
+	z-index: 100
+}
+.tijiao{
+	margin-top: 5%;
+}
+.phones{
+  position: relative;
+  display: flex;
+  flex-flow: nowrap row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: whitesmoke;
+  border-radius:10rpx;
+ overflow: hidden;
+}
+.phones input{
+  width: 360rpx;
+  flex: 2;
+}
+.phone-codes{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  flex: 1;
+}
+.inputNumb{
+  line-height: 80rpx;
+  height: 80rpx;
+background-color: whitesmoke;
+text-align: left;
+padding-left: 8px
+}
+.iconClose{
+  margin: 0 18rpx;
+  flex: none;
+  color: #6a6a6a;
+}
+.phones .obtain{
+font-size: 28rpx;
+margin: 0;
+height: 70rpx;
+line-height: 70rpx;
+width: 198rpx;
+box-sizing: border-box;
+padding: 0;
+text-align: center;
+background-color: #53beb7;
+color: #fff;
+}
+
+button[disabled][type="default"], wx-button[disabled]:not([type]) {
+color:#fff;
+background-color:#B0B0B0;
+}
+.codes{
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+  background-color: whitesmoke;
+  margin-top:20rpx;
+  border-radius:10rpx;
+}
+.codes input{
+ flex: 2;
+}
+.mr{
+  margin-right: 30rpx;
+}
+.back{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	background-color: #dedede;
+	opacity: 0.9;
+	z-index: 99
+}

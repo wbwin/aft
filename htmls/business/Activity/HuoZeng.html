@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>阿凡提</title>
+    <link rel="stylesheet" href="/static/css/business/HuoZeng.css">
+    <link rel="stylesheet" href="/static/css/business/time.css">
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/g2.js"></script>
+</head>
+
+<body>
+<div class="dec" v-cloak>
+    <!--影藏框   【立即创建】【立即创建】【立即创建】-->
+    <div class="yingcangkuzng">
+        <div class="allthisper">
+            <div class="huodwedws"><span>●</span>活动信息</div>
+            <div class="actiontime">
+                <!--1 影藏框1 影藏框1 影藏框-->
+                <div class="thisEon" style="display: none">
+                    <div class="orderent">提示</div>
+                    <img class="siwoen_img" src="/static/image/business/daolionly.png">
+                    <div class="siwoen">活动开始时间是指凌晨0点，如选择2017年11月1日，指的是2017年11月1日 00:00:00</div>
+                </div>
+                <!--<script>-->
+                <!--</script>-->
+                <!--1 影藏框1 影藏框1 影藏框-->
+                活动开始时间 <span @mouseover="pedone()" @mouseout="ynone()">?</span>
+                <input id="tdata" type="text">
+                <div class="huizhiu">00:00:00</div>
+                <script>
+                    $("#tdata").dateSelect();
+                </script>
+                <div class="emeny">
+                    <img src="/static/image/business/in1.png" height="15" width="16" alt="">
+                </div>
+            </div>
+            <div class="overtime">
+                <div class="thedEon" style="display: none">
+                    <div class="orreent">提示</div>
+                    <img class="siwzn_img" src="/static/image/business/daolionly.png">
+                    <div class="siwven">活动结束时间是指当日23:59:59，如果2017年11月1日，指的是2017年11月1日 23:59:59</div>
+                </div>
+                活动结束时间 <span @mouseover="edone()" @mouseout="adone()">?</span>
+                <input id="Ndata" name="Ndata" type="text" placeholder="未设置">
+                <div class="overhiu">23:59:59</div>
+                <script>
+                    $("#Ndata").dateSelect();
+                </script>
+                <div class="uneny">
+                    <img src="/static/image/business/in1.png" height="15" width="16" alt="">
+                </div>
+            </div>
+            <div class="huodwedwsfunck"><span>●</span>买赠信息</div>
+            <div class="tDrfdj">
+                买X赠
+                <input type="button" value="选择菜品" class="dsvsw" @click="dsvswClick()">
+            </div>
+            <div class="tDDFGVdj">
+                菜品名称
+                <input type="text" value="请选择" name="coned" readonly="readonly" class="dsFEw">
+            </div>
+            <div class="tDrfdj">
+                赠送Y
+                <input type="text" value="赠送非本菜品" class="dHlorfw" @click="dHlorfwClick()">
+                <div id="cesochHko" style="display: none">
+                    <div class="tonhgyanj" @click="frin(this.event)">赠送非本菜品</div>
+                    <div class="tonhgyanj" @click="foub(this.event)">赠送本菜品</div>
+                </div>
+            </div>
+            <div class="tDDFGVdj">
+                赠品名称
+                <input type="text" value="未选择" class="dLouidw">
+            </div>
+            <div class="thisjidj">
+                <div class="thedSan" style="display: none">
+                    <div class="orresan">提示</div>
+                    <img class="san_img" src="/static/image/business/daolionly.png">
+                    <div class="siwsan">仅在线支付支持活动</div>
+                </div>
+                买赠数量<span @mouseover="lastzuo()" @mouseout="lastyou()">?</span> 买
+                <input type="text" value="" name="cddv" class="vrrgbr"> 赠
+                <input type="text" value="" name="ttwos" class="ttwos" @focus="ttwosFocus" @blur="ttwosBlur">
+            </div>
+            <div class="tuiscdj">
+                <div class="tdafoan" style="display: none">
+                    <div class="orStnan">提示</div>
+                    <img class="sedf_img" src="/static/image/business/daolionly.png">
+                    <div class="sitrrtan">单个赠品成本为上方选择赠品的单品成本</div>
+                </div>
+                单个赠品成本 <span @mouseover="kachu()" @mouseout="kayin()">?</span>
+                <input type="text" value="" name="edede" class="tones" @focus="tonesFocus()" @blur="tonesBlur()">元
+                <div id="cekery">（ 注意:点击保存后，此处成本均由商家承担 ）</div>
+            </div>
+            <div class="thiGrgjydj">
+                <div class="tdrgbran" style="display: none">
+                    <div class="oukufan">提示</div>
+                    <img class="sedthnmg" src="/static/image/business/daolionly.png">
+                    <div class="siuilifgtan">在此设置当日赠品库存</div>
+                </div>
+                当日赠品库存 <span @mouseover="gtchu()" @mouseout="gtyin()">?</span>
+                <input type="text" value="" name="edede" id="toncvgves" placeholder="-1代表无限">件
+            </div>
+            <div class="xieyihao">
+                <input type="checkbox" name="" value="" placeholder="">已阅读并同意
+                <a id="Coneyler" href="javascript:;" @click="ConeylerClick()">商家自营销协议</a>
+            </div>
+            <!-- <div class="baocunz">保存</div> -->
+            <input type="submit" name="" value="保存" class="baocunz" placeholder="" @click="baocunzClick()">
+
+
+            <!--影藏框【立即创建】【立即创建】【立即创建】【立即创建】-->
+            <!--商家自营销协议-->
+            <div class="allUender" style="display: none">
+                <div class="pasjUnjs">
+                    <div class="ekjpSkd">
+                        <div class="maddeToubu">商家自营销协议<span class="dckAws" @click="dckAwsClick()">×</span></div>
+                        <div class="xswDoi">商家自营销协议</div>
+                        <div class="alxSid">
+                            1. 店铺优惠活动可以与阿凡提外卖平台的其他活动同时进行, 如满减、满折等; 商家优惠可以和阿凡提外卖红包同时使用;
+                            <br/> 2. 店铺优惠活动的促销成本由商家自己承担, 我公司(阿凡提)只是活动工具的提供方; 商家不得要求我公司 (阿凡提) 开具"店铺优惠"的发票;
+                            <br/> 3. 店铺优惠的实际归属为各个开展活动的商家, 我公司(阿凡提)只负责代发, 归属权不属于我公司 (阿凡提) ;
+                            <br/> 4. 与商家结算的金额中, 不包括商家店铺自己发放的优惠, 即: 合同中的结算为净值 (原订单金额-商家店铺优惠) ;
+                            <br/> 5. 进行中的店铺优惠, 若商家在预先设置活动结束时间前结束活动, 则已发放的优惠仍然有效。
+                            <br/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--商家自营销协议-->
+            <div class="xuanhcaiping" style="display: none">
+                <div class="wu_kuan" id="HuoDong">
+                    <div class="zq_kun">
+                        <div class="yk_one">添加菜品<span class="ongtuhgJpo" @click="ongtuhgJpoClick()">×</span></div>
+                        <div class="enow_ks">
+                            <div class="conerton">
+                                全部菜品:
+                                <br/> (参与折扣菜、第二份半价及套餐赠活动菜品不可参与买赠)
+                            </div>
+                            <div class="convrfvn">选中菜品:</div>
+                        </div>
+                        <div class="da_kuang">
+                            <div class="zuo_kai">
+                                <div v-for="(item,index) in foodSele">
+                                    <div class="p_onw" @click="foodNameFn('foodSele',index)">
+                                        <img src="/static/image/business/sdck.png" height="13" width="14"/>{{item.name}}
+                                        <span class="fz-d" @click.stop="foodAdd(index)">+</span>
+                                    </div>
+                                    <div v-show="item.togle">
+                                        <div @click="foChild(this.event)" class="sefck" v-for="(x,numb) in item.child"
+                                             @click="foodChildFn(index,numb)">----<span class="foodChild">{{x}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!---->
+                                <!---->
+                            </div>
+                            <div class="zon_jian">
+                                <!--<div class="cjcm_o"><span class="xz_qb">选择全部>></span></div>-->
+                                <!--<div class="cjcm_d"><span class="xz_ch"><<删除全部</span></div>-->
+                            </div>
+                            <div class="you_kai" id="neirongcent">
+                                <div v-for="(item,index) in foodMeet">
+                                    <div v-if="item.name">
+                                        <div class="p_onwmore" id="p_onwtwomore" @click="foodNameFn('foodMeet',index)">
+                                            <img src="/static/image/business/sdck.png" height="13" width="14">{{item.name}}
+                                            <i class="iconX" @click.stop="foodSub(index)">✖</i></div>
+                                        <div v-show="item.togle">
+                                            <div class="kifckmore" v-for="(x,numb) in item.child">----<span
+                                                    class="foodChild">{{x}}</span><i class="iconX"
+                                                                                     @click="childSub(index,numb)">✖</i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div v-else class="foodChild">{{item.val}}<i class="iconX"
+                                                                                 @click.stop="foodSub(index)">✖</i>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ckpoewqj">
+                            <div class="sks_oo" @click="sks_ooClick()">取消</div>
+                            <div class="sks_kk" @click="sks_kkClick()">保存</div>
+                        </div>
+                    </div>
+                    <!--******************提示框**************************-->
+                    <div class="errBox modal" v-show='errTips'>
+                        <div class="modal-dialog">
+                            <div class="errContent">
+                                <p class="errtips">请先拉取数据</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/static/js/public/dateSelectSum.js"></script>
+<script src="/static/js/business/HuoZeng.js"></script>
+</body>
+
+</html>

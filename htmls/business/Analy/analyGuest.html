@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/static/css/business/all.css" />
+    <link rel="stylesheet" href="/static/css/business/time.css" />
+    <link rel="stylesheet" href="/static/css/business/analyGuest.css" />
+    <script type="text/javascript" src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script src="/static/js/public/jquery.cookie.js"></script>
+    <script type="text/javascript" src="/static/js/public/g2.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+</head>
+<!--经营分析 顾客分析-->
+
+<body>
+<input type="hidden" name="shopId" value="{$shopId}">
+<div class="analyGuest" id="app" v-cloak>
+    <div class="alert alert-info">温馨提醒：每天11：00可查看最新历史数据。本页面数据仅供商家作为调整经营策略的参考，不作为结款与验证的准确依据。</div>
+    <ul class="nav nav-horizontal clear">
+        <li :class="{'active':navNumb==1}" @click="navFn(1)">顾客概况</li>
+        <li :class="{'active':navNumb==2}" @click="navFn(2)">顾客结构</li>
+    </ul>
+    <!--******************************顾客概况*******************************************-->
+    <div class="content-wrapper" v-show="navNumb==1">
+        <div class="panel panel-default core-datas">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    <span>顾客核心数据（{{date}}）</span>
+                    <!--<span class="small c-grayest">（10.14-10.20）</span>-->
+                    <span class="small">
+							<span class="kui-button btn-default btn-sm" :class="{'active':surveyTime==1}" @click="surveyTimeFn(1)">昨日</span>
+                        <span class="kui-button btn-default btn-sm" :class="{'active':surveyTime==2}" @click="surveyTimeFn(2)">近7日</span>
+                        <span class="kui-button btn-default btn-sm" :class="{'active':surveyTime==3}" @click="surveyTimeFn(3)">近30日</span>
+                        <span class="kui-button btn-default btn-sm" :class="{'active':surveyTime==4}" @click="surveyTimeFn(4)">近90日</span>
+                        </span>
+                </div>
+            </div>
+            <!--昨日-->
+            <div class="panel-body clear" style="padding: 20px;" v-show="surveyTime==1">
+                <div class="item-7">
+                    <div style="display: none;" class="csdaFk">支付成功且未取消订单的顾客</div>
+                    <img style="display: none;" class="xsjhGki" src="/static/image/business/yyoonn.jpg">
+                    <div class="text-bold mid-gap">下单人数<span @mouseover="Ayi()" @mouseout="Nyi()" class="askIcon"></span></div>
+                    <div>
+                        <span class="m-right-sm"><span class="fs-bignumber text-bold">{{YorderCount}}</span>人</span>
+                        <span class="c-grayest">较前日</span>
+                        <span class="menu-color"><span class="fa-down1" id="fa-down1" ></span> {{subOrder}}人</span>
+                    </div>
+                    <div id="yesterday"></div>
+                </div>
+                <div class="item-5 part-right">
+                    <div>
+                        <div style="display: none;" class="cssaFk">首次在本店下单的顾客</div>
+                        <img style="display: none;" class="xscGki" src="/static/image/business/yyoonn.jpg">
+                        <p class="w-grayer">新客人数<span @mouseover="Byi()" @mouseout="Vyi()" class="askIcon"></span></p>
+                        <p>
+                            <span class="w-grayer m-right-lg"><span class="fs-bignumber">{{yed.newOrderNum}}</span>人</span>
+                            <span class="c-grayest">较前日</span>
+                            <span class="menu-color"><span class="fa-down2" id="fa-down2"></span> {{subOrder1}}人</span>
+                        </p>
+                        <div class="clear c-grayest">
+                            <span class="inline">占比{{newPer1}}</span>
+                            <div class="inline abroad-enter">
+                                <div class="within-enter" :style="{width:newPer1}"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="m-top-lg">
+                        <div style="display: none;" class="csscedaFk">非首次在本店下单的顾客</div>
+                        <img style="display: none;" class="xscscGki" src="/static/image/business/yyoonn.jpg">
+                        <p class="w-grayer">老客人数<span @mouseover="Bdi()" @mouseout="Vdi()" class="askIcon"></span></p>
+                        <p>
+                            <span class="w-grayer m-right-lg"><span class="fs-bignumber">{{yed.oldOrderNum}}</span>人</span>
+                            <span class="c-grayest">较前日</span>
+                            <span class="menu-color"><span class="fa-down3" id="fa-down3"></span> {{subOrder2}}人</span>
+                        </p>
+                        <div class="clear c-grayest">
+                            <span class="inline">占比{{oldPer1}}</span>
+                            <div class="inline abroad-enter">
+                                <div class="within-enter" :style="{width:newPer1}"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--近7日 近30日 近90日-->
+            <div class="panel-body core-body" v-show="surveyTime != 1">
+                <div class="clear">
+                    <div class="item-7 notpdlf">
+                        <div class="clear repeat-panel" style="padding: 20px 7px;">
+                            <div class="item-5">
+                                <div style="display: none;" class="csUkdaFk">成功下单未取消订单的顾客</div>
+                                <img style="display: none;" class="xsdcGki" src="/static/image/business/yyoonn.jpg">
+                                <div class="text-bold mid-gap">下单人数<span @mouseover="Cind()" @mouseout="Cent()" class="askIcon"></span></div>
+                                <p class="mid-gap">
+                                    <span class="fs-bignumber text-bold">{{orderCount}}</span>人
+                                </p>
+                                <p>
+                                    <span class="c-grayest">较上{{choday}}</span>
+                                    <span class="menu-color"><span class="fa-down4" id="fa-down4"></span> {{subAll}}人</span>
+                                </p>
+                            </div>
+                            <div class="item-7 part-right small customer">
+                                <div>
+                                    <!--*************************************-->
+                                    <div style="display: none;" class="SkdaFk" id="SkdaFk1">首次在本店下单的顾客</div>
+                                    <img style="display: none;" class="SdcGki" src="/static/image/business/yyoonn.jpg" id="SdcGki1">
+                                    <p>新客人数<span onmouseover="onlyleft1()" onmouseout="onlyrigth1()" class="askIcon"></span></p>
+                                    <script type="text/javascript">
+                                        function onlyleft1() {
+                                            $("#SkdaFk1").show();
+                                            $("#SdcGki1").show();
+                                        }
+
+                                        function onlyrigth1() {
+                                            $("#SkdaFk1").hide();
+                                            $("#SdcGki1").hide();
+                                        }
+                                    </script>
+                                    <!--*************************************-->
+                                    <p>
+                                        <span class="m-right-lg"><span class="fs-eighteen">{{newOrderNum}}</span>人</span>
+                                        <span class="c-grayest">较上{{choday}}</span>
+                                        <span class="menu-color"><span class="fa-down5" id="fa-down5"></span> {{sub}}人</span>
+                                    </p>
+                                    <div class="clear c-grayest">
+                                        <span class="inline">占比{{newPer}}</span>
+                                        <div class="inline abroad-enter">
+                                            <div class="within-enter" :style="{width: newPer}"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <!--*************************************-->
+                                    <div style="display: none;" class="SkdaFk" id="SkdaFk2">非首次在本店下单的顾客</div>
+                                    <img style="display: none;" class="SdcGki" src="/static/image/business/yyoonn.jpg" id="SdcGki2">
+                                    <p>老客人数<span onmouseover="onlyleft2()" onmouseout="onlyrigth2()" class="askIcon"></span></p>
+                                    <script type="text/javascript">
+                                        function onlyleft2() {
+                                            $("#SkdaFk2").show();
+                                            $("#SdcGki2").show();
+                                        }
+
+                                        function onlyrigth2() {
+                                            $("#SkdaFk2").hide();
+                                            $("#SdcGki2").hide();
+                                        }
+                                    </script>
+                                    <!--*************************************-->
+                                    <p>
+                                        <span class="m-right-lg"><span class="fs-eighteen">{{oldOrderNum}}</span>人</span>
+                                        <span class="c-grayest">较上{{choday}}</span>
+                                        <span class="menu-color"><span class="fa-down6" id="fa-down6"></span> {{sub1}}人</span>
+                                    </p>
+                                    <div class="clear c-grayest">
+                                        <span class="inline">占比{{oldPer}}</span>
+                                        <div class="inline abroad-enter">
+                                            <div class="within-enter" :style="{width: oldPer}"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="suggestion">
+                            <p class="text-bold w-grayer mid-gap">经营建议</p>
+                            <div class="small">
+                                <p class="mid-gap c-warning ">
+                                    <span class="c-grayest">问题：</span> 您的新客在减少
+                                </p>
+                                <p class="mid-gap">
+                                    <span class="c-grayest">建议：</span> 尝试设置“领取优惠”吸引更多顾客下单！ <span class="menu-color pointer">立即设置></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-5 notpdlf">
+                        <div class="repeat-panel">
+                            <div style="display: none;" class="SkdhraFk">重复下单顾客/下单顾客</div>
+                            <img style="display: none;" class="SdchrGki" src="/static/image/business/yyoonn.jpg">
+                            <div class="text-bold mid-gap">重复下单率<span @mouseover="whetleft()" @mouseout="whetrigth()" class="askIcon"></span></div>
+                            <div class="clear">
+                                <div class="item-6">
+                                    <p class="text-bold small-gap">
+                                        <span class="fs-bignumber">{{rePer}}</span>
+                                    </p>
+                                    <p>
+                                        <span class="c-grayest">较上{{choday}}</span>
+                                        <span class="menu-color"><span class="fa-down7" id="fa-down7"></span> {{sub2}}人</span>
+                                    </p>
+                                    <p class="c-grayest">
+                                        击败了同商圈<span class="c-normal"> 0.00% </span>的同品类商家
+                                    </p>
+                                </div>
+                                <div class="item-6">
+                                    <div style="display: none;" class="LouisraFk">在本店下单次数≧2次的顾客</div>
+                                    <img style="display: none;" class="LouishrGki" src="/static/image/business/yyoonn.jpg">
+                                    <div class="mid-gap">重复顾客<span @mouseover="Dnleft()" @mouseout="Dnrigth()" class="askIcon"></span></div>
+                                    <span class="m-right-lg w-grayest"><span class="fs-eighteen">{{reOrderNum}}</span>人</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="suggestion">
+                            <p class="text-bold w-grayer mid-gap">经营建议</p>
+                            <div class="small">
+                                <p class="mid-gap c-warning ">
+                                    <span class="c-grayest">问题：</span> 老客的回头率在下降
+                                </p>
+                                <p class="mid-gap">
+                                    <span class="c-grayest">建议：</span> 尝试“满返券”刺激老客回购！！ <span class="menu-color pointer">立即设置></span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="trend-chart m-top">
+                    <div class="text-eminfo text-bold clearfix">
+                        {{dateStr}} 顾客趋势
+                        <span class="radios w-grayer ">
+								<span class="radio">
+									<label class="label-radio inline">
+										<input type="radio" name="pre-status" value="1" @click="chooseCount(1)" checked="checked"/>
+										<span class="custom-radio"></span>
+                            <span class="custom-radio">下单顾客</span>
+                            </label>
+                            </span>
+                            <span class="radio">
+									<label class="label-radio inline">
+										<input type="radio" name="pre-status" value="2"  @click="chooseCount(2)"/>
+										<span class="custom-radio"></span>
+                            <span class="custom-radio">新顾客</span>
+                            </label>
+                            </span>
+                            <span class="radio">
+									<label class="label-radio inline">
+										<input type="radio" name="pre-status" value="2"  @click="chooseCount(3)"/>
+										<span class="custom-radio"></span>
+                            <span class="custom-radio">老顾客</span>
+                            </label>
+                            </span>
+                            </span>
+                    </div>
+                    <div class="chart-describe c-grayest">
+                        <span class="my">我的</span>
+                        <!--<span class="peer">同行优秀</span>-->
+                    </div>
+                    <div id="trendGuest">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <span>{{dateStr}} 顾客偏好</span>&nbsp;&nbsp;
+                        <span class="c-grayest">帮您了解本店顾客、同行顾客的下单喜好</span>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="fav-panel">
+                        <div class="slogon ">
+                            牢记<span class="menu-color"> 本店顾客 </span>偏好，继续加油！
+                        </div>
+                        <div class="row m-top-md">
+                            <div class="item-8 fav-dishes part-left">
+                                <div class="con-title sub">本店顾客爱买</div>
+                                <div class="dishes-wrapper">
+                                    <div class="dish mid-gap" v-for="(item,index) in thisShop">
+                                        <p class="name">
+                                            <span class="rank">{{index+1}}</span>
+                                            <span @mouseover="tipsOver($event,item.name)" @mouseout="tipsData.togle=false;" class="dish-name c-grayest">{{item.name}}</span>
+                                        </p>
+                                        <p class="nums c-grayest">
+                                            {{item.people}}人<span class="m-about-xs">|</span>{{item.numb}}份
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="item-4 part-right">
+                                <div class="con-title sub">本店顾客喜欢的活动</div>
+                                <div class="text-center">
+                                    <p style="margin: 50px 0px 15px;">暂无顾客参加本店活动</p>
+                                    <div class="kui-button active change" @click="changeClick()">换个活动试试</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fav-panel comm-customer" style=" display:none">
+                <div class="slogon ">
+                    关注<span class="menu-color"> 同行顾客 </span>喜好，挖掘可以拓展的商品和活动
+                </div>
+                <div class="description">
+                    <p class="m-left-md w-grayer">同行顾客：您同行商家的下单顾客。</p>
+                    <p class="m-left-md c-grayest">注：同行商家是指与您同商圈，且与您的下单顾客重合度较高的同品类商家。</p>
+                    <div class="sample">
+                        <div class="circle big"></div>
+                        <div class="circle small"></div>
+                        <div class="line small"></div>
+                        <div class="line big"></div>
+                        <div class="line middle"></div>
+                        <div class="font small c-grayest">本店顾客</div>
+                        <div class="font big c-red">同行顾客</div>
+                        <div class="font middle c-grayest">重合顾客</div>
+                    </div>
+                </div>
+                <div class="row m-top-md">
+                    <div class="item-8 fav-dishes part-left comm">
+                        <div class="con-title sub">同行顾客爱买</div>
+                        <div class="dishes-wrapper">
+                            <div class="dish mid-gap" v-for="(item,index) in 12">
+                                <p class="name">
+                                    <span class="rank">{{index+1}}</span>
+                                    <span @mouseover="tipsOver($event,'文字表达')" @mouseout="tipsData.togle=false;" class="dish-name">小份周瑜酿皮+黄牛肉夹馍1个+300ml饮料</span>
+                                </p>
+                                <p class="nums c-grayest">
+                                    <span class="c-warning">18.99%</span> 的同行顾客买过
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item-4 part-right">
+                        <div class="con-title sub">同行顾客喜欢的活动</div>
+                        <ul>
+                            <div style="display: none;" class="PustsraFk">门店新客立减</div>
+                            <img style="display: none;" class="PustishrGki" src="/static/image/business/yyoonn.jpg">
+                            <li class="clear mid-gap" v-for="item in 3">
+                                <span class="inline activIcon" style="background-color: #CD69C9;">新</span>
+                                <span @mouseover="tipsOver($event,'门店新客立减')" @mouseout="tipsData.togle=false;" class="inline">门店新客立减</span>
+                            </li>
+                            <li class="clear mid-gap">
+                                <span class="inline activIcon" style="background-color: #EE5C42;">减</span>
+                                <span class="inline">满29元减14元;满50元减21元;满79元减32元;</span>
+                            </li>
+                        </ul>
+                        <div class="text-center" style="display: none;">
+                            <p style="margin: 50px 0px 15px;">暂无顾客参加本店活动</p>
+                            <div class="kui-button active change">换个活动试试</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--******************************顾客结构*******************************************-->
+    <div class="structure" v-show="navNumb==2">
+        <div class="sel-page">
+            <ul class="nav nav-tabs clear">
+                <li :class="{active:frameNav==1}" @click="frameNavFn(1)">
+                    <a href="javascript:;">顾客活跃度</a>
+                </li>
+                <li :class="{active:frameNav==2}" @click="frameNavFn(2)">
+                    <a href="javascript:;">顾客价值</a>
+                </li>
+            </ul>
+        </div>
+        <!-- **         顾客活跃度          ** -->
+        <div class="panel panel-default wrap" v-show="frameNav==1">
+            <div class="cake-chart">
+                <div id="cakeChart"></div>
+            </div>
+            <div class="set-btn text-right">
+                <span class="kui-button active" @click="defaultSys()">恢复默认</span>
+                <span id="cianFer" class="kui-button active" @click="cianFerClick()">设置分组</span>
+            </div>
+            <!--【影藏框】【影藏框】【影藏框】【影藏框】-->
+            <div class="clasAtr" style="display: none;">
+                <div class="DswFsi">
+                    <div class="Conterin">
+                        <div class="first">请根据店内情况自定义顾客属性<span class="ouTer" @click="ouTerClick()">×</span></div>
+                        <div class="sdkFje">
+                            <div class="hei">
+                                <div class="onrOne">
+                                    <div class="SutKer">活跃顾客</div>
+                                    <div class="scdkOjh"></div>
+                                </div>
+                                最后一次成交在近
+                                <input disabled="disabled" type="text" class="txt conder" value="1" name="OnePon">————
+                                <input type="text" id="NeOne" class="txt nexter" value="30" name="OnePon1" @click="NeOneClick()"><span class="DaoOne">▼</span> 天
+                                <!--影藏框【11111111111】-->
+                                <div class="OnePon" style="display: none;">
+                                    <div class="NeiSuo" id="NeiSuo" @click="Qu(this.event)" v-for="item in OneArr" v-if="SanArr.length>0">{{item}}</div>
+                                </div>
+                                <!--影藏框【11111111111】-->
+                            </div>
+                            <div class="hei">
+                                <div class="onrTwo">
+                                    <div class="SutKet">沉默顾客</div>
+                                    <div class="scdkYen"></div>
+                                </div>
+                                最后一次成交在近
+                                <input disabled="disabled" type="text" class="txt conder" value="30" name="TwoPon">————
+                                <input type="text" id="NeTwo" class="txt nexter" value="90" name="TwoPon1" @click="NeTwoClick()"><span class="DaoTwo">▼</span>天
+                            </div>
+                            <!--影藏框【22222222222222】-->
+                            <div class="TwoPon" style="display: none;">
+                                <div class="NeiHuo" @click="Gu(this.event)" v-for="item in TwoArr" v-if="TwoArr.length>0">{{item}}</div>
+                            </div>
+                            <!--影藏框【22222222222222】-->
+                            <div class="hei">
+                                <div class="onrSan">
+                                    <div class="SutMet">流失顾客</div>
+                                    <div class="scdGon"></div>
+                                </div>
+                                最后一次成交在近
+                                <input disabled="disabled" type="text" class="txt conder" value="90" name="SanPon">————
+                                <input type="text" id="NeSan" class="txt nexter" value="120" name="SanPon1" @click="NeSanClick()"><span class="DaoSan">▼</span>天
+                                <!--影藏框【3333333333333】-->
+                                <div class="SanPon" style="display: none;">
+                                    <div class="NeiMer" @click="Vu(this.event)" v-for="item in SanArr" v-if="SanArr.length>0">{{item}}</div>
+                                </div>
+                                <!--影藏框【3333333333333】-->
+                            </div>
+                        </div>
+                        <div class="OnPxer">*系统暂支持统计1-120天内顾客数据</div>
+                        <div class="kDsk">
+                            <div class="BaoCun" @click="BaoCunClick()">保存</div>
+                            <div class="GuanBi" @click="GuanBiClick()">关闭</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--【影藏框】【影藏框】【影藏框】【影藏框】-->
+            <div class="items-card">
+                <div class="row items-group">
+                        <span class="item-4" v-for="(item,index) in brisk">
+						<span class="card-quiet item1">
+							<span class="card">
+								<div class="card-head">
+									<span class="card-name">{{item.name}}</span>
+                        <span class="card-rate">{{item.value}}%</span>
+                    </div>
+                    <span class="card-num activity-num">{{item.value}}</span>
+                    <img src="/static/image/business/crowd.png" class="person-icon">
+                    </span>
+                    </span>
+                    <div class="card-txt w-grayer" v-if="timeArr.length>0">
+                        最后一次成交在<span class="day-num">{{timeArr[index].start}}-{{timeArr[index].end}}</span>天
+                    </div>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <!-- **       顾客结构       ** -->
+        <div class="panel panel-default wrap" v-show="frameNav==2">
+            <div class="sel-btn">
+                <span class="kui-button-menu" :class="{'active':frameTime==1}" @click="frameTimeFn(1)">最近7天</span>
+                <span class="kui-button-menu" :class="{'active':frameTime==2}" @click="frameTimeFn(2)">最近30天</span>
+                <span class="kui-button-menu" :class="{'active':frameTime==3}" @click="frameTimeFn(3)">最近90天</span>
+            </div>
+            <div class="row">
+                <div class="item-6">
+                    <div class="text-center worthTitle">成交频次分布</div>
+                    <div id="frequency"></div>
+                </div>
+                <div class="item-6">
+                    <div class="text-center worthTitle">成交金额分布</div>
+                    <div id="moneyPillar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 鼠标经过提示框 -->
+    <div class="XunisraFk" v-show="tipsData.togle" :style="tipsData.styles">
+        <div class="arrow"></div>
+        <div>{{tipsData.txt}}</div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/static/js/business/analyGuest.js"></script>
+
+</html>

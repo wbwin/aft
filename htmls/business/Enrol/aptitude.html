@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>阿凡提开店申请</title>
+	<link rel="stylesheet" href="/static/css/business/all.css" />
+	<link rel="stylesheet" href="/static/css/business/aptitude.css" />
+	<link rel="stylesheet" href="/static/css/business/time.css" />
+	<script type="text/javascript" src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+
+</head>
+<style type="text/css">
+	[v-cloak] {
+		display: none;
+	}
+</style>
+<body>
+	<div id="aptitude" @click="whole" v-cloak>
+
+		<div class="top">
+			<div class=" topCenter">
+				<div class="topLeft">
+					<a class="logo" href="javascript:">阿凡提商户中心</a>
+					<a href="javascript:">点击查看《廉正告知书》</a>
+				</div>
+
+				<div class="topRight">
+					<a class="dowm" href="javascript:">如开店遇到问题，请咨询 在线客服</a>
+				</div>
+
+			</div>
+		</div>
+		<div class="Prompt">
+			<ul>
+				<li :class="{'active':index<=1}" v-for="(item,index) in title">
+					<span class="icon-circle" v-if="index>1">{{index+1 }}</span>
+					<span class="icon-circle" v-else><img src="__ROOT__/Apps/Business/View/images/sure.png"></span>
+					{{item}} 
+					<div class="step-before" v-if="index+1 < title.length">></div>
+				</li>
+			</ul>
+		</div>
+
+		<div class="shop-content">
+
+			<div class="frow-group" >
+				<div @click.stop>
+					<span class="name" >证件类型</span>
+					<span class="relatives">
+						<input readonly="readonly" @click="togleDb(1)" :name="infoData[0].name" v-model="infoData[0].val" class="cursor"  type="text">
+						<div :class="[togle==1?'moretop':'morebot']"></div>
+						<div class="ejectBox" v-if="togle==1">
+							<div class="jt"></div>
+							<ul class="ulauto">
+								<li v-for="(item,index) in cardData" :class="{'active':typeIndex==index}" @click="papers(index,item)">{{item}}</li>
+							</ul>
+						</div>
+					</span>
+				</div>
+			</div>
+			<div class="itemWrap">
+				<my-input :message="infoData[1]"></my-input>
+				<my-input :message="infoData[2]"></my-input>
+				<my-input :message="infoData[15]"></my-input>
+				<my-input :message="infoData[16]"></my-input>
+				<div class="frow-group frow-img">			
+					<span  class="name">身份证</span>
+					<div class="shopPhoto">
+						<my-img :photo="imgData[0]"></my-img>
+						<my-img :photo="imgData[1]"></my-img>
+						<my-img :photo="imgData[2]"></my-img>
+						<my-img :photo="imgData[5]"></my-img>
+					</div>
+				</div>
+			</div>
+
+			<div class="frow-group">
+				<div>
+					<span class="name" >主体资质</span>
+					<span class="relatives">
+						<input readonly="readonly"  @click.stop="togleDb(2)" :name="infoData[3].name" v-model="infoData[3].val" class="cursor"  type="text" />
+						<div class="morebot"></div>
+						<div class="ejectBox" v-if="togle==2">
+							<div class="jt"></div>
+							<ul class="ulauto">
+								<li v-for="(item,index) in typeData" @click="papers(index,item)">{{item}}</li>
+							</ul>
+						</div>
+					</span>
+				</div>
+			</div>
+
+			<div class="itemWrap">
+				<div class="frow-group frow-img">			
+					<span  class="name">资质照片</span>
+					<div class="shopPhoto">
+						<my-img :photo="imgData[3]"></my-img>
+					</div>
+				</div>
+
+				<my-input :message="infoData[4]"></my-input>
+				<my-input :message="infoData[5]"></my-input>
+				<my-input :message="infoData[6]"></my-input>
+				<my-input :message="infoData[7]"></my-input>
+				<div class="inputRow">
+					<div class="frow-group">
+						<div>
+							<span class="name" >{{infoData[8].txt}}</span>
+							<input type="text" id="date" :name="infoData[8].name" :placeholder="infoData[8].place" v-model="infoData[8].val" readonly="readonly" :data-index="infoData[8].index" />
+							 <label class="label-radio inline" >	
+								<input type="radio" name="typeRadio" v-model="typeRadio" disabled="disabled" value="长期有效" @click="timeChange(8)"/>
+								<span class="custom-radio"></span>
+								<span class="custom-radio">长期有效</span>
+							</label>
+						</div>
+						<p class="tis" >营业期限上有准确的时间，请填写准确的时间；没有请勾选“长期”</p>
+						<p class="err" v-if="message.err!=0">{{infoData[8].errTxt}}</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="frow-group frow-choic">
+				<div>
+					<span class="name" >行业资质</span>
+					<span class="relatives">
+						<input readonly="readonly" @click.stop="togleDb(3)" :name="infoData[9].name" :placeholder="infoData[9].place" v-model="infoData[9].val" class="cursor"  type="text" />
+						<div class="morebot"></div>
+						<div class="ejectBox" v-if="togle==3">
+							<div class="jt"></div>
+							<ul class="ulauto">
+								<li v-for="(item,index) in allowData" @click="papers(index,item)">{{item}}</li>
+							</ul>
+						</div>
+					</span>
+				</div>
+			</div>
+
+			<div class="itemWrap frow-choic">
+				<div class="frow-group frow-img">			
+					<span  class="name">资质照片</span>
+					<div class="shopPhoto">
+						<my-img :photo="imgData[4]"></my-img>
+					</div>
+				</div>
+
+				<my-input :message="infoData[10]"></my-input>
+				<my-input :message="infoData[11]"></my-input>
+				<my-input :message="infoData[12]"></my-input>
+				<my-input :message="infoData[13]"></my-input>
+				<div class="inputRow">
+					<div class="frow-group">
+						<div>
+							<span class="name" >{{infoData[14].txt}}</span>
+							<input type="text" id="dateE" :name="infoData[14].name" :placeholder="infoData[14].place" v-model="infoData[14].val" readonly="readonly" :data-index="infoData[14].index" />
+							 <label class="label-radio inline" >	
+								<input type="radio" name="allowRadio" v-model="allowRadio" disabled="disabled" value="长期有效" @click="timeChange(14)"/>
+								<span class="custom-radio"></span>
+								<span class="custom-radio">长期有效</span>
+							</label>
+						</div>
+						<p class="tis" >请填写许可证上准确的有效期截至时间</p>
+						<p class="err" v-if="message.err!=0">{{infoData[14].errTxt}}</p>
+					</div>
+				</div>
+				
+			</div>
+
+		</div>
+
+		<div class="butChoice">
+			<a class="but cancel" v-if="ok==1" href="javascript:history.back(-1)">返回</a>
+			<button class="but sure" :disabled="disabled" @click="formSubmit()" >提交进入下一步</button>
+		</div>
+
+		<script type="text/x-template" id="inputs">
+			<div class="frow-group">
+				<label>
+					<span class="name" >{{message.txt}}</span>
+					<input type="text" :disabled="message.index==17?false:true"  :placeholder="message.place" v-model="message.val"/>
+				</label>
+				<p class="err" v-if="message.err!=0">{{message.errTxt}}</p>
+			</div>
+		</script>
+
+		<script type="text/x-template" id="imgs">
+			<div class="box-step">
+				<span class="step">{{photo.txt}}</span>
+				<div class="upShop" >
+					<img class="upImg" src="__ROOT__/Apps/Business/View/images/upImg.png" />
+					<p class="word">点击上传</p>
+					<img v-if="photo.upImg" class="upImgSure" :src="imgReturn(photo.upImg)"/>
+					<input type="file" class="upfile" name="uploadPictures"  value="" title="上传照片" @change="uploadFn($event)"  />
+				</div>
+				<span class="tips">{{photo.word}}(支持JPG、JPEG、PNG格式，<i class="c-red">大小不超过500K</i>)</span>
+				<span class="img-box">
+					<span>示例</span>
+					<div class="img-preview"  @mouseover="mouseenter(photo.index)" @mouseout="mouseover()">
+						<img class="d-thumbnail"  :src="'__ROOT__/Apps/Business/View/'+photo.exampleImg" />
+						<img class="d-preview" :class="{'showImg':photo.index==hover}" :src="'__ROOT__/Apps/Business/View/'+photo.exampleImg" />
+					</div>
+				</span>
+			</div>
+
+		</script>
+
+	</div>
+	<script src="/static/js/business/aptitude.js"></script>		
+	<script type="text/javascript" src="/static/js/business/dateSelect-after2.js"></script>	
+<script type="text/javascript">
+$(function(){
+  // $("#date").dateSelect();
+  //$("#dateE").dateSelect(); //加载事件选择*/
+});
+</script>
+
+</body>
+</html>
+

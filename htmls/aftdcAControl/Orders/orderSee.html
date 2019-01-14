@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>后台管理中心</title>
+    <link href="/static/css/admin/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/admin/AdminLTE.css" rel="stylesheet" type="text/css"/>
+
+    <link href="/static/css/admin/all.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/admin/orderSee.css" rel="stylesheet" type="text/css"/>
+    <script src="/static/js/public/axios.min.js"></script>
+    <script src="/static/js/public/vue.min.js"></script>
+</head>
+<body class="wst-page">
+<div id="app" class="wst-table" v-cloak>
+    <!-- <input type='hidden' id='id' value='{$object.bankId}'/> -->
+    <table class="table table-hover table-striped table-bordered wst-form">
+        <tr>
+            <td>
+                <span style='font-weight:bold;'>订单号：{{res.orderNo}}</span>
+                <span style='margin-left:100px;'>
+                                       状态：
+                    <span v-if="res.orderStatus==-3">用户拒收</span>
+                    <span v-if="res.orderStatus==-5">店铺不同意拒收</span>
+                    <span v-if="res.orderStatus==-4">店铺同意拒收</span>
+                    <span v-if="res.orderStatus==-2">未付款</span>
+                    <span v-if="res.orderStatus==-6||res.orderStatus==-7">用户拒收</span>
+                    <span v-if="res.orderStatus==0">未受理</span>
+                    <span v-if="res.orderStatus==1">已受理</span>
+                    <span v-if="res.orderStatus==2">打包中</span>
+                    <span v-if="res.orderStatus==3">配送中</span>
+                    <span v-if="res.orderStatus==4">已到货</span>
+             </span></td>
+        </tr>
+        <tr v-if="res.log!=null">
+            <td style='font-weight:bold;' >订单日志</td>
+        </tr>
+        <tr v-if="res.log!=null">
+            <td>
+                <table style="width: 100%;text-align: center">
+                    <tr>
+                        <th >操作时间</th>
+                        <th >操作信息</th>
+                        <th >操作人</th>
+                    </tr>
+                    <tr >
+                        <td>{{res.log.logTime}}</td>
+                        <td>{{res.log.logContent}}</td>
+                        <td>{{res.log.loginName}} {{res.log.shopName}}</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style='font-weight:bold;'>订单信息</td>
+        </tr>
+        <tr>
+            <td>
+                <table width='700'>
+                    <tr>
+                        <th width='120' style='text-align:right'>支付方式：</th>
+                        <td>
+                            <span v-if="res.payType==1">在线支付</span>
+                            <span v-else>货到付款</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style='text-align:right'>配送方式：</th>
+                        <td>
+                            <span v-if="res.isSelf==1">自提</span>
+                            <span v-else-if="res.deliverType==1">店铺配送</span>
+                            <span v-else>商城配送</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th style='text-align:right'>送货时间：</th>
+                        <td>{{res.requireTime}}</td>
+                    </tr>
+                    <tr>
+                        <th style='text-align:right'>买家留言：</th>
+                        <td>{{res.orderRemarks?res.orderRemarks:'无留言'}}</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr v-if="res.isRefund==1">
+            <td style='font-weight:bold;'>退款说明</td>
+        </tr>
+        <tr>
+            <td>
+                <table width='700'>
+                    <tr>
+                        <th width='120' style='text-align:right'>说明：</th>
+                        <td>
+                            {{res.refundRemark?res.refundRemark:'无说明'}}
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr v-if="res.isInvoice==1">
+            <td style='font-weight:bold;'>发票信息</td>
+        </tr>
+        <tr>
+            <td>
+                <table width='700'>
+                    <tr>
+                        <th width='120' style='text-align:right'>发票抬头：</th>
+                        <td>
+                            {{res.invoiceClient?res.invoiceClient:'无发票'}}
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+
+        <tr>
+            <td style='font-weight:bold;'>收货人信息</td>
+        </tr>
+        <tr>
+            <td>
+                <table width='700'>
+                    <tr>
+                        <th width='120' style='text-align:right'>收货人：</th>
+                        <td>{{res.userName}}</td>
+                    </tr>
+                    <tr>
+                        <th style='text-align:right'>地址：</th>
+                        <td>{{res.userAddress}}</td>
+                    </tr>
+                    <tr>
+                        <th style='text-align:right'>联系方式：</th>
+                        <td>
+                            {{res.userPhone}} {{res.userTel}}
+                        </td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style='font-weight:bold;'>商品信息</td>
+        </tr>
+        <tr>
+            <td>
+                <table style="width: 100%;text-align: center" >
+                    <tr>
+                        <th >商品图片</th>
+                        <th  >商品</th>
+                        <th  >价格</th>
+                        <th >数量</th>
+                        <th >总金额</th >
+                    </tr>
+                    <tr v-for="(item,index) in res.goodslist">
+                        <td ><img :src="'https://image.aftdc.com/'+item.goodsImg" style='margin:2px;' width='50' height='50'/></td>
+                        <td  style="padding-left: 10px;">{{item.goodsName}}
+                            <span v-if="item.goodsAttrName">【{{item.goodsAttrName}}】</span>
+                        </td>
+                        <td >￥{{item.goodsPrice}}</td>
+                        <td >{{item.goodsNums}}</td>
+                        <td>￥{{item.goodsPrice*item.goodsNums}}</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td style='text-align:right;padding-right:10px;'>商品总金额：￥{{res.totalMoney}}<br/>+
+                运费：￥{{res.deliverMoney}}<br/>
+                <span v-if="res.useScore > 0">使用积分：{{res.useScore}}点</span>
+
+                <span>订单金额：</span><span style='font-weight:bold;font-size:20px;color:red;'>￥{{numbs(res.totalMoney,res.deliverMoney)}}</span><br/>
+                <span style='font-weight:bold;font-size:20px'>实付金额：</span><span
+                        style='font-weight:bold;font-size:20px;color:red;'>￥{{res.realTotalMoney}}</span></td>
+        </tr>
+        <tr>
+            <td colspan='2' align='center'>
+                <button type="button" class="btn btn-primary" onclick='javascript:window.history.go(-1)'>返&nbsp;回
+                </button>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+<script type="text/javascript" src="/static/js/admin/orderSee.js"></script>
+</html>

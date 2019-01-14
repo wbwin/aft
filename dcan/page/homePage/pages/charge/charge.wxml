@@ -1,0 +1,30 @@
+<view class="modalBox">
+	 <view class='noPhone' wx:if="{{noPhone}}"> 
+		<view class='tishi'>提示</view>
+		<button open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber">设置手机号</button>
+	</view>
+	<view class="chongzhi">
+		<view class="rechargeChoice">
+			<view class="choicePrice">
+				<block wx:for="{{choicePrice}}">
+					<view class="rechargePrice {{okprice==index?'okprice':''}}" data-index="{{index}}" bindtap="rechargePrice">{{item}}</view>
+				</block>
+			</view>
+			<view class="rechargePrompt" wx:if="{{vip!=''}}">{{vipName}},可在本店享受 {{discountPrompt}} 折</view>
+		</view>
+
+		<input hidden="{{!focus}}" class="inputt" type="number" maxlength="4" bindinput="bindinput" focus="{{focus}}" placeholder="充值金额" />
+		<view class="person">
+			<text>余额：{{memberMoney?memberMoney:userVip.money}}</text>
+			<text>积分：{{userVip.userScore}}</text>
+			<text wx:if="{{userVip.zk}}">可享折扣：{{userVip.zk}}折</text>
+			<text wx:else="{{!userVip.zk}}">优惠：无折扣</text>
+		</view>
+		<view class="modalBut">
+			<form report-submit="true" bindsubmit="confirm">
+				<button class="ok" form-type="submit">确定</button>
+			</form>
+			<button class="cancel" bindtap="cancel">取消</button>
+		</view>
+	</view>
+</view>

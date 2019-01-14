@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>后台管理中心</title>
+    <link href="/static/css/admin/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/admin/AdminLTE.css" rel="stylesheet" type="text/css"/>
+    <script src="/static/js/public/axios.min.js"></script>
+    <script src="/static/js/public/vue.min.js"></script>
+    <script src="/static/js/public/jquery.js"></script>
+
+</head>
+
+<body class="wst-page">
+<div id="app" v-cloak>
+    <table class="table table-hover table-striped table-bordered wst-form">
+        <tr>
+            <th width='120' align='right'>账号：</th>
+            <td>{{userData.loginName}}</td>
+            <td rowspan='6'>
+             	<span id="preview_Filedata" style="position: relative;display: inline-block;">
+             	  <input type="file" class="element" accept="image/gif,image/jpeg,image/jpg,image/png,image/svg"
+                         name="userPhoto" @change="upPhoto(event)"/>
+                 <img id='preview' :src="'https://image.aftdc.com/'+userData.userPhoto" height='160'/><br/>
+	            </span>
+            </td>
+        </tr>
+        <tr>
+            <th align='right'>用户名：</th>
+            <td>
+                <input type='text' id='userName' class="form-control wst-ipt" v-model='userData.userName' maxLength='20'/>
+            </td>
+        </tr>
+        <tr>
+            <th align='right'>性别：</th>
+            <td>
+                <label>
+                    <input type='radio' id='userSex1' name='userSex' value="1" v-model="userData.sex"/>男
+                </label>
+                <label>
+                    <input type='radio' id='userSex2' name='userSex' value="0" v-model="userData.sex"/>女
+                </label>
+                <label>
+                    <input type='radio' id='userSex0' name='userSex' value="2" v-model="userData.sex"/>保密
+                </label>
+            </td>
+        </tr>
+        <tr>
+            <th align='right'>手机号码：</th>
+            <td>
+                <input type='text' id='userPhone' name='userPhone' class="form-control wst-ipt" v-model='userData.userPhone'
+                       maxLength='11'/>
+            </td>
+        </tr>
+        <tr>
+            <th align='right'>用户QQ：</th>
+            <td>
+                <input type='text' id='qq' name='userPhone' class="form-control wst-ipt" v-model='userData.userQQ'
+                       maxLength='11'/>
+            </td>
+        </tr>
+        <tr>
+            <th align='right'>电子邮箱：</th>
+            <td>
+                <input type='text' id='userEmail' name='userEmail' class="form-control wst-ipt" v-model='userData.userEmail'
+                       maxLength='25'/>
+            </td>
+        </tr>
+
+        <tr>
+        <tr>
+            <td colspan='3' style='text-align: center'>
+                <button type="button" class="btn btn-success" style="margin-right: 20px" @click="keep">保&nbsp;存</button>
+                <button type="button" class="btn btn-primary" onclick='history.go(-1)'>返&nbsp;回</button>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+<script type="text/javascript" src="/static/js/admin/member_edit.js"></script>
+</html>

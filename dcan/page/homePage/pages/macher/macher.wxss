@@ -1,0 +1,55 @@
+/* pages/index/macher.wxss */
+.AllSin{
+  padding: 20rpx 0 20rpx 20rpx;
+}
+
+.Meager{
+border-bottom:1rpx solid #bababa;
+padding:0 20rpx 0 0;
+display:flex;
+margin:0 0 20rpx 0;
+
+}
+
+.Lefter{
+  width: 70rpx;
+  flex: none;
+  /* background: red; */
+}
+.Righer{
+  width: 100%;
+  /* background: pink; */
+  font-size: 25rpx;
+}
+
+.Dsain{
+  width: 45rpx;
+  height: 45rpx;
+}
+
+.titlert{
+  font-size: 25rpx;
+  color: #000;
+  height: 50rpx;
+  line-height: 50rpx;
+}
+.Conjter{
+   font-size:25rpx;
+   color:#666;
+   padding:0 0 20rpx 0;
+   line-height:40rpx;
+}
+
+.Conter{
+   font-size:25rpx;
+   color:#666;
+   padding:0 0 10rpx 0;
+   line-height:40rpx;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,204 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>阿凡提</title>
+    <link rel="stylesheet" href="/static/css/business/all.css" />
+    <link rel="stylesheet" type="text/css" href="/static/css/business/time.css" >
+    <link rel="stylesheet" href="/static/css/business/ActDesk.css">
+
+
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script src="/static/js/public/dateSelect-after2.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+</head>
+
+<!--店铺设置  消息中心-->
+<body>
+    <div id="desk" v-cloak>
+        <div class="header">
+            <a class="kui-button inline menu-color"  href="/business/Canteen/ActAddDesk.html" style="background-color: #06c1ae; color:#fff">新增桌位</a>
+      </div>
+      <div class="center">
+
+        <table class="table-bordered table">
+            <thead>
+                <tr>
+                   <td width="8%">桌位号</td>
+                   <td width="12%">桌位名称</td>
+                   <td width="10%">桌位类型</td>
+                   <td width="10%">桌位人数</td>
+                   <td width="10%">状态</td>
+                   <td width="10%">预定信息</td>
+                   <td width="10%">操作</td>
+                   <td width="30%">管理</td>
+               </tr>
+           </thead>
+           <tbody>
+            <tr v-for="(item,index) in deskArr">
+                <td>{{item.deskNum}}</td>
+                <td>{{item.deskName}}</td>
+                <td>{{item.deskType}}</td>
+                <td>{{item.deskPersonNum}}人</td>
+                <td>{{item.yuDing==-1?'未预定':'已预定'}}</td>
+                <td :class="{'pointer menu-color':item.yuDing!=-1}" @click="seeDesk(index)">{{item.yuDing==-1?'无':'查看'}}</td>
+                <td>
+                  <span class="pointer menu-color" @click="addShow(index)" v-if="item.yuDing==-1">新增</span>
+                  <span class="pointer menu-color" @click="modalFn(index,2)" v-else>清台</span>
+                </td>
+                <td>
+                 <span class="desk-download relative">
+                 <!--<form action="https://www.aftdc.com/Business/Act/download" method="post" >-->
+                    <!--<input class="ewmShow" type="submit" value="下载堂食二维码"/>-->
+                     <a :href="'https://image.aftdc.com/'+item.thumb" class="ewmShow" :download="item.thumb">下载堂食二维码</a>
+                    <img class="d-preview" :src="'https://image.aftdc.com/'+item.thumb" />
+                    <input type="hidden" name="img" :value="item.thumb">
+                  <!--</form>-->
+                 </span>
+                 <span class="desk-download menu-color" @click="editFn(index)">编辑</span>
+                 <span class="desk-edits" @click="modalFn(index,1)">删除</span>
+                </td>
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+        <!--<div class="text-center ">-->
+            <!--<ul class="pagination many-pagination">-->
+                <!--&lt;!&ndash;.kui-pagination&ndash;&gt;-->
+                <!--<li class="disabled" :class="[pageCurent==1?'disabledN':'disabledY']" @click="pageSub">-->
+                    <!--<a>«</a>-->
+                <!--</li>-->
+                <!--<li :class="{'active':pageCurent==index+1}" v-for="(item,index) in pageNumb" @click="pageClick(index+1)">-->
+                    <!--<a>{{index+1}}</a>-->
+                <!--</li>-->
+                <!--<li class="disabled" :class="[pageCurent==pageNumb?'disabledN':'disabledY']" @click="pageAdd">-->
+                    <!--<a>»</a>-->
+                <!--</li>-->
+            <!--</ul>-->
+        <!--</div>-->
+
+
+        <!-- 新增预定座位弹出框  -->
+<div class="newAdd-box" v-show="newAddTogle">
+    <div class="newAdd">
+        <div class="heading">
+            <strong>新增堂食</strong>
+            <span class="close" @click="newAddTogle=false">×</span>
+        </div>
+        <div class="newAdd-content filIn">
+           <div class="list-item">
+               <span class="name">姓名：</span>
+               <input placeholder="请填写用餐人姓名" v-model="addData.userName" />
+           </div>
+            <div class="list-item">
+                <span class="name">用餐人数：</span>
+                <input placeholder="用餐人数" v-model="addData.nums" @input="addData.num=addData.nums.replace(/[^0-9,]/g,'')" />
+            </div>
+            <div class="list-item relative">
+                <span class="name">用餐时间：</span>
+                <input placeholder="用餐时间" v-model="date" id="date" @click="togle=1" readonly="readonly" class="pointer" data-index="not" />
+                <div id="aptitude" v-show="togle==1"></div>
+                <ul class="hour-min" v-if="togle==2">
+                    <li v-for="(item,index) in timeData" @click="changeTime(index)" v-text="item"></li>
+                </ul>
+
+            </div>
+
+
+
+            <div class="list-item">
+               <span class="name">性别：</span>
+            <label class="label-radio">
+                <input type="radio" name="sex" v-model="addData.sex" :value="2" @click="addData.sex=2" />
+                <span class="custom-radio"></span>
+                <span class="custom-radio">男</span>
+            </label>
+            <label class="label-radio">
+                <input type="radio" name="sex" v-model="addData.sex"  :value="1" @click="addData.sex=1" />
+                <span class="custom-radio"></span>
+                <span class="custom-radio">女</span>
+            </label>
+           </div>
+
+            <div class="list-item">
+               <span class="name">电话：</span>
+               <input placeholder="请填写电话" v-model="addData.userPhone" />
+           </div>
+
+            <div class="list-item">
+               <span class="name">备注：</span>
+               <input placeholder="请填写备注" v-model="addData.remark" />
+           </div>
+
+           <div class="butSure" v-if="newAddTogle==1" @click="addDesk">确定</div>
+
+       </div>
+
+
+
+   </div>
+</div>
+
+
+
+   <!--确认-->
+
+        <div class="modal kui-modal backdrop" v-if="modalTogle">
+        <div class="modal-dialog modal-sm " >
+          <div class="modal-content">
+            <div class="modal-header inline clear">
+            <span class="close"  @click="modalTogle=0">×</span>
+              <h5 class="modal-title">提示</h5>
+
+            </div>
+            <div class="modal-body">
+
+              <div class="modal-evaluate-delivery">
+                <p class="give-mark">
+                  <span>{{modalTxt}}</span>
+                </p>
+              </div>
+
+            </div>
+            <div class="text-center m-top-lg modal-footer">
+               <span class="kui-button bfc borRed" @click="modalTogle=0">取消</span>
+              <span class="kui-button bfc borMain" @click="modalSure">确定</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+<!-- 选择日期弹出框 -->
+
+
+<!--         <div class="text-center ">
+            <ul class="pagination many-pagination">
+                <li class="disabled" :class="[pageCurent==1?'disabledN':'disabledY']" @click="pageSub">
+                    <a>«</a>
+                </li>
+                <li :class="{'active':pageCurent==index+1}" v-for="(item,index) in pageNumb" @click="pageClick(index+1)">
+                    <a>{{index+1}}</a>
+                </li>
+
+                <li class="disabled" :class="[pageCurent==pageNumb?'disabledN':'disabledY']" @click="pageAdd">
+                    <a>»</a>
+                </li>
+            </ul>
+        </div> -->
+    </div>
+    <script src="/static/js/business/ActDesk.js"></script>
+</body>
+
+
+</html>
+
+

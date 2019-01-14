@@ -1,0 +1,291 @@
+
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>阿凡提</title>
+<link rel="stylesheet" href="/static/css/business/Huofan.css">
+<link rel="stylesheet" href="/static/css/business/time.css">
+<script src="/static/js/public/jquery.min.js"></script>
+<script type="text/javascript" src="/static/js/public/vue.min.js" ></script>
+</head>
+<body>
+<div class="dec" v-cloak>
+
+<div class="cedwkl"><span class="xeko">创建活动</span>  <span class="cekovcrei" @click="cekovcreiClick()">【满反劵返活动】帮助说明</span></div>
+
+<div class="xewkl">
+    <div class="sews">活动名称</div>
+    <input type="text" class="cejk" placeholder="请输入不得超过12个字符的名称">
+</div>
+
+
+<div class="xewkl">
+    <div class="sews">活动时间</div>
+    <input type="text" id="zuotext" class="zuotext"><div class="cewojk"><img src="/static/image/business/911.png"></div> 至
+    <input type="text" id="csdevwe"  class="csdevwe"><div class="cewojk"><img src="/static/image/business/911.png"></div>
+</div>
+
+
+
+
+<div class="xewkl">
+    <div class="sews">活动名称</div>
+    订单实付金额(含运费)满 <input type="text" id="cwjTui" class="csdvfdfe">元
+</div>
+
+<div class="xewkl">
+    <div class="sews"></div>
+    <span class="cewji" id="cwoSki">门店近30天客单价为36元, 建议值29~36元</span>
+</div>
+
+<div class="xewkl">
+    <div class="sews">预计发放总数</div>
+    <input type="text" class="cejvck" placeholder="">
+</div>
+
+
+<div class="xewkl">
+    <div class="sews">预计发放总数</div>
+   <div class="cdejk" @click="cdejkClick()">+添加优惠劵</div>
+</div>
+
+
+
+<!---->
+    <div class="xewkl_er" style="display: none">
+        <div class="sewsdv"></div>
+        <div class="cedwoj">
+              <div class="cedo"><span class="cedkvregbver"><span class="cwej">￥3</span><br/>满33可用</span></div>
+             <div class="cedjk">
+                  <div class="cdkjl"><span id="bianji">编辑</span><span class="shanchu">删除</span></div>
+                  <div class="cedi">领券后15天内有效</div>
+             </div>
+        </div>
+
+    </div>
+<!---->
+
+
+
+
+    <div class="xewkl">
+    <div class="sews"></div>
+    <input type="checkbox" id="efrvGb"> 已阅读并同意 <span class="cedvvbn" @click="cedvvbnClick()">商家自营销协议</span>
+</div>
+
+
+<div class="vrver">
+    <div class="cedj" @click="cedjClick()">取消</div>
+    <div class="cevddj" @click="cevddjClick()">确认</div>
+</div>
+
+
+
+
+
+
+
+<!--帮助说明-->
+<div class="cdeojkw" style="display: none">
+    <div class="cweoi">
+        <div class="cewcj">
+            <div class="cweio">满返券活动帮助说明<span class="ce" @click="ceClick()">×</span></div>
+            <div class="cweijo">
+                1、 我有多个门店，可以共用一个活动吗？<br/>
+
+                不可以。满返券活动目前只能支持一个门店。即：只能针对单个门店设置活动，并且这个活动所返的优惠券也只能在当前门店用。<br/>
+                2、 满返券活动时间有限制吗？<br/>
+
+                鉴于活动能达到最好的效果，目前我们对活动间隔的要求为一个月。<br/>
+                3、 优惠券面值的限制？<br/>
+
+                优惠券的面值，我们不做限制。
+                但是根据我们的经验，建议您设置优惠券的面值时参考下您门店的平均客单价，面值设置不低于平均客单价的10%最好。
+                比如，门店的平均客单价为30，那么优惠券设置3元以上带动的活动销量更佳。<br/>
+                4、 优惠券的使用期限怎么控制？<br/>
+
+                优惠券的使用期限由商家自己控制，目前我们支持设置优惠券的期限为：领券后的 3、7、10、15、20、30 天；
+                优惠券有效期和返券活动时间是两个不同的概念，返券活动时间不会影响优惠券有效期。
+                比如，返券活动时间为3～10号，优惠券有效期是领券后7天，那么顾客在8号时候参加活动得到了返券，那么这张优惠券的有效期就是8号＋7天＝15号；活动10号结束后并不影响优惠券的使用。
+                5、 优惠券的使用门槛怎么设置？<br/>
+
+                优惠券的使用门槛，我们的限制是：最小要比优惠券的面值大1块钱，最大不能超过500快。
+                我们根据我们的经验，建议您根据自己的门店平均客单价设置一个比较合理的门槛。
+                比如门店平均客单价为30，那么优惠券使用门槛设置在25 ～ 35之前带来的效果更佳。
+                6、 同一个门店同一个时间段可以设置多个活动吗？<br/>
+
+                不可以。目前同一个时间段只能设置一个满返券活动。
+                7、 满返券活动和美团外卖的其他活动如何权衡，可以同时存在同时享用吗？<br/>
+
+                满返券活动和美团外卖平台的任何活动都不互斥，和美团红包可以共同使用。只要顾客订单最后的支付金额达到了返券的条件，即可得到一张优惠券。
+                8、 一张订单可以返几张优惠券？<br/>
+
+                一个订单最多只能返一张券，不会叠加返券。
+                9、 一个顾客一天最多返几张券？<br/>
+
+                为了促进销量，提高顾客的购买次数。我们不限制购物的返券次数，只要顾客下单并且订单金额达到了返券条件，那么顾客就会得到一张优惠券。
+                10、使用优惠券时，一个订单最多使用几张优惠券？<br/>
+
+                一个订单，最多只能使用一张商家优惠券。
+                11、一个顾客一天可以使用几次商家优惠券？<br/>
+
+                一个顾客一天内，最多使用两次商家优惠券进行下单。
+                12、顾客下单后，多久可以得到返券？<br/>
+
+                顾客下单后，如果订单金额满足了返券条件，那么在顾客“确认收货”以后即可得到一张商家优惠券。
+                13、我要上满返券活动，需要跟业务经理联系吗？<br/>
+
+                不需要！
+                满返券活动是商家自营销的一种，是由商家自己开展营销活动美团全程不参与的一种形式。
+                您只需要签署了“自营销”活动在线协议，就可以自主的设置满返券活动了。
+                14、满返券活动的成本如何计算？<br/>
+
+                满返券活动是除了美团平台活动以外的一种新型的商家活动，所有的活动商家自由设置，优惠力度也由商家自己控制，成本由商家自己把控和承担。
+                取消
+
+            </div>
+            <div class="cedjko"><span class="cvdk" @click="cvdkClick()">取消</span></div>
+        </div>
+    </div>
+</div>
+
+<!--帮助说明-->
+
+
+
+
+<!--添加优惠券-->
+    <div class="cdeocdjkw"  style="display: none">
+        <div class="cwedDoi">
+            <div class="cewAj">
+                <div class="cUio">添加优惠券<span class="Hikjh" @click="HikjhClick()">×</span></div>
+
+                <div class="xHkkl">
+                    <div class="sdFws">活动名称</div>
+                    <input type="text" class="cTRBHk" value="3"> <span class="esoi">元</span>
+                </div>
+                <div class="cdkoj">门店近30天客单价为36元, 建议值2~4元</div>
+
+                <div class="xHkkl">
+                    <div class="sdFws">使用条件</div>
+                    订单满 <input type="text" class="cTvHk" value="33"> <span class="esoi">元可以使用</span>
+                </div>
+                <div class="cdkoj">门店近30天客单价为36元, 建议值29~36元</div>
+
+                <div class="xHkkl">
+                    <div class="sdFws">优惠券有效期</div>
+                    领券后 <input type="text" class="cTvffrb" value="12" @click="cTvffrbClick()"> <span class="esoi"> 天内有效</span>
+                </div>
+
+<!--21212122-->
+  <div class="cedjkbh" style="display: none">
+      <div class="ceJre" @click="Shoe(this)">1</div>
+      <div class="ceJre" @click="Shoe(this)">2</div>
+      <div class="ceJre" @click="Shoe(this)">3</div>
+      <div class="ceJre" @click="Shoe(this)">4</div>
+      <div class="ceJre" @click="Shoe(this)">5</div>
+      <div class="ceJre" @click="Shoe(this)">6</div>
+      <div class="ceJre" @click="Shoe(this)">7</div>
+      <div class="ceJre" @click="Shoe(this)">8</div>
+      <div class="ceJre" @click="Shoe(this)">9</div>
+      <div class="ceJre" @click="Shoe(this)">10</div>
+
+  </div>
+<!--21212122-->
+
+
+               <div class="fgnbrHO">
+                   <div class="decvw" @click="decvwClick()">确认并添加</div>
+                   <div class="csdjmhy" @click="csdjmhyClick()">取消</div>
+               </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+<!--添加优惠券-->
+
+<!--商家自营销协议-->
+    <div class="cdeGjh_kw" style="display: none" >
+        <div class="c_Doi">
+            <div class="cH_wAj">
+                <div class="ck_Uio">商家自营销协议<span class="Hh_kjh" @click="Hh_kjhClick()">×</span></div>
+                <div class="creo">
+                     <h3>商家自营销协议</h3>
+                    1. 店铺优惠活动可以与美团外卖平台的其他活动同时进行, 如满减、满折等; 商家优惠可以和阿凡提外卖红包同时使用;<br/>
+                    2. 店铺优惠活动的促销成本由商家自己承担, 我公司(阿凡提)只是活动工具的提供方; 商家不得要求我公司  开具"店铺优惠"的发票;<br/>
+                    3. 店铺优惠的实际归属为各个开展活动的商家, 我公司(阿凡提)只负责代发, 归属权不属于我公司 (阿凡提) ;<br/>
+                    4. 与商家结算的金额中, 不包括商家店铺自己发放的优惠, 即: 合同中的结算为净值 (原订单金额-商家店铺优惠) ;<br/>
+                    5. 进行中的店铺优惠, 若商家在预先设置活动结束时间前结束活动, 则已发放的优惠仍然有效。<br/>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--商家自营销协议-->
+
+
+
+</div>
+<script src="/static/js/public/dateSelectSum.js"></script>
+<script src="/static/js/business/Huofan.js"></script>
+</body>
+
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

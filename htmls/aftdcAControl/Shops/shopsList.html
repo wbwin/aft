@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>后台管理中心</title>
+    <link href="/static/css/admin/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/admin/AdminLTE.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/admin/pages.css" rel="stylesheet" type="text/css"/>
+    <script src="/static/js/public/axios.min.js"></script>
+    <script src="/static/js/public/vue.min.js"></script>
+    <!-- 分页组件 -->
+    <script src="/static/js/public/pages.js"></script>
+</head>
+
+<body class='wst-page'>
+<div id="app" v-cloak>
+    <div class='wst-tbar'>
+        店铺名称：<input type='text' id='shopName' name='shopName' class=' input_search wst-ipt-10' v-model='shopName'/>
+        店铺编号：<input type='text' id='shopSn' name='shopSn' class=' input_search wst-ipt-10' v-model='shopId'/>
+        <button type="submit" class="btn btn-search glyphicon glyphicon-search" @click="pageFn(1)">查询</button>
+    </div>
+
+    <div class="wst-tbar">
+        <button type="button" class="btn btn-success glyphicon glyphicon-ok" id="kk" @click="sealFn(1)"/>解封</button>
+        <button type="button" class="btn btn-danger glyphicon glyphicon-remove" id="jj" @click="sealFn(0)"/>封铺</button>
+    </div>
+    <div class='wst-body wst-table' v-if="listData.length>0">
+        <table class="table table-hover table-striped table-bordered wst-list">
+            <thead>
+            <tr>
+                <th ><input type="checkbox" v-model="sumCheck" name="sumCheck" id="hold" @change="checkSum">全选
+                </th>
+                <th >序号</th>
+                <th >店铺名称</th>
+                <!-- <th width='80'>店铺编号</th> -->
+                <th >店主</th>
+                <th >主分类</th>
+                <th >次分类</th>
+                <th >营业状态</th>
+                <th >操作</th>
+                <th >打印机信息</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="(item,index) in listData">
+                <td>
+                    <input type="checkbox" :value="item.shopId" v-model="checkedData" name='items' class='items'
+                           @change="checkU"/>
+                </td>
+                <td>{{index+1}}</td>
+                <td><a href="javascript:" @click="shopJump(item)" target='_blank'>{{item.shopName}}</a></td>
+                <!-- <td>{$vo['shopSn']}&nbsp;</td> -->
+                <td>{{item.userName}}&nbsp;</td>
+                <td>{{item.name}}&nbsp;</td>
+                <td>{{item.secondary!=0?item.ciYing:'暂无次分类'}}&nbsp;</td>
+                <td>
+                    <span class='label label-success' v-if="item.shopStatus==1&&item.shopAtive==1">营业中</span>
+                    <span class='label label-warning' v-if="item.shopStatus==5">封铺</span>
+                    <span class='label label-warning' v-if="item.shopStatus==0">未审核</span>
+                    <span class='label label-warning' v-if="item.shopAtive==-1">停业</span>
+                    <span class='label label-warning' v-if="item.shopAtive==0">休息中</span>
+
+                </td>
+                <td>
+                    <a class="btn btn-warning glyphicon glyphicon-pencil" href="https://www.aftdc.com/business/Login/index.html" target="_blank">店铺管理</a>&nbsp;
+
+                    <button type="button" class="btn btn-danger glyphicon glyphicon-trash" @click="del(item.shopId,index)">刪除</button>
+                </td>
+                <td>
+                    <input type='text' name='printsNum' class="input_search" placeholder="打印机机号" v-model="item.printsNum">
+                    <input type='text' name='printsKey' class="input_search" placeholder="打印机key" v-model="item.printsKey">
+                    <button class='label label-success' @click="add(item.shopId,index)">提交</button>
+                    <button class="btn btn-primary glyphicon glyphicon-eye-open" @click='getShopDetails(item.shopId)'>查看营业情况
+                    </button>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan='11' align='center'>
+                    <!-- 分页 -->
+                    <pages :page-numb="pageNumb" :page-curent="pageCurent" @pagefather="pageFn"></pages>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="wu_mei"  v-else>
+        <img src="/static/image/pc/21.jpg" height="113" width="85">
+        <div style="display:block" class="panduan">暂无该查询条件的内容 换个条件试试吧！</div>
+
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/static/js/admin/shopsList.js"></script>
+</html>

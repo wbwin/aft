@@ -1,0 +1,135 @@
+<view class="content">
+  <view class="follow">
+		<view class='cal'>
+			<view style='flex:0.5'>
+				<image src="{{userPhoto}}"></image>
+			</view>
+			<text style='flex:5;color:#fff'>{{userName}} {{timestamp}}</text>
+			<text style='flex:1;color:#fff;text-align: right'>菜单</text>
+		</view>
+		<scroll-view scroll-y='true' class='goodsList'>
+			<view wx:if="{{goodsList.breakfast}}">
+				<view class='order breakfast'>
+					<view>早餐</view>
+					<view>卡路里/千卡</view>
+				</view>
+				<view class="order" wx:for="{{goodsList.breakfast}}">
+					<view class='img'>{{item.requireTime}}</view>
+					<view class='img'>
+						<image class="goodImg" src="https://image.aftdc.com/{{item.goodsImg}}"></image>
+					</view>
+					<text class="name">{{item.goodsName}}</text>
+					<view class="numbs">
+						<text>{{item.calorie}}</text>
+					</view>
+				</view>
+			</view>
+
+			<view wx:if="{{goodsList.lunch}}">
+				<view class='order lunch'>
+					<view>午餐</view>
+					<view>卡路里/千卡</view>
+				</view>
+				<view class="order" wx:for="{{goodsList.lunch}}">
+					<view class='img'>{{item.requireTime}}</view>
+					<view class='img'>
+						<image class="goodImg" src="https://image.aftdc.com/{{item.goodsImg}}"></image>
+					</view>
+					<text class="name">{{item.goodsName}}</text>
+					<view class="numbs">
+						<text>{{item.calorie}}</text>
+					</view>
+				</view>
+			</view>
+
+			<view wx:if="{{goodsList.dinner}}">
+				<view class='order dinner'>
+					<view>晚餐</view>
+					<view>卡路里/千卡</view>
+				</view>
+				<view class="order" wx:for="{{goodsList.dinner}}">
+					<view class='img'>{{item.requireTime}}</view>
+					<view class='img'>
+						<image class="goodImg" src="https://image.aftdc.com/{{item.goodsImg}}"></image>
+					</view>
+					<text class="name">{{item.goodsName}}</text>
+					<view class="numbs">
+						<text>{{item.calorie}}</text>
+					</view>
+				</view>
+			</view>
+
+			<view wx:if="{{goodsList.supper}}">
+				<view class='order supper'>
+					<view>夜宵</view>
+					<view>卡路里/千卡</view>
+				</view>
+				<view class="order" wx:for="{{goodsList.supper}}">
+					<view class='img'>{{item.requireTime}}</view>
+					<view class='img'>
+						<image class="goodImg" src="https://image.aftdc.com/{{item.goodsImg}}"></image>
+					</view>
+					<text class="name">{{item.goodsName}}</text>
+					<view class="numbs">
+						<text>{{item.calorie}}</text>
+					</view>
+				</view>
+			</view>
+
+			<view class='nodata' wx:if="{{!goodsList.breakfast&&!goodsList.lunch&&!goodsList.dinner&&!goodsList.supper}}">
+				<text>你今天还没有点餐，无法获取健康信息哦</text>
+				<!-- <image class='nodataimg' src='https://image.aftdc.com/images/nodata.png'></image> -->
+			</view>
+		</scroll-view>
+		<view class='myInfo'>
+
+			<view class='cal'>
+				<text style='flex:1;color:#fff'>今日数据</text>
+				<text style='flex:1;color:#fff;text-align: right'>(卡路里/千卡) (步数)</text>
+			</view>
+			<view class='cal row'>
+				<view class='col'>建议摄入<text wx:if="{{suggestCalorie=='_'}}">
+				男:1800 女:1600</text><text wx:else>
+				{{suggestCalorie}}</text></view>
+				<view class='col'>摄入<text>
+				{{allCalorie}}</text></view>
+				<view class='col'>基础代谢<text>
+				{{expend}}</text></view>
+				<view class='col'>建议行走<text>
+				{{suggestWalk}}</text></view>
+				<view class='col'>已行走<text>
+				{{vals}}</text></view>
+			</view>
+
+			<view class='cal row'>
+				<view class='col'>BMI<text>
+				{{BMI}}</text></view>
+				<view class='col'>体脂率<text>
+				{{bodyFat}}</text></view>
+				<view class='col'>体重<text>
+				{{user.weight}} 公斤</text></view>
+				<view class='col'>目标体重<text>
+				{{user.goalWeight}} 公斤</text></view>
+				<navigator url='../../../homePage/pages/userSportInfo/userSportInfo' class='col'>我的信息<text style='color: #53beb7;'>
+				添加</text></navigator>
+			</view>
+
+		</view>
+  </view>
+
+	<!-- <view class="stepBox">
+		<view class="stepWord">
+		<text>最近7天步数</text>
+		<text class="numb">{{allStep}}</text>
+		</view>
+		<view class="canvasBox">
+		<canvas canvas-id="lineCanvas" disable-scroll="true" class="canvas" bindtouchstart="touchHandler"></canvas>
+		</view>
+  	</view> -->
+
+  <view class="follow">
+		<view class='cal' style='border-bottom:0;background-color:#f8f8f8'>
+			<text >温馨提示：饭后适量运动有利于健康</text>
+		</view>
+	</view>	
+</view>

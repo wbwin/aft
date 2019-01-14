@@ -1,0 +1,732 @@
+.shoppl {
+  padding: 3%;
+  font-size: 28rpx;
+  color: #666;
+}
+
+.topImg {
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.reason {
+  border-bottom: 20rpx solid #f8f8f8;
+  padding: 20rpx 0;
+  width: 100%;
+  display: flex;
+  flex-flow: wrap row;
+}
+
+.reason text {
+  display: block;
+  line-height: 25px;
+  text-align: center;
+  height: 50rpx;
+  border: 1rpx solid #808080;
+  border-radius: 8rpx;
+  margin: 10rpx 10rpx 20rpx 0;
+  font-size: 26rpx;
+  padding: 0 10rpx 0 10rpx;
+  color: #808080;
+}
+
+.btnReason {
+  border: 1rpx solid #53beb7 !important;
+  color: #53beb7 !important;
+}
+
+/* 评价 */
+
+.classifyPj {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  overflow: hidden;
+}
+
+.classifyPj text {
+  width: 24%;
+  text-align: center;
+  padding: 24rpx 0;
+  flex: auto;
+}
+
+.choiceYes {
+  color: #53beb7;
+  border-bottom: solid 5rpx #53beb7;
+}
+
+.userpj {
+  border-bottom: 1rpx solid #dedede;
+  display: flex;
+  flex-direction: row;
+  padding: 0 0 10rpx 0;
+}
+
+
+.yzpl{
+width:120rpx;
+height:120rpx;
+position:absolute;
+top:10rpx;
+right:20rpx;
+
+}
+
+.userpjHead image {
+  width: 75rpx;
+  height: 75rpx;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+
+.userpjContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.userpjContent-top {
+  margin-bottom: 8rpx;
+  margin: 20rpx 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.username {
+color:#173353;
+width:340rpx;
+/* background:red; */
+overflow:hidden;
+white-space:nowrap;
+text-overflow:ellipsis;
+
+}
+
+.star {
+  color: #ffe628;
+  margin: 16rpx 0;
+}
+
+.starsWord {
+  margin-right: 8rpx;
+  font-size: 26rpx;
+}
+
+.timePj {
+font-size:28rpx;
+color:#888;
+text-align:right;
+flex:none;
+
+}
+
+.content {
+  margin: 5px 0;
+  font-size: 26rpx;
+}
+
+.content text {
+  line-height: 40rpx;
+}
+
+.imgPj {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.plimg {
+  margin-right: 15rpx;
+  margin-bottom: 15rpx;
+  width: 140rpx;
+  height: 140rpx;
+}
+
+.allpj {
+  line-height: 100rpx;
+  text-align: center;
+}
+
+
+
+.dynamic {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 16rpx 0;
+  padding-bottom: 16rpx;
+  justify-content: flex-end;
+  border-bottom: solid 1rpx #f0f0f0;
+}
+
+.Praise, .reply {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: solid 1rpx #dedeed;
+  border-radius: 20rpx;
+  padding: 10rpx 26rpx;
+  margin-right: 10rpx;
+}
+
+.jubao {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: solid 1rpx #dedeed;
+  border-radius: 20rpx;
+  padding: 10rpx 18rpx;
+  /* font-size: 28rpx; */
+}
+
+.dynamicLiu {
+  color: gray;
+  font-size: 26rpx;
+  flex: auto;
+}
+
+.Praise image, .reply image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 8rpx;
+}
+
+.moreChoice {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border: solid 1rpx #dedeed;
+  border-radius: 20rpx;
+  padding: 10rpx 16rpx;
+  font-size: 34rpx;
+  color: #808080;
+}
+
+.replyAll {
+  display: flex;
+  flex-direction: row;
+  color: #666;
+}
+
+.replyAll-img {
+  width: 32rpx;
+  height: 32rpx;
+  margin: 6rpx 16rpx 16rpx 0;
+  flex: none;
+}
+.mt{
+	margin: 16rpx 16rpx 16rpx 0;
+}
+
+.replyAll-detail {
+  display: flex;
+  flex: 12;
+  flex-direction: column;
+}
+
+.replyword {
+  font-size: 27rpx;
+  line-height: 40rpx;
+  word-break: break-word;
+}
+
+.replyName {
+  color: #173353;
+  flex: 3.5;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 160rpx;
+}
+
+/* 评论 */
+
+.writePl {
+  display: flex;
+  font-size: 26rpx;
+  align-items: center;
+}
+
+.writePl input {
+  border: solid 2rpx #dedede;
+  flex:8;
+  height: 1.5rem;
+  border-radius: 12rpx;
+}
+
+.submitPl {
+  flex: 3;
+  border: 1rpx solid #dedede;
+  border-radius: 10rpx;
+  text-align: center;
+  height: 1.5rem;
+	line-height: 1.5rem;
+}
+
+.submitOpen {
+  color: #a8a8a8;
+}
+
+.backgound {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.4;
+  z-index: 4;
+}
+
+.jubaosBox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.jubaos {
+  border-radius: 20rpx;
+  background-color: #fff;
+  width: 80%;
+  height: 250rpx;
+  z-index: 65;
+  padding-left: 16rpx;
+  text-align: center;
+  display: flex;
+  line-height: 250rpx;
+}
+
+.canBox {
+  flex: 1;
+  color: #53beb7;
+}
+
+/* 暂无评论 */
+
+.nopl {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 300rpx;
+  color: #000;
+  font-size: 36rpx;
+}
+
+.nopl image {
+  width: 190rpx;
+  height: 160rpx;
+  margin-bottom: 30rpx;
+}
+
+
+.zanBox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.zanBox image {
+  width: 160rpx;
+  height: 160rpx;
+  opacity: 0;
+}
+
+.pingfen {
+  margin-top: 60rpx;
+  display: flex;
+  text-align: center;
+  padding: 30rpx 0;
+  border-bottom: 20rpx solid #f8f8f8;
+  font-size: 26rpx;
+}
+
+.cartoonZan image {
+  animation: zan 1000ms 1;
+  animation-timing-function: linear;
+}
+
+@keyframes zan {
+  0% {
+    opacity: 0;
+    transform: scale(1, 1);
+  }
+
+  40% {
+    opacity: 1;
+    transform: scale(2.3, 2.3);
+  }
+
+  44% {
+    transform: rotate(10deg) scale(2.3, 2.3);
+  }
+
+  48% {
+    transform: rotate(0deg) scale(2.3, 2.3);
+  }
+
+  52% {
+    transform: rotate(-10deg) scale(2.3, 2.3);
+  }
+
+  56% {
+    transform: rotate(10deg) scale(2.3, 2.3);
+  }
+
+  60% {
+    transform: rotate(0deg) scale(2.3, 2.3);
+  }
+
+  64% {
+    transform: rotate(-10deg) scale(2.3, 2.3);
+  }
+
+  68% {
+    transform: rotate(10deg) scale(2.3, 2.3);
+  }
+
+  72% {
+    transform: rotate(0deg) scale(2.3, 2.3);
+  }
+
+  76% {
+    transform: rotate(-10deg) scale(2.3, 2.3);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(1, 1);
+  }
+}
+
+.block1 {
+  flex: 1;
+}
+
+.fenshu {
+  color: #53beb7;
+  font-size: 60rpx;
+}
+
+.leixing {
+  margin-top: 22rpx;
+}
+
+.starss {
+display:flex;
+margin-top:10rpx;
+color:#ffe628;
+
+}
+
+/* .starss text {
+  flex: 1.5;
+} */
+
+.plGoods {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 25rpx;
+  width: 100%;
+  height: auto;
+}
+
+.plGoods image {
+  width: 35rpx;
+  height: 35rpx;
+}
+
+.plgoodslist {
+  display: flex;
+  color: #53beb7;
+  padding: 5rpx;
+}
+
+/*认证弹出框*/
+
+.backgound {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.4;
+  z-index: 4;
+}
+
+.jubaosBox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.approve {
+  border-radius: 20rpx;
+  background-color: #fff;
+  width: 80%;
+  height: 520rpx;
+  /* position: relative; *//* z-index:999; */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 30rpx;
+  font-size: 30rpx;
+}
+
+.approve-tip {
+  font-size: 32rpx;
+  padding: 30rpx 0 0 0;
+  /* color: #53beb7; */
+}
+
+.approve-tips {
+  color: #999;
+  font-size: 26rpx;
+  margin-top: 20rpx;
+}
+
+.approve-input {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 30rpx;
+  align-items: center;
+}
+
+.approve-input input {
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.butt {
+  position: absolute;
+  line-height: 72rpx;
+  width: 170rpx;
+  height: 72rpx;
+  font-size: 30rpx;
+  top: 9rpx;
+  right: 8rpx;
+  border-radius: 2px;
+  z-index: 999;
+  margin: 0;
+  background-color: #53beb7;
+  color: #fff;
+  padding: 0;
+}
+
+.approve input {
+  width: 100%;
+  padding-left: 16rpx;
+  line-height: 90rpx;
+  height: 90rpx;
+  background-color: #eee;
+  border-radius: 3rpx;
+  box-sizing: border-box;
+}
+
+.approve-bnt {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-size: 34rpx;
+  border-top: solid 1rpx #dedede;
+  line-height: 90rpx;
+  text-align: center;
+}
+
+.approve-bnt text {
+  flex: auto;
+}
+
+.approve-bnt-go {
+  color: #53beb7;
+}
+
+.approve-bnt-back {
+  color: #808080;
+  border-right: solid 1rpx #dedede;
+}
+
+.approve-phone {
+  width: 100%;
+  position: relative;
+  height: 90rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 36rpx;
+}
+
+/*更多评论  */
+
+.morePl {
+  font-size: 50rpx;
+  font-weight: 700;
+  padding-top: 4px;
+  margin-top: 10px;
+  border-top: solid 1px #eee;
+  display: flex;
+  flex: row;
+  justify-content: center;
+}
+
+.morePl .jt {
+  transform: rotate(90deg);
+}
+
+.morePl .jts {
+  transform: rotate(-90deg);
+}
+
+.wrap{
+word-break:break-all; 
+}
+
+
+
+
+
+
+
+.perten{
+  font-size:35rpx;
+  font-weight: 700;
+  text-align: center;
+}
+
+.perten image{
+  margin-top: 90rpx;
+  width: 190rpx;
+  height: 160rpx;
+  margin-bottom: 30rpx;
+}
+
+
+
+.inetr{
+  /* background: red; */
+  height: 142rpx;
+  padding:0 10rpx 0 0;
+  width:188rpx;
+}
+
+.louinting{
+  height:48rpx;
+  font-size:63rpx；
+}
+
+ .Sjhikm{
+  height:91rpx;
+   background:yellow; 
+  display:flex;
+} 
+
+
+.Xunderting{
+  height:121rpx;
+  /* background:#eee; */
+}
+
+.GaoYuchou {
+height:30rpx;
+font-size:26rpx;
+/* background:pink; */
+margin:14rpx 0 0 0;
+text-align:left;
+
+}
+
+.inderin{
+  margin: 55rpx 0 0 0;
+}
+
+
+/******************************************************************************************/
+ .quanbu{
+width:100%;
+height:100%;
+position:absolute;
+top:2rpx;
+left:0;
+background:#fff;
+z-index:2;
+
+} 
+
+
+
+
+
+.cecjio{
+height:500rpx;
+/* background:red; */
+display:flex;
+align-items:center;
+justify-content:center;
+
+}
+
+
+
+
+
+ .cecjio image{
+  margin-top: 90rpx;
+  width: 190rpx;
+  height: 160rpx;
+  margin-bottom: 30rpx;
+} 
+
+
+.Suchuie{
+  text-align: center;
+}
+/* 没有手机号的弹框 */
+.noPhone{
+	position: fixed;
+	width: 70%;
+	padding: 3%;
+	top: 16%;
+	background: #fff;
+	box-shadow: 0 0 15rpx #888;
+}
+.noPhone button{
+	width: 80%;
+}
+.tishi{
+	padding: 3%;
+	text-align: center;
+}

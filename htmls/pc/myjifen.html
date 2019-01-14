@@ -1,0 +1,126 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>afanti阿凡提订单</title>
+    <link rel="stylesheet" href="/static/css/pc/all.css">
+    <link href="/static/css/pc/pages.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="/static/css/pc/myjifen.css">
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+    <script type="text/javascript" src="/static/js/pc/common.js"></script>
+    <script src="/static/js/public/pages.js"></script>
+
+</head>
+
+<body>
+<!--头部-->
+
+<!--头部-->
+
+
+<!--主要内容-->
+<div class="conter" id="app" v-cloak>
+    <comheader></comheader>
+    <div id="all_inprotener">
+        <div class="title">当前位置：&nbsp;&nbsp;<a href="/pc/index.html" class="geographic">{{geographic}}</a>&nbsp;&nbsp;<a href="javascript:0;" @click="addressclick()"> [{{geographic==null?'选择地址':'切换地址'}}]</a>&nbsp;&nbsp;>&nbsp;&nbsp;我的积分
+        </div>
+
+
+        <div class="all_left">
+            <div class="myall"><a href="/pc/onlyconter.html">个人中心</a></div>
+
+            <div class="mydingdan">我的订单</div>
+            <div class="er_fenlan "><a href="/pc/threemont.html">近三个月订单</a></div>
+            <div class="er_fenlan"><a href="/pc/daipjdingdan.html">待评价订单</a></div>
+            <div class="er_fenlan"><a href="/pc/tuidanjilu.html">退单记录</a></div>
+
+            <div class="myzichan">我的资产</div>
+            <div class="er_fenlan"><a href="/pc/myhongbao.html">我的红包</a></div>
+            <div class="er_fenlan"><a href="/pc/zhanghuyue.html">账户余额</a></div>
+            <div class="er_fenlan"><a id="active" href="/pc/myjifen.html">我的积分</a></div>
+
+            <div class="myziliao">我的资料</div>
+            <div class="er_fenlan"><a href="/pc/myziliao.html">个人资料</a></div>
+            <div class="er_fenlan"><a href="/pc/dizhiguanli.html">地址管理</a></div>
+            <div class="er_fenlan"><a href="/pc/safeconter.html">安全中心</a></div>
+            <div class="er_fenlan"><a href="/pc/ggpassword.html">修改密码</a></div>
+            <div class="myshoucang"><a href="/pc/wodeshoucang.html">我的收藏</a></div>
+        </div>
+
+        <!--  里面为右边白框   里面为右边白框   里面为右边白框   里面为右边白框   里面为右边白框   里面为右边白框  -->
+
+
+        <div class="all_right">
+            <div class="my_jifen">我的积分 <a href="/pc/server.html">如何获得积分？</a></div>
+            <div class="hui_bj" v-if="dataz">
+                 <span>
+                各店铺积分
+                    </span>
+                <table class="tableCss">
+                    <thead>
+                    <tr>
+                        <td>店铺名字</td>
+                        <td>积分</td>
+                        <!--<td>操作</td>-->
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr v-for="(item,index) in dataz">
+                        <td>{{item.shopName}}</td>
+                        <td>{{item.integral==''?0:item.integral}}分</td>
+                        <!--<td>-->
+                            <!--<bottom class="tixian">提现</bottom>-->
+                        <!--</td>-->
+                    </tr>
+                    </tbody>
+                </table>
+                <div style='text-align:center;display: initial;' class="pages">
+                    <!-- 分页 -->
+                    <pages :page-numb="pageNumb" :page-curent="pageCurent" @pagefather="pageFn"></pages>
+                </div>
+
+            </div>
+            <div class="wu_jilu" v-if="!dataz">
+                <img src="/static/image/pc/21.jpg" height="113" width="85">
+                <span>暂无积分记录</span>
+            </div>
+            <div class="zican_minxi">最近30天积分记录</div>
+
+            <div class="xiang_qin">
+                <span class="one">创建时间</span>
+                <span class="two">积分变化</span>
+                <span class="three">详情</span>
+            </div>
+
+            <!--   后台判断 【无积分】 显示      后台判断 【无积分】 显示       后台判断 【无积分】 显示   -->
+            <div class="wu_jilu">
+                <img src="/static/image/pc/21.jpg" height="113" width="85">
+                <span>暂无记录</span>
+            </div>
+            <!--   后台判断 【无积分】 显示      后台判断 【无积分】 显示       后台判断 【无积分】 显示   -->
+
+            <!--   后台判断 【有积分】 显示      后台判断 【有积分】 显示     后台判断 【有积分】 显示  -->
+            <div class="you_jilu">
+
+            </div>
+            <!--   后台判断 【有积分】 显示      后台判断 【有积分】 显示     后台判断 【有积分】 显示  -->
+
+
+        </div>
+        <!--  里面为右边白框   里面为右边白框   里面为右边白框   里面为右边白框   里面为右边白框   里面为右边白框  -->
+
+
+    </div>
+
+    <!--主要内容-->
+
+    <comfooter></comfooter>
+    <!--尾部-->
+
+
+</div>
+<script src="/static/js/pc/myjifen.js"></script>
+</body>
+</html>

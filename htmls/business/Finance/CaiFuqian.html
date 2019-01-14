@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>阿凡提</title>
+    <link rel="stylesheet" href="/static/css/business/CaiFuqian.css">
+    <script src="/static/js/public/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+</head>
+
+<body>
+    <div class="dec" v-cloak>
+        <div class="cqwecjq_wejdf">
+            <div class="sadf_jao">
+                <div class="enj_logo">
+                    <div class="afanti">阿凡提</div>
+                    <div class="wangzhi">afanti.com</div>
+                </div>
+                <div class="wdq_cxiw">
+                    <div class="eskj">
+                        <div class="kiv_mimn">1. 选择支付方式</div>
+                        <div class="ced_kjex">2. 支付成功</div>
+                    </div>
+                </div>
+            </div>
+            <div class="xwedfi_ckejnc">
+                <img class="dew_kcx" src="/static/image/business/hu1.png" height="38" width="38"> 请在
+                <span class="xckn_ksw">28:02</span>内完成支付, 超时订单会自动取消
+            </div>
+            <div class="cwp_jiws">
+                <div>项目：独家保证金</div>
+                <div>应付金额：<span class="jiner">¥1000.00</span></div>
+            </div>
+            <div class="ewk_qina">
+                <div class="alipai" @click="alipaiClick()">支付宝/财付通/微信</div>
+                <div class="yhangp" @click="yhangpClick()">储蓄卡</div>
+                <div class="tangsj" @click="tangsjClick()">企业网银支付</div>
+            </div>
+            <!--1111111111111111111-->
+            <div class="wsdj_one">
+                <input id="weichat" type="radio" value="1" name="ss" /><img src="/static/image/business/01a.png" height="34" width="147">
+                <input id="caifutong" type="radio" value="2" name="ss" /><img src="/static/image/business/a02.png" height="34" width="147" alt="">
+                <input id="alipay" type="radio" value="3" name="ss" /><img src="/static/image/business/a03.png" height="34" width="147">
+            </div>
+            <!--1111111111111111111-->
+            <!--2222222222222222222-->
+            <div class="wsdj_two" style="display:none">
+                <input id="g_shang" type="radio" value="4" name="ss" /><img src="/static/image/business/a05.png" height="34" width="147">
+                <input id="j_tong" type="radio" value="5" name="ss" /><img src="/static/image/business/a04.png" height="34" width="147" alt="">
+                <input id="z_mins" type="radio" value="6" name="ss" /><img src="/static/image/business/026.png" height="34" width="147">
+            </div>
+            <!--2222222222222222222-->
+            <!--3333333333333333333-->
+            <div class="wsdj_three" style="display:none">
+                <div class="wsdj_nrie">
+                    <input id="y_a" type="radio" value="7" name="ss" /><img src="/static/image/business/a05.png" height="34" width="147">
+                    <input id="y_b" type="radio" value="8" name="ss" /><img src="/static/image/business/a04.png" height="34" width="147">
+                    <input id="y_c" type="radio" value="9" name="ss" /><img src="/static/image/business/026.png" height="34" width="147">
+                    <input id="y_d" type="radio" value="10" name="ss" /><img src="/static/image/business/a05.png" height="34" width="147">
+                    <input id="y_e" type="radio" value="11" name="ss" /><img src="/static/image/business/a04.png" height="34" width="147">
+                </div>
+                <div class="wsdj_nrie">
+                    <input id="y_f" type="radio" value="13" name="ss" /><img src="/static/image/business/026.png" height="34" width="147">
+                    <input id="y_g" type="radio" value="14" name="ss" /><img src="/static/image/business/026.png" height="34" width="147">
+                </div>
+            </div>
+            <!--3333333333333333333-->
+            <div class="cxewkj">支付：<span class="cewjcn">¥1000.00</span></div>
+            <div class="cioko">
+                <div class="efj_ds" @click="efj_dsClick()">去付款</div>
+            </div>
+            <div class="mnkkmk"><a href="">返回上一步</a></div>
+        </div>
+    </div>
+</body>
+<script src="/static/js/business/CaiFuqian.js"></script>
+
+</html>

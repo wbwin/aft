@@ -1,0 +1,46 @@
+<view class="all">
+    <view class='header'>
+        <view class='Head_image'>
+            <image src="https://image.aftdc.com/images/maolv.png"> </image>
+        </view>
+        <view class='nav'>
+            <text>Hi,我是客服小毛驴</text>
+            <text>选择您遇到的问题，可以为您提供更快捷的服务哦</text>
+        </view>
+        <view class='right_image'>
+            <image src="https://image.aftdc.com/images/tixin.png"> </image>
+        </view>
+    </view>
+    <swiper class="swiper" bindchange="switchTab" indicator-dots='true'>
+        <block wx:for="{{hotList}}" wx:for-index="index">
+            <swiper-item>
+                <view class='mid'>
+                    <text>{{item.title}}</text>
+                    <text bindtap='problem' wx:if='{{item.a}}' data-problem='{{item.a.id}}' class='demo'>{{item.a.title}}</text>
+                    <text bindtap='problem' wx:if='{{item.b}}' data-problem='{{item.b.id}}' class='demo'>{{item.b.title}}</text>
+                    <text bindtap='problem' wx:if='{{item.c}}' data-problem='{{item.c.id}}' class='demo'>{{item.c.title}}</text>
+                    <text bindtap='problem' wx:if='{{item.d}}' data-problem='{{item.d.id}}' class='demo'>{{item.d.title}}</text>
+                    <text bindtap='problem' wx:if='{{item.e}}' data-problem='{{item.e.id}}' class='demo'>{{item.e.title}}</text>
+                    <text bindtap='problem' wx:if='{{item.f}}' data-problem='{{item.f.id}}' class='demo'>{{item.f.title}}</text>
+                </view>
+            </swiper-item>
+        </block>
+    </swiper>
+    <view class='trail'>
+        <text class='footer'>自助服务</text>
+        <view class='friendlink'>
+            <view class='menu' bindtap='service'>
+                <image src="https://image.aftdc.com/images/xzkf.png"> </image>
+                <text>在线客服</text>
+            </view>
+            <!-- <view class='menu' bindtap='horseman'>
+                <image src="https://image.aftdc.com/images/abroad.png"> </image>
+                <text>联系骑手</text>
+            </view> -->
+            <view class='menu' bindtap='merchant'>
+                <image src="https://image.aftdc.com/images/lxsj.png"> </image>
+                <text>联系商家</text>
+            </view>
+        </view>
+    </view>
+</view>

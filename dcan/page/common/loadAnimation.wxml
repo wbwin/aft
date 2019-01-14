@@ -1,0 +1,9 @@
+<!--加载弹窗  -->
+    <view  style='background: #fff;position: fixed;left: 0;top: 0;width: 100%;height: 100%;z-index: 999;' hidden="{{animationLoading}}">
+        <view  style='position: fixed;left: 0;top: 0;width: 100%;height: 100%;display: flex;flex-direction: column;justify-content: center;align-items: center;z-index: 999;' hidden="{{animationLoading}}">
+            <view  style='display: flex;flex-direction: column;justify-content: center;align-items: center;border-radius: 16rpx;font-size: 26rpx;padding: 10rpx 20px;'>
+                <image style='width: 200rpx;height: 145rpx;margin-bottom: 16rpx;' src="https://image.aftdc.com/images/flash.gif"></image>
+                <text>马上到了…</text>
+            </view>
+        </view>
+    </view>

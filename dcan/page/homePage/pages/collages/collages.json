@@ -1,0 +1,11 @@
+{
+  "backgroundColor": "#f4f4f4",
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "dark",
+  "navigationBarTitleText": "好友拼单",
+
+  "usingComponents": {
+    "my-popup": "/page/common/popup/popup"
+  }
+
+}

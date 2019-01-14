@@ -1,0 +1,19 @@
+<view class='Allerr'>
+
+    <view class='Jianjie'> 申请开店前，请准备一下资料 </view>
+
+    <view class='Xuanhua' wx:for="{{infoData}}">
+        <view class='codein'> <image class='imger' src="{{item.img}}"></image> </view>
+        <view class='footer'>
+            <view class='titler'> {{item.name}} </view> 
+            <view class='colnm'> {{item.txt}} </view>
+        </view>
+    </view>
+
+</view>
+
+
+<view class='DiBu'>
+<!-- <navigator url="../settInfo/settInfo" class='Nenert'>准备好了,申请开店</navigator> -->
+<button class="Nenert" bindtap="nextBut">准备好了,申请开店</button>
+</view>

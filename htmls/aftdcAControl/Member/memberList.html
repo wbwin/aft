@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>后台管理中心</title>
+    <link href="/static/css/admin/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/admin/AdminLTE.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/admin/pages.css" rel="stylesheet" type="text/css"/>
+    <script src="/static/js/public/axios.min.js"></script>
+    <script src="/static/js/public/vue.min.js"></script>
+    <!-- 分页组件 -->
+    <script src="/static/js/public/pages.js"></script>
+</head>
+<body class='wst-page'>
+<div id="app" v-cloak @click="count">
+    <div class='wst-tbar'>
+        用户名：<input type='text' id='loginName' name='loginName' class='input_search wst-ipt-10' v-model='login_name'/>
+        手机号码：<input type='text' id='userPhone' name='userPhone' class='input_search wst-ipt-10' v-model='userPhone'/>
+        电子邮箱：<input type='text' id='userEmail' name='userEmail' class='input_search wst-ipt-10' v-model='userEmail'/>
+        <!--会员类型：<select id='userType' name='userType' class="input_search wst-ipt-10" v-model="userType">-->
+        <!--<option value='-1'>全部</option>-->
+        <!--<option value='0'>普通会员</option>-->
+        <!--<option value='1'>店铺会员</option>-->
+    <!--</select>-->
+        <button type="submit" class="btn btn-search glyphicon glyphicon-search" @click="pageFn(1)">查询</button>
+        <!--    <php>if(in_array('hylb_01',$WST_STAFF['grant'])){</php>
+           <a class="btn btn-success glyphicon glyphicon-plus" href='{:U("Admin/Users/toEdit")}' style='float:right'>新增</a>
+           <php>}</php>    -->
+    </div>
+    <div>
+        <!--  <button type="submit" class="btn btn-default glyphicon glyphicon-pencil" onclick='chooseSend()'>选择发送</button>
+         <button type="submit" class="btn btn-default glyphicon glyphicon-pencil" onclick='sendMsmAll()'>群发</button>  -->
+    </div>
+    <div class="wst-body wst-table" v-if="listData.length>0">
+        <table class="table table-hover table-striped table-bordered wst-list">
+            <thead>
+            <tr>
+                <!--     <th width='20'>&nbsp;</th> -->
+                <th >序号</th>
+                <th >账号</th>
+                <th >用户名</th>
+                <th >手机号码</th>
+                <th >电子邮箱</th>
+
+                <th >注册时间</th>
+                <th >状态</th>
+                <th >操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="(item,index) in listData">
+                <!--   <td><if condition="$vo['userPhone'] neq ''"><input  type="checkbox" value="{$vo.userId}" name='items' class='items' onchange="chooseU(this)"></if></td> -->
+                <td>{{index+1}}</td>
+                <td>{{item.loginName}}</td>
+                <td>{{item.userName}}&nbsp;</td>
+                <td>{{item.userPhone}}&nbsp;</td>
+                <td>{{item.userEmail}}&nbsp;</td>
+                <td>{{item.createTime}}&nbsp;</td>
+                <td>
+                    <div class="dropdown">
+                        <span style="display: inline-block" v-if="item.userStatus==0" @click.stop="statusTogle=index">
+                            <button class="btn btn-danger dropdown-toggle wst-btn-dropdown" type="button"
+                                    data-toggle="dropdown">
+                             停用
+                             <span class="caret"></span>
+                            </button>
+                        </span>
+                        <span style="display: inline-block" v-else @click.stop="statusTogle=index">
+                          <button class="btn btn-success dropdown-toggle wst-btn-dropdown" type="button"
+                                  data-toggle="dropdown">
+                           启用
+                           <span class="caret"></span>
+                         </button>
+                       </span>
+                        <ul class="dropdown-menu" style="display: block" role="menu" aria-labelledby="dropdownMenu1"
+                            v-if="statusTogle==index">
+                            <li role="presentation"><a role="menuitem" tabindex="-1"
+                                                       @click="statusTogleFn(item.userId,1,index)">启用</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1"
+                                                       @click="statusTogleFn(item.userId,0,index)">停用</a></li>
+                        </ul>
+                    </div>
+                </td>
+                <td>
+                    <a class="btn btn-warning glyphicon glyphicon-pencil" @click="edit(item.userId)">修改会员信息</a>&nbsp;
+                    <a class="btn btn-warning glyphicon glyphicon-pencil" @click="infoFn(index)">修改账号信息</a>&nbsp;
+                    <!--     <button type="button" class="btn btn-default glyphicon glyphicon-trash" @click="del()">刪除</buttona> -->
+                    <!--    <if condition="$vo['userPhone'] neq ''">
+                         <button type="button" class="btn btn-default glyphicon glyphicon-pencil" onclick="javascript:sendMsm({$vo.userId})" >发送短信</buttona>
+                         </if> -->
+
+                </td>
+            </tr>
+            <tr>
+                <td colspan='11' align='center' class='pages'>
+                    <!-- 分页 -->
+                    <pages :page-numb="pageNumb" :page-curent="pageCurent" @pagefather="pageFn"></pages>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="wu_mei"  v-else>
+        <img src="/static/image/pc/21.jpg" height="113" width="85">
+        <div style="display:block" class="panduan">暂无该查询条件的内容 换个条件试试吧！</div>
+
+    </div>
+    <div class="modal fade  in" v-show="togle==1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><b>修改密码</b></h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-hover table-striped table-bordered wst-form">
+                        <tbody>
+                        <tr>
+                            <th align="right" width="120">账号</th>
+                            <td>{{info.login_name}}</td>
+                        </tr>
+
+                        <tr>
+                            <th align="right" width="120px">密码<font color="red">*</font></th>
+                            <td>
+                                <input type="password" @focus="onfocus" @blur="onblur" id="loginPwd"
+                                       v-model="info.modifyPassword" class="form-control wst-ipt-10" maxlength="20"/>
+                                <div v-if="tipsClas" id="loginPwdTip" class="onShow"
+                                     style="display: inline-block; margin: 0px; padding: 0px; background: transparent;">
+                                    <div :class="tipsClas">登录密码长度应该为6-20位之间</div>
+                                </div>
+                                (为空则说明不修改密码)
+                            </td>
+                        </tr>
+                        <!--               <tr>
+                                        <th align="right" width="120">会员状态<font color="red">*</font></th>
+                                        <td>
+                                          <label> <input type="radio" name="userStatus" value="1" v-model="info.userStatus"  />启用 </label>
+                                          <label> <input type="radio" name="userStatus" value="0" v-model="info.userStatus"  />停用 </label>
+                                        </td>
+                                      </tr> -->
+                        <tr>
+                            <td colspan="2" style="padding-left:250px;">
+                                <button type="button" class="btn btn-success" @click="addWord">保存</button>
+                                <button type="button" class="btn btn-primary" @click="togle=0">取消</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/static/js/admin/memberList.js"></script>
+</html>

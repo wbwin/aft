@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>订单支付</title>
+    <link rel="stylesheet" href="/static/css/pc/all.css"/>
+    <link rel="stylesheet" href="/static/css/pc/submit.css"/>
+    <script type="text/javascript" src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+    <script type="text/javascript" src="/static/js/pc/submit.js"></script>
+    <script type="text/javascript" src="/static/js/pc/common.js"></script>
+</head>
+<!--<script>
+    var arr =
+    <?php
+         echo json_encode($arr);
+        ?>;
+
+
+    var car = []
+    for (var i in arr) {
+        var obj = new Object(arr[i].arr)
+        car.push(obj)
+    }
+
+</script>-->
+<body>
+<!--<input type="hidden" name="shopId" value="{$shopId}">-->
+
+<!--<input type="hidden" name="lat" value="{$res.latitude}">-->
+<!--<input type="hidden" name="lng" value="{$res.longitude}">-->
+<!--<input type="hidden" name="range" value="{$res.range}">-->
+<!--<input type="hidden" name="dfm" value="{$res.deliveryFreeMoney}">-->
+<div id="app">
+    <!--头部-->
+    <div class="submitTop">
+        <div class="submit-top-infor">
+            <div class="minWidth">
+                <div class="submit-top-inforL">
+                    <span @click="indexClick()">{{geographical}}></span>
+                    <span @click="shopClick()">{{indexCar.loginName}} ></span>
+                    <span>订单信息</span>
+                </div>
+                <div class="submit-top-inforR">
+                    <span v-if="msgData">{{msgData.loginName}}</span>
+                    <div class="more">
+                        <span class="jt">›</span>
+                        <div class="user-more">
+                            <div class="point"></div>
+                            <a href="/pc/onlyconter.html">
+                                <img src="/static/image/pc/opens1.png"/>
+                                <span>个人中心</span>
+                            </a>
+                            <a href="/pc/wodeshoucang.html">
+                                <img src="/static/image/pc/opens1.png"/>
+                                <span>我的收藏</span>
+                            </a>
+                            <a href="/pc/dizhiguanli.html">
+                                <img src="/static/image/pc/opens1.png"/>
+                                <span>我的地址</span>
+                            </a>
+
+                            <a href="/pc/safeconter.html">
+                                <img src="/static/image/pc/opens1.png"/>
+                                <span>安全设置</span>
+                            </a>
+                            <a href="javascript:0" @click="loginoutClick()">
+                                <img src="/static/image/pc/opens1.png"/>
+                                <span>退出登录</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="minWidth">
+
+            <div class="submit-top-flow">
+                <div class="submit-top-flowL">
+                    <span class="logo">阿凡提</span>
+                    <span class="floword">订单信息</span>
+                </div>
+
+                <div class="submit-top-flowR">
+					<span class="submit-flowR-item active">
+						选择商品
+					</span>
+                    <span class="submit-flowR-item active">
+						确认订单信息
+					</span>
+                    <span class="submit-flowR-item">
+						成功提交订单
+					</span>
+
+                    <p class="submit-flowR-line">
+                        <span class="submit-line-item"></span>
+                    </p>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+    <!--木有商品-->
+    <div v-if="indexCar==''" class="commodity">
+        <img src="/static/image/pc/21.jpg">
+        <span class="commodity-text">你的购物车是空的，去 <a href="/pc/index.html" class="home ">下单</a>吧</span>
+    </div>
+
+    <div v-else>
+        <!--内容-->
+        <div class="minWidth content">
+            <div class="content-left">
+
+                <div class="checkcart-title">
+                    <h2>订单详情</h2>
+                    <a href="javascript:history.back(-1)">返回商家修改</a>
+                </div>
+
+                <div class="checkcart-tablerow">
+                    <div class="item-name cell">商品</div>
+                    <div class="item-numb cell">份数</div>
+                    <div class="item-price cell">小计(元 )</div>
+                </div>
+
+                <div>
+                    <div class="foodsum" v-for="(item,index) in message">
+                        <div class="item-name cell">{{item.arr.goodsName}}
+                            <span v-if="item.arr.size&&item.arr.size.length>0">({{item.arr.size[item.arr.decide.size].name}})</span>
+                            <span v-if="item.arr.taste&&item.arr.taste.length>0">--{{item.arr.taste[item.arr.decide.taste].name}}</span>
+                        </div>
+                        <div class="item-numb cell itemtity">
+                            <div class="item-numb-center">
+                                <button @click="carSub(index)">-</button>
+                                <input v-model="inputCarMark==item.mark?'':item.arr.numb" @input="updata(item,event,index)"/>
+                                <button class="forbid" @click="carAdd(index)">+</button>
+                            </div>
+                        </div>
+                        <div class="item-price cell">￥{{Math.round(item.arr.numb*item.arr.shopPrice*100)/100}}</div>
+                    </div>
+                </div>
+
+                <div class="extra">
+                    <!-- <p class="zk">*折扣商品不参加会员打折<p>
+                    <p class="newTip"></p>
+                    <div class="extra-item">
+                        <span class="extra-item-name">会员折扣</span>
+                        <span class="extra-item-price">90折</span>
+                    </div> -->
+
+                    <div class="extra-item" ng-if="startbf > 0">
+                        <span class="extra-item-name">餐盒</span>
+                        <span class="extra-item-price">￥{{lunch}}</span>
+                    </div>
+                    <div class="extra-item">
+                        <span class="extra-item-name">配送费</span>
+                        <span class="extra-item-price">￥{{delivery}}</span>
+                    </div>
+                    <div class="extra-item" v-if="vip.groupId>1">
+                        <span class="extra-item-name">会员折扣</span>
+                        <span class="extra-item-price">{{discount}}折</span>
+                    </div>
+                    <!--<p ng-if=" balance != '' ">{{balance}}</p>-->
+                    <p ng-if=" balance != '' "></p>
+                </div>
+                <div class="total-price">{{totalprice}}</div>
+                <div class="total-numb">共{{numSun}}件商品</div>
+            </div>
+
+            <div class="content-right">
+                <div class="check-select">
+                    <h2>
+                        收货地址<a class="address-add" @click="addAdr()">添加新地址</a>
+                    </h2>
+
+                    <ul :class="adrmore ? 'adrmore':''">
+                        <li class="address-item " v-for="(item,index) in addressed"
+                            :style="index==0?'display:inline-block':''" @click="selectAddress(index,item.hash)">
+                            <div class="icon">
+                                <img src="/static/image/pc/opens1.png">
+                            </div>
+                            <div class="address-content">
+                                <p>{{item.userName}} {{item.userPhone}}</p>
+                                <p class="address-txt">{{item.address}}</p>
+                            </div>
+                            <div class="address-operate">
+                                <span @click="modifyAdr(index)">修改</span>
+                                <span @click="deleteAdr(index)">×</span>
+                            </div>
+                            <div class="addressBack" v-show="item.hash">
+                                <p>地址超出配送范围
+                                <p>
+                            </div>
+                        </li>
+                    </ul>
+                    <li class="seeAddress" @click="moreAddress()">
+                        <span>{{adrmore?'收起':'显示更多地址'}}</span>
+                        <span class="more {{adrmore?'tran2':'tran1'}}">></span>
+                    </li>
+                </div>
+
+                <div class="check-select">
+                    <h2>付款方式</h2>
+                    <div class="payment-item">
+                        <p>在线支付</p>
+                        <p class="color-mute">支持微信、支付宝、QQ钱包及大部分银行卡</p>
+                    </div>
+                </div>
+
+                <div class="check-select">
+                    <h2>选择优惠</h2>
+                    <p class="check-info discount">
+                        <span class="name">使用红包</span>
+                        <span class="txt">网站不支持</span>
+                        <span class="tis">(仅手机端可用)</span>
+                    </p>
+                    <p class="check-info discount">
+                        <span class="name">使用优惠券</span>
+                        <span class="txt">网站不支持</span>
+                        <span class="tis">(仅手机端可用)</span>
+                    </p>
+                </div>
+
+
+                <div class="check-select">
+                    <h2>其他信息</h2>
+                    <div class="check-info">
+                        <span class="name">配送方式</span>
+                        <span>本订单由 <span class="main-color">商家配送</span>	提供配送</span>
+                    </div>
+                    <div class="check-info">
+                        <span class="name">送达时间</span>
+                        <select class="select-time">
+                            <option class="option" value="立即送出">立即送出(大约{{dateSorts}})</option>
+                            <option v-for="item in dateSort" :value="item">{{item}}</option>
+                        </select>
+                    </div>
+                    <div class="check-info">
+                        <span class="name">发票信息</span>
+                        <span class="invoice">仅在阿凡提 小程序或公众号 中支持开发票哦</span>
+                    </div>
+
+                    <div class="check-info">
+                        <span class="name">订单备注</span>
+                        <input class="remark"/>
+                    </div>
+
+                </div>
+                <button class="surePlace" @click="sureCheck()">确认下单</button>
+            </div>
+
+            <div class="clear"></div>
+        </div>
+
+        <!--修改地址-->
+        <div class="open_yincang">
+            <div class="news_ko">
+                <div class="ture_model">
+                    <div class="and_onopen">
+                        <span class="bianji" v-if="adrState < 0">添加地址</span>
+                        <span class="bianji" v-else>编辑地址</span>
+                        <span id="tui_out" @click="closeAdr()">×</span>
+                    </div>
+                    <div class="thisname">姓名<input type="text" placeholder="请输入您的名字" name="user" @blur="check()"
+                                                   :class="errShow[0] > 0?'errBorder':''"/>
+                        <p class="err Receiving" style="display: none">请输入收外卖人姓名</p>
+                    </div>
+                    <div class="thissex" @focus="check()">性别
+                        <input type="radio" name="1" value="1"/>先生&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="1" value="0"/>女士
+                    </div>
+                    <div class="thisweizhi">位置
+                        <div class="thisweizhi-box">
+                            <img class="thisweizhi-icon" src="/static/image/pc/opens1.png"/>
+                            <input type="text" placeholder="请输入小区、大厦或学校" v-on:input="cits()"
+                                   :class="errShow[3] > 0?'errBorder':''" id="adrlist" value="" @blur="check()"/>
+                            <div class="address-list">
+                                <ul>
+                                    <li v-for="(item,index) in addrData" @click="citsSure(index)">
+                                        <div class="name">{{item.title}}</div>
+                                        <div class="address">{{item.address}}</div>
+                                    </li>
+
+                                </ul>
+                            </div>
+
+                            <div class="addressTis">
+                                <p>没找到你的地址?</p>
+                                <p>请尝试只输入小区，大厦或学校看看</p>
+                                <div class="zx"></div>
+                            </div>
+
+                        </div>
+                        <p class="err slider" style="display: none">请输入位置信息并在下拉框中选择</p>
+                    </div>
+
+                    <div class="thisdizhi">详细地址<input type="text" placeholder="单元、门牌号"
+                                                      name="unit"
+                                                      @blur="check()"
+                                                      :class="errShow[1] > 0?'errBorder':''"/>
+                        <p class="err Detailed" style="display: none">请输入详细地址信息请输入详细地址信息</p>
+                    </div>
+                    <div class="thisnumber phone">手机号
+                        <input class="biankuan" type="text" placeholder="请输入您的手机号"
+                               :class="errShow[2] > 1?'errBorder':''" @blur="check()"/>
+                        <!--<span id="gengduo" @click="morePhone()">添加更多电话</span>-->
+                        <p class="err iphone" style="display: none">请输入正确手机号</p>
+                        <!--//ss-->
+                    </div>
+                    <!--<div class="thisguhua">-->
+                    <!--<input type="text" placeholder="固话,手机号"/>-->
+                    <!--<span id="guhuadelete" @click="delPhone()">删除</span>-->
+                    <!--</div>-->
+                    <div class="zuihou">
+                        <button class="baocun" @click="sureAddress()">保存</button>
+                        <span class="quxiao" @click="closeAdr()">取消</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <comfooter></comfooter>
+    <!--删除地址提示框-->
+    <div class="backs deleceAdrs">
+        <div class="deleteAdrBox">
+            <div class="deleteX" @click="deleceCancel()">×</div>
+            <div class="deleteAdrTips">
+                <img class="deleteAdrIcon" src="/static/image/pc/opens1.png"/>
+                <div class="deleteAdrTitle">确定删除送货地址？</div>
+            </div>
+            <div class="deleteChoice">
+                <span class="sure" @click="deleceSure()">确定</span>
+                <span class="cancel" @click="deleceCancel()">取消</span>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

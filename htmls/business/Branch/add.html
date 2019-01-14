@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>阿凡提</title>
+    <link rel="stylesheet" href="/static/css/business/add.css">
+    <script src="/static/js/public/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+</head>
+
+<body>
+    <div class="esfwefcw" v-cloak>
+        <div class="allweid">
+            注册
+        </div>
+        <div class="zhucezhanghao">
+            <div class="xainsianhjua">
+                <img class="tueragen" src="/static/image/business/phoe.png">
+                <input id="ConDer" class="inpfour" name="userPhone" type="text" placeholder="账号使用者手机号" @input="ConDerInput()" @focus="inpfourFocus()" @blur="inpfourBlur()">
+            </div>
+            <div class="mimayfour">
+                <img class="pfour" src="/static/image/business/jskjds.png" height="12" width="12">
+                <span id="four.info"></span>
+            </div>
+            <div class="shuyanzm">
+                <input class="inpfive" name="code" type="text" placeholder="验证码" @focus="inpfiveFocus()" @blur="inpfiveBlur()">
+                <input type="button" value="获取验证码" class="HuoQu dianfa" disabled="disabled" @click="dianfaClick()" />
+                <span class="Times" style="display: none;">90秒</span>
+            </div>
+            <div class="yanzmyzm">
+                <img class="pfive" src="/static/image/business/jskjds.png" height="12" width="12">
+                <span id="five.info"></span>
+            </div>
+            <div class="button" @click="buttonClick()">注册</div>
+        </div>
+        <!--【账号密码登录】【账号密码登录】【账号密码登录】【账号密码登录】-->
+    </div>
+    <script src="/static/js/business/add.js"></script>
+</body>
+
+</html>

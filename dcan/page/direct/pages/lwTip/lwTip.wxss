@@ -1,0 +1,90 @@
+.lwTip{
+	padding: 3%;
+}
+.title{
+	font-weight: bold;
+	padding: 0 0 3% 0;
+	border-bottom: 1rpx solid #dedede;
+}
+.block{
+	padding: 3% 0;
+	line-height: 50rpx;
+}
+.tr{
+	font-size: 32rpx;
+	font-weight: bold;
+}
+.td{
+	font-size: 30rpx;
+}
+.solve{
+	display: flex;
+	padding: 5%;
+}
+.solve_l,.solve_r{
+	flex: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1rpx solid #dedede;
+	border-radius: 12rpx;
+	height: 80rpx;
+}
+.solve_l image,.solve_r image{
+	width: 38rpx;
+	height: 38rpx;
+	margin-left: 15rpx;
+}
+.solve_r image{
+	transform:rotateX(-180deg);
+}
+.issolve,.nosolve{
+	color:#53beb7;
+	border: 1rpx solid #53beb7;
+}
+.saixuan{
+	position: absolute;  
+	text-align: center;
+	min-width: 94%;  
+	color: #666;
+	margin: 5% 0 2% 0;
+	overflow:hidden;
+}
+
+.saixuan:after, .saixuan:before {  
+      background: #dedede;  
+      content: "";  
+      height: 1px;  
+      position: absolute;  
+      top: 50%;  
+      width: 10%;  
+}  
+
+.saixuan:before {  
+	left: 1%;  
+}  
+
+.saixuan:after {  
+	right: 1%;  
+}  
+
+.reason{
+	display: flex;
+	font-size: 24rpx;
+	padding-top: 16%;
+}
+
+.reasons{
+	flex: 1;
+	height: 60rpx;
+	line-height: 60rpx;
+	border-radius: 12rpx;
+	border: 1rpx solid #dedede;	
+	margin: 1%;
+	text-align: center;
+}
+
+.choosed{
+	color: #53beb7;
+	border: 1rpx solid #53beb7;
+}

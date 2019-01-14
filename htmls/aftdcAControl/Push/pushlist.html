@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>后台管理中心</title>
+    <link href="/static/css/admin/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/admin/AdminLTE.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/admin/pages.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/admin/all.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/admin/report.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/admin/tuisong.css" rel="stylesheet" type="text/css"/>
+    <script src="/static/js/public/axios.min.js"></script>
+    <script src="/static/js/public/vue.min.js"></script>
+    <!-- 分页组件 -->
+    <script src="/static/js/public/pages.js"></script>
+</head>
+
+<body class="wst-page" style="position:relative;">
+<div class='wst-body' id="app" v-cloak>
+    <div class='wst-tbar'>
+        <!--<button type="submit" class="btn btn-default glyphicon glyphicon-pencil" @click="modalTogle">添加推广消息</button>-->
+        <button type="button" class="btn btn-primary glyphicon glyphicon-plus" @click="show">添加推送消息</button>
+    </div>
+    <div class="wst-table">
+        <table class="table table-hover table-striped table-bordered wst-list">
+            <thead>
+            <tr>
+                <th width='30'>序号</th>
+                <th width='80'>推广内容</th>
+                <th width='80'>创建时间</th>
+                <th width='80'>操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="(item,index) in listData">
+                <td>{{index+1}}</td>
+                <td>{{item.content}}</td>
+                <td>{{item.timestamp}}</td>
+                <td>
+                    <a class="btn btn-danger glyphicon glyphicon-trash" @click="del(item.id,index)">删除</a>
+                    <!-- <a class="btn btn-default glyphicon glyphicon-pencil" @click="go(item.id)">马上推送</a> -->
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div style='text-align:center' class="pages">
+        <!-- 分页 -->
+        <pages :page-numb="pageNumb" :page-curent="pageCurent" @pagefather="pageFn"></pages>
+    </div>
+
+    <div class="modal fade  in" v-show="togle==1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><b>添加推广消息</b></h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-hover table-striped table-bordered wst-form">
+                        <tbody>
+                        <tr>
+                            <th align="right" style="width:130px;vertical-align: middle;">请输入推广消息</th>
+                            <td>
+                                <textarea style="height: 110px; width: 400px; color: rgb(153, 153, 153);" class="word"
+                                          style="width:100%;" placeholder="" v-model="modalTxt" id="keywords"
+                                          @focus="onfocus" @blur="onblur"></textarea>
+                                <div v-if="tips.txt" id="contentTip" class="onError"
+                                     style="display: inline-block; margin: 0px; padding: 0px; background: transparent;">
+                                    <div :class="tips.clas">{{tips.txt}}</div>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" style="padding-left:250px;">
+                                <button type="button" class="btn btn-success" @click="addWord">确定</button>
+                                <button type="button" class="btn btn-primary" @click="togle=0">取消</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 推送消息 -->
+    <div class="openMsg" v-bind:style="{display:tuisong}">
+        <div class="tuisong">
+            <div class="top">
+                推送消息
+                <span class="close" @click="guanbi">×</span>
+            </div>
+            <div class="title tuisong_content">
+                <span> 标题：</span><input type="text" v-model="tit" placeholder="标题">
+            </div>
+            <div class="matter tuisong_content">
+                <span>推广内容：</span> <textarea rows="3" cols="50%" v-model="matter" placeholder='内容'></textarea>
+            </div>
+            <div class="image tuisong_content">
+                <span>推送图片：</span>
+                <input type="file" id="file" style="display:none;" @change="uploadImg($event)">
+                <img src="/static/image/business/upload.png" @click="file" class="change" id="img-change">
+
+            </div>
+            <div class="select tuisong_content">
+                <span>推送方式：</span>
+                <select v-model="selected">
+                    <option v-for="option in options" v-bind:value="option.value">
+                        {{ option.text }}
+                    </option>
+                </select>
+            </div>
+            <div id="test" class="matter_img tuisong_content" style="overflow: hidden;">
+                <span>内容图片：</span>
+                <input type="file" id="pic_selector" style="display:none;" name='pic[]' @change="matter_img($event)"
+                       multiple/>
+                <img src="/static/image/business/upload.png" @click="matt()" id="img-matter">
+                <ul  class="moreImg_ul">
+                    <li style="position: relative; float: left" v-for="(item,index) in fileUrl">
+                        <img :src="item"
+                             style="display: block; width: 100px; height: 100px; border: 1px solid #a1a1a1; padding: 10px; margin: 0px 10px 10px 0px;">
+                        <span class="close1" @click="closeFn(index)" style="display: inline;">X</span>
+                    </li>
+
+
+                </ul>
+            </div>
+            <button type="button" class="btn btn-success glyphicon glyphicon-pencil btnOk" :disabled="disabled"
+                    @click="tui()">确定
+            </button>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/static/js/admin/pushlist.js"></script>
+</html>

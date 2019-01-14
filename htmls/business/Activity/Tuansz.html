@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>阿凡提</title>
+    <!--<script src="/static/js/public/webuploader/jquery-2.0.3.min.js"></script>-->
+    <link rel="stylesheet" href="/static/css/business/Tuansz.css">
+    <link rel="stylesheet" href="/static/css/business/time.css">
+    <link rel="stylesheet" href="/static/css/business/sendeval.css"/>
+    <!-- <link href="/static/css/business/demo.css" rel="stylesheet" type="text/css" media="all" /> -->
+    <!-- <script src="/static/js/public/layer/jquery.fs.tipper.js"></script> -->
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/g2.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+</head>
+
+<body>
+<script type="text/javascript" src="/static/js/public/dateSelect-after.js"></script>
+<div id="Huod" v-cloak>
+    <div id="Jian">
+        <label>团购名称</label>
+        <input class="input" type="txet" name="groupName" placeholder="请输入团购名称（限10字以内）">
+        <label>活动时间</label>
+        <input type="text" id="zuotext" name="startTime" class="zuotext"><img src="/static/image/business/911.png"> 至
+        <input type="text" id="csdevwe" name="endTime" class="csdevwe"><img src="/static/image/business/911.png">
+        <!--  选择菜品 -->
+        <div class="drop" id="drop">
+            <label>选择菜品</label>
+            <div class="foodsSelect">
+                <div class=" foodInput">
+                    <span v-for="(item,index) in goodsSet" class="foodSpec" name="foodSpec">
+                        <span @click="add($event,item.goodsId)">+</span>
+                        {{item.name}}
+                        <span class="dec" @click="dec($event,item.goodsId)">-</span>
+                        {{item.num}}
+                        <span class="del" @click="closeGoods(index,item.goodsId)">×</span>
+                    </span>
+                </div>
+                <span class="threeS" @click="goods()"></span>
+                <!-- 下拉菜品选择 -->
+                <ul class="goods">
+                    <li v-for="(item,index) in goodsData" @click="goodsSelect(index)">{{item.name}}</li>
+                </ul>
+            </div>
+        </div>
+        <label>团购原价</label>
+        <input class="input" name="marketPrice" disabled="disabled" type="txet" v-model="totalPrice">
+        <label>团购总价</label>
+        <input class="input" type="txet" name="shopPrice" placeholder="请设置本次活动的总价" maxlength="10"
+               oninput='this.value=this.value.replace(/[^0-9,]/g,"")'
+               onafterpaste="this.value=this.value.replace(/[^0-9,]/g,'')"
+               onkeyup="this.value=this.value.replace(/^[,0。+-/*]+[0-9]*$/gi,'')">
+        <div id="TuImg">
+            <!-- <label>选择活动图片</label> -->
+            <div class="tHreesan">
+                <div class="wentuzi">
+                    <div>选择活动图片</div>
+                    <div><span id="numberimgert">0</span>/1</div>
+                </div>
+                <div class="imgKuang">
+                    <div class="imhon">
+                    </div>
+                    <div class="xcsDik" @click="xcsDikClick()">+</div>
+                    <input id="inpfile" @change="getImg()" type="file" style="display: none">
+                    <div class="zhushji">
+                        <div>图片上传格式支持PNG、JPG、GIF</div>
+                        <div>图片大小不超过2M，最多可上传1张</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+        </script>
+        <textarea name="groupDes" maxlength="200" placeholder="介绍一下你的团购活动吧(限200个字内)"></textarea>
+        <div class="end_zuohou">
+            <input type="checkbox" id="zuoend" checked="checked">已阅读并同意 <a class="cohn_SDUC" id="tooltips"
+                                                                           href="#tooltips" @click="tooltipsClick()">商家自营销协议</a>
+        </div>
+        <button class="Tyes" id="Tyes" @click="TyesClick()">提交</button>
+    </div>
+
+    <!--[影藏框]----[影藏框]----[影藏框]-->
+    <div class="SiondUin">
+        <div class="DinderP">
+            <div class="SinOder">
+                <div class="Titlert">
+                    <span class="Tuangy">团购提示</span>
+                    <span class="DinDer" @click="DinDerClick()">×</span>
+                </div>
+                <div class="AinDer">
+                    <div class="jinqu">1. 店铺优惠活动可以与阿凡提外卖平台的其他活动同时进行, 如满减、满折等; 商家优惠可以和阿凡提外卖红包同时使用;</div>
+                    <div class="jinqu">2. 店铺优惠活动的促销成本由商家自己承担, 我公司(阿凡提)只是活动工具的提供方; 商家不得要求我公司 (阿凡提) 开具“店铺优惠的发票”;</div>
+                    <div class="jinqu">3. 店铺优惠的实际归属为各个开展活动的商家, 我公司(阿凡提)只负责代发, 归属权不属于我公司 阿凡提 ;</div>
+                    <div class="jinqu">4. 与商家结算的金额中, 不包括商家店铺自己发放的优惠, 即: 合同中的结算为净值 (原订单金额-商家店铺优惠) ;</div>
+                    <div class="jinqu">5. 进行中的店铺优惠, 若商家在预先设置活动结束时间前结束活动, 则已发放的优惠仍然有效。</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--[影藏框]----[影藏框]----[影藏框]-->
+</div>
+<script src="/static/js/business/Tuansz.js"></script>
+</body>
+
+</html>
+
+
+<!-- /*function upFile() {//方法暂未使用
+    var isIE = document.all && window.external;
+    if (!isIE) {
+        document.getElementById('upfile').click();
+    }
+}*/
+
+/*function InsertMsgPic($state, imgthumb) {//方法暂未使用
+    if ($state == 'SUCCESS') {
+        $('#images').attr('src', imgthumb);
+        $('#logo').val(imgthumb);
+    } else {
+        alert($state);
+    }
+}*/
+
+// 菜的选择
+ -->
+
+
+
+

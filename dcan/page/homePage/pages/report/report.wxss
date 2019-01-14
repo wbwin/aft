@@ -1,0 +1,234 @@
+page {
+  background-color: #f8f8f8;
+}
+
+.body {
+  background-color: white;
+}
+
+.chooise {
+  padding: 30rpx 0 0 32rpx;
+  font-size: 34rpx;
+}
+
+.reason {
+  height: 320rpx;
+  border-bottom: 1rpx solid #dedede;
+  padding: 4% 0;
+}
+
+.reason text {
+  display: block;
+  line-height: 38px;
+  text-align: center;
+  float: left;
+  width: 190rpx;
+  margin-top: 20rpx;
+  border: 1rpx solid #dedede;
+  margin-left: 16px;
+  font-size: 30rpx;
+  color: #808080;
+  border-radius: 10rpx;
+}
+
+.btnReason {
+  border: 1rpx solid #53beb7 !important;
+  color: #53beb7 !important;
+}
+
+.text {
+  background-color: #fff;
+  color: #53beb7;
+  padding: 45rpx 32rpx;
+  font-size: 28rpx;
+  display: block;
+  line-height: 50rpx;
+}
+
+.state {
+  margin-top: 40rpx;
+  height: 240rpx;
+  background-color: white;
+	display: flex;
+}
+.img{
+	font-size: 28rpx;
+	flex: 1;
+	text-align: center;
+}
+.state view image{
+	padding: 10rpx;
+	width: 160rpx;
+	height: 160rpx;
+}
+.inputs {
+  height: 200rpx;
+	width: 100%;
+  font-size: 38rpx;
+  padding: 32rpx
+}
+
+.btn {
+  margin-top: 40rpx;
+  color: #fff;
+  background-color: #53beb7;
+  width: 82%;
+}
+
+.thinkText {
+  margin-top: 40rpx;
+  color: #808080;
+  font-size: 30rpx;
+  text-align: center;
+  padding: 0 30rpx;
+  line-height: 42rpx;
+}
+
+/**弹出*/
+
+.backgound {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.4;
+  z-index: 4;
+}
+
+.jubaosBox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/*认证弹出框*/
+
+.approve {
+  border-radius: 20rpx;
+  background-color: #fff;
+  width: 80%;
+  height: 520rpx;
+  /* position: relative; *//* z-index:999; */
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 30rpx;
+  font-size: 30rpx;
+}
+
+.approve-tip {
+  font-size: 32rpx;
+  padding: 30rpx 0 0 0;
+  /* color: #53beb7; */
+}
+.approve-tips{
+  color: #999;
+  font-size: 26rpx;
+  margin-top: 20rpx;
+}
+.approve-input {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 30rpx;
+  align-items: center;
+}
+
+.approve-input input {
+  height: 80rpx;
+  line-height: 80rpx;
+}
+
+.butt {
+  position: absolute;
+  line-height: 72rpx;
+  width: 170rpx;
+  height: 72rpx;
+  font-size: 30rpx;
+  top: 9rpx;
+  right: 8rpx;
+  border-radius: 2px;
+  z-index: 999;
+  margin: 0;
+   background-color: #53beb7;
+   color: #fff;
+     padding: 0;
+}
+
+.approve input {
+  width: 100%;
+  padding-left: 16rpx;
+  line-height: 90rpx;
+  height: 90rpx;
+    background-color: #eee;
+  border-radius: 3rpx;
+  box-sizing: border-box;
+
+}
+
+.approve-bnt {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  font-size: 34rpx;
+  border-top: solid 1rpx #dedede;
+  line-height: 90rpx;
+  text-align: center;
+}
+
+.approve-bnt text {
+  flex: auto;
+}
+
+.approve-bnt-go {
+  color: #53beb7;
+}
+
+.approve-bnt-back {
+  color: #808080;
+  border-right: solid 1rpx #dedede;
+}
+
+.approve-phone {
+  width: 100%;
+  position: relative;
+  height: 90rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+ margin-bottom: 36rpx;
+}
+
+button[disabled][type="default"], wx-button[disabled]:not([type]) {
+color:#fff;
+background-color:#B0B0B0;
+
+}
+/* 没有手机号的弹框 */
+.noPhone{
+	position: fixed;
+	width: 70%;
+	padding: 3%;
+	top: 16%;
+	background: #fff;
+	box-shadow: 0 0 15rpx #888;
+}
+.noPhone button{
+	width: 80%;
+}
+.tishi{
+	padding: 3%;
+	text-align: center;
+}

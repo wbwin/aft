@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/static/css/business/all.css" />
+    <link rel="stylesheet" href="/static/css/business/time.css" />
+    <link rel="stylesheet" href="/static/css/business/order.css" />
+    <link rel="stylesheet" href="/static/css/business/pages.css">
+    <script type="text/javascript" src="/static/js/public/jquery.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/vue.min.js"></script>
+    <script type="text/javascript" src="/static/js/public/dateSelect-after.js"></script>
+    <script type="text/javascript" src="/static/js/public/axios.min.js"></script>
+    <script charset="utf-8" src="https://map.qq.com/api/js?v=2.exp&key=AQMBZ-L4FCO-4VNWY-S5SGC-BNSG7-ALBIS"></script>
+    <script src="/static/js/public/pages.js"></script>
+</head>
+
+<body>
+    <div class="preOrder content-wrapper" id="preOrder" v-cloak>
+        <div class="panel panel-default">
+            <form>
+                <div class="panel-body">
+                    <div class="form-group clear">
+                        <label class="control-label item-2 inline">预订状态</label>
+                        <div class="item-9 inline">
+                            <div class="radio inline">
+                                <label class="label-radio inline" v-for="(item,index) in timeRadio.choice">
+                                    <input type="radio" name="pre-status" v-model="timeRadio.sele" :value="item" @click="changeRadio" />
+                                    <span class="custom-radio"></span>
+                                    <span>{{item}}</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group clear" v-show="timeRadio.sele=='未到预订时间'">
+                        <label class="control-label item-2 inline">订单时间</label>
+                        <div class="item-9 inline">
+                            <div class="radio inline">
+                                <div class="inline input-times">
+                                    <input type="text" id="date" v-model="time.start" @focus="time.name='start'">
+                                    <span class="DataIncon">
+											<img src="/static/image/business/calendar.png">
+										</span>
+                                </div>
+                                <span class="inline"> 至 </span>
+                                <div class="inline input-times">
+                                    <input type="text" id="dateN" v-model="time.end" @focus="time.name='end'">
+                                    <span class="DataIncon">
+											<img src="/static/image/business/calendar.png">
+										</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group clear" v-for="(item,index) in radios">
+                        <label class="control-label item-2 inline">{{item.val}}</label>
+                        <div class="item-9 inline">
+                            <div class="radio inline">
+                                <label class="label-radio inline" v-for="(x,numb) in item.choice">
+                                    <span v-if="item.brackS==numb"></span>
+                                    <input type="radio" :name="'pre'+index" v-model="item.sele" :value="x" @click="changeRadio" />
+                                    <span class="custom-radio"></span>
+                                    <span class="custom-radio">{{x}}</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!--calendar-->
+        <!-- <p class="total-count">共计&nbsp;：<strong>0&nbsp;</strong>张订单</p> -->
+        <div class="content clear">
+            <div class="item-8 pull-left order-content">
+                <div class="notOrder-box" v-if="orderData==''">
+                    <div class="notOrder">
+                        <img class="notOrder-icon" src="/static/image/business/order.png" />
+                        <p class="notOrder-title">暂无指定订单</p>
+                        <div class="notOrder-word">暂时没有该筛选条件的订单，稍后再来看看吧!</div>
+                    </div>
+                </div>
+                <ul class="order-list" v-else>
+                    <li class="order-list-item order" v-for="(item,index) in orderData">
+                        <div class="order-info">
+                            <!--title 头部-->
+                            <div class="order-title small-p relative">
+                                <strong class="f-med">#</strong>
+                                <strong class="f-largest">{{index+1}}</strong>
+                                <span class="order-time">
+								<span class="c-oranger f-med">{{item.seleTime}}</span>
+                                 <span> | </span>
+                                 <span>建议{{item.requireTime}}前送达</span>
+                                </span>
+
+                                <span class="pull-right order-state kui-button-menu btn-sm bgrgba-hover" @click="refund(item)" v-if="item.deStatus==0">受理</span>
+                                <span class="pull-right order-state kui-button-menu btn-sm bgrgba-hover" @click="norefund(item)" v-if="item.deStatus==0">不受理</span>
+                                <div class="pull-right order-state" v-if="item.orderStatus==4" :class="[item.deStatus==0?'mr':'']">用户已确认收餐</div>
+                                <div class="pull-right order-state" v-if="item.orderStatus==0" :class="[item.deStatus==0?'mr':'']">用户已支付</div>
+                                <div class="pull-right order-state" v-if="item.orderStatus==3&&item.deStatus==7" :class="[item.deStatus==0?'mr':'']">配送中</div>
+                                <div class="pull-right order-state" v-if="item.deStatus==4&&item.orderStatus!=4" :class="[item.deStatus==0?'mr':'']">拒绝配送</div>
+                            </div>
+                            <div class="user-info big-p">
+                                <div class="user-name">
+                                    <strong class="f-med c-normal m-right-sm">{{item.userName}}</strong>
+                                    <span class="m-left-cs small c-grayest">
+									<span v-if="item.isFrist==1">#门店新客</span>
+                                    <span v-if="item.isFrist==0">#回头客</span>
+                                    <span style="display: none;">#收藏店铺</span>
+                                    </span>
+                                </div>
+                                <div class="user-phone w-grayer relative">
+                                    <span>{{item.userPhone}}</span><span class="threeS" style="display: none;"></span>
+                                    <div class="another-phone" style="display: none;">...备用号码</div>
+                                </div>
+                                <div class="w-grayer user-address ">
+                                    <span>{{item.userAddress}}</span>
+                                    <a href="javascript:void(0);" class="menu-color small" @click="mapFn(1,index)">
+											<img src="/static/image/business/menu-dw.png" class="icon-sms"> {{item.distance }}km
+										</a>
+                                </div>
+                            </div>
+                            <div class="product-info border-t">
+                                <div class="product-title">
+                                    <strong class="f-med c-normal">商品信息</strong>
+                                    <!-- <a href="javascript:;" class="pull-right menu-color small" @click="goodsOpen(index)">
+											{{item.open?'收起':'展开'}}<span class="bracketsMore" :class="{'stop':item.open}"><span>
+								</a> -->
+                                </div>
+                                <div class="small"><span class="c-warning">备注：</span>{{item.orderRemarks}}</div>
+                                <div class="order-first" v-show="item.open">
+                                    <div class="product-list pr20">
+                                        <table>
+                                            <tbody>
+                                                <tr v-for="(goods,goodsIndex) in item.goods">
+                                                    <td width="60%">
+                                                        <div class="mr10">{{goods.goodsName}}</div>
+                                                    </td>
+                                                    <td width="15%" class="small w-grayer">
+                                                        <div class="mt2">¥{{goods.goodsPrice}}</div>
+                                                    </td>
+                                                    <td width="10%" class="c-oranger small">
+                                                        <div class="mt2">x{{goods.goodsNums}}</div>
+                                                    </td>
+                                                    <td width="15%" class="text-right">
+                                                        <div>¥{{goods.goodsNums*goods.goodsPrice}}</div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="pr20 border-t clear w-grayer">
+                                        <div class="pull-left">餐盒费</div>
+                                        <div class="pull-right">¥{{item.boxPrice}}</div>
+                                    </div>
+                                    <!-- <div class="charge-info pr20 border-t small">
+									<p class="c-normal clear">
+										<strong class="pull-left">小计</strong>
+										<span class="pull-right" v-for="(goods,goodsIndex) in item.goods">¥{{goods.goodsNums*goods.goodsPrice+item.boxPrice}}</span>
+											</p>
+											<div class="mb-list clear">
+												<div class="pull-left relative">
+													商家活动支出<i class="askIcon-sm detail-hover"></i>
+													<div class="list-detail">
+														<div class="list-item">
+															<div class="clear">
+																<span class="pull-left">满40.0元减12.0元</span>
+																<span class="pull-right">-¥8.00</span>
+															</div>
+														</div>
+														<div class="clear list-total border-t">
+															<strong class="pull-left">总计</strong>
+															<strong class="pull-right">-¥8.00</strong>
+														</div>
+														<div class="arrows"></div>
+													</div>
+												</div>
+												<span class="pull-right">-¥{{item.shopALLPayOut}}</span>
+											</div>
+											<div class="mb-list clear">
+												<div class="pull-left relative">
+													平台服务费<i class="askIcon-sm detail-hover"></i>
+													<div class="list-detail">
+														<div class="list-item">
+															<div class="clear">
+																<span class="pull-left">菜品分成</span>
+																<span class="pull-right">-¥8.00</span>
+															</div>
+														</div>
+														<div class="clear list-total border-t">
+															<strong class="pull-left">总计</strong>
+															<strong class="pull-right">-¥8.00</strong>
+														</div>
+														<div class="arrows"></div>
+													</div>
+												</div>
+												<span class="pull-right">-¥{{item.serverMoney}}</span>
+											</div>
+									</div> -->
+                                    <div class=" border-t pr20 c-normal">
+                                        <div class="clear">
+                                            <strong class="pull-left">本单预计收入</strong>
+                                            <strong class="pull-right">¥{{item.plan}}</strong>
+                                        </div>
+                                        <div class="clear small c-grayest">
+                                            本单顾客实际支付：¥{{item.realTotalMoney}}
+                                            <span class="c-green " v-if="item.payType==1">（余额支付）</span>
+                                            <span class="c-green " v-if="item.payType==2">（微信支付）</span>
+                                            <span class="c-green " v-if="item.payType==3">（余额+微信支付）</span>
+                                            <span class="c-green " v-if="item.payType==4">（支付宝支付）</span>
+                                            <span class="c-green " v-if="item.payType==5">（支付宝+余额支付）</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="other-info small">
+                                    {{item.createTime}} 下单 | 订单编号：{{item.orderNo}}
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="item-4 pull-right order-liest">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">今日订单概况</h3>
+                    </div>
+                    <div class="panel-body">
+                        <p>已接订单：<strong>{{arr.toDayOrderNum}}</strong>笔</p>
+                        <p>今日营业总额：<strong>{{arr.income}}</strong>元</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--****************************************分页**********************************************-->
+        <div style='text-align:center;display: initial;' class="pages">
+            <!-- 分页 -->
+            <pages :page-numb="pageNumb" :page-curent="pageCurent" @pagefather="pageFn"></pages>
+        </div>
+        <!--评价骑手-->
+        <div class="modal kui-modal backdrop" v-show="modalTogle==3">
+            <div class="modal-dialog modal-sm ">
+                <div class="modal-content">
+                    <div class="modal-header inline clear">
+                        <span class="close" @click="modalTogle=0">×</span>
+                        <h5 class="modal-title">评价骑手</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div class="modal-evaluate-delivery">
+                            <p class="give-mark">
+                                <span>本次配送评分</span>
+                                <span class="vote-star">
+										<img class="icon-stars" v-for='(x,index) in 5' :src="[evaluateData.stars-1>=index?'/static/image/business/stars-yellow2.png':'/static/image/business/stars-gray.png']" @click='evaluateData.stars=index+1' />
+
+										<!--<img class="icon-stars" src="images/stars-yellow2.png" />
+										<img class="icon-stars" src="images/stars-gray.png" />-->
+									</span>
+                            </p>
+                            <textarea v-model='evaluateData.txt' class="form-control" maxlength="300"></textarea>
+                        </div>
+                    </div>
+                    <div class="text-center m-top-lg modal-footer">
+                        <span class="kui-button-menu active" @click="evaluateSure">匿名评价</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--点击距离  查看地图  商家-->
+        <div class="modal kui-modal backdrop" v-show="modalTogle==1">
+            <div class="modal-dialog modal-lg ">
+                <div class="modal-content">
+                    <div class="modal-header inline clear">
+                        <span class="close" @click="modalTogle=0">×</span>
+                        <h5 class="modal-title">查看地图</h5>
+                    </div>
+                    <div class="modal-body">
+                        <!-- <div class="des">
+						 	门店与送货地址相距：1972米。<span class="small w-grayer">（地图标示可能存在误差，建议您进行电话确认，数据仅供参考）</span>
+						 </div> -->
+                        <!-- <p class="small w-grayer">用户标注的地图位置（数据仅供参考）：广东省广州市天河区石牌街道地中海国际酒店</p> -->
+                        <div id="distance">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--点击距离  查看地图  骑手-->
+        <div class="modal kui-modal backdrop" v-show="modalTogle==2">
+            <div class="modal-dialog modal-lg notPad">
+                <div class="modal-content">
+                    <div class="modal-header inline clear">
+                        <span class="close" @click="modalTogle=0">×</span>
+                        <h5 class="modal-title">查看地图</h5>
+                    </div>
+                    <div class="modal-body">
+                        <div id="riderBox">
+                        </div>
+                        <div id="routes"></div>
+                        <!-- <a href="">123</a>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="/static/js/business/orderPre.js"></script>
+
+</html>

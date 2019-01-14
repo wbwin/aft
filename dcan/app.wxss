@@ -1,0 +1,47 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+/*放大图片  */
+.enlargeBox{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.enlargeSwiper{
+ width:100%;
+ height:100%;
+  max-height: 900rpx;
+}
+
+.enlargeSwiper swiper-item{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.enlargeSwiper image{
+width: 100%;
+
+}
+.enlargebut{
+margin-top: 50rpx;
+  width: 90%;
+}
