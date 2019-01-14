@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>后台管理中心</title>
+    <link href="/static/css/admin/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/admin/AdminLTE.css" rel="stylesheet" type="text/css"/>
+    <script src="/static/js/public/axios.min.js"></script>
+    <script src="/static/js/public/vue.min.js"></script>
+</head>
+<body>
+<div id="app" class="wst-table">
+    <ul id="myTab" class="nav nav-tabs wst-tab" role="tablist">
+        <li :class="{'active':navs==0}" @click="navs=0"><a href="#tabc0" role="tab" data-toggle="tab">商城设置</a></li>
+        <li :class="{'active':navs==1}" @click="navs=1"><a href="#tabc3" role="tab" data-toggle="tab">运营设置</a></li>
+    </ul>
+    <div class='tab-content wst-tab-content'>
+        <table class='table table-hover  table-bordered wst-form'>
+            <tbody>
+            <template v-for="(item,index) in configData" v-if="navs==index">
+                <tr v-for="(x,inde) in item">
+                    <th >{{x.fieldName}}：</th>
+                    <td>
+                        <input type='text' autocomplete="off" class="input_search wst-ipt" id='hotSearchs' name=''
+                               v-model="x.fieldValue"/>
+                        <span style="color:red;">{{x.fieldTips}}</span>
+                    </td>
+                </tr>
+            </template>
+
+            <tr>
+                <td style='text-align: center' colspan='2'>
+                    <button type="button" class="btn btn-primary" style="margin-right:20px" @click='save()'>保&nbsp;存</button>
+                    <!--<button type="reset" class="btn btn-primary" @click="reset()">重&nbsp;置</button>-->
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
+</div>
+</body>
+<script type="text/javascript" src="/static/js/admin/configInfor.js"></script>
+</html> 

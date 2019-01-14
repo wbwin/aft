@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width , initial-scale=1.0"/>
+    <title>阿凡提平台版</title>
+    <link href="/static/css/admin/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/admin/login.css"/>
+
+    <script src="/static/js/public/axios.min.js"></script>
+    <script src="/static/js/public/vue.min.js"></script>
+</head>
+<body>
+<div id="app">
+    <div id="loginbox">
+        <div class='logo'></div>
+        <form id="loginform" class="form-vertical"/>
+        <div class="control-group">
+            <div class="controls">
+                <div class="input-prepend">
+                    <span class="add-on">账号：</span><input type="text" v-model='loginName' id='loginName' placeholder="用户名" />
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <div class="input-prepend">
+                    <span class="add-on">密码：</span><input type="password" v-model='loginPwd' id='loginPwd' placeholder="密码" @keyup.13="login()"/>
+                </div>
+            </div>
+        </div>
+        <div class="form-actions" @click='login()'></div>
+        </form>
+    </div>
+</div>
+</body>
+
+<script type="text/javascript" src="/static/js/admin/login.js"></script>
+</html>

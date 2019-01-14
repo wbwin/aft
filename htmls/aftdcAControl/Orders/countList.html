@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>后台管理中心</title>
+    <link href="/static/css/admin/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/admin/AdminLTE.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/admin/pages.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/admin/all.css" rel="stylesheet" type="text/css"/>
+    <script src="/static/js/public/axios.min.js"></script>
+    <script src="/static/js/public/vue.min.js"></script>
+    <!-- 分页组件 -->
+    <script src="/static/js/public/pages.js"></script>
+</head>
+
+<body class='wst-page'>
+<div id="app" v-cloak>
+    <div class='wst-tbar'>
+        结算编号：<input type='text'class="input_search"  name='settlementNo' id='settlementNo' v-model='orderNo'/>
+        结算状态： <select name='isFinish' class="input_search" id='isFinish' v-model="isFinish">
+        <option value='-1'>请选择</option>
+        <option value='3'>未结算</option>
+        <option value='4'>已结算</option>
+    </select>
+        <button type="submit" class="btn btn-search glyphicon glyphicon-search" @click="pageFn(1)">查询</button>
+    </div>
+    <div class="wst-body wst-table" v-if="listData.length>0">
+        <table class="table table-hover table-striped table-bordered wst-list">
+            <thead>
+            <tr>
+                <th >序号</th>
+                <th >结算编号</th>
+                <th >店铺</th>
+                <th >订单金额</th>
+                <th >结算金额</th>
+                <th >平台服务费</th>
+                <th >配送费</th>
+                <th >结算时间</th>
+                <th>备注</th>
+                <th>状态</th>
+                <th >操作</th>
+            </tr>
+            </thead>
+            <tbody>
+            <template v-for="(item,index) in listData">
+                <tr>
+                    <td>{{index+1}}</td>
+                    <td>{{item.orderNo}}</td>
+                    <td>{{item.shopId}}</td>
+                    <td>{{item.totalMoney}}</td>
+                    <td>{{item.needPay}}</td>
+                    <td>
+                        <span v-if="item.payType==1">0</span>
+                        <span v-else>{{rideFn(item.needPay,0.03)}}</span>
+                        <!-- 在线支付才收服务费 -->
+                    </td>
+                    <td>{{item.deliverMoney}}</td>
+                    <td>{{item.createTime}}</td>
+                    <td>{{item.remarks}}</td>
+                    <td>
+                        <span v-if="item.orderStatus==3">未结算</span>
+                        <span v-if="item.orderStatus==4">已结算</span>
+                    </td>
+                    <td>
+                        <a v-if="item.orderStatus==3" class="btn btn-primary glyphicon" href="javascript:"
+                           @click="countFn(index)">结算</a>
+                    </td>
+                </tr>
+            </template>
+            <tr>
+                <td colspan='11' align='center'>
+                    <!-- 分页 -->
+                    <pages :page-numb="pageNumb" :page-curent="pageCurent" @pagefather="pageFn"></pages>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="wu_mei"  v-else>
+        <img src="/static/image/pc/21.jpg" height="113" width="85">
+        <div style="display:block" class="panduan">暂无该查询条件的内容 换个条件试试吧！</div>
+
+    </div>
+    <div class="modal fade  in" v-show="togle==1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title"><b>订单退款</b></h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-hover table-striped table-bordered wst-form">
+                        <tbody>
+                        <tr>
+                            <th align="right" style="width:120px">结算编号：</th>
+                            <td>{{countData.orderNo}}</td>
+                        </tr>
+                        <tr>
+                            <th align="right" style="width:120px">结算金额：</th>
+                            <td>
+                                <span class="red" v-if="countData.payType!=1&&countData.deliverType==6">￥{{rideFn(countData.needPay,0.97)-countData.deliverMoney}}</span>
+                                <span class="red"
+                                      v-else-if="countData.payType!=1">￥{{rideFn(countData.needPay,0.97)}}</span>
+                                <span class="red" v-else-if="countData.deliverType==6">￥{{countData.needPay-countData.deliverMoney}}</span>
+                                <span class="red" v-else>￥{{countData.needPay}}</span>
+
+                                (订单总金额：￥{{countData.needPay}}<span v-if="countData.payType!=1">- 平台服务费 {{rideFn(countData.needPay,0.03)}}</span>
+                                <span v-if="countData.deliverType==6"> - 运费：￥{{countData.deliverMoney}}</span>)
+                            </td>
+                            <!--在线支付才收服务费 , deliverType==6 蜂鸟配送时才减去运费 -->
+                        </tr>
+
+                        <!--           <tr>
+                                       <th align="right" style="width:120px">结算说明：(商家可看)</th>
+                                       <td>
+                                       <textarea id='content' name='content' style='width:450px;height:100px;' v-model="countData.countWord"></textarea>
+                                       </td>
+                                     </tr> -->
+                        <tr>
+                            <td colspan="2" style="padding-left:250px;">
+                                <button type="button" class="btn btn-success" @click="addWord">确定</button>
+                                <button type="button" class="btn btn-primary" @click="togle=0">取消</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/static/js/admin/countList.js"></script>
+</html>

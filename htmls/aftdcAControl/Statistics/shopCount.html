@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>后台管理中心</title>
+    <link href="/static/css/admin/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/admin/AdminLTE.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/admin/pages.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/admin/daterangepicker-bs3.css" rel="stylesheet"/>
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script src="/static/js/admin/daterangepicker.js"></script>
+    <script src="/static/js/public/axios.min.js"></script>
+    <script src="/static/js/public/vue.min.js"></script>
+    <!-- 分页组件 -->
+    <script src="/static/js/public/pages.js"></script>
+
+
+</head>
+
+<body class='wst-page'>
+<div id="app" v-cloak>
+
+    <div class='wst-tbar'>
+        店铺名称：<input type='text' id='shopName' name='shopName'  class=' input_search wst-ipt-10' v-model='shopName'/>
+        统计时间：<input type='text' id='queryDate' name="queryDate" class=" input_search" readonly='true' style='width:215px;cursor: not-allowed'
+                    v-model='time'/>
+        <button type="submit" class="btn btn-search glyphicon glyphicon-search" @click="pageFn(1)">查询</button>
+    </div>
+
+
+    <div class='wst-body wst-table' v-if="listData.length>0">
+        <table class="table table-hover table-striped table-bordered wst-list">
+            <thead>
+            <tr>
+                <th>序号</th>
+                <th>店铺名称</th>
+                <th>店铺编号</th>
+                <th>在线支付销售额</th>
+                <!-- <th >货到付款销售额</th> -->
+                <th>总销售额</th>
+                <th>订单数</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="(item,index) in listData" style="height: 40px">
+                <td>{{index+1}}</td>
+                <td>{{item.shopName}}</td>
+                <td>{{item.shopId}} &nbsp;</td>
+                <td>{{onlineMoney(item)}}</td>
+                <!-- <td>{$vo['unlineMoney']}</td> -->
+                <td>{{item.totalMoney}}</td>
+                <td>{{orderNum(item)}}</td>
+            </tr>
+
+            <tr>
+                <td colspan='7' align='center'>
+                    <!-- 分页 -->
+                    <pages :page-numb="pageNumb" :page-curent="pageCurent" @pagefather="pageFn"></pages>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="wu_mei"  v-else>
+        <img src="/static/image/pc/21.jpg" height="113" width="85">
+        <div style="display:block" class="panduan">暂无该查询条件的内容 换个条件试试吧！</div>
+
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/static/js/admin/shopCount.js"></script>
+</html>

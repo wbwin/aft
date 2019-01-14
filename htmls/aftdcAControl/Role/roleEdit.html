@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>后台管理中心</title>
+    <link href="/static/css/admin/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/admin/AdminLTE.css" rel="stylesheet" type="text/css"/>
+    <script src="/static/js/public/axios.min.js"></script>
+    <script src="/static/js/public/vue.min.js"></script>
+</head>
+
+
+<body class="wst-page">
+<div id="app" class="wst-table" v-cloak>
+    <table class="table table-hover table-striped table-bordered wst-form">
+        <tr>
+            <th width='120' align='right'>角色名称<font color='red'>*</font>：</th>
+            <td>
+                <input type='text' id='roleName' class="input_search wst-ipt" v-model='roleName' maxLength='25'
+                       @focus="onfocus" @blur="onblur"/>
+                <div v-if="tips.txt" class="onError"
+                     style="display: inline-block; margin: 0px; padding: 0px; background: transparent;">
+                    <div :class="tips.clas">{{tips.txt}}</div>
+            </td>
+        </tr>
+        <tr>
+            <th align='right'>权限列表<font color='red'>*</font>：</th>
+            <td>
+                <div v-for="(item,index1) in roleData" class="pad" :class="{'borTop':index1>0}">
+                 <span class="chk-left inlineTop" style="width:140px; padding-left: 12px;">
+                    <label><input type='checkbox' class='chk' v-model="item.have" @change="checkModel1(index1)"/>{{item.name}}</label>
+                 </span>
+                    <span class="chk-right inline">
+                  <div v-for="(x,index2) in item.child">
+                    <label><input type='checkbox' id='spgl_00' class='chk grant spgl' v-model="x.have"
+                                  @change="checkModel2(index1,index2)"/>{{x.name}}</label>
+                    <span class="child-min">
+                      <label v-for="(ch,index3) in x.child"><input type='checkbox' class='chk grant spgl spfl'
+                                                                   v-model="ch.have" id='spfl_00'/>{{ch.name}}</label>
+                    </span>
+                  </div>
+                 </span>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td colspan='2' style='text-align: center'>
+                <button type="submit" class="btn btn-success" style="margin-right: 20px" @click="keepFn">保&nbsp;存</button>
+                <button type="button" class="btn btn-primary" onclick='javascript:history.go(-1)'>返&nbsp;回</button>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+<script type="text/javascript" src="/static/js/admin/roleEdit.js"></script>
+</html>

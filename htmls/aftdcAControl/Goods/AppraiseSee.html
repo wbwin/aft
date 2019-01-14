@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>后台管理中心</title>
+    <link href="/static/css/admin/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/admin/AdminLTE.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/admin/all.css" rel="stylesheet" type="text/css"/>
+    <script src="/static/js/public/axios.min.js"></script>
+    <script src="/static/js/public/vue.min.js"></script>
+
+</head>
+<body class='wst-page'>
+<div class="wst-body wst-table" id="app" v-cloak>
+    <table class="table table-hover table-striped table-bordered wst-list">
+        <thead>
+        <tr>
+            <th>序号</th>
+            <th>回复人</th>
+            <th>回复内容</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr v-for="(item,index) in replyData">
+            <td>{{index+1}}</td>
+            <td>
+                {{item.userName}}({{item.role=='shop'?'商家':'用户'}})
+            </td>
+            <td width='140' style='border-left:0px;'>
+                {{item.content}}
+            </td>
+
+            </td>
+
+            <td>
+                <button type="button" class="btn btn-danger glyphicon glyphicon-trash" @click="del(item.id,index)">刪除
+                </button>
+                <!--  <button type="button" class="btn btn-default glyphicon glyphicon-pencil" @click="see(item.id)">查看</button> -->
+            </td>
+        </tr>
+
+
+        <tr>
+            <td colspan='4'>
+                <button type="button" class="btn btn-primary" onclick="javascript :history.back(-1);">返&nbsp;回</button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+<script type="text/javascript" src="/static/js/admin/AppraiseSee.js"></script>
+</html>

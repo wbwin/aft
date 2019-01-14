@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>后台管理中心</title>
+    <link href="/static/css/admin/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/admin/AdminLTE.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/admin/all.css" rel="stylesheet" type="text/css"/>
+    <script src="/static/js/public/axios.min.js"></script>
+    <script src="/static/js/public/vue.min.js"></script>
+
+</head>
+<body>
+<div id="app" class="wst-table" v-cloak>
+    <table class="table table-hover table-striped table-bordered wst-form"
+           style="word-wrap:break-word; word-break:break-all;">
+        <tr>
+            <td>商家评分</td>
+            <td>{{shopInfo.avg}}</td>
+        </tr>
+        <tr>
+            <td>周订单量</td>
+            <td>{{shopInfo['weekOrderCnt']}}</td>
+        </tr>
+        <tr>
+            <td>周交易金额</td>
+            <td>{{shopInfo['weekOrderMoney']}}</td>
+        </tr>
+        <tr>
+            <td>月订单量</td>
+            <td>{{shopInfo['monthOrderCnt']}}</td>
+        </tr>
+        <tr>
+            <td>月交易金额</td>
+            <td>{{shopInfo['monthOrderMoney']}}</td>
+        </tr>
+        <tr>
+            <td colspan='2' style='text-align:center'>
+                <a type="button" class="btn btn-primary" data-dismiss="modal" id="back"
+                   href="javascript:history.back(-1)">返&nbsp;回</a>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+<script type="text/javascript" src="/static/js/admin/shopsDetail.js"></script>
+</html>

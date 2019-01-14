@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>后台管理中心</title>
+    <link href="/static/css/admin/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/admin/AdminLTE.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/admin/pages.css" rel="stylesheet" type="text/css"/>
+    <script src="/static/js/public/jquery.min.js"></script>
+    <script src="/static/js/public/layer/layer.min.js"></script>
+    <script src="/static/js/public/axios.min.js"></script>
+    <script src="/static/js/public/vue.min.js"></script>
+    <!-- 分页组件 -->
+    <script src="/static/js/public/pages.js"></script>
+</head>
+
+<body class='wst-page'>
+<div id="app" v-cloak>
+    <div class='wst-tbar'>
+        <div>
+            会员类型：<select name='targetType' class="input_search" v-model="targetType">
+            <option value='-1'>全部</option>
+            <option value='0'>普通会员</option>
+            <option value='1'>店铺会员</option>
+        </select>
+            流水类型：<select name='moneyType' class="input_search" v-model="moneyType">
+            <option value='-1'>全部</option>
+            <option value='1'>收入</option>
+            <option value='0'>支出</option>
+        </select>
+            流水来源：<select name='dataSrc' class="input_search" v-model="dataSrc">
+            <option value='-1'>全部</option>
+            <option value='1'>订单结算</option>
+            <option value='2'>用户订单充值</option>
+            <option value='3'>申请提现</option>
+            <option value='4'>分销佣金</option>
+            <option value='5'>订单支出</option>
+            <option value='6'>订单退款</option>
+        </select>
+            时间：<input type='text' id='startDate' class='laydate-icon input_search' name='startDate' value=''
+
+                      placeholder='开始日期' onclick='laydate({format: "YYYY-MM-DD"})'/>
+            <input type='text' id='endDate' class='laydate-icon input_search' name='endDate' value=''
+
+                   placeholder='结束日期' onclick='laydate({format: "YYYY-MM-DD"})'/>
+            <!-- 关键字：<input type="text" name="key" style='width:120px;' value='{$key}'/> -->
+            <button type="submit" class="btn btn-search glyphicon glyphicon-search" @click="pageFn(1)">查询</button>
+        </div>
+    </div>
+    <div class="wst-body wst-table" v-if="listData.length>0">
+        <table class="table table-hover table-striped table-bordered wst-list">
+            <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th>会员类型</th>
+                <th>会员</th>
+                <th>资金类型</th>
+                <th>资金来源</th>
+                <th>金额</th>
+                <th>备注</th>
+                <th>时间</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr v-for="(item,index) in listData">
+                <td>{{index+1}}</td>
+                <td>
+                    <span v-if="item.targetType==1">店铺</span>
+                    <span v-else>会员</span>
+                </td>
+                <td>{{item.userName}}</td>
+                <td>
+                    <span v-if="item.moneyType==1">收入</span>
+                    <span v-else>支出</span>
+                </td>
+                <td>
+                    <span v-if="item.dataSrc==1">商家结算</span>
+                    <span v-if="item.dataSrc==2">用户订单充值</span>
+                    <span v-if="item.dataSrc==3">申请提现</span>
+                    <span v-if="item.dataSrc==4">分销佣金</span>
+                    <span v-if="item.dataSrc==5">订单支出</span>
+                    <span v-if="item.dataSrc==6">订单退款</span>
+                </td>
+                <td>{{item.money}}</td>
+                <td>{{item.moneyRemark}}</td>
+                <td>{{item.createTime}}</td>
+            </tr>
+
+            <tr>
+                <td colspan='8' align='center'>
+                    <!-- 分页 -->
+                    <pages :page-numb="pageNumb" :page-curent="pageCurent" @pagefather="pageFn"></pages>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div class="wu_mei"  v-else>
+        <img src="/static/image/pc/21.jpg" height="113" width="85">
+        <div style="display:block" class="panduan">暂无该查询条件的内容 换个条件试试吧！</div>
+
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/static/js/admin/purseList.js"></script>
+</html>

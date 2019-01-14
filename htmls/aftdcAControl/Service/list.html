@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>后台管理中心</title>
+    <link href="/static/css/admin/bootstrap.min.css" rel="stylesheet">
+    <link href="/static/css/admin/AdminLTE.css" rel="stylesheet" type="text/css"/>
+    <link href="/static/css/admin/pages.css" rel="stylesheet" type="text/css"/>
+    <script src="/static/js/public/axios.min.js"></script>
+    <script src="/static/js/public/vue.min.js"></script>
+    <!-- 分页组件 -->
+    <script src="/static/js/public/pages.js"></script>
+</head>
+<!-- 店铺认证 -->
+<body class='wst-page'>
+<div id="app" v-cloak>
+    <!--<div class='wst-tbar'>-->
+        <!--客服昵称：<input type='text' id='shopSn' name='shopSn' class='input_search wst-ipt-10' v-model='ptkfName'/>-->
+
+        <!--<button  class="btn btn-search glyphicon glyphicon-search" @click="pageFn(1)">查询</button>-->
+        <!--&lt;!&ndash; <a class="btn btn-success glyphicon glyphicon-plus" href="{:U('Admin/Shops/toEdit')}" style='float:right'>新增</a> &ndash;&gt;-->
+    <!--</div>-->
+    <div class='wst-page wst-table'>
+        <table class="table table-hover table-striped table-bordered wst-list">
+            <thead>
+            <tr>
+                <th ><input type="checkbox"  @click="choiceAll()" /></th>
+                <th >序号</th>
+                <th >客服昵称</th>
+                <th >登陆账号</th>
+                <th >当前对接人数</th>
+                <th >注册日期</th>
+                <th >操作</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <tr v-for="(item,index) in listData">
+                <td><input type="checkbox"  :value="item.ptkfId"  v-model="checkboxModel"/></td>
+                <td>{{index+1}}</td>
+                <td>{{item.ptkfName}}</td>
+                <td>{{item.login_name}}</td>
+                <td>{{item.serveNum}}</td>
+                <td>{{item.timestamp}}</td>
+                <td>
+                    <a class="btn btn-primary glyphicon glyphicon-pencil" @click="edit(item.ptkfId,index)">修改</a>
+                    <span  @click="del(item.ptkfId,index)">
+                        <button type="button" class="btn btn-danger glyphicon glyphicon-trash delete"
+                                @click="ids(item.ptkfId)">刪除
+                        </button>
+                    </span>
+                </td>
+
+            </tr>
+
+            <tr>
+                <td colspan='11' align='center'>
+                    <!-- 分页 -->
+                    <pages :page-numb="pageNumb" :page-curent="pageCurent" @pagefather="pageFn"></pages>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+<script type="text/javascript" src="/static/js/admin/service.js"></script>
+</html>
