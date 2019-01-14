@@ -1,0 +1,188 @@
+{
+  "pages": [
+    "page/tabBar/homePage/index",
+    "page/tabBar/purchase/index",
+    "page/tabBar/direct/index",
+    "page/tabBar/personal/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#53beb7",
+    "navigationBarTitleText": "阿凡提智慧点餐",
+    "navigationBarTextStyle": "#fff"
+  },
+  "tabBar": {
+    "color": "#707070",
+    "selectedColor": "#53beb7",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "page/tabBar/homePage/index",
+        "text": "首页",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home1.png"
+      },
+      {
+        "pagePath": "page/tabBar/purchase/index",
+        "text": "订单",
+        "iconPath": "images/purchase.png",
+        "selectedIconPath": "images/purchase1.png"
+      },
+      {
+        "pagePath": "page/tabBar/direct/index",
+        "text": "餐头条",
+        "iconPath": "images/direct.png",
+        "selectedIconPath": "images/direct1.png"
+      },
+      {
+        "pagePath": "page/tabBar/personal/index",
+        "text": "我的",
+        "iconPath": "images/personal.png",
+        "selectedIconPath": "images/personal1.png"
+      }
+    ]
+  },
+  "subPackages": [
+    {
+      "root": "page/homePage/",
+      "pages": [
+        "pages/allpj/allpj",
+        "pages/author/author",
+        "pages/bargainHelp/bargainHelp",
+        "pages/buyVoucher/buyVoucher",
+        "pages/charge/charge",
+        "pages/collage/collage",
+        "pages/collages/collages",
+        "pages/contact/contact",
+        "pages/ddzqProtocol/ddzqProtocol",
+        "pages/desk/desk",
+        "pages/deskOrder/deskOrder",
+        "pages/deskState/deskState",
+        "pages/deskSubmit/deskSubmit",
+        "pages/foodDetail/foodDetail",
+        "pages/goShare/goShare",
+        "pages/imgDetail/imgDetail",
+        "pages/introduce/introduce",
+        "pages/macher/macher",
+        "pages/online/online",
+        "pages/order/order",
+        "pages/orderRemarks/orderRemarks",
+        "pages/preference/preference",
+        "pages/qualifications/qualifications",
+        "pages/registration/registration",
+        "pages/report/report",
+        "pages/rule/rule",
+        "pages/search/search",
+        "pages/service/service",
+        "pages/shareOrder/shareOrder",
+        "pages/shopdetail/shopdetail",
+        "pages/shopReport/shopReport",
+        "pages/sport/sport",
+        "pages/submit/submit",
+        "pages/subpage/subpage",
+        "pages/userpj/userpj",
+        "pages/userSportInfo/userSportInfo",
+        "pages/waitPay/waitPay"
+      ]
+    },
+    {
+      "root": "page/purchase/",
+      "pages": [
+        "pages/drawback/drawback",
+        "pages/group/group",
+        "pages/group_state/group_state",
+        "pages/score/score"
+      ]
+    },
+    {
+      "root": "page/direct/",
+      "pages": [
+        "pages/article/article",
+        "pages/downloadApp/downloadApp",
+        "pages/helpMe/helpMe",
+        "pages/lwArticle/lwArticle",
+        "pages/lwTip/lwTip",
+        "pages/replyDetail/replyDetail",
+        "pages/report/report",
+        "pages/textbox/textbox",
+        "pages/userArticle/userArticle"
+      ]
+    },
+    {
+      "root": "page/personal/",
+      "pages": [
+        "pages/address/address",
+        "pages/aptitude/aptitude",
+        "pages/attention/attention",
+        "pages/cancella/cancella",
+        "pages/circle/circle",
+        "pages/collect/collect",
+        "pages/cooperation/cooperation",
+        "pages/coupon/coupon",
+        "pages/download/download",
+        "pages/dynamic/dynamic",
+        "pages/gz/gz",
+        "pages/hb/hb",
+        "pages/hdtz/hdtz",
+        "pages/history/history",
+        "pages/hyk/hyk",
+        "pages/info/info",
+        "pages/integral/integral",
+        "pages/invoice/invoice",
+        "pages/league/league",
+        "pages/leaveword/leaveword",
+        "pages/ly/ly",
+        "pages/myOpinion/myOpinion",
+        "pages/myvip/myvip",
+        "pages/news/news",
+        "pages/openmage/openmage",
+        "pages/opinion/opinion",
+        "pages/phone/phone",
+        "pages/pl/pl",
+        "pages/publishing/publishing",
+        "pages/read/read",
+        "pages/recharge/recharge",
+        "pages/refund/refund",
+        "pages/sc/sc",
+        "pages/scheme/scheme",
+        "pages/settInfo/settInfo",
+        "pages/shield/shield",
+        "pages/sx/sx",
+        "pages/vip/vip",
+        "pages/wait/wait",
+        "pages/wallet/wallet",
+        "pages/xttz/xttz",
+        "pages/yhq/yhq",
+        "pages/zan/zan",
+        "pages/zf/zf"
+      ]
+    }
+  ],
+  "preloadRule": {
+    "page/tabBar/homePage/index": {
+      "network": "all",
+      "packages": [
+        "page/homePage/",
+        "page/personal/"
+      ]
+    },
+    "page/tabBar/purchase/index": {
+      "network": "all",
+      "packages": [
+        "page/purchase/"
+      ]
+    },
+    "page/tabBar/direct/index": {
+      "network": "all",
+      "packages": [
+        "page/direct/"
+      ]
+    }
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false
+}

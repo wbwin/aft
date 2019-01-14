@@ -1,0 +1,384 @@
+page {
+  height: 100%;
+  background-color: #f4f4f4;
+  
+  color: #333;
+}
+
+.allPager {
+  padding: 20rpx;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+}
+
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.aiCenter {
+  display: flex;
+  align-items: center;
+}
+
+.jcCenter {
+  display: flex;
+  justify-content: center;
+}
+
+.jcSb {
+  display: flex;
+  justify-content: space-between;
+}
+
+.fontSize22 {
+  font-size: 22rpx;
+}
+
+/* 顶部拼单状态 */
+
+.buttom {
+  width: 100%;
+  background-color: #fff;
+  padding-bottom: 44rpx;
+}
+
+.dropDown {
+  width: 52rpx;
+  height: 8rpx;
+  border-top: 2rpx solid #e2e1e1;
+  border-bottom: 2rpx solid #e2e1e1;
+  margin: 8rpx 0 26rpx 0;
+} 
+
+.buttomTitle {
+  font-size: 36rpx;
+  font-weight: bold;
+  margin-bottom: 34rpx;
+}
+
+.collageState {
+  width: 556rpx;
+}
+
+.collageStateIco {
+  font-size: 22rpx;
+  padding: 0 30rpx;
+}
+
+.collageStateText {
+  font-size: 24rpx;
+  margin-top: 8rpx;
+}
+
+.icon {
+  width: 36rpx;
+  height: 36rpx;
+  background-color: #333;
+  border: 2rpx solid #333;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.iconDisable {
+  background-color: #fff;
+  border: 2rpx solid #c7c7c7;
+  color: #c7c7c7;
+}
+
+.line {
+  width: 166rpx;
+  height: 0;
+  border: 2rpx dashed #333;
+}
+
+.lineDisable {
+  border: 2rpx dashed #c7c7c7;
+}
+
+.collageStateText text {
+  width: 100rpx;
+  text-align: center;
+}
+
+.lightGray {
+  color: #c7c7c7;
+}
+
+/* 主要拼单信息 */
+
+.main {
+  background-color: #fff;
+  margin-top: 20rpx;
+}
+
+.mainTitle {
+  height: 86rpx;
+  border-bottom: 2rpx solid #ececec;
+  padding: 0 20rpx;
+}
+
+.shopName {
+  font-size: 28rpx;
+  color: #666;
+  max-width: 460rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.distribution {
+  border: 1rpx solid #8e8e8e;
+  padding: 0 10rpx;
+  font-size: 22rpx;
+  line-height: 28rpx;
+}
+
+.gray {
+  color: #999;
+}
+
+.collageItem {
+
+}
+
+.userInfo {
+  font-size: 24rpx;
+  margin-top: 28rpx;
+  padding-top: 28rpx;
+  margin: 0 20rpx;
+}
+
+.userInfo image {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  margin: 18rpx 20rpx 18rpx 0;
+}
+
+.userName {
+  font-size: 28rpx;
+  max-width: 180rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.collageBtn {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.collageBtn .btn {
+  border: 1rpx solid #cdcdcd;
+  padding: 0 20rpx;
+  line-height: 46rpx;
+}
+.collageBtn .ml18 {
+  margin-left: 18rpx;
+}
+
+.orderDetails {
+  font-size: 28rpx;
+  display: flex;
+  flex-direction: row;
+  padding: 20rpx;
+  background: #f8f8f8;
+  margin-bottom: 8rpx;
+  align-items: center;
+}
+
+.orderDetails image {
+  width: 110rpx;
+  height: 110rpx;
+  margin-right: 20rpx;
+}
+
+.orderDetails .word {
+  height: 110rpx;
+  display: flex;
+  flex-direction: column;
+  flex: 8;
+}
+
+.wordTop {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.wordTopView {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.orderDetails .word .name {
+  max-width: 340rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.orderDetails .word .number {
+  font-size: 26rpx;
+  height: 70rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  color: #999;
+}
+
+.numberLeft {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.numberRight {
+  text-decoration: line-through;
+  line-height: 50rpx;
+}
+
+.orderDetails .word .decide {
+  font-size: 26rpx;
+  max-width: 400rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bl-zhe {
+  width: 30rpx;
+  height: 30rpx;
+  color: #fff;
+  background: #f4a460;
+  display: flex;
+  justify-content: center;
+  line-height: 30rpx;
+  font-size: 22rpx;
+  margin-right: 9rpx;
+}
+
+.bl-kan {
+  width: 30rpx;
+  height: 30rpx;
+  color: #fff;
+  background: yellowgreen;
+  display: flex;
+  justify-content: center;
+  line-height: 30rpx;
+  font-size: 22rpx;
+  margin-right: 9rpx;
+}
+
+.bl-miao {
+  width: 30rpx;
+  height: 30rpx;
+  color: #fff;
+  background: green;
+  display: flex;
+  justify-content: center;
+  line-height: 30rpx;
+  font-size: 22rpx;
+  margin-right: 9rpx;
+}
+.cost {
+  min-height: 72rpx;
+}
+.subtotal {
+  height: 62rpx;
+  font-size: 28rpx;
+  display: flex;
+  justify-content: flex-end;
+  padding-bottom: 8rpx;
+  margin: 0 20rpx;
+}
+.packingfee {
+  height: 62rpx;
+  font-size: 28rpx;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 8rpx;
+  margin: 0 20rpx;
+}
+.border {
+  border-top: 2rpx solid #ececec;
+}
+.red {
+  color: #f14e44;
+}
+
+.open {
+  padding-top: 8rpx;
+  padding-bottom: 40rpx;
+}
+.openBtn {
+  font-size: 24rpx;
+  color: #555;
+  border: 1rpx solid #cdcdcd;
+  padding: 0 20rpx;
+  line-height: 46rpx;
+}
+.openIco {
+  width: 24rpx;
+  height: 24rpx;
+  margin-left: 6rpx;
+  opacity: 0.6;
+}
+.shrink {
+  transform: rotate(180deg)
+}
+
+.distr {
+  font-size: 28rpx;
+  height: 90rpx;
+  border-top: 2rpx dotted #cecece;
+  border-bottom: 2rpx dotted #cecece;
+  margin: 0 20rpx;
+  justify-content: space-between;
+  position: relative;
+}
+.circular {
+  width: 18rpx;
+  height: 22rpx;
+  background: #f4f4f4;
+  border-radius: 50%;
+  position: absolute;
+}
+.topL {
+  top: -11rpx;
+  left: -27rpx;
+}
+.topR {
+  top: -11rpx;
+  right: -27rpx;
+}
+.bottomL {
+  bottom: -11rpx;
+  left: -27rpx;
+}
+.bottomR {
+  bottom: -11rpx;
+  right: -27rpx;
+}
+.total {
+  font-size: 24rpx;
+  height: 80rpx;
+  justify-content: flex-end;
+  margin: 0 20rpx;
+}
+.sum {
+  font-size: 28rpx;
+  font-weight: bold;
+  margin-left: 20rpx;
+}
+

@@ -1,0 +1,399 @@
+page{
+  background-color: #F8F8F8
+}
+.desk{
+  z-index: 9
+}
+.reback{
+  line-height: 100rpx;
+  background-color: #fff;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100rpx;
+  border-top: 1rpx solid #A8A8A8;
+}
+.deskTop{
+  display: flex;
+  flex-direction: row;
+  z-index: 8;
+  border-bottom:solid 2rpx #A8A8A8;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  opacity: 0.9;
+  font-size:32rpx;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 0 10px #dedede;
+}
+.deskType{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex: auto;
+}
+
+.deskTypeOk{
+ color: #53beb7;
+}
+
+.img{
+  width: 100%;
+}
+page{
+  background-color: #f8f8f8;
+}
+.cen{
+  padding: 80rpx 0;
+}
+.desks{
+  display: inline-block;
+  width: 46%;
+  text-align: left;
+  padding: 2%;
+  font-size: 28rpx;
+  background-color: #fff;
+  box-shadow: 0 0 10px #dedede;
+}
+.img{
+  text-align: center;
+  padding: 2% 0;
+}
+.img image{
+  width: 100%;
+  height: 250rpx;
+}
+.content view{
+  color: #666;
+  padding: 2%;
+}
+.editdesk{
+  display: flex;
+  text-align: center;
+}
+.del{
+   flex: 1;
+   color: #fff;
+}
+.del text{
+   display: block;
+   background-color: #888;
+   border-radius: 10rpx;
+   padding: 18rpx 0;
+   margin-right: 10rpx;
+}
+.editd{
+   flex: 1;
+   border-radius: 10rpx;
+   background-color: red;
+   padding: 18rpx 0;
+   color: #fff;
+}
+.yuding{
+   background-color: #fff;
+   color: #999;
+   width:90%;
+}
+.add{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  opacity: 0.9;
+  font-size:32rpx;
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 0 10px #dedede;
+}
+
+/* 弹出框 */
+.modalBox{
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: #F0F0F0;
+z-index: 5;
+display: flex;
+flex-direction: column;
+align-items: center;
+font-size: 32rpx;
+
+}
+.modalBox .child{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 20rpx;
+  background: #fff;
+}
+.modalChoice{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 94%;
+  padding: 18rpx 3%;
+  border-bottom: solid 2rpx #dedede;
+
+}
+.more{
+  font-size:36rpx;
+  font-weight: 700;
+}
+.modalChoice2{
+    display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 94%;
+  padding: 18rpx 3%;
+  border-bottom: solid 2rpx #dedede;
+}
+.modalInputs{
+ flex: 1;
+ line-height: 36rpx;
+}
+
+.modalWidth{
+    width: 155rpx;
+    background-color: #fff;
+}
+
+.modalBut{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  position: absolute;
+  bottom: 50rpx;
+
+}
+.modalBut .cancel{
+  width: 90%;
+}
+.modalBut .ok{
+  width: 90%;
+  background: #53beb7;
+  color: #fff;
+  /* margin-top: 80rpx; */
+  margin-bottom: 30rpx;
+}
+.deskImg{
+  display: block;
+  width: 90%;
+  height: auto;
+  margin : 100rpx 0;
+}
+/* 时间 */
+.modals {
+  background: #fff;
+  width: 100%;
+  height: 490rpx;
+  bottom: 0;
+  position: fixed;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  font-size: 30rpx
+}
+.ctime{
+  border-bottom: 1rpx solid #dedede;
+  color: #666;
+  line-height: 90rpx;
+  display: flex;
+}
+.ctimes{
+  flex: 8;
+  text-align: center;
+}
+.close{
+  flex:1 ;
+  text-align: right;
+  padding-right: 3%;
+  font-size:38rpx;
+}
+.modals-content{
+  display: flex;
+  flex-direction: row;
+  height: 400rpx;
+}
+.modalsLeft{
+  width: 40%;
+  flex: none;
+  text-align: center;
+  height: 400rpx;
+  }
+  .modalsLeft .data{
+    padding: 30rpx 0rpx;
+  }
+  .datacolor{
+    background: #fff;
+  }
+  .modalsRight{
+    flex: auto;
+    text-align: center;
+    height: 400rpx;
+  }
+  .instant{
+color: #1E90FF;
+  }
+ .modalsRight .data-h{
+  padding:30rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  }
+  .modals-but{
+    height:50rpx;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: solid #8a8a8a 2rpx;
+  }
+.reTime {
+  font-size: 30rpx;
+  float: right;
+  color:deepskyblue;
+  padding-right:10rpx 
+}
+.time image{
+   width: 48rpx;
+   height: 48rpx;
+   margin: 0rpx 18rpx;
+   flex: none;
+}
+.line {
+  background: #eaeaea;
+  height: 12rpx;
+}
+.pickerbox{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 998;
+  width: 100%;
+  background: #fff;
+}
+.pickTop{
+  text-align: center;
+  padding: 20rpx 0;
+  color: #A0A0A0;
+}
+.pickerbox .scroll{
+  border-top: solid 2rpx #F0F0F0;
+}
+.picks{
+  text-align: center;
+  padding: 20rpx 0;
+  border-bottom: solid 2rpx #F0F0F0;
+}
+.modalForm{
+
+  width: 100%;
+}
+.closeshop{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 30rpx;
+}
+.tip{
+  border-radius: 20rpx;
+  background-color:#fff;
+  width:80%;
+  height:350rpx;
+  z-index:65;
+  padding:30rpx;
+  color: #666;
+  text-align: center;
+  line-height: 80rpx;
+}
+.tiptitle{
+  font-size: 32rpx;
+  color: #000;
+  font-weight: bold;
+}
+.goon{
+  border-top: 1rpx solid #dedede;
+  margin-top: 50rpx;
+  color: #53beb7;
+  font-size: 30rpx
+}
+
+.back {
+  width: 100%;
+  height: 100%;
+  background: #666;
+  position: fixed;
+  opacity: 0.5;
+  top:0;
+  left: 0;
+  z-index: 9;
+}
+
+
+.desk-title{
+  border-right:solid 2rpx #A8A8A8;
+}
+
+.deskOrder{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  bottom: 220rpx;
+  right: 30rpx;
+  z-index: 2;
+   background-color:  #53beb7;
+  /* background-color: rgba(0,0,0,0.6); */
+  color: #fff;
+  font-size: 26rpx;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+}
+.deskOrder image{
+width: 50rpx;
+height: 50rpx;
+margin-bottom: 8rpx;
+
+}
+/* 没有手机号的弹框 */
+.noPhone{
+	position: fixed;
+	width: 70%;
+	padding: 3%;
+	top: 16%;
+	background: #fff;
+	box-shadow: 0 0 15rpx #888;
+}
+.noPhone button{
+	width: 80%;
+}
+.tishi{
+	padding: 3%;
+	text-align: center;
+}
+.modalChoiceTime{
+  display: flex;
+  flex-direction: row;
+  align-items: center
+}

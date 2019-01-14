@@ -1,0 +1,36 @@
+<view class='lwTip'>
+	<view class='title'>餐头条留言功能介绍</view>
+	<view class='block'>
+		<view class='tr'>
+			一、留言功能介绍
+		</view>
+		<view class='td'>
+			留言功能可以让粉丝直接对餐头条的内容进行讨论、反馈、达到交流与互动的效果。
+		</view>
+	</view>
+	<view class='block'>
+		<view class='tr'>
+			二、留言申请条件
+		</view>
+		<view class='td'>
+			根据相关法律法规和平台规则要求，我们暂时调整留言功能开放规则。
+		</view>
+	</view>
+	<view class='solve'>
+		<view class='solve_l {{issolve}}' style='margin-right: 15rpx' bindtap='solve'>
+			<image src="https://image.aftdc.com/images/{{issolve?'zhan':'nozhan'}}.png"></image>已解决
+		</view>
+		<view class='solve_r {{nosolve}}' style='margin-left: 15rpx' bindtap='nosolve'>
+			<image src="https://image.aftdc.com/images/{{nosolve?'zhan':'nozhan'}}.png"></image>未解决
+		</view>
+	</view>
+	<view wx:if="{{nosolve}}">
+		<view class='saixuan'>未解决原因（最多可选二项）</view>
+		<view class='reason'>
+			<view class="reasons {{rid[1]==1?'choosed':''}}" data-rid='1' bindtap='choosed'>描述不清晰</view>
+			<view class="reasons {{rid[2]==2?'choosed':''}}" data-rid='2' bindtap='choosed'>操作后未解决</view>
+			<view class="reasons {{rid[3]==3?'choosed':''}}" data-rid='3' bindtap='choosed'>规则不合理</view>
+			<view class="reasons {{rid[4]==4?'choosed':''}}" data-rid='4' bindtap='choosed'>功能不好用</view>
+		</view>
+	</view>
+</view>

@@ -1,0 +1,90 @@
+page{
+	background-color: #f8f8f8;
+}
+.leaveword{
+	padding: 3%;
+	line-height: 50rpx;
+	margin-bottom: 100rpx;
+}
+.block{
+	margin: 0 0 3% 0;
+	font-size: 28rpx;
+	background-color: #fff;
+}
+.my{
+	display: flex;
+}
+.my{
+	padding: 2%;
+}
+.myPhoto{
+	flex: 1;
+	padding: 2%;
+}
+.myPhoto image{
+	width: 58rpx;
+	height: 58rpx;
+	border-radius: 15rpx;
+}
+.myWord{
+	flex: 10;
+	padding:2% 0 2% 4%;
+}
+.business{
+	color: #999;
+}
+.businessName{
+	padding: 2% 0;
+}
+.replay{
+	line-height: 45rpx;	
+}
+.leave{
+	position: fixed;
+	width: 90%;
+	left: 5%;
+	bottom: 1%;
+}
+.wordborder{
+	border-radius: 10rpx;
+	background-color: #fff;
+	position: fixed;
+	width: 82%;
+	padding: 4%;
+	left: 5%;
+	top: 15%;
+	z-index: 100;
+}
+textarea{
+	padding: 2%;
+	background-color: #f8f8f8;
+	border: 1rpx solid #53beb7;
+	width:96%;
+}
+.zz{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	background-color: #999;
+	opacity: 0.8;
+	z-index: 99;
+}
+.but{
+	margin-top: 3%;
+	display: flex;
+}
+.but button{
+	flex: 1;
+	margin: 0 1%;
+}
+.sure{
+	background-color: #53beb7;
+	color: #fff;
+}
+.noleave{
+	font-size: 28rpx;
+	padding: 20% 0;
+	text-align: center;
+}

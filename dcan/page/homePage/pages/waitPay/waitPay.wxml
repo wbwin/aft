@@ -1,0 +1,264 @@
+<view class='AllPager'>
+
+
+  <view class='WaitingPar'>
+    <view class='Daizhif'>{{orderTypeTip}} {{orderStatus}}</view>
+    <view wx:if="{{order.orderStatus==-2&&countDown}}">
+      <view class='NeiTime'>请在15分钟内完成支付，超时将自动取消</view>
+      <view class='funSou'>
+        <image class='aLLtu' src="https://image.aftdc.com/images/stin.png" /> 等待支付：{{countDown}}</view>
+      <view class='Anniv'>
+        <!-- <view class='bin Quxaio'>取消订单</view>  -->
+        <button class='bin Zhifu' bindtap='pay'>立即支付</button>
+        <button class='bin' data-orderid="{{order.orderId}}" bindtap='cancelOrder'>取消订单</button>
+      </view>
+    </view>
+  </view>
+
+  <view class='Sinfer'>
+    <view class='HangNei' bindtap='gotoShop'>
+      <view class='Titleft'>
+        <image class='aLLXin' src="https://image.aftdc.com/{{order.shopInfo.shopImg}}" /> {{order.shopInfo.shopName}}</view>
+      <image class='Titrigt' src='https://image.aftdc.com/images/lt.png'></image>
+    </view>
+
+    <view wx:for="{{order.goodslist}}" wx:if="{{!order.shareId}}">
+      <view class='Sonerg'>
+        <view class='Ztuk'>
+          <!-- <image class='Foodeng' src="https://image.aftdc.com/{{tk==1?item.groupImg:item.goodsImg}}" /> </view> -->
+          <image class='Foodeng' src="https://image.aftdc.com/{{item.goodsImg}}" /> </view>
+        <view class='Yout'>
+          <view class='BiaoTi'>
+            <view class='BiaoTiView'>
+              <view class='name'>{{item.goodsName}}</view>
+              <text class="bl-zhe" style='margin-left:5rpx;font-size:22rpx' wx:if="{{item.type==1}}">折</text>
+              <text class="bl-kan" style='margin-left:5rpx;font-size:22rpx' wx:if="{{item.type==3}}">砍</text>
+              <text class="bl-miao" style='margin-left:5rpx;font-size:22rpx' wx:if="{{item.type==2}}">秒</text>
+            </view>
+            <!-- <view class='mder'>￥{{item.totalGoodsPrice}}</view> -->
+            <view class='mder'>￥{{item.totalPrice}}</view>
+          </view>
+          <view class='BiaoTi'>
+            <view class='Hunfin'>×{{item.goodsNums}}</view>
+            <!-- <view class='mder' style='text-decoration: line-through;color:#888' wx:if="{{item.goodsPrice!=item.marketPrice}}">￥{{item.totalMarketPrice}}</view> -->
+            <view class='mder' style='text-decoration: line-through;color:#888' wx:if="{{item.goodsPrice!=item.marketPrice}}">￥{{item.totalMarketPrice}}</view>
+          </view>
+          <view class='Hunfin'>{{item.goodsAttrName}}</view>
+        </view>
+      </view>
+    </view>
+
+    <block wx:for="{{order.goodslist}}" wx:if="{{order.shareId}}">
+      <view class="carEmpty">
+        <view class="carEmpty-name">
+          <image src="{{item.userPhoto}}"></image>
+          <text>{{item.userName}}</text>
+          <text style='font-size:20rpx;' wx:if="{{index==0}}">（ 我 ）</text>
+        </view>
+      </view>
+      <block wx:for="{{item.goodsInfo}}" wx:for-item="food">
+        <view class='Sonerg'>
+          <view class='Ztuk'>
+            <!-- <image class='Foodeng' src="https://image.aftdc.com/{{tk==1?item.groupImg:item.goodsImg}}" /> </view> -->
+            <image class='Foodeng' src="https://image.aftdc.com/{{food.goodsImg}}" /> </view>
+          <view class='Yout'>
+            <view class='BiaoTi'>
+              <view class='BiaoTiView'>
+                <view class='name'>{{food.goodsName}}</view>
+                <text class="bl-zhe" style='margin-left:5rpx;font-size:22rpx' wx:if="{{food.type==1}}">折</text>
+                <text class="bl-kan" style='margin-left:5rpx;font-size:22rpx' wx:if="{{food.type==3}}">砍</text>
+                <text class="bl-miao" style='margin-left:5rpx;font-size:22rpx' wx:if="{{food.type==2}}">秒</text>
+              </view>
+              <!-- <view class='mder'>￥{{item.totalGoodsPrice}}</view> -->
+              <view class='mder'>￥{{food.totalPrice}}</view>
+            </view>
+            <view class='BiaoTi'>
+              <view class='Hunfin'>×{{food.goodsNums}}</view>
+              <!-- <view class='mder' style='text-decoration: line-through;color:#888' wx:if="{{item.goodsPrice!=item.marketPrice}}">￥{{item.totalMarketPrice}}</view> -->
+              <view class='mder' style='text-decoration: line-through;color:#888' wx:if="{{food.goodsPrice!=food.marketPrice}}">￥{{food.totalMarketPrice}}</view>
+            </view>
+            <view class='Hunfin'>{{food.goodsAttrName}}</view>
+          </view>
+        </view>
+      </block>
+    </block>
+
+    <view class='Canhefei' wx:if="{{order.orderType==0||order.orderType==5}}">
+      <view>餐盒费</view>
+      <view class='mder'>￥{{order.boxFee}}</view>
+    </view>
+
+    <view class='Peisongfei' wx:if="{{order.orderType==0}}">
+      <view>配送费</view>
+      <view class='mder'>￥{{order.deliverMoney}}</view>
+    </view>
+
+    <block wx:for="{{order.youhui}}">
+      <view class='Youhui'>
+        <view class="{{item.class}}">{{item.tip}}</view>
+        <view class='Donfun' wx:if="{{item.class == 'bl-mz'}}">买赠活动赠送</view>
+        <view class='Donfun' wx:else>{{item.name}}</view>
+        <view class="bargainTxt" wx:if="{{item.class == 'bl-mz'}}">
+          <text style="color:red;max-width:406rpx;text-overflow:ellipsis;white-space: nowrap;">{{item.youhui}} </text>
+          <text style="color:red" decode="{{true}}">&nbsp;*&nbsp;{{item.num}}</text>
+        </view>
+        <view class='fendmder' wx:else>{{item.name!='赠送积分'?'-':''}}
+          <text wx:if="{{item.name!='赠送积分'}}">￥</text>{{item.youhui}}</view>
+      </view>
+    </block>
+
+    <view class='Praernt'>
+      <text class='Jinder'>总计￥{{order.totalMoney}}</text>
+      <!-- <view class='Jinder'>优惠￥{{order.deduction}}</view> -->
+      <view class='Zhunder'>实付
+        <view class='hongder'>￥{{order.needPay}}</view>
+      </view>
+    </view>
+
+    <view class='kefuAndLianxi'>
+      <view class='Lianxi' data-phone="{{order.shopInfo.shopTel}}" bindtap='service'>
+        <image class='dainh' src="https://image.aftdc.com/images/xzkf.png" />在线客服
+      </view>
+      <view class='Lianxi' data-phone="{{order.shopInfo.shopTel}}" bindtap='call'>
+        <image class='dainh' src="https://image.aftdc.com/images/lxsj.png" />联系商家
+      </view>
+    </view>
+
+  </view>
+
+
+
+
+  <view class='Orderint' wx:if="{{order.orderType==0||order.orderType==5}}">
+
+    <view class='Henkun' wx:if="{{order.orderType==0}}">
+      <view class='widpei'>期望时间</view>
+      <view class='weizhi'>
+        <view class='firender'>{{order.requireTime}}</view>
+      </view>
+    </view>
+
+    <view class='Henkun' wx:if="{{order.orderType==0}}">
+      <view class='widpei'>配送地址</view>
+      <view class='weizhi'>
+        <view class='firender'>{{order.userName}} {{order.userPhone}}</view>
+        <view class='firender'>{{order.userAddress}}</view>
+      </view>
+    </view>
+
+    <view class='Henkun' wx:if="{{order.orderType==0}}">
+      <view class='widpei'>配送服务</view>
+      <view class='weizhi'>
+        <view class='firender' wx:if="{{order.orderType==0}}">由商家提供配送服务</view>
+        <!-- <view class='firender' wx:if="{{order.orderType==5}}">到店自取</view> -->
+      </view>
+    </view>
+
+    <view class='Henkun' wx:if="{{order.orderType==5}}">
+      <view class='widpei'>自取时间</view>
+      <view class='weizhi'>
+        <view class='firender'>{{order.requireTime}}</view>
+      </view>
+    </view>
+
+    <view class='Henkun' wx:if="{{order.orderType==5}}">
+      <view class='widpei'>商家地址</view>
+      <view class='weizhi'>
+        <view class='firender'>{{order.shopInfo.shopAddress}}</view>
+      </view>
+    </view>
+
+    <view class='Henkun' wx:if="{{order.orderType==5}}">
+      <view class='widpei'>自取电话</view>
+      <view class='weizhi'>
+        <view class='firender'>{{order.userPhone}}</view>
+      </view>
+    </view>
+  </view>
+
+
+  <view class='Orderint'>
+
+    <view class='Henkun'>
+      <view class='widpei'>订单号码</view>
+      <view class='weizhi'>
+        <view class='firender'>{{order.orderNo}}</view>
+      </view>
+
+      <!-- <view class='Fuzhi'>复制</view> -->
+    </view>
+
+    <view class='Henkun'>
+      <view class='widpei'>下单时间</view>
+      <view class='weizhi'>
+        <view class='firender'>{{order.createTime}}</view>
+      </view>
+    </view>
+
+    <view wx:if="{{order.orderType==3}}">
+      <view class='Henkun'>
+        <view class='widpei'>到达时间</view>
+        <view class='weizhi'>
+          <view class='firender'>{{desk.reachTime}}</view>
+        </view>
+      </view>
+      <view class='Henkun'>
+        <view class='widpei'>用餐人数</view>
+        <view class='weizhi'>
+          <view class='firender'>{{desk.numb}}</view>
+        </view>
+      </view>
+      <view class='Henkun'>
+        <view class='widpei'>预订人</view>
+        <view class='weizhi'>
+          <view class='firender'>{{desk.inputName}} {{desk.sex==2?'先生':desk.sex==1?'女士':''}}</view>
+        </view>
+      </view>
+      <view class='Henkun'>
+        <view class='widpei'>联系方式</view>
+        <view class='weizhi'>
+          <view class='firender'>{{desk.inputPhone}}</view>
+        </view>
+      </view>
+
+    </view>
+    <!-- <view class='Henkun'>
+        <view class='widpei'>订单备注</view>
+        <view class='weizhi'>
+          <view class='firender' wx:if="{{order.orderRemarks}}">{{order.orderRemarks}}</view>
+          <view class='firender' wx:else>无</view>
+        </view>
+      </view>
+      <view class='Henkun' wx:if="{{order.orderType!==3&&order.pickNumb!== -1}}">
+        <view class='widpei'>用餐人数</view>
+        <view class='weizhi'>
+          <view class='firender' wx:if="{{order.pickNumb!==0}}">{{order.pickNumb}}人</view>
+          <view class='firender' wx:else>不需要餐具</view>
+        </view>
+      </view> -->
+    <view class='Henkun' wx:if="{{order.billInfo}}">
+      <view class='widpei'>发票信息</view>
+      <view class='weizhi'>
+        <view class='firender row'>{{order.billInfo.trueName}}
+          <view class='invoiceType'>{{order.billInfo.type}}</view>
+        </view>
+        <view class='firender' wx:if="{{order.billInfo.dutyNum !== ''}}">{{order.billInfo.dutyNum}}</view>
+      </view>
+    </view>
+
+    <!-- <view class='Henkun'>
+          <view class='widpei'>支付方式</view>
+          <view class='weizhi'>
+               <view class='firender'>微信支付</view>
+               <view class='firender'>余额支付</view>
+          </view>
+      </view> -->
+
+  </view>
+
+  <view class='jiayou' bindtap="toPtkf" wx:if='{{order.orderType!==3&&order.orderStatus!=-2}}'>
+    <text>常见
+            问题</text>
+  </view>
+</view>
+<include src="/page/common/loadAnimation.wxml" />

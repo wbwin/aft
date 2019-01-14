@@ -1,0 +1,32 @@
+/* pages/personal/vip/memberCard.wxss */
+Page{
+    padding:3%;
+    width:94%;
+}
+.title{
+    text-align:center;
+    margin-top:30px;
+    margin-bottom:-10px;
+    color:#4B4B4B;
+    font-size:39rpx;
+}
+.body{
+    font-size:30rpx;
+    color:#4B4B4B;
+}
+.foot{
+    text-align:right;
+    margin-top:30px;
+    margin-bottom:50px;
+    font-size:30rpx;
+    color:#4B4B4B;
+}
+
+
+.btn_login{
+    background: #53BEB7;
+    color:#fff;
+    text-align:center;
+    width:98%;
+    margin-top:30rpx;
+}

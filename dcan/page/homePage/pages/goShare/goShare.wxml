@@ -1,0 +1,73 @@
+<view class="goShare" wx:if="{{isShare==1&&payStatus==0}}">
+  <view class="goShareTop">
+    <image class="shopIcon" src="https://image.aftdc.com/{{shop.shopImg}}"></image>
+    <text class="shopName">{{shop.shopName}}</text>
+    <view class="shopPeople"><text class="nowraptxt">{{friendName}}邀请你一起参与拼单</text></view>
+    <button class="shopBut" bindtap='addGoods'>选购商品</button>
+  </view>
+
+  <view class="content">
+    <view class="people-box">
+      <view class="people" wx:for="{{shareOrder}}">
+        <view class="title">
+          <view class="people-numb">{{index+1}}</view>
+          <view class="name">
+            <text class="name-txt">{{item.name}}</text>
+          </view>
+          <!-- 本人 -->
+          <view class="but">
+            <text class='but-revise' data-id="{{item.id}}" bindtap='addGoods' wx:if="{{item.userId==userId&&!item.goodsInfo}}">添加商品</text>
+            <text class='but-revise' data-id="{{item.id}}" bindtap='addGoods' wx:if="{{item.userId==userId&&item.goodsInfo}}">修改商品</text>
+            <text class='body-me-goodss' data-id="{{item.id}}" bindtap='noShare' wx:if="{{item.userId==userId}}">不拼了</text>
+          </view>
+         <!-- 其他人 -->
+          <view class="but">
+            <view class="but-revise" data-friendid="{{item.id}}" bindtap="sameFood" wx:if="{{item.goodsInfo&&item.userId!=userId}}">和Ta点一样</view>
+          </view>
+        </view>
+
+        <view class="foods-box">
+        <block wx:if="{{item.goodsInfo && item.goodsInfo.length>0}}">
+          <view class="foods"  wx:for="{{item.goodsInfo}}" wx:for-item='int'>
+            <text class="foodName">{{int.goodsName}}</text>
+            <text class="foodNumb">×{{int.numb}}</text>
+            <text class="foodPrice">￥{{int.shopPrice}}</text>
+          </view>
+        </block>
+          <view wx:else>暂时没有点菜</view>
+        </view>
+      </view>
+    </view>
+
+    <!--其他费用  -->
+    <view class="people">
+      <view class="title">
+        <view class="people-numb cost">￥</view>
+        <view class="name">
+          <text class="name-txt">其他费用</text>
+        </view>
+      </view>
+
+      <view class="foods-box">
+        <view class="foods">
+          <text class="foodName">配送费</text>
+          <text class="foodNumb">×1</text>
+          <text class="foodPrice">￥{{shop.deliveryStartMoney}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="sum">
+      <text>{{num.pNum}}人，{{num.gNum}}份商品</text><text class="totalPrice">合计 ￥{{num.allPrice}}</text>
+    </view>
+
+  </view>
+</view>
+
+<!-- 已取消拼单 -->
+<view wx:else class='noshare'>
+  <image src='https://image.aftdc.com/images/nopl.png'></image>
+  <view wx:if="{{payStatus==-2}}">该拼单已被取消了呢~~</view>
+  <view wx:if="{{payStatus==-1}}">待支付</view>
+  <view wx:if="{{payStatus==1}}">好友已下单</view>
+</view>

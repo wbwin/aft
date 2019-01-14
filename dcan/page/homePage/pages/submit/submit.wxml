@@ -1,0 +1,480 @@
+<!-- <view class='store' data-storetype='1' bindtap="takeout" wx:if="{{orderType==0||orderType==5}}">
+  <view class='store-view'>外卖配送</view>
+  <icon class="store-icon {{storeType==1?'slecol':''}}" type='success' color="{{storeType==1?'':'#dedede'}}"></icon>
+</view> -->
+<view class="submit" hidden="{{back||!remarkBox}}">
+  <view wx:if="{{storeType==1}}">
+    <view class="append" bindtap="checkaddr" wx:if="{{orderType==0}}">
+      <image class='peisongImg' src="https://image.aftdc.com/images/dw.png"></image>
+      <view class="addressShow">
+        <view class="address" wx:if="{{address}}">
+          <view class="myname">
+            <text>姓名:{{address.userName}}　电话号码:{{address.userPhone}}</text>
+          </view>
+          <text class="addressName" data-address="{{item.address}}">地址:{{address.address}}</text>
+        </view>
+        <text class="checkaddr" wx:if="{{!address}}">{{addressText}} </text>
+      </view>
+      <view>
+        <image class='lt' src='https://image.aftdc.com/images/lt.png'></image>
+      </view>
+    </view>
+    <view class='colorLines'>
+      <view class='linesBlock'>
+        <view class='redBlock'></view>
+      </view>
+      <view class='linesBlock'>
+        <view class='redBlock'></view>
+      </view>
+      <view class='linesBlock'>
+        <view class='redBlock'></view>
+      </view>
+      <view class='linesBlock'>
+        <view class='redBlock'></view>
+      </view>
+      <view class='linesBlock'>
+        <view class='redBlock'></view>
+      </view>
+      <view class='linesBlock'>
+        <view class='redBlock'></view>
+      </view>
+    </view>
+    <view class='append' wx:if="{{orderType==0}}" bindtap="selTime">
+      <image class='peisongImg' src="https://image.aftdc.com/images/serviceTime.png"></image>
+      <view class="addressShow">
+        <view class="myname">
+          <text> 选择时间 </text>
+          <text class='reTime'> {{isOpen==2&&!requireTime&&reserveTime?'现在预订,最早'+presetTime[0].today+reserveTime:reserveTime}}{{reserveTime==''?'最快可预订'+presetTime[0].days+'天后配送':'送达'}}</text>
+        </view>
+      </view>
+      <view class="reTime-It">
+        <text class='reTime' style='color:#666'>{{!requireTime?'未选择':''}}</text>
+        <image class='lt' src='https://image.aftdc.com/images/lt.png'></image>
+      </view>
+    </view>
+  </view>
+  <view class='tostore' wx:if="{{shopInfo.isTostore==1&&(orderType==0||orderType==5)}}" data-storetype='2' bindtap='takeout'>
+    <view class='tostore-view' type='success'>到店自取</view>
+    <icon class='tostore-icon' type='success' color="{{storeType==2?'':'#dedede'}}"></icon>
+  </view>
+
+  <view class='tostore-body' wx:if="{{storeType==2}}">
+    <view class='tostore-body-view'>
+      <image src="https://image.aftdc.com/images/dw.png"></image>
+      <view>
+        <text>{{shopInfo.shopAddress}}</text>
+        <view class='tostore-body-shopName'>{{shopInfo.shopName}}</view>
+      </view>
+    </view>
+    <view class='tostore-body-view'>
+      <image src="https://image.aftdc.com/images/phoneG.png"></image>
+      <view class='userPhone'>
+        <text>自取电话：</text>
+        <view wx:if="{{userPhone}}">{{userPhone}}</view>
+        <view wx:else>
+          <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">设置手机号</button>
+        </view>
+      </view>
+    </view>
+    <view class='tostore-body-view'>
+      <image src="https://image.aftdc.com/images/serviceTime.png"></image>
+      <view>
+        <view class='reTimeView'>
+          <text>自取时间：</text>
+          <view class="tableware-color" style='flex:auto' bindtap="selTime">
+            <text style="color:{{reserveTime==''?'':'#53beb7'}}">{{isOpen==2&&!requireTime&&reserveTime?'最早可选'+presetTime[0].today:''}}{{reserveTime==''?'请选择':reserveTime+'到店'}}</text>
+            <image style='width:25rpx;height:25rpx' src='https://image.aftdc.com/images/lt.png'></image>
+          </view>
+        </view>
+        <view class='tostore-body-shopName' style='color:red;font-size:25rpx'>请您在有效时间内自取商品。如超时请提前与商家沟通，否则商家有权处理该商品并拒绝退款</view>
+      </view>
+    </view>
+    <view class='read'>
+      <image class="protocolRadio" bindtap="protocolRadio" src="https://image.aftdc.com/appBimg/{{protocolRadio?'ic_check_box_checked.png':'ic_check_box_normal.png'}}"></image>
+      <text bindtap="protocolRadio">同意并接受</text>
+      <text bindtap='read' bindtap='ddzq'>《到店自取服务协议》</text>
+    </view>
+  </view>
+  <!-- 选择时间弹出框 -->
+  <view class='selectTime' hidden="{{showTime}}" bindtap="quxiao" catchtouchmove="catchtouchmove">
+
+    <view class='modals' catchtap="confirm">
+      <view class="modals-content">
+        <view class="modalsLeft">
+          <scroll-view scroll-y style="height:380rpx;background-color: #f8f8f8;">
+            <view class="data {{unClickDatacolor==item.days?'datacolor':''}}" bindtap="{{item.days==0?'today':'toTime'}}" wx:for="{{presetTime}}" data-id="{{item.days}}">{{item.today}}</view>
+            <!--       
+          <view class="data {{datacolor==0?'datacolor':''}}" bindtap='today'>今天</view>
+          <view class="data {{datacolor==1?'datacolor':''}}" bindtap="toTime" data-id='1'>明天</view>
+          <view class="data {{datacolor==2?'datacolor':''}}" bindtap='toTime' data-id='2'>后天</view> -->
+          </scroll-view>
+        </view>
+        <view class="modalsRight">
+          <scroll-view scroll-y style="height:380rpx">
+            <view class="data-h instant" bindtap="instant" data-str='{{reTime}}' wx:if="{{unClickDatacolor==0&&isOpen==1}}">
+              <text>{{orderType==5?reTime:'立刻送出（大约'+reTime+'送达）'}}</text>
+              <icon wx:if="{{gett==-1}}" type="success" size="15" />
+            </view>
+            <block wx:for="{{timearr}}">
+              <view class="data-h" bindtap="comTime" data-time="{{item}}" data-number="{{index}}">
+                <text>{{item}}</text>
+                <icon wx:if="{{gett==index}}" type="success" size="15" />
+              </view>
+            </block>
+          </scroll-view>
+        </view>
+      </view>
+      <view class="modals-but" bindtap="quxiao">
+        <text>取消</text>
+      </view>
+    </view>
+
+  </view>
+  <!--头部-->
+  <view class='deskInfo' wx:if="{{orderType==2}}">
+    <view class="desk">
+      <text>座位号：{{deskNum}}</text>
+    </view>
+    <view class="desk">
+      <text>座位名：{{deskName}}</text>
+    </view>
+  </view>
+  <view class="line"></view>
+  <!--内容-->
+  <view class="orderfood">
+    <view class="shopName">
+      <view class="shopName-L">
+        <image src="https://image.aftdc.com/{{shopInfo.shopImg}}"></image>
+        <text>{{shopInfo.shopName}}</text>
+      </view>
+      <!-- <text class="foodps" wx:if="{{dlvService==1}}">商家配送</text> -->
+      <text class="foodps" wx:if="{{tk!=1&&(orderType==3||orderType==0)}}">{{orderType==3?'堂食预订':'商家配送'}}</text>
+    </view>
+
+
+    <block wx:for="{{orderfood}}" wx:for-item="food" wx:if="{{!newShareId}}">
+      <view class="order-details">
+        <view style="flex:3">
+          <image src="https://image.aftdc.com/{{food.goodsImg}}"></image>
+        </view>
+        <view class="word">
+          <view class="word-top">
+            <view class="word-topView">
+              <text class="name">{{food.goodsName}}</text>
+              <text class="bl-zhe" wx:if="{{food.zkGoodsId&&!hongbaoDeduction}}">折</text>
+              <text class="bl-kan" wx:if="{{food.bargainId&&!hongbaoDeduction}}">砍</text>
+              <text class="bl-miao" wx:if="{{food.killId&&!hongbaoDeduction}}">秒</text>
+            </view>
+            <text class="name" style='width:40%' wx:if="{{food.datedgoods}}">已失效</text>
+            <text class="price">￥{{hongbaoDeduction?food.totalMarketPrice:food.totalPrice}}</text>
+          </view>
+          <view class="number">
+            <view class="number-L">
+              <text class="nub">×{{food.numb}}</text>
+              <text class="decide" wx:if="{{food.goodsAttrName}}">{{food.goodsAttrName}}</text>
+            </view>
+            <text class="number-R" wx:if='{{(food.zkGoodsId||food.bargainId||food.killId||tk==1)&&!deduction&&!hongbaoDeduction}}'>￥{{food.totalMarketPrice}}</text>
+          </view>
+        </view>
+        <!-- <view class="closeFood" data-index="{{index}}" bindtap="closeFood">
+          <image src="https://image.aftdc.com/images/specsc.png"></image>
+        </view> -->
+      </view>
+    </block>
+
+    <block wx:for="{{allShareOrder}}" wx:if="{{newShareId}}">
+      <view class="carEmpty">
+        <view class="carEmpty-name">
+          <image src="{{item.userPhoto}}"></image>
+          <text>{{item.userName}}</text>
+          <text style='font-size:20rpx;' wx:if="{{index==0}}">（ 我 ）</text>
+        </view>
+      </view>
+      <block wx:for="{{item.goodsInfo}}" wx:for-item="food">
+        <view class="order-details">
+          <view style="flex:3">
+            <image src="https://image.aftdc.com/{{food.goodsImg}}"></image>
+          </view>
+          <view class="word">
+            <view class="word-top">
+              <view class="word-topView">
+                <text class="name">{{food.goodsName}}</text>
+                <text class="bl-zhe" wx:if="{{food.zkGoodsId&&!hongbaoDeduction}}">折</text>
+                <text class="bl-kan" wx:if="{{food.bargainId&&!hongbaoDeduction}}">砍</text>
+                <text class="bl-miao" wx:if="{{food.killId&&!hongbaoDeduction}}">秒</text>
+              </view>
+              <text class="name" style='width:40%' wx:if="{{food.datedgoods}}">已失效</text>
+              <text class="price">￥{{hongbaoDeduction?food.totalMarketPrice:food.totalPrice}}</text>
+            </view>
+            <view class="number">
+              <view class="number-L">
+                <text class="nub">×{{food.numb}}</text>
+                <text class="decide" wx:if="{{food.goodsAttrName}}">{{food.goodsAttrName}}</text>
+              </view>
+              <text class="number-R" wx:if='{{(food.zkGoodsId||food.bargainId||food.killId||tk==1)&&!deduction&&!hongbaoDeduction}}'>￥{{food.totalMarketPrice}}</text>
+            </view>
+          </view>
+          <!-- <view class="closeFood" data-index="{{index}}" bindtap="closeFood">
+          <image src="https://image.aftdc.com/images/specsc.png"></image>
+        </view> -->
+        </view>
+      </block>
+    </block>
+
+    <view class="all">
+      <view class="shopContinue-back" bindtap="{{again?'againContinue':'shopContinue'}}">继续购买</view>
+      <view class="all-right">
+        <text class="allnumber" wx:if="{{tk!=1}}">共计 {{totalnumb}} 道菜</text>
+        <!-- <text class="allprice">合计：￥{{totalprice}}</text> -->
+      </view>
+    </view>
+    <view class="shopContinue">
+      <view class="alltop" wx:if="{{orderType==0}}">
+        <text class="allnumber">配送费:</text>
+        <text class="allprice">￥{{dsm}}</text>
+      </view>
+      <view class="alltop" wx:if="{{orderType==0||orderType==5}}">
+        <text class="allnumber">餐盒费:</text>
+        <text class="allprice">￥{{boxFees}}</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="dashed">
+    <view class="dashedTop"></view>
+    <view class="dashedBot"></view>
+  </view>
+
+  <view class="discount">
+    <view wx:for="{{youhuiList}}" hidden="{{item.name=='红包'}}">
+      <view class="discountTxt" wx:if="{{item.name!='买赠优惠'}}">
+        <text>{{item.name}}</text>
+        <text style="color:red">{{item.name=='赠送积分'?item.youhui:'￥-'+item.youhui}}</text>
+      </view>
+      <view class="discountTxt" wx:else>
+        <text style='flex:0.5'>买赠活动赠送</text>
+        <view class="bargainTxt">
+          <text style="color:red;max-width:406rpx">{{item.youhui}}</text>
+          <text style="color:red">*{{item.num}}</text>
+          <!-- <text style="color:red;max-width:406rpx">{{item.youhui}}</text>
+            <text style="color:red">*{{item.num}}</text> -->
+        </view>
+      </view>
+    </view>
+    <view class="morecoupon" bindtap="docoupon" wx:if="{{canUseYhq}}">
+      <text>优惠券</text>
+      <view class="more">
+        <text wx:if="{{deduction}}">-￥{{deduction}}</text>
+        <text wx:else>可用优惠券</text>
+        <image wx:if="{{canUseYhq!=''}}" class='lt' src='https://image.aftdc.com/images/lt.png'></image>
+      </view>
+    </view>
+
+    <view class="morecoupon" bindtap="dohongbao" wx:if="{{hongbaoTemp!=''&&tk!=1}}">
+      <text>红包</text>
+      <view class="more">
+        <text style="color:#ff4500" wx:if="{{hongbaoDeduction}}">-￥{{hongbaoDeduction}}</text>
+        <text style="color:#ff4500" wx:else>{{hongbaoTemp.length}}个可用</text>
+        <image wx:if="{{hongbaoTemp!=''}}" class='lt' src='https://image.aftdc.com/images/lt.png'></image>
+      </view>
+    </view>
+
+    <view wx:if="{{vipZk>0}}" class="discountTxt">
+      <text>会员折扣</text>
+      <text style="color:red">{{vipZk*10}}折</text>
+    </view>
+  </view>
+
+  <view class="dashed" wx:if="{{tk!=1&&youhuiList.length>0}}">
+    <view class="dashedTop"></view>
+    <view class="dashedBot"></view>
+  </view>
+
+  <view class="conpute {{tk==1?'conputeTk':''}}">
+    <!-- <text class=" conpute-yh">已优惠￥{{couMoney}}</text> -->
+    <text>小计</text>
+    <text class="paymentNumb">￥{{true_pay}}</text>
+  </view>
+
+  <view class="yu-pay" wx:if="{{yu_pay}}">
+    <text>{{yu_pay}}</text>
+  </view>
+
+  <view class="invoiceRemark" bindtap="invoiceRemark" wx:if="{{tk!=1}}">
+    <text>备注</text>
+    <view class="tableware-color">
+      <text class="tableware-text" style="color:{{orderRemarks==''?'':'#000'}}">{{orderRemarks==''?'口味、偏好等要求':orderRemarks}}</text>
+      <image class='lt' src='https://image.aftdc.com/images/lt.png'></image>
+    </view>
+  </view>
+  <view class="tableware" bindtap="pickshow" wx:if="{{orderType!=='3'&&tk!=1}}">
+    <text>餐具数量</text>
+    <view class="tableware-color">
+      <text class="{{pickTxt==-1?'':'black-color'}}">{{pickTxt==-1?'以便商家给您带够餐具':pickTxt}}</text>
+      <image class='lt' src='https://image.aftdc.com/images/lt.png'></image>
+    </view>
+  </view>
+
+  <view class="tableware-bill" wx:if="{{tk!=1}}">
+    <view class="tableware-billChose">
+      <text>发票</text>
+      <switch checked="{{billSwitch}}" bindchange="switchChange" wx:if="{{shopInfo.bill==1}}" />
+      <text wx:else>商家不支持开发票</text>
+    </view>
+    <view class="tableware-billChose" wx:if="{{billSwitch}}">
+      <view class="billMessage">
+        <text>{{billMessage?billMessage.trueName:'您还未选择发票信息'}}</text>
+        <text>{{billMessage.dutyNum}}</text>
+      </view>
+      <view class='tableware-view'>
+        <text class='billss' style='color:#999' bindtap="gotoInvoice">{{billMessage?'重新选择':'点击选择'}}</text>
+        <image class='lt' src='https://image.aftdc.com/images/lt.png'></image>
+      </view>
+
+    </view>
+  </view>
+  <view class="payment">
+    <view wx:if="{{shareId}}" class="payment">
+      <view class="paymentTxt">
+        <text>拼单优惠￥{{pdYouhui}}</text>
+        <text>需付<text class="paymentNumb">￥{{true_pay}}</text></text>
+      </view>
+      <form report-submit="true" bindsubmit="{{submit}}">
+        <button class="payBut" form-type="submit">开始拼单</button>
+      </form>
+    </view>
+    <view class="payment" wx:else>
+      <view class="paymentTxt">
+        <!-- <text>已优惠￥9</text>  -->
+        <text>需付<text class="paymentNumb">￥{{true_pay}}</text></text>
+      </view>
+      <form report-submit="true" bindsubmit="{{submit}}">
+        <button class="payBut" form-type="submit">提交订单</button>
+      </form>
+    </view>
+
+    <navigator url='../rule/rule' class="tipsIfor" hover-class='none'>
+      <image src="https://image.aftdc.com/images/i.png"></image>
+      <text>不清楚优惠规则？</text>
+    </navigator>
+
+  </view>
+
+</view>
+
+
+<!--可用优惠券-->
+<view class="back" wx:if="{{couponshow||hongbaoshow}}"></view>
+
+<view class="docoupon" wx:if="{{couponshow}}">
+  <view class="couponscroll">
+    <text class="couponName">可用优惠券</text>
+    <scroll-view scroll-y="true" style="height:600rpx;" class="scrool">
+      <view class="box">
+        <block wx:for="{{canUseYhq}}">
+          <view class="receive" bindtap="couponChoice" data-index="{{index}}">
+            <view class="receiveLeft">
+              <text class="mj">{{item.couponName}}</text>
+              <text class="pricetj">满{{item.spendMoney}}减{{item.couponMoney}}</text>
+              <text class="time">{{item.validStartTime}} 到 {{item.validEndTime}}</text>
+              <view class="yuan"></view>
+              <view class="yuan2"></view>
+            </view>
+            <view class="receiveRight">
+              <text class="price">￥<text class="priceNub">{{item.couponMoney}}</text>
+              </text>
+              <text class="name">优惠券</text>
+            </view>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+    <button class="qxScroll" bindtap="closeYhq">不使用优惠券</button>
+  </view>
+
+</view>
+
+
+
+
+<view class="docoupon" wx:if="{{hongbaoshow}}">
+  <!-- <view class="docoupon"> -->
+  <view class="couponscroll">
+    <text class="couponName">可用红包</text>
+    <scroll-view scroll-y="true" style="height:600rpx;" class="scrool">
+      <view class="box">
+        <block wx:for="{{hongbaoTemp}}">
+          <!-- <block wx:for="{{aa}}"> -->
+          <view class="receive" bindtap="hongbaoChoice" data-index="{{index}}">
+            <view class="receiveLeft">
+              <text class="mj">红包</text>
+              <text class="time">{{item.start_time}} 到 {{item.end_time}}</text>
+              <!-- <text class="time">2018-09-06 到 2018-09-06</text> -->
+              <view class="yuan"></view>
+              <view class="yuan2"></view>
+            </view>
+            <view class="receiveRight">
+              <text class="price">￥<text class="priceNub">{{item.piece}}</text></text>
+              <!-- <text class="price">￥<text class="priceNub">10</text></text> -->
+              <text class='limitText'>满{{item.money}}可用</text>
+              <image class='selectIcon' wx:if="{{hongbaoTemp[index].id==hongbaoId}}" src='https://image.aftdc.com/appBimg/couponSelected.png'></image>
+            </view>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+    <button class="qxScroll" bindtap="closeHongbao">不使用红包</button>
+  </view>
+
+</view>
+
+
+
+
+
+<view class="invoice" hidden="{{billShow}}">
+  <view class="top">
+    <view class="top-L">我的发票抬头</view>
+  </view>
+  <view class="tips" wx:if="{{tipss==1}}">
+    <text>暂无发票抬头</text>
+  </view>
+  <block wx:for="{{da}}">
+    <view class="myinvoice" data-id="{{item.id}}" data-name="{{item.trueName}}" bindtap="selBill">
+      <view class="names">
+        <text>{{item.trueName}}</text>
+      </view>
+    </view>
+  </block>
+  <button class='setBtn' bindtap="gotoInvoice" wx:if="{{tipss==1}}">设置发票抬头</button>
+  <button class='colseBtn' bindtap="colseBill">关闭</button>
+</view>
+<!--弹出打烊框  -->
+<view class="closeshop" wx:if="{{isclose==1}}">
+  <view class="tip">
+    <view class="tiptitle">温馨提示</view>
+    <view>本店当前时间不支持外卖，</view>
+    <view>您可进行预订桌位，订菜，</view>
+    <view>团购，充值操作</view>
+    <view class="goon" bindtap="goon">OK</view>
+  </view>
+</view>
+<view class="back" wx:if="{{boxshow||isclose==1}}" bindtap="hidden"></view>
+
+<!--发票、备注弹出框 -->
+<view class="remarkBox" hidden="{{pick}}" catchtouchmove="catchtouchmove" bindtap="pickCancel">
+
+  <view class="pickerbox">
+    <view class="pickTop">请选择用餐人数</view>
+    <scroll-view class="scroll" scroll-y style="height: 400rpx;">
+      <block wx:for="{{30}}">
+        <view class="picks {{pickNumb==index?'picksYes':''}}" bindtap="picks" data-numb="{{index}}">{{index}} {{index==0?'不需要餐具':'人'}}</view>
+      </block>
+    </scroll-view>
+    <view class="modals-but" bindtap="pickCancel">
+      <text>取消</text>
+    </view>
+  </view>
+
+</view>
+<include src="/page/common/loadAnimation.wxml" />

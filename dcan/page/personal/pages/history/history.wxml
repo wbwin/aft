@@ -1,0 +1,40 @@
+<view class="invoice">
+
+    <block wx:for="{{list}}">
+        <view class="shop" bindlongpress='del' data-shopid="{{item.shopId}}" data-index="{{index}}">
+            <view catchtap="gator" data-shopid="{{item.shopId}}" data-distance="{{item.distance}}" data-shopname="{{item.shopName}}">
+                <view class="shops">
+                    <view class="shopImg">
+                        <view class='topImg'>
+                            <image src="https://image.aftdc.com/{{item.shopImg}}" class="img"></image>
+                        </view>
+                        <view class="closeOpen" catchtap="closeOpen" data-index="{{index}}"></view>
+                    </view>
+                    <view class="detail">
+                        <view class="shopname">
+                            <text style='	flex: 3;'>{{item.shopName}}　</text>
+                            <text class='isTostore' wx:if="{{item.isTostore==1}}">支持自取</text>
+                        </view>
+                        <view class="send-distance">
+                            <text class="send">
+                <block wx:for="{{item.info.appraiseAvg}}">  
+                      <text style="color: #ffe628;font-size:30rpx;">★</text>
+    </block> 销量{{item.info.shopSales}}</text>
+
+    <text class="distance">{{item.deliveryCostTime==0?'45':item.deliveryCostTime}}分钟 | {{item.info.distance}}</text>
+    </view>
+    <view class="send-distance">
+        <text class="send">起送价 ￥{{item.deliveryFreeMoney}} | 配送 ￥{{item.deliveryStartMoney}} | 人均 ￥{{item.avgeCostMoney}}</text>
+    </view>
+    <view class="send-distance" style='padding-top:4rpx;'>
+        <text class="send">{{item.info.fansNum}} 粉丝 | {{item.info.appraiseNum}} 评价 | {{item.serviceStartTime}} 起送</text>
+    </view>
+
+    </view>
+    </view>
+    </view>
+    </view>
+    </block>
+
+
+</view>

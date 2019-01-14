@@ -1,0 +1,37 @@
+<view class='leaveword' wx:if="{{leaveword}}">
+	<block wx:for="{{leaveword}}">
+		<view class='block'>
+			<view class='my'>
+				<view class='myPhoto'><image src="{{userPhoto}}"></image></view>
+				<view class='myWord'>
+					<view>{{item.leaveword}}</view>
+					<view class='business' wx:if="{{item.replay}}">
+						<view class='businessName'>商家回复：</view>
+						<view class='replay'>{{item.replay}}</view>
+						<view class='time'></view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</block>
+</view>
+
+<view class='noleave' wx:if="{{!leaveword}}">
+	说点什么吧...
+</view>
+
+<view class='zz' wx:if="{{wordborder}}"></view>
+
+<view class='wordborder' wx:if="{{wordborder}}">
+	<view>
+		<textarea bindinput='text' maxlength='200' ></textarea>
+	</view>
+	<view class='but'>
+		<button bindtap='cancel'>取消</button>
+		<button class='sure' bindtap='sure'>确定</button>
+	</view>
+</view>
+
+<view class='leave'>
+	<button bindtap='leave'>留 言</button>
+</view>

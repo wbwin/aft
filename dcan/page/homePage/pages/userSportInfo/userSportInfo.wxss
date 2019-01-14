@@ -1,0 +1,41 @@
+.form{
+	font-size: 30rpx;
+	padding: 3%;
+}
+.box{
+	border: 1rpx solid #f8f8f8;
+	box-shadow: 0 0 5rpx #53beb7;
+	border-radius: 8rpx;
+}
+.section__title{  
+    flex: 3;  
+}  
+.form-group{  
+    flex: 7;
+		text-align: center  
+}  
+.tip{
+    padding:3% 5%; 
+		background-color: #f8f8f8;
+}
+.section{   
+    width:90%;  
+    margin: 1rem auto;  
+		display: flex;
+		align-items: center;
+}  
+.input-text{  
+    border: 1px solid #ddd;  
+}  
+.picker{  
+    padding: 15rpx;  
+    background-color: #FFFFFF;  
+}  
+.button{
+	padding:0 6% 3% 6%;
+}
+.save{
+	color: #fff;
+	background-color: #53beb7;
+	font-size: 30rpx;
+}

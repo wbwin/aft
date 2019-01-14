@@ -1,0 +1,71 @@
+<!-- <view class='attention'>
+	<block wx:for="{{shop}}" wx:if="{{shop}}">
+		<view class='block' data-shopid="{{item.shopId}}" bindtap='goToShop'>
+			<view class='blockRow1'>
+				<view class='blockLeft'>
+				  <image src="https://image.aftdc.com{{item.shopImg}}"></image></view>
+				<view class='blockRight'>{{item.shopName}}</view>
+				<view class='blockLeft' data-shopid="{{item.shopId}}" data-index="{{index}}" catchtap="{{item.attentionType==0?'attention':'cancelAttention'}}">
+				  <image src="https://image.aftdc.com/images/{{item.attentionType==0?'attention2':'attention3'}}.png"></image>
+				</view>
+				<view class='blockLeft' style='flex:0.8;text-align: center' data-shopid="{{item.shopId}}" catchtap="message">
+				  <image src="https://image.aftdc.com/images/message.png"></image>
+				</view>
+			</view>
+
+			 <view class='blockRow2' wx:if="{{item.active!=''}}"> 
+				<view class='blockLeft'>
+					<image src="https://image.aftdc.com{{item.active[0].goodsImg}}"></image>
+				</view>
+				<view class='blockRight'>
+					<view>名称：{{item.active[0].goodsName}}</view>
+					<view>活动：{{item.active[0].name}}</view>
+					<view>时间：{{item.active[0].startTime}} 至 {{item.active[0].endTime}}</view>
+				</view>
+			 </view> 
+
+		</view>
+	</block>
+</view>
+
+<view class='hobbyTip' wx:if="{{hobbyTip}}">已取消关注</view> -->
+<!-- //0000000000000000000000000000000000000000000000 -->
+
+<view>
+  <!--店铺  -->
+  <scroll-view scroll-y="true" style="height:100%" lower-threshold='20' bindscrolltolower='onreachBottom'>
+
+    <view class='collects'>
+      <block wx:for="{{shop}}" wx:if="{{shop}}">
+        <navigator url="../../../homePage/pages/order/order?shopId={{item.shopId}}&distance={{item.distance}}">
+          <view class="collect">
+            <view class="img">
+              <image src="https://image.aftdc.com/{{item.shopImg}}"></image>
+            </view>
+            <view class="content">
+              <view class="shopName" catchtap='goToShop'>{{item.shopName}}</view>
+              <view class="star">
+                <block wx:for="{{item.shopAvg}}">
+                  <text>★</text>
+                </block>
+              </view>
+              <view class="peisong">起送 ￥{{item.deliveryStartMoney}} 配送 ￥{{item.deliveryFreeMoney}}</view>
+            </view>
+            <view class="juli">
+              <view class='dist'>{{item.distance}}</view>
+              <view class='replay' data-shopid="{{item.shopId}}" data-index="{{index}}" catchtap='cancelAttention'>取消关注</view>
+            </view>
+          </view>
+        </navigator>
+      </block>
+    </view>
+
+    <view class="hid" wx:if="{{hidden}}">
+      暂无关注的店铺
+    </view>
+ 
+  </scroll-view>
+   
+</view>
+
+<include src="/page/common/toast.wxml" />

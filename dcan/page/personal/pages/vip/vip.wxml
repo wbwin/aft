@@ -1,0 +1,77 @@
+<view>
+    <view class="top">
+        <image class="img" src="https://image.aftdc.com/{{shopImg}}" />
+        <view class="text">
+            <text class="text1">
+          {{shopName}} 
+       </text>
+            <text class="text2">
+           会员卡
+       </text>
+        </view>
+    </view>
+    <view class="qiang">
+        <text class="qi">激活立享会员特权</text>
+        <text class="ji" bindtap="memberCard">
+          会员卡详情 ></text>
+    </view>
+    <view class="form">
+
+        <form bindsubmit="formSubmit" class="formBody">
+            <view class="must">必填信息
+            </view>
+            <view class="field">
+
+                <label for="name" class="left">姓名</label>
+                <input id="name" name="name" class="login-input" type="text" placeholder="请输入姓名" />
+
+            </view>
+
+            <view class="field">
+
+                <label for="mobile" class="left">手机</label>
+                <input id="mobile" disabled="disabled" name="userPhone" class="login-input" type="text" wx:if="{{userPhone}}" value="{{userPhone}}" />
+                <button class="btn" wx:if="{{!userPhone}}" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">设置手机号</button>
+            </view>
+
+            <view class="field">
+
+                <label for="sex" class="left">性别</label>
+                <picker class="login-input" bindchange="sexChange" value="{{index}}" range="{{sex}}">
+                    <view class="picker">
+                        {{sex[index]}}
+                    </view>
+                </picker>
+                <view class="gg">
+                    >
+                </view>
+            </view>
+
+            <view class="field">
+
+                <label for="birthday" class="left">生日</label>
+                <picker mode="date" value="{{date}}" start="{{startDate}}" end="{{endDate}}" bindchange="bindDateChange">
+                    <view class="picker">
+                        {{time}}
+                    </view>
+                </picker>
+
+            </view>
+
+            <view class="uu">
+                <checkbox-group bindchange="checkbox" class="checkGroup">
+                    <checkbox class="checkbox" value="1" checked="{{check}}" />
+                </checkbox-group>
+                <text class="yui">我已阅读并同意 </text>
+                <text class="sheng" bindtap="shengMing">会员卡信息使用声明</text>
+            </view>
+
+            <button class="btn_login" formType="submit">提交</button>
+
+        </form>
+    </view>
+
+    <!-- <view class="foot">
+        个人资料将由并仅限“{{shopName}}”使用
+    </view> -->
+</view>

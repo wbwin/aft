@@ -1,0 +1,14 @@
+<view class='new'>
+  <block wx:for="{{title}}">
+    <view class='block' data-index='{{index}}' bindtap='goto'>
+      <view class='block_l'>
+        <image class='block_l_img' src="{{item.photo}}"></image>
+        <view class='noReadnum' wx:if="{{item.num}}">{{item.num}}</view>
+      </view>
+      <view class='block_c'>{{item.name}}</view>
+      <view class='block_r'>
+        <image class='block_r_img' src='https://image.aftdc.com/images/lt.png'></image>
+      </view>
+    </view>
+  </block>
+</view>

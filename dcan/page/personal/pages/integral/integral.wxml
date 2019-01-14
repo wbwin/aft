@@ -1,0 +1,40 @@
+<view class="integral">
+
+    <view class="null">
+        <!-- <image mode="widthFix" style="width:100%" src="https://image.aftdc.com/images/nojf.jpg"></image> -->
+        <view class="nullTitle">积分规则</view>
+        <!-- <view class="nullTitle2">活动规则</view> -->
+        <view class="nullDescribe">在开通"积分"的店铺消费并收货后将获得该店积分，下次消费可抵扣现金，抵扣率和积分产生比例由该店铺制定</view>
+        <!-- <view class="nullNow">当前积分:<text class="nullNow_number">0</text></view>  -->
+    </view>
+
+    <block wx:for="{{info}}">
+        <navigator open-type="redirect" url="../../../homePage/pages/order/order?shopId={{item.shopId}}" class="recharge">
+            <view class="myinvoice" data-id="{{item.id}}" bindlongtap="deletclang">
+                <view class="name">
+                    <text>{{item.shopName}}</text>
+                </view>
+                <view class="edit">
+                    <text class="editNamb">{{item.userScore}}</text>
+                    <text>积分</text>
+                </view>
+            </view>
+        </navigator>
+    </block>
+
+
+</view>
+
+
+<!-- <navigator open-type="redirect" url="../../order/order?shopId={{item.shopId}}" class="recharge">
+      <view class="card">
+        <view class="card-content">
+          <view class="card-price">
+            <text class="word">积分:</text>
+            <text class="symbol"></text>
+            <text class="price">{{item.userScore}}</text>
+          </view>
+        </view>
+        <view class="btn">{{item.shopName}}</view>
+      </view>
+    </navigator> -->

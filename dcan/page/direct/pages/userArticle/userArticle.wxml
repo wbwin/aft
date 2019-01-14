@@ -1,0 +1,195 @@
+<view class='article'>
+
+	<view id='detail' class='detail'>
+        <view class='author'>
+            <view class='L'>
+				<navigator hover-class='none' style="position:relative" >
+                	<image class="shopImg" src='{{articleInfo.userPhoto}}'>
+                    </image>			
+				</navigator>
+            </view>
+            <view class='C'>
+                 <!-- <view class='name'>{{articleInfo.shopName}}</view>  -->
+                <view class='title'>{{articleInfo.title}}</view>				
+                <view class='time' >
+					<view class='time_l'>
+						<text>{{articleInfo.time}}</text><text style='color: #53beb7' bindtap='gotoShop'>　{{articleInfo.userName}}</text>
+					</view>
+					
+					<form class='R' bindsubmit="formatten" report-submit='true' wx:if="{{show}}">
+						<button class='ygz' wx:if="{{attentionType==1}}" form-type='submit'>
+							<text style='background-color:#53beb7'>已关注</text>
+						</button>
+						<button class='wgz' wx:else form-type='submit'>
+							<text>关　注</text>
+						</button>
+					</form> 
+                     <!-- <view class='address'>
+                        <image src='https://image.aftdc.com/images/nearDW.png'></image> {{articleInfo.distance}} {{articleInfo.shopAddress}}
+                    </view>  -->
+                </view>
+            </view>
+            <!-- <form class='R' bindsubmit="formatten" report-submit='true'>
+                <button class='ygz' wx:if="{{attentionType==1}}" form-type='submit'>
+                    <text style='background-color:#53beb7'>已关注</text>
+                </button>
+                <button class='wgz' wx:else form-type='submit'>
+                    <text>关注</text>
+                </button>
+            </form>  -->
+        </view>
+    </view>
+	<view style='background-color:#fff;'>
+		<video wx:if="{{articleInfo.video}}" style='width:94%;margin:3% 3% 0 3%;' src='https://image.aftdc.com/{{articleInfo.video}}'></video> 
+	</view>
+
+    <view id='detail' class='detail'>
+
+        <view class='content'>
+            <!-- <view class='content-left'>
+                 <image src='https://image.aftdc.com/{{articleInfo.shopImg}}'></image> 
+            </view> -->
+            <view class='content-right'>
+                <!-- <view class='title'>{{articleInfo.title}}</view> -->
+                <text>{{articleInfo.content.text}}</text>
+                <view class='img' wx:if="{{articleInfo.content.img}}">
+                    <block wx:for="{{articleInfo.content.img}}">
+                        <image data-index='{{index}}' bindtap='seeImg' mode='aspectFill' src='https://image.aftdc.com/{{item}}'></image>
+                    </block>
+                </view>
+            </view>
+        </view>
+
+        <!-- <view class='tags'>
+            <view>文章标签</view>
+            <view class='tag' wx:if="{{articleInfo.key_word!=''}}">
+                <block wx:for="{{articleInfo.key_word}}">
+                    <view>{{item}}</view>
+                </block>
+            </view>
+        </view> -->
+
+    </view>
+
+    <view class='read' style='background-color: #fff;'>
+        <view class='read_left'>
+            <text>阅读 {{articleInfo.read_num}}　</text>
+            <image data-type='1' bindtap='Praise' src="https://image.aftdc.com/images/{{articleInfo.is_praise==0?'nozhan.png':'zhan.png'}}"></image>
+            <text> {{articleInfo.praise_num}}　</text>
+            <form bindsubmit="touchCollect" report-submit='true'>
+				<button class='button' hover-class="none" form-type='submit'>
+					<image src="https://image.aftdc.com/images/{{collectType==0?'sooucan':'Collection1'}}.png"></image>
+				</button>
+			</form>
+        </view>
+        <view class='tousu' data-id='{{articleInfo.id}}' bindtap='report'>投诉</view>
+    </view>
+
+	<view class='jinxuan' wx:if="{{lyDatas != ''}}">我的留言</view>
+	<view id='lyq' class='ly' wx:if="{{lyDatas != ''}}">
+
+        <block wx:for="{{lyDatas}}">
+            <view class='lyBlock'>
+                <view class='userphoto'>
+                    <image  bindtap="jump" data-username="{{item.userName}}" data-userid="{{item.userId}}" data-userphoto="{{item.userPhoto}}" src='{{item.userPhoto}}'></image>
+                </view>
+                <view class='middle'>
+                    <view class='userName'>{{item.userName}} <text class='yd' wx:if='{{item.is_read==1}}'>已读</text><text class='yfs' wx:else>送达</text></view>
+                    <view class='pl' wx:if="{{item.content}}">{{item.content}}</view>
+                    <view class='pl' wx:if="{{item.img}}">
+                        <image mode='widthFix' style='width:70%' src='https://image.aftdc.com/{{item.img}}'></image>
+                    </view>
+                    <view class='plTime' style='font-size:22rpx;color:#999'>
+                        <text>{{item.timestamp}}</text>
+                         <!-- <text class='replay' bindtap='seeReply' data-appraises_id="{{item.id}}"> · 回复</text>  -->
+                         <text class='replay' bindtap='del' data-index="{{index}}" data-appraises_id="{{item.id}}"> · 删除</text> 
+                    </view>
+                </view>
+                <view class='zanPl' data-index='{{index}}' data-type='3' bindtap='Praise'>
+                    <image src="https://image.aftdc.com/images/{{item.is_praise==0?'nozhan.png':'zhan.png'}}"></image> {{item.praise_num}}
+                </view>
+            </view>
+        </block>
+
+    </view>
+	
+    <view class='jinxuan'>所有留言</view>
+
+    <view class='leaveW' bindtap='gotoLw'>
+        <!-- <text>留言</text>
+        <image src="https://image.aftdc.com/images/shuqian.png"></image> -->
+    </view>
+
+
+    <view id='lyq' class='ly'>
+
+        <block wx:for="{{lyData}}">
+            <view class='lyBlock'>
+                <view class='userphoto'>
+                    <image src='{{item.userPhoto}}'></image>
+                </view>
+                <view class='middle'>
+                    <view class='userName'>{{item.userName}} <text class='totop' wx:if='{{item.top==1}}'>置顶</text></view>
+                    <view class='pl' wx:if="{{item.content}}">{{item.content}}</view>
+                    <view class='pl' wx:if="{{item.img}}">
+                        <image mode='widthFix' style='width:70%' src='https://image.aftdc.com/{{item.img}}'></image>
+                    </view>
+                    <view class='plTime' style='font-size:22rpx;color:#999'>
+                        <text>{{item.timestamp}}</text>
+                        <!-- <text class='replay' bindtap='seeReply' data-appraises_id="{{item.id}}"> · 回复</text> -->
+                    </view>
+                </view>
+                <view class='zanPl' data-index='{{index}}' data-type='2' bindtap='Praise'>
+                    <image src="https://image.aftdc.com/images/{{item.is_praise==0?'nozhan.png':'zhan.png'}}"></image> {{item.praise_num}}
+                </view>
+            </view>
+        </block>
+
+    </view>
+
+    <!-- <view class='lwTip' wx:if="{{lyData!=''}}">
+        <view class='saixuan'>以上留言由商家筛选后显示</view>
+    </view> -->
+    <view class='lwTip' style='padding:8% 0 15% 0;' wx:if="{{lyData!=''}}" bindtap='lwTip'>
+        <view style='color:#53beb7'>了解留言功能详情</view>
+    </view>
+
+
+	<view class='bottoms'>
+		 <view class='textBox' wx:if='{{focus}}'>
+			<view class='textarea'>
+				<input placeholder='留言审核后可见' cursor-spacing='15' bindinput='getTest' value='{{content}}' bindblur='focus' focus='{{focus}}' confirm-type='send' bindconfirm='send'></input>
+			</view>
+            <form class='sendText' bindsubmit="send" report-submit='true'>
+                <button class='' form-type='submit'>
+                发送
+                </button>
+            </form>  
+		</view> 
+        <view class='textBox' wx:else>
+            <button class='textBox_flex' bindtap='direct'>
+                <image src='https://image.aftdc.com/images/direct.png'></image><text>餐头条</text>
+            </button>
+            <button class='textBox_flex' bindtap="appraises_praise" hover-class="none" open-type='share'>
+                <image src='https://image.aftdc.com/images/share.png'></image><text>分享</text>
+            </button>
+            <button class='textBox_flex' style='flex: 1.8' bindtap='focus'>
+                <text class='lybuttom'>请留言</text>
+            </button>
+        </view>
+		<!-- <view class='file' wx:if="{{add}}">
+			<view class='block' bindtap='chooseImg'>
+				<image src='https://image.aftdc.com/images/xc.png'></image>
+				<text>相册</text>
+			</view>
+		</view> -->
+	</view>
+</view>
+
+<view class='dzanBack' hidden="{{!dzan}}"></view>
+<view class="zanBox {{dzan?'cartoonZan':''}}" hidden="{{!dzan}}">
+    <image src="https://image.aftdc.com/images/zan.png"></image>
+</view>
+
+
+<include src="/page/common/toast.wxml" />

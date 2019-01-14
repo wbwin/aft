@@ -1,0 +1,154 @@
+.modalBox {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #fff;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chongzhi {
+  padding: 20rpx 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inputt {
+  height: 2.5rem;
+  border: solid 1px #9fb6cd;
+  width: 100%;
+  margin-top: 30rpx;
+  text-align: center;
+}
+
+.phone-input {
+  width: 100%;
+  margin-top: 30rpx;
+  display: flex;
+  flex-direction: column;
+  font-size: 30rpx;
+  border: solid 1px #9fb6cd;
+}
+
+.inputts {
+  height: 2.5rem;
+  border: solid 1px #9fb6cd;
+  width: 400rpx;
+  text-align: center;
+}
+
+.butt {
+  float: right;
+  line-height: 2.5rem;
+  width: 250rpx;
+  height: 2.5rem;
+  font-size: 30rpx;
+}
+
+.yzm {
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+  margin: 3% 5%;
+  padding: 5% 0;
+  background-color: #f3fdff;
+}
+
+.intyzm {
+  flex: 4;
+  border: 1rpx solid #dedede;
+  border-radius: 10rpx;
+  padding: 2% 1%;
+}
+
+.state {
+  color: #53beb7;
+  line-height: 2.3;
+  margin-right: 20rpx;
+}
+
+.butts {
+  flex: 2;
+  background-color: #f8f8f8;
+  color: #666;
+  line-height: 2.3;
+  height: 2.3rem;
+}
+
+.modalBut {
+  display: flex;
+  flex-direction: column;
+  margin-top: 50rpx;
+  width: 100%;
+}
+
+.modalBut .cancel {
+  width: 100%;
+}
+
+.modalBut .ok {
+  background: #53beb7;
+  color: #fff;
+  margin-bottom: 30rpx;
+}
+
+.person {
+  display: flex;
+  width: 98%;
+  margin-top: 10%;
+  font-size: 28rpx;
+}
+
+.person text {
+  flex: 1;
+}
+
+.rechargeChoice {
+  margin-top: 20rpx;
+}
+
+.rechargePrompt {
+  text-align: right;
+  color: #cd5555;
+}
+
+.choicePrice {
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: space-between;
+}
+
+.rechargePrice {
+  width: 30%;
+  border: solid 5rpx #53beb7;
+  color: #53beb7;
+  padding: 20rpx 0;
+  margin-bottom: 20rpx;
+  text-align: center;
+  border-radius: 12rpx;
+}
+
+.okprice {
+  background: #53beb7;
+  color: #fff !important;
+}
+/* 没有手机号的弹框 */
+.noPhone{
+	position: fixed;
+	width: 70%;
+	padding: 3%;
+	top: 16%;
+	background: #fff;
+	box-shadow: 0 0 15rpx #888;
+}
+.noPhone button{
+	width: 80%;
+}
+.tishi{
+	padding: 3%;
+	text-align: center;
+}

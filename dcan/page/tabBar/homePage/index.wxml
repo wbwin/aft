@@ -1,0 +1,434 @@
+<view class="all">
+    <view>
+        <view class="top">
+            <view class="position-information">
+                <view class="addclass" bindtap="choose">
+                    <image src="https://image.aftdc.com/images/nearbyDW.png"></image>
+                    <text>{{addclass}}</text>
+                </view>
+                <view class="weather" wx:if="{{weather}}">
+                    <view class="weatherWord">
+                        <text class="lblCurTemp">{{weather.temp}}℃</text>
+                        <text class="lblWeather">{{weather.weather}}</text>
+                    </view>
+                    <image class="weather_url" src="https://image.aftdc.com/images/weatherImg/W{{weather.weatherImg}}.png"></image>
+                </view>
+            </view> 
+
+            <view class="top-sou">
+                <view class="searchBox" bindtap="focus_search">
+                    <input class="search" placeholder="搜索商家、商品名称" disabled='true' />
+                    <!-- <input class="search" placeholder="搜索商家、商品名称" maxlength="10" bindinput="getSearchw" confirm-type="search" type="text" bindconfirm="sou" bindfocus="focus_search" value="{{searchw}}" /> -->
+                </view>
+                <!-- <button bindtap="sou">搜索</button> -->
+            </view>
+            <!-- 轮播订单 -->
+            <view class="topscroll" wx:if="{{orders&&orders.length>0}}">
+                <swiper class="swiper" vertical="true" autoplay="true" interval="5000" circular="true">
+                    <block wx:for="{{orders}}">
+                        <swiper-item>
+                            <navigator url="../../homePage/pages/order/order?shopId={{item.shopId}}" class="swiperBox">
+                                <image src="{{item.userPhoto}}"></image>
+                                <view class="word">
+                                    <view class="lunbo">
+                                        <text class='lunboName'>{{item.userName}} </text>
+                                        <text wx:if="{{item.orderStatus!=5}}"> {{item.times}} </text>
+                                        <text>在 {{item.shopName}}</text>
+                                        <text wx:if="{{item.orderStatus==0&&item.shareId==0}}">单独购买成功</text>
+                                        <text wx:if="{{item.orderStatus==0&&item.shareId!=0}}">拼单成功</text>
+                                        <text wx:if="{{item.orderStatus==5}}">正在拼单</text>
+                                        <text wx:if="{{item.orderStatus==4&&item.shareId==0}}">下了一笔订单</text>
+                                        <text wx:if="{{item.orderStatus==4&&item.shareId!=0}}">下了一笔拼单</text>
+                                    </view>
+                                    <view class="wordLabel">
+                                        <!-- <text>{{item.shopName}} 地方小吃</text> -->
+                                        <!-- <text wx:if="{{item.rank}}">{{item.aroundArea}}{{item.cuisine}}前10名</text> -->
+                                        <!-- <text>3公里{{item.cuisine}}前10名</text> -->
+                                        <text>{{item.cuisine}} {{item.city}} {{item.county}}</text>
+                                        <text>{{item.fansNum}} 粉丝 {{item.dongtaiNum}} 动态</text>
+                                    </view>
+                                </view>
+                            </navigator>
+                        </swiper-item>
+                    </block>
+                </swiper>
+                <view class="famous">
+                    <!-- <image  src="https://image.aftdc.com/images/famous1.png"></image> -->
+                </view>
+
+            </view>
+            <view wx:if="{{!orders||orders==''}}" style='padding:1%'></view>
+        </view>
+
+        <view class="cat">
+
+            <!-- <swiper class='cat' circular="true">
+      <swiper-item> -->
+
+            <view class="cat1 {{backcolor== 1?'backcolor':''}}" bindtap='chooseShopType' data-shoptype='1' data-ordertype='0' data-backcolor='1'>
+                <image src="https://image.aftdc.com/images/waimai.png"></image>
+                <view class="cat2">外卖</view>
+            </view>
+            <view class="cat1 {{backcolor== 3?'backcolor':''}}" bindtap='chooseShopType' data-shoptype='3' data-ordertype='5' data-backcolor='3'>
+                <image src="https://image.aftdc.com/images/mdzq.png"></image>
+                <view class="cat2">到店自取</view>
+            </view>
+            <view class="cat1 {{backcolor== 4?'backcolor':''}}" bindtap='chooseShopType' data-shoptype='4' data-ordertype='0' data-backcolor='4'>
+                <image src="https://image.aftdc.com/images/mps.png"></image>
+                <view class="cat2">免费配送</view>
+            </view>
+            <view class="cat1 {{backcolor== 6?'backcolor':''}}" bindtap='chooseShopType' data-shoptype='6' data-ordertype='0' data-backcolor='6'>
+                <image src="https://image.aftdc.com/images/yexiao.png"></image>
+                <view class="cat2">夜宵</view>
+            </view>
+
+            <view class="cat1 {{backcolor== 2?'backcolor':''}}" bindtap='chooseShopType' data-shoptype='2' data-ordertype='3' data-backcolor='2'>
+                <image src="https://image.aftdc.com/images/tannei.png"></image>
+                <view class="cat2">堂食预订</view>
+            </view>
+            <view class="cat1 {{backcolor== 21?'backcolor':''}}" bindtap='chooseShopType' data-shoptype='21' data-ordertype='4' data-backcolor='21'>
+                <image src="https://image.aftdc.com/images/tg.png"></image>
+                <view class="cat2">团购</view>
+            </view>
+            <view class="cat1 {{backcolor== 5?'backcolor':''}}" bindtap='chooseShopType' data-shoptype='5' data-ordertype='3' data-backcolor='5'>
+                <image src="https://image.aftdc.com/images/youzi.png"></image>
+                <view class="cat2">品牌商家</view>
+            </view>
+            <view class="cat1 {{backcolor== 26?'backcolor':''}}" bindtap='chooseShopType' data-shoptype='26' data-ordertype='4' data-backcolor='26'>
+                <image src="https://image.aftdc.com/images/youhui.png"></image>
+                <view class="cat2">附近优惠</view>
+            </view>
+
+            <!-- </swiper-item> -->
+            <!-- <swiper-item>
+        <view class="cat1 {{backcolor== 8?'backcolor':''}}" bindtap='sys' data-backcolor='8'>
+            <image src="https://image.aftdc.com/images/sys.png"></image>
+            <view class="cat2">堂食扫码</view>
+        </view>
+      </swiper-item> -->
+            <!-- </swiper> -->
+        </view>
+        <!--广告  -->
+        <view class='ad'>
+            <!-- <swiper class='adSwiper' autoplay="true" circular="true">
+      <swiper-item> -->
+            <navigator class='adSwiper' url='../../personal/pages/phone/phone?type=1'>
+                <image mode='widthFix' src="https://image.aftdc.com/images/packageA/ruzhu.jpg"></image>
+            </navigator>
+            <!-- </swiper-item>
+      <swiper-item>
+        <navigator url='/pages/packageA/pages/phone/phone?type=2'>
+          <image mode='widthFix' src="https://image.aftdc.com/settle/798/hhr.jpg"></image>
+        </navigator>
+      </swiper-item>
+    </swiper> -->
+        </view>
+        <view class="around">——
+            <text style="font-weight: bold;">智能推荐</text> ——</view>
+    </view>
+    <view class="shop-show">
+        <!--加载弹窗 -->
+        <view class="backload" hidden="{{loading}}">
+            <view class="loadingBox" hidden="{{loading}}">
+                <view class="loading">
+                    <image src="https://image.aftdc.com/images/flash.gif"></image>
+                    <text hidden="{{positionAllow}}">马上到了…</text>
+                    <button hidden="{{!positionAllow}}" style='font-size:28rpx' open-type="openSetting" bindopensetting="again">请授权定位</button>
+                    <!-- <text class="positionAllow" bindtap="again" hidden="{{!positionAllow}}">请授权定位</text> -->
+                </view>
+            </view>
+        </view>
+
+        <!--筛选与排序  -->
+        <view class="choice">
+            <view class="choiceW {{sortstyle==23?'choiceBold':''}}" data-id="23" bindtap="openSortbox">
+                <text>{{zhSort[zhSortIndex].name}}</text>
+                <text class="icon">›</text>
+            </view>
+            <text class="choiceW {{sort==3?'choiceBold':''}}" bindtap="sortChoice" data-id="3">好评优先</text>
+            <text class="choiceW {{sort==2?'choiceBold':''}}" bindtap="sortChoice" data-id="2">离我最近</text>
+            <view class="term {{filterstyle==21?'choiceBold':''}}" data-id="21" bindtap="openSortbox">
+                <text>筛 选 </text>
+                <image src="https://image.aftdc.com/images/sxuan.png"></image>
+            </view>
+        </view>
+        <!-- 店铺列表 -->
+        <block wx:for="{{shops}}">
+            <view class="shop">
+
+                <view class='blockLayer' wx:if="{{item.closeHobby}}"></view>
+                <view class='chooseLayer' wx:if="{{item.closeHobby}}" bindtap='closeHobby' data-index="{{index}}">
+                    <form class='form1' bindsubmit="formnextBut" data-index="{{index}}" data-type='1' report-submit='true'>
+                        <view class='circles' data-index="{{index}}" data-type='1'>
+                            <!-- <view class='circles' data-index="{{index}}" data-type='1' catchtap='attentions'> -->
+                            <button class='circle' form-type='submit'>
+                                <image wx:if="{{item.attentionType==1}}" src='https://image.aftdc.com/images/attention3.png'></image>
+                                <image wx:else src='https://image.aftdc.com/images/attention4.png'></image>
+                                <view wx:if="{{item.attentionType==1}}">已关注</view>
+                                <view wx:else>关注</view>
+                            </button>
+                        </view>
+                    </form>
+                    <form class='form1' bindsubmit="formnextBut" data-index="{{index}}" data-type='2' report-submit='true'>
+                        <!-- <view class='circles' data-index="{{index}}" data-type='2' catchtap='attentions'> -->
+                        <view class='circles' data-index="{{index}}" data-type='2'>
+                            <button class='circle' form-type='submit'>
+                                <image wx:if="{{item.colType==1}}" src='https://image.aftdc.com/images/Collection1.png'></image>
+                                <image wx:else src='https://image.aftdc.com/images/sooucan2.png'></image>
+                                <view wx:if="{{item.colType==1}}">已收藏</view>
+                                <view wx:else>收藏</view>
+                            </button>
+                        </view>
+                    </form>
+                    <view class='circles' data-index="{{index}}" catchtap='lookfor'>
+                        <view class='circle'>
+                            <image src='https://image.aftdc.com/images/zxs.png'></image>
+                            <view>找相似</view>
+                        </view>
+                    </view>
+                    <view class='cancelCircles' bindtap='closeHobby'>我再看看</view>
+                </view>
+
+                <view bindtap="gator" data-gz="{{item.gz}}" data-shopid="{{item.shopId}}" data-distance="{{item.distance}}" data-shopname="{{item.shopName}}" data-featured="{{item.featured}}">
+                    <view class="shops">
+                        <view class="shopImg">
+                            <view class='topImg'>
+                                <image src="https://image.aftdc.com/{{item.shopImg}}" class="img"></image>
+                                <view class="isOpen" wx:if="{{item.shopAtive == 0}}">暂停营业中</view>
+                                <!-- <view class="isOpen" wx:elif="{{item.shopAtive == 1}}">营业中</view> -->
+                                <view class="isOpen" wx:elif="{{item.shopAtive == 2}}">休息中</view>
+                                <view class="isOpen" wx:if="{{item.gz==1}}">广告</view>
+                            </view>
+                            <!-- <view class="readNum">
+                <view style='margin-right:10rpx'>浏览量</view>
+                <view>{{item.readNum}}</view>
+              </view> -->
+                            <view class="closeOpen" catchtap="closeOpen" data-index="{{index}}"></view>
+                        </view>
+                        <view class="detail">
+                            <view class="shopname">
+                                <text style='	flex: 3;'>{{item.shopName}}</text>
+                                <text class="mainBusiness {{item.featured===0?'mainBusinessW':item.featured===3?'mainBusinessD':'mainBusinessQ'}}" wx:if="{{shopType==6||shopType==5}}">{{item.featured === 0?'外卖':item.featured === 3?'堂食':'到店自取'}}</text>
+                                <!-- <text class='isTostore' wx:if="{{item.ddzq==1}}">支持自取</text> -->
+                            </view>
+                            <view class="send-distance">
+                                <text class="send">
+                <block wx:for="{{item.shopAvg}}">  <text style="color: #ffe628;font-size:30rpx;">★</text> </block> 月售 {{item.monthlySales}}</text>
+        <view class="distance">
+            <text wx:if="{{shopType==1||shopType==3||shopType==4}}">{{item.deliveryCostTime}} 分钟<text class='separationLine'> | </text></text> {{item.distance}}</view>
+        </view>
+        <view class="send-distance">
+            <view class="send">
+                <text wx:if="{{shopType!=1&&shopType!=3&&shopType!=4}}">{{item.county}}<text class='separationLine'> | </text>{{item.cuisineName}} </text>
+                <text wx:else>起送 ￥{{item.deliveryFreeMoney}}<text class='separationLine'> | </text>{{item.deliveryStartMoney ? '配送 ￥' + item.deliveryStartMoney : '免配送费'}} </text>
+                <text class='separationLine' wx:if="{{item.avgeCostMoney}}"> | </text>{{item.avgeCostMoney ? '人均 ￥'+item.avgeCostMoney : ''}}</view>
+        </view>
+        <view class="send-distance" style='padding-top:4rpx;'>
+            <span class="send">{{item.fansNum}} 粉丝
+                <text class='separationLine'> | </text>{{item.dongtaiNum}} 动态
+                <text class='separationLine'> | </text>
+            </span>
+            <image src='https://image.aftdc.com/images/shijian.png'></image>
+            <!-- <text class="send">09<text style='color:#53beb7'>:</text>00起送</text> -->
+            <!-- <text class="send" style='color:#53beb7' wx:if="{{backcolor== 1||backcolor== 4||backcolor== 5}}">{{item.serviceStartTime}} 起送</text> -->
+            <text class="send" style='color:#53beb7'>{{item.serviceTime[0].serviceStartTime}}-{{item.serviceTime[item.serviceTime.length-1].serviceEndTime}} 营业</text>
+        </view>
+        <view class='acti'>
+            <!-- 
+      <view class="activity" wx:if="{{backcolor==2||backcolor==21||backcolor==26}}">
+        <text class="bl" wx:if="{{item.tg}}"><text class="bl-tuan">团</text>{{item.tgName}}</text>
+        <text class="bl" wx:if="{{item.djq}}"><text class="bl-lin">代</text>{{item.djqName}}</text>
+      </view> -->
+
+            <view class="activity {{item.projectLay?'':'hei'}}" style="height:{{item.projectLay?'':item.projectNum*46}}rpx;" catchtap="{{item.projectNum>2?'project':''}}" data-index="{{index}}">
+                <view class="bl" wx:if="{{item.mj}}">
+                    <text class="bl-jian">减</text>{{item.youhui}}</view>
+                <view class="bl" wx:if="{{item.newCou}}">
+                    <text class="bl-xin">新</text>新用户立减{{item.newCouNum}}元
+                    <text class="ellipsis" wx:if="{{item.projectNum>2&&!item.projectLay&&item.youhui}}">...</text>
+                </view>
+                <!-- <view class="bl" wx:if="{{item.yhq}}"><text class="bl-lin">领</text>进店领取优惠券
+        <text class="ellipsis" wx:if="{{item.projectNum>2&&!item.projectLay&&(item.youhui||item.newCou)}}">...</text></view> -->
+                <view class="bl" wx:if="{{item.zk}}">
+                    <text class="bl-zhe">折</text>限时折扣商品
+                    <text class="ellipsis" wx:if="{{item.projectNum>2&&!item.projectLay&&(item.mj||item.newCou||item.yhq)}}">...</text>
+                </view>
+                <view class="bl" wx:if="{{item.hb}}">
+                    <text class="bl-jian">红</text>进店领红包
+                    <text class="ellipsis" wx:if="{{item.projectNum>2&&!item.projectLay&&(item.mj||item.newCou||item.yhq||item.zk)}}">...</text>
+                </view>
+                <!-- <view class="bl" wx:if="{{item.tg}}">
+                    <text class="bl-tuan">团</text>{{item.tgName}}
+                    <text class="ellipsis" wx:if="{{item.projectNum>2&&!item.projectLay&&(item.mj||item.newCou||item.yhq||item.zk||item.hb)}}">...</text>
+                </view>
+                <view class="bl" wx:if="{{item.djq}}">
+                    <text class="bl-lin">代</text>{{item.djqName}}
+                    <text class="ellipsis" wx:if="{{item.projectNum>2&&!item.projectLay&&(item.mj||item.newCou||item.yhq||item.zk||item.hb||item.tg)}}">...</text>
+                </view> -->
+
+                <!-- <view class="bl" wx:if="{{item.kj}}">
+                    <text class="bl-kan">砍</text>大显身手 砍价商品
+                    <text class="ellipsis" wx:if="{{item.projectNum>2&&!item.projectLay&&(item.mj||item.newCou||item.yhq||item.zk||item.hb||item.tg||item.djq)}}">...</text>
+                </view>
+                <view class="bl" wx:if="{{item.ms}}">
+                    <text class="bl-miao">秒</text>秒杀商品 限时抢购
+                    <text class="ellipsis" wx:if="{{item.projectNum>2&&!item.projectLay&&(item.mj||item.newCou||item.yhq||item.zk||item.hb||item.tg||item.djq||item.kj)}}">...</text>
+                </view> -->
+
+                <view class="bl" wx:if="{{item.mz}}">
+                    <text class="bl-man">赠</text>购买指定商品有赠品
+                    <text class="ellipsis" wx:if="{{item.projectNum>2&&!item.projectLay&&(item.mj||item.newCou||item.yhq||item.zk||item.hb||item.kj||item.ms)}}">...</text>
+                </view>
+
+                <view class="bl" wx:if="{{item.jf}}">
+                    <text class="bl-jf">积</text>购买赠送积分
+                    <text class="ellipsis" wx:if="{{item.projectNum>2&&!item.projectLay&&(item.mj||item.newCou||item.yhq||item.zk||item.hb||item.kj||item.ms||item.mz)}}">...</text>
+                </view>
+                <!-- <text class="bl"><text class="bl-pin">拼</text>拼单,拼优惠
+        <text class="ellipsis" wx:if="{{item.projectNum>2&&!item.projectLay&&(item.mj||item.newCou||item.yhq||item.zk||item.hb||item.tg||item.djq||item.kj||item.ms||item.man)}}">...</text></text> -->
+                <!-- <view class="activity-more {{item.projectLay?'moret':'moreb'}}" wx:if="{{item.projectNum>2}}">›</view> -->
+            </view>
+            <!-- <view class='x' catchtap='closeHobby' data-index="{{index}}">✕</view> -->
+            <view class='x' catchtap='closeHobby' data-index="{{index}}" style='font-weight:600;'>…</view>
+        </view>
+
+        </view>
+        </view>
+        </view>
+        </view>
+        </block>
+        <view wx:if="{{shops==''}}" class="nothing">
+            <text hidden='{{openCity==0}}'>附近暂无商家或无您搜索的结果</text>
+
+        </view>
+        <!-- <view wx:if="{{openCity==0}}" class="nothing">
+      <view style='font-size:28rpx'>
+        <text>您所在城市还未开通，正在招募城市合伙人</text>
+        <button class='partnership' bindtap='partnership'>成为城市合伙人</button>
+      </view>
+    </view> -->
+    </view>
+
+</view>
+
+<!-- <view class="choiceBack" wx:if="{{allChoice}}" bindtap="hiddenChoice">
+  <view class="choiceBack-cloce">×</view>
+</view> -->
+<view class="allChoice" wx:if="{{allChoice}}" catchtap="hiddenChoice">
+    <scroll-view scroll-y style="width:100%;height:100%">
+        <view class="choice" wx:if="{{opentype==23||opentype==21}}" catchtap="not">
+            <view class="choiceW {{sortstyle==23?'choiceBold':''}}" data-id="23" bindtap="openSortbox">
+                <text>综合排序</text>
+                <text class="icon">›</text>
+            </view>
+            <text class="choiceW {{sort==3?'choiceBold':''}}" bindtap="sortChoice" data-id="3">好评优先</text>
+            <text class="choiceW {{sort==2?'choiceBold':''}}" bindtap="sortChoice" data-id="2">离我最近</text>
+            <view class="term {{filterstyle==21?'choiceBold':''}}" data-id="21" bindtap="openSortbox">
+                <text>筛 选 </text>
+                <image src="https://image.aftdc.com/images/sxuan.png"></image>
+            </view>
+        </view>
+
+        <view class="sortbox" wx:if="{{opentype==23}}" catchtap="not">
+            <scroll-view scroll-y='true' style='height:800rpx'>
+                <!-- 综合排序 -->
+                <view class='childBox'>
+                    <block wx:for="{{zhSort}}" wx:for-item="i" wx:for-index="index">
+                        <view class="zhSort {{i.id==sortid?'choosedzhSort':' '}}" hidden="{{shopType==2&&(i.id==9||i.id==10||i.id==11)}}" data-index="{{index}}" data-id="{{i.id}}" bindtap='chooseZhSort'>{{i.name}}</view>
+                    </block>
+                </view>
+            </scroll-view>
+            <view class="termboxBot">
+                <text bindtap="termDelete" data-openstyle='23'>清除排序</text>
+                <view class="but" bindtap="termbut" data-confrim="23">确定</view>
+            </view>
+            <view class='cancel' catchtap="isxClose" data-openstyle='23'>
+                <image src='https://image.aftdc.com/images/cancel.png'></image>
+            </view>
+        </view>
+
+        <view class="termbox" wx:if="{{opentype==21}}" catchtap="not">
+            <scroll-view scroll-y='true' style='height:800rpx'>
+                <!-- 菜系列表 -->
+                <!-- <block wx:for="{{cat}}" wx:for-index="idx">
+          <view>
+            <view class='catName1'>{{item.name}}</view>
+            <view class='childBox'>
+              <block wx:for="{{item.child}}" wx:for-item="i" wx:for-index="index">
+                <view class="catName2 {{i.id==cuisineId?'choosed':' '}}" data-idx="{{index}}" data-name="name{{index}}" data-id="{{i.id}}" bindtap='chooseChild'>{{i.name}}</view>
+              </block>
+            </view>
+          </view>
+        </block> -->
+                <!-- <view class="termActivity"> -->
+                <!-- <text class="featureTop">商家特色</text>
+            <view class="characteristicDiv">
+                <block wx:for="{{characteristic}}">
+                    <view class='characteristicDivSmall' data-acindex="{{index}}" catchtap="characteristicClick" >
+                        <image class='characteristicIcon' src='{{item.image}}'></image>
+                        <text class="characteristicName {{item.ok?'characteristicNameTwo':''}}" >{{item.name}}</text>
+                    </view>
+                </block>
+            </view> -->
+                <!-- <view class="characteristicDiv">
+                <block wx:for="{{characteristic}}">
+                    <view class='characteristicDivSmallTwo' catchtap="termActivity">
+                        <image class='characteristicIcon' src='{{item.image}}'></image>
+                        <text class="characteristicName">{{item.name}}</text>
+                    </view>
+                </block>
+            </view> -->
+                <!-- </view> -->
+                <view class="termFeature">
+                    <text class="featureTop">营业时段</text>
+                    <view class="feature-content">
+                        <text catchtap="OpenTime" class="text {{time==1?'textred':''}}" data-time="1">早餐</text>
+                        <text catchtap="OpenTime" class="text {{time==2?'textred':''}}" data-time="2">午餐</text>
+                        <text catchtap="OpenTime" class="text {{time==3?'textred':''}}" data-time="3">晚餐</text>
+                        <text catchtap="OpenTime" class="text {{time==4?'textred':''}}" data-time="4">宵夜</text>
+                    </view>
+                </view>
+
+                <view class="termFeature">
+                    <text class="featureTop">人均价格</text>
+                    <view class="feature-content">
+                        <text catchtap="Price" class="text {{price==1?'textred':''}}" data-price="1">￥20以下</text>
+                        <text catchtap="Price" class="text {{price==2?'textred':''}}" data-price="2">￥20-40</text>
+                        <text catchtap="Price" class="text {{price==3?'textred':''}}" data-price="3">￥40以上</text>
+                        <text class='text' style='border:none'></text>
+                    </view>
+                </view>
+
+                <view class="termActivity">
+                    <text class="featureTop">优惠活动</text>
+                    <view class="activity-content">
+                        <block wx:for="{{termActivity}}">
+                            <view class="choiceDetail {{item.ok?'choiceColor':''}}" data-acindex="{{index}}" catchtap="termActivity">
+                                <text class="activityTop" style="background: #{{item.titleColor}};">{{item.title}}</text>
+                                <text class="activityName">{{item.name}}</text>
+                            </view>
+                        </block>
+                    </view>
+                </view>
+            </scroll-view>
+            <view class="termboxBot">
+                <text bindtap="termDelete" data-openstyle='21'>清除筛选</text>
+                <view class="but" bindtap="termbut" data-confrim="21">确定</view>
+            </view>
+            <view class='cancel' catchtap="isxClose" data-openstyle='21'>
+                <image src='https://image.aftdc.com/images/cancel.png'></image>
+            </view>
+        </view>
+    </scroll-view>
+</view>
+<view class="more" wx:if='{{more}}'>
+    <image src="https://image.aftdc.com/images/flash.gif"></image>
+</view>
+<view class="with-line" wx:if="{{!nothing && shops.length > 0}}">没有更多店铺了</view>
+<view class="end" wx:if="{{openCity==0}}">
+    <text>更多商家接入中，敬请期待</text>
+</view>
+<!-- <view class='hobbyTip' wx:if="{{(hobbyTip&&chooseHobbyId==1)||notInterest}}">10分钟内不再推荐该商家</view>
+<view class='hobbyTip' wx:if="{{hobbyTip&&chooseHobbyId==2}}">10分钟内不再推荐此类商家</view>
+<view class='hobbyTip' wx:if="{{hobbyTip&&chooseHobbyId==4}}">你已屏蔽该商家，可到' 我的 '进行恢复</view> -->
+<include src="/page/common/toast.wxml" />

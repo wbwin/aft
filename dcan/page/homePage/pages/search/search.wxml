@@ -1,0 +1,207 @@
+
+<view class='Aller'>
+<scroll-view style="height:100%;width:100%" scroll-y>
+    <view class='Searcher'>
+          <view class='souSkun'>
+              <input class='sousuo' maxlength="10" bindinput="getSearchw" confirm-type="search" type="text" bindconfirm="sou" bindfocus="focus_search" value="{{searchw}}" placeholder='请输入搜索内容' focus='true'/>
+              <!-- <span class='Cancel'>×</span>  -->
+          </view>
+          <view class='Seching' bindtap="sou">搜索</view>
+    </view>
+
+		<view class='Nextter' wx:if="{{!searchList}}">
+        <view class='Spinder'>
+          <view>热门搜索</view>
+        </view>
+        <view class='Conding'>
+          <block wx:for="{{searchHot}}">
+            <span class='ReMen' data-text="{{item}}" bindtap="getSearchw" data-name="{{item}}">{{item}}</span>
+          </block>
+        </view>
+
+        <view class='Einder' wx:if="{{searchHistory}}"><span>历史记录</span></view>
+        <view class='Conding' wx:if="{{searchHistory}}">
+          <block wx:for="{{searchHistory}}">
+            <span class='ReMen' style='margin:0 0 20rpx 0' bindtap="getSearchw" data-name="{{item}}" data-index="{{index}}">{{item}}</span>
+            <span bindtap="delhistory" data-name="{{item}}" style='padding:2% 3%'>×</span>
+          </block>
+        </view>
+    </view>
+
+
+
+    <view class='Firster'>
+
+        <view class='Dinapu' wx:for="{{searchShopList}}"  data-shopid ="{{item.shopId}}" data-distance ="{{item.distance}}" bindtap="gator">
+          <view class='XHer'>
+            <image class='imager' src="https://image.aftdc.com/{{item.shopImg}}"></image>
+          </view>
+          <view class='Zuoi'>
+            <view class='Titler'>{{item.shopName}}
+            
+            <span class='bl-jian' wx:if="{{item.mj}}">减</span>
+            <span class='bl-xin' wx:if="{{item.xk}}">新</span>
+            <span class='bl-lin' wx:if="{{item.yhq}}">领</span>
+            <span class='bl-zhe' wx:if="{{item.zk}}">折</span>
+            <span class='bl-tuan' wx:if="{{item.tg}}">团</span>
+             <span class='bl-kan' wx:if="{{item.kj}}">砍</span>
+             <span class='bl-miao' wx:if="{{item.ms}}">秒</span>
+              <span class='bl-hong' wx:if="{{item.hb}}">红</span>
+              <span class='bl-fen' wx:if="{{item.fx}}">分</span>
+            </view>
+
+
+
+
+            <view class='Nexter'>
+              <span class='bin pinjia'>起送￥{{item.deliveryFreeMoney}}</span>
+              <span class='bin Yuxiao'>配送￥{{item.deliveryStartMoney}}</span>
+              <span class='bin Juli'>{{item.distance}}</span>
+            </view>
+          </view>
+        </view>
+
+        <view   bindtap="gator" data-shopid ="{{item.shopId}}" class='Biti' wx:for="{{searchGoodsList}}"> <span><image class='suiin' src="https://image.aftdc.com/images/searchIcon.png"></image>{{item.goodsName}}</span> <span class='jiegu'></span> </view>
+
+    </view>
+</scroll-view>
+</view>
+
+        <block wx:for="{{shops}}">
+            <view class="shop">
+
+				<view class='blockLayer' wx:if="{{item.closeHobby}}"></view>
+				<view class='chooseLayer' wx:if="{{item.closeHobby}}"  bindtap='closeHobby' data-index="{{index}}">
+					<view class='circles' data-index="{{index}}" data-type='1' catchtap='attentions'>
+						<view class='circle'>
+							<image wx:if="{{item.attentionType==1}}" src='https://image.aftdc.com/images/attention3.png'></image>
+							<image wx:else src='https://image.aftdc.com/images/attention4.png'></image>
+							<view wx:if="{{item.attentionType==1}}" >已关注</view> 
+							<view wx:else>关注</view> 
+						</view>
+					</view>
+					<view class='circles' data-index="{{index}}" data-type='2' catchtap='attentions'>
+						<view class='circle'>
+							<image wx:if="{{item.colType==1}}" src='https://image.aftdc.com/images/Collection1.png'></image>
+							<image wx:else src='https://image.aftdc.com/images/sooucan2.png'></image>
+							<view wx:if="{{item.colType==1}}">已收藏</view> 
+							<view wx:else>收藏</view> 
+						</view>
+					</view>
+					<view class='circles' data-index="{{index}}" catchtap='lookfor'>
+						<view class='circle'>
+							<image src='https://image.aftdc.com/images/zxs.png'></image>
+							<view>找相似</view> 
+						</view>
+					</view>
+					<view class='cancelCircles'  bindtap='closeHobby'>我再看看</view>
+				</view>
+
+                <view bindtap="gator" data-shopid="{{item.shopId}}" data-distance="{{item.distance}}" data-shopname="{{item.shopName}}">
+                    <view class="shops">
+                        <view class="shopImg">
+                            <view class='topImg'>
+                                <image src="https://image.aftdc.com/{{item.shopImg}}" class="img"></image>
+                                <image wx:if="{{item.certification==1}}" src='https://image.aftdc.com/images/daV.png' class='daV'></image>
+                            </view>
+                            <view class="readNum">
+                                <view style='margin-right:10rpx'>浏览量</view>
+                                <view>{{item.readNum}}</view>
+                            </view>
+                            <view class="isOpen" wx:if="{{item.shopAtive<=0}}">休息中</view>
+                            <view class="closeOpen" catchtap="closeOpen" data-index="{{index}}"></view>
+                        </view>
+                        <view class="detail">
+                            <view class="shopname">
+                                <text style='	flex: 3;'>{{item.shopName}}</text>
+                                <text class='isTostore' wx:if="{{item.isTostore==1}}">支持自取</text>
+                            </view>
+                            <view class="send-distance">
+                                <text class="send">
+                <block wx:for="{{item.shopAvg}}">  <text style="color: #ffe628;font-size:30rpx;">★</text> </block> 销量{{item.sales}}</text>
+        <text class="distance">{{item.deliveryCostTime==0?'45':item.deliveryCostTime}}分钟 | {{item.distance}}</text>
+        </view>
+        <view class="send-distance">
+            <text class="send">起送价 ￥{{item.deliveryFreeMoney}} | 配送 ￥{{item.deliveryStartMoney}} | 人均 ￥{{item.avgeCostMoney}}</text>
+        </view>
+        <view class="send-distance" style='padding-top:4rpx;'>
+            <span class="send">{{item.fansNum}} 粉丝 | {{item.appraiseNum}} 评价 | </span>
+            <image src='https://image.aftdc.com/images/shijian.png'></image>
+            <!-- <text class="send">09<text style='color:#53beb7'>:</text>00起送</text> -->
+            <text class="send" style='color:#53beb7' wx:if="{{backcolor== 1||backcolor== 4||backcolor== 6}}">{{item.serviceStartTime}} 起送</text>
+            <text class="send" style='color:#53beb7' wx:else>{{item.serviceStartTime}}-{{item.serviceEndTime}} 营业时间</text>
+        </view>
+        <view class='acti'>
+            <view class="activity {{item.projectLay?'':'hei'}}" style="height:{{item.projectLay?'':item.projectNum*44}}rpx;" catchtap="{{item.projectNum>2?'project':''}}" data-index="{{index}}">
+                <text class="bl" wx:if="{{item.mj}}"><text class="bl-jian1">减</text>{{item.youhui}}</text>
+                <text class="bl" wx:if="{{item.newCou}}"><text class="bl-xin1">新</text>新用户立减{{item.newCou}}元
+                <text class="ellipsis" wx:if="{{item.projectNum>2&&!item.projectLay}}">...</text></text>
+                <text class="bl" wx:if="{{item.yhq}}"><text class="bl-lin1">领</text>进店领取优惠券
+                <text class="ellipsis" wx:if="{{item.projectNum>2&&!item.projectLay}}">...</text></text>
+                <text class="bl" wx:if="{{item.zk}}"><text class="bl-zhe1">折</text>限时折扣商品
+                <text class="ellipsis" wx:if="{{item.projectNum>2&&!item.projectLay}}">...</text></text>
+                <text class="bl" wx:if="{{item.hb}}"><text class="bl-jian1">红</text>进店领红包</text>
+                <text class="bl" wx:if="{{item.tg}}"><text class="bl-tuan1">团</text>团购更优惠
+                <text class="ellipsis" wx:if="{{item.projectNum>2&&!item.projectLay}}">...</text></text>
+                <text class="bl" wx:if="{{item.kj}}"><text class="bl-kan1">砍</text>大显身手 砍价商品
+                <text class="ellipsis" wx:if="{{item.projectNum>2&&!item.projectLay}}">...</text></text>
+                <text class="bl" wx:if="{{item.ms}}"><text class="bl-miao1">秒</text>秒杀商品 限时抢购
+                <text class="ellipsis" wx:if="{{item.projectNum>2&&!item.projectLay}}">...</text></text>
+                <!-- <view class="activity-more {{item.projectLay?'moret':'moreb'}}" wx:if="{{item.projectNum>2}}">›</view> -->
+            </view>
+            <!-- <view class='x' catchtap='closeHobby' data-index="{{index}}">✕</view> -->
+          
+        </view>
+
+        <!-- 关注与爱好 -->
+        <!-- <view class='hobby' catchtap='null'> -->
+            <!-- <view class='attention'>
+        <view class='attentionR' bindtap='closeHobby' data-index="{{index}}"><text>✕</text></view>
+      </view> -->
+            <!-- <view class='reason' wx:if="{{item.closeHobby}}">
+                <view class='reasonTop'>
+                    <view class='reasonTopL'> 可选理由，精准屏蔽</view>
+                    <view class='reasonTopR' wx:if="{{!chooseH}}" data-index='{{index}}' data-id="{{item.shopId}}" bindtap='notInterest'>不感兴趣</view>
+                    <view class='reasonTopR' wx:if="{{chooseH}}" data-index='{{index}}' data-id="{{item.shopId}}" bindtap='sureReason'>确定</view>
+                </view>
+                <view class='reasonBottom'>
+
+                    <view wx:if="{{shopType==2||shopType==21}}">
+                        <block wx:for='{{chooseHobby2}}' wx:for-item='i'>
+                            <view class="chooseHobby {{i.sel?'cHobby':''}}" data-index="{{index}}" data-id="{{item.cuisineId}}" bindtap='chooseHobby'>
+                                <text wx:if="{{i.id==10&&item.attentionType==1}}">取消关注</text>
+                                <text wx:else>{{i.name}}</text>
+                            </view>
+                        </block>
+                    </view>
+                    <view wx:else>
+                        <block wx:for='{{chooseHobby1}}' wx:for-item='i'>
+                            <view class="chooseHobby {{i.sel?'cHobby':''}}" data-index="{{index}}" data-id="{{item.cuisineId}}" bindtap='chooseHobby'>
+                                <text wx:if="{{i.id==10&&item.attentionType==1}}">取消关注</text>
+                                <text wx:else>{{i.name}}</text>
+                            </view>
+                        </block>
+                    </view>
+
+                </view>
+            </view>
+        </view> -->
+        </view>
+        </view>
+        </view>
+        </view>
+        </block>
+
+
+<view wx:if="{{!nothing}}" class="nothing">
+    <text hidden='{{openCity==0}}'>附近暂无商家或无您搜索的结果</text>
+</view>
+
+<!-- <view class='Sinchen' style="position:fixed;bottom:0px" hover-class="Sinchen_hover" bindtouchstart="starRecord"  bindtouchend="stopRecord">
+     <image class='yuyi' src="https://image.aftdc.com/images/yuyin.png" ></image>
+     按住你想哟说的
+</view> -->
+
+<view class="voice" wx:if="{{voice}}">
+    <image   class="voice2" src='https://image.aftdc.com/images/yuyin2.jpg'></image>
+</view>

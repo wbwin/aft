@@ -1,0 +1,1090 @@
+<view>
+    <view class='top'>
+        <view class='top1' style="height:{{orders.length&&sharing!=1?'250':'170'}}rpx;">
+            <!-- 店铺介绍 -->
+            <view class="shops" bindtap="shopdetail" wx:if="{{sharing!=1}}">
+                <view style='flex:1.5'>
+                    <view class='topImg'>
+                        <image src="https://image.aftdc.com/{{shopInfo.shopImg}}" class="img"></image>
+                        <image wx:if="{{shopInfo.certification==1}}" src='https://image.aftdc.com/images/daV.png' class='daV'></image>
+                    </view>
+                </view>
+                <!-- <view class='topLefts' style='flex:5;flex-flow: column;display:flex;justify-content:space-between;'> -->
+                <view class='topLefts' style='flex:5;flex-flow: column;display:flex;'>
+                    <view style='display:flex;flex-direction:row'>
+                        <view class="topLeft">
+                            <view class="detail">
+
+                                <view class="send-distance">
+                                    <text class="send">
+                					<block wx:for="{{shopInfo.shopAvg}}">  <text style="color: #ffe628;font-size:30rpx;">★</text> </block> 月售 {{shopInfo.monthlySales}}</text>
+                                    <!-- <text class="distance"> | </text> -->
+                                </view>
+
+                                <view class="send-distance">
+                                    <text class="send" wx:if="{{orderType==0}}">商家配送 | {{shopInfo.deliveryCostTime==0?'45':shopInfo.deliveryCostTime}}分钟 | 距离 {{shopInfo.distance}}</text>
+                                     <text class="send" wx:elif="{{orderType==5}}">到店自取 | 起购价￥{{shopInfo.selfDeliveryFreeMoney}} | 距离 {{shopInfo.distance}}</text>
+                                     <text class="send" wx:else >{{shopInfo.county}} | {{orderType==3?'起订价￥'+shopInfo.bookingMoney:shopInfo.cuisineName}} | 距离 {{shopInfo.distance}}</text>
+                                </view>
+
+                                <view class="send-distance" style='padding-top:4rpx;border-bottom: 1rpx solid #dedede;'>
+                                    <span class="send">{{shopInfo.fansNum}} 粉丝 | {{shopInfo.dongtaiNum}} 动态 | </span>
+                                    <image src='https://image.aftdc.com/images/shijian1.png'></image>
+                                    <!-- <text class="send">09<text style='color:#53beb7'>:</text>00起送</text> -->
+                                    <text wx:if="{{orderType==0}}">{{shopInfo.serviceTime[0].serviceStartTime}} 起送</text>
+                                    <text wx:else>{{shopInfo.serviceTime[0].serviceStartTime}}-{{shopInfo.serviceTime[shopInfo.serviceTime.length-1].serviceEndTime}} 营业</text>
+                                </view>
+
+                                <view class='note'>
+                                    <view>
+                                        <image src='https://image.aftdc.com/images/mod.png'></image>
+                                    </view>
+                                    <view class='noteContent'>
+                                        <!-- <text style='color:#a3629c;'>品牌文化：</text> -->
+                                        <text>{{shopInfo.acticleMood}}</text>
+                                    </view>
+                                    <!-- <view class='more'>›</view>  -->
+                                </view>
+
+                            </view>
+                        </view>
+                        <view class="topRight">
+                            <!-- <view class="Collection" catchtap="touchAttention">  -->
+                            <view catchtap="icon">
+                                <form class="Collection" bindsubmit="touchAttention" report-submit='true'>
+                                    <button form-type='submit' class="word" style='	background-color: #00b8a5;' wx:if="{{attentionType==1}}">已关注</button>
+                                    <button class="word" form-type='submit' wx:else>关　注</button>
+                                </form>
+                            </view>
+                            <view class="look">
+                                <image src='https://image.aftdc.com/images/yjt.png'></image>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <!-- 拼单信息 -->
+            <view class="shopShare" wx:if="{{sharing==1}}">
+                <view class='shopShare_top'>
+                    <text class='shopShare_topText'>拼单进行中</text>
+                    <view class='shopShare_topButton' wx:if="{{shareInitiator}}">
+                        <button class='topButtonStyle' bindtap='closeShare' style='margin-right:5rpx;'>取消拼单</button>
+                        <button class='topButtonStyle' open-type="share" data-index="1" style='margin-left:5rpx;'>邀请好友</button>
+                    </view>
+                    <view class='shopShare_topButton' wx:if="{{!shareInitiator}}">
+                        <button class='topButtonStyle' bindtap='outShare' style='margin-left:5rpx;'>退出拼单</button>
+                    </view>
+                </view>
+                <view class='shopShare_buttom' bindtap="{{selectedGoodsNumb>0&&!goods?'shopp':''}}" data-serve="1">
+                    <image src="{{usersInfo.userPhoto}}" wx:if="{{car.length>0&&shareInitiator||selfUpdateGoods}}" class="shopShareImg"></image>
+                    <image src="{{item.userPhoto}}" wx:if="{{item.goodsInfo.length>0}}" wx:for="{{otherSharer}}" class="shopShareImg"></image>
+                    <text class='shopShare_buttomText' wx:if="{{selectedGoodsNumb>0}}">{{selectedGoodsNumb}}人已点完{{updateGoodsNumb==0?' >':'，'}}</text>
+                    <text class='shopShare_buttomText' wx:if="{{updateGoodsNumb>0}}">{{updateGoodsNumb}}人正在修改 ></text>
+                    <text class='shopShare_buttomText' wx:if="{{selectedGoodsNumb==0&&updateGoodsNumb==0}}">等待好友加入拼单</text>
+                </view>
+            </view>
+            <!-- 订单轮播 -->
+            <view class="topswiper" wx:if="{{orders.length&&sharing!=1}}">
+                <swiper class="swiper" vertical="true" autoplay="true" interval="5000" circular="true">
+                    <block wx:for="{{orders}}">
+                        <swiper-item>
+                            <view class="swiperBox" data-id="{{item.shopId}}" bindtap="{{item.shareId!=0?'shareOrder':''}}">
+                                <image wx:if="{{item.userPhoto}}" src="{{item.userPhoto}}"></image>
+                                <image wx:else src="https://image.aftdc.com/images/wtx.png"></image>
+                                <view class="word">
+                                    <view class="lunbo">
+                                        <text class='lunboName'>{{item.userName}} </text>
+                                        <text wx:if="{{item.orderStatus!=5}}">{{item.times}}前 </text>
+                                        <text wx:if="{{item.orderStatus==0&&item.shareId==0}}">单独购买成功</text>
+                                        <text wx:if="{{item.orderStatus==0&&item.shareId!=0}}">拼单成功</text>
+                                        <text wx:if="{{item.orderStatus==5}}">正在拼单</text>
+                                        <text wx:if="{{item.orderStatus==4&&item.shareId==0}}">下了一笔订单</text>
+                                        <text wx:if="{{item.orderStatus==4&&item.shareId!=0}}">下了一笔拼单</text>
+                                    </view>
+                                    <view class="wordLabel" wx:if="{{item.cuisine}}">
+                                        <text>{{item.cuisine}} {{item.city}} {{item.aroundArea}}</text>
+                                        <!-- <text wx:if="{{item.rank}}">{{item.aroundArea}}{{item.cuisine}}第{{item.rank}}名</text> -->
+                                        <text>{{shopInfo.fansNum}} 粉丝 {{shopInfo.dongtaiNum}} 动态</text>
+                                    </view>
+                                </view>
+                            </view>
+                        </swiper-item>
+                    </block>
+                </swiper>
+            </view>
+
+        </view>
+
+        <view class='top2'>
+            <view style='flex:2;display:flex;flex-direction:row;justify-content: space-between;'>
+                <view class="language-name {{currentTab==0?'language-active':''}}" data-current="0" bindtap="swichNav">
+                    点 餐
+                </view>
+                <view class="language-name {{currentTab==1?'language-active':''}}" data-current="1" bindtap="swichNav">
+                    评 价{{arr.pinglun.pinglun_num?arr.pinglun.pinglun_num>99?'(99+)':'('+arr.pinglun.pinglun_num+')':''}}
+                </view>
+                <view class="language-name {{currentTab==2?'language-active':''}}" data-current="2" bindtap="swichNav">
+                    商 家
+                </view>
+            </view>
+            <!-- <view style='flex:1;display:flex;flex-direction:row;justify-content: flex-end'>
+        <view class="pindanBut" bindtap="shareOrder" wx:if="{{!id}}">拼单{{shareId?'中':''}}</view>
+      </view> -->
+
+            <!-- <view class="topBut">
+        <view class="language-but" data-current="1" bindtap="swichNav">评价</view>
+        <view class="language-but" data-current="2" bindtap="swichNav">商家</view>
+        <!-- <view class="language-but" bindtap="shareOrder" wx:if="{{!id}}">拼单{{shareId?'中':''}}</view> -->
+            <!-- </view>  -->
+        </view>
+
+        <view class='top3' style="top:{{orders.length&&sharing!=1?'320':'240'}}rpx;">
+
+            <swiper current="{{currentTab}}" duration="300" bindchange="switchTab" style="height:100%;">
+                <!--点餐 -->
+                <swiper-item>
+
+                    <view class="content" wx:if="{{currentTab==0}}" style='padding-bottom: 100rpx;'>
+                        <!-- 邀请拼单 -->
+                        <button class='shareInvioce' bindtap="{{!usersInfo?'toLogin':''}}" open-type="{{!usersInfo?'':'share'}}" data-index="1" wx:if="{{sharing!=1&&(orderType==0||orderType==5)&&distance < shopInfo.range}}">
+                            <text class='shareInvioceText'>拼</text>
+                            <text class='shareInvioceTextTwo'>邀请拼单</text>
+                        </button>
+
+                        <!-- 邀请拼单 -->
+                        <view class="classify-name">
+                            <scroll-view scroll-y="true" style="height:100%;" scroll-into-view="{{foodname}}" scroll-top="{{scrollTop}}">
+                                <block wx:for="{{Von}}">
+                                    <view class="classify {{foodindex==index?'classify_back':''}}" bindtap="selectMenu" data-index="{{index}}" id="name{{index}}">
+                                        <image src="https://image.aftdc.com/appBimg/give-icon.png" class="icons" wx:if="{{item.catName=='买赠'}}"></image>
+                                        <image src="https://image.aftdc.com/images/cut-icon.png" class="icons" wx:if="{{item.catName=='砍价'}}"></image>
+                                        <image src="https://image.aftdc.com/images/sec-icon.png" class="icons" wx:if="{{item.catName=='秒杀'}}"></image>
+                                        <image src="https://image.aftdc.com/images/reb-icon.png" class="icons" wx:if="{{item.catName=='折扣'&&item.type==1}}"></image>
+                                        <image src="https://image.aftdc.com/images/hot-icon.png" class="icons" wx:if="{{item.catName=='热销'}}"></image>
+                                        <text>{{item.catName}}</text>
+                                        <view class="amount" wx:if="{{item.amount > 0}}">{{lo.amount}}</view>
+                                    </view>
+
+                                </block>
+                                <view style='height:100rpx;' wx:if="{{sharing!=1}}"></view>
+                            </scroll-view>
+                        </view>
+
+                        <scroll-view upper-threshold="100" style="height:100%;" wx:key="{{index}}" scroll-y="true" scroll-with-animation='true' scroll-into-view="{{toView}}" class="food-detail" bindscroll="scroll">
+                            <!--<view class="conpouhidden">-->
+                            <!-- <view class="conpou" wx:if="{{orderCoupon&&!tk}}">
+                <view class="receiveLeft">
+                  <text class="price">￥<text class="priceNub">{{couponSum}}</text></text>
+                  <view class="present">
+                    <text>商家优惠券</text>
+                    <text class="presentNub" hidden="{{presentNub}}">满{{OnespendMoney}}可用</text>
+                    <text class="presentNub2" hidden="{{!presentNub}}">内含{{conpoulen}}张券</text>
+                  </view>
+                  <view class="yuan"></view>
+                  <view class="yuan2"></view>
+                  <view class="yuanLeft">
+                    <block wx:for="{{7}}">
+                      <view class="yuan3"></view>
+                    </block>
+                  </view>
+                </view>
+                <view class="receiveRight">
+                  <text hidden="{{!conpouState}}" class="conpouNO" bindtap="conpouShow">去领取</text>
+                  <text hidden="{{conpouState}}" class="conpouYes" >已领取</text>
+                  <view class="yuanRight">
+                    <block wx:for="{{7}}">
+                      <view class="yuan3"></view>
+                    </block>
+                  </view>
+                </view>
+              </view> -->
+                            <view class="conpou" wx:if="{{orderRedPackets&&!tk&&sharing!=1}}">
+                                <view class="receiveLeft">
+                                    <text class="price">￥<text class="priceNub">{{redPacketsSum}}</text></text>
+                                    <view class="present">
+                                        <text>商家红包</text>
+                                        <text class="presentNub" hidden="{{redPacketsPresentNub}}">满{{OneRedPacketsMoney}}可用</text>
+                                        <text class="presentNub2" hidden="{{!redPacketsPresentNub}}">内含{{redPacketslen}}个红包</text>
+                                    </view>
+                                    <view class="yuan"></view>
+                                    <view class="yuan2"></view>
+                                    <view class="yuanLeft">
+                                        <block wx:for="{{7}}">
+                                            <view class="yuan3"></view>
+                                        </block>
+                                    </view>
+                                </view>
+                                <view class="receiveRight">
+                                    <text hidden="{{!redPacketsState}}" class="conpouNO" bindtap="hongBaoShow">去领取</text>
+                                    <text hidden="{{redPacketsState}}" class="conpouYes">已领取</text>
+                                    <view class="yuanRight">
+                                        <block wx:for="{{7}}">
+                                            <view class="yuan3"></view>
+                                        </block>
+                                    </view>
+                                </view>
+                            </view>
+
+                            <view wx:if="{{orderType!=='4'}}">
+                                <block wx:for="{{Von}}" wx:for-index="index" wx:for-item="lo">
+                                    <view class="dishes" id="order{{index}}">
+                                        <view class="distop">{{lo.catName}}</view>
+                                        <block wx:for="{{lo.distop}}" wx:for-item="food" wx:for-index="foodindex">
+                                            <view class="food" bindtap="selectfood" data-index="{{index}}">
+                                                <image bindtap="boxshow" data-index="{{index}}" data-type="{{food.type}}" data-foodindex="{{foodindex}}" src="https://image.aftdc.com/{{food.goodsImg}}"></image>
+
+                                                <view class='noFoodDiv' wx:if="{{food.goodsStock==0||food.todayGoodsStock==0}}">
+                                                    <text class='noFood'>已售罄</text>
+                                                </view>
+
+                                                <view class="disfood">
+                                                    <view class="disfood-name" bindtap="boxshow" data-index="{{index}}" data-foodindex="{{foodindex}}">
+                                                        <text class="foodname">{{food.goodsName}}</text>
+                                                        <!-- <view class='foodDetailsDiv'> -->
+                                                        <text class='foodDetails'>{{food.goodsDesc}}</text>
+
+                                                        <view style='display:flex; flex-direction: row;'>
+                                                            <view class='discountDiv' wx:if="{{lo.catId==3}}">
+                                                                <image class='discountIcon' src='https://image.aftdc.com/appBimg/discountDetails.png'></image>
+                                                                <text class='discountText'>{{food.discount}}折 {{food.buyNum==-1?'不限量':'限'+food.buyNum+'份'}}</text>
+                                                            </view>
+
+                                                            <view class='discountDiv' wx:if="{{lo.catId==2}}">
+                                                                <text class='discountText'>{{food.timeType==1?food.todayEndTime+'结束秒杀':food.timeType==2?food.todayStartTime+'开始秒杀':'明天'+food.todayStartTime+'-'+food.todayEndTime+'秒杀'}}</text>
+                                                            </view>
+
+                                                            <view class='discountDiv' style='width:130rpx' wx:if="{{food.buyMininum>1}}">
+                                                                <image class='discountIcon' src='https://image.aftdc.com/appBimg/discountDetails.png'></image>
+                                                                <text class='discountText'>{{food.buyMininum}}份起购</text>
+                                                            </view>
+                                                        </view>
+
+                                                        <view class='fullGiveDiv' wx:if="{{lo.catId==4}}">
+                                                            <image class='discountIcon' style='margin-top:4rpx' src='https://image.aftdc.com/appBimg/discountDetails.png'></image>
+                                                            <text class='discountText' wx:if="{{lo.catId==4}}">买{{food.buy_num}}份赠{{food.gift_num}}份{{food.gift_goods.goodsName}}</text>
+                                                        </view>
+                                                        <!-- </view> -->
+                                                    </view>
+                                                    <view class="disfood-bottom">
+                                                        <view class="spec-market">
+                                                            <text class="foodprice" wx:if="{{food.guige.length>0}}">￥{{food.marketPrice}}起</text>
+                                                            <text class="foodprice" wx:else>￥{{food.shopPrice}}</text>
+                                                            <text class="marketPrice" wx:if="{{(food.marketPrice!=food.shopPrice&&!food.guige.length>0&&!food.guigeAttr.length>0)||(food.marketPrice!=food.shopPrice&&food.zkGoodsId)}}">￥{{food.marketPrice}}</text>
+                                                            <text wx:else>　</text>
+                                                        </view>
+
+                                                        <!--有规格  -->
+                                                        <view class="subadd" wx:if="{{(food.guige.length>0||food.guigeAttr.length>0)&&closeButton}}" bindtap="boxshow" data-index="{{index}}" data-foodindex="{{foodindex}}">
+                                                            <view class='chooseGG'>选规格</view>
+                                                        </view>
+
+                                                        <!--加减  catId=1 砍价   catId=2 秒杀   catId=3 折扣-->
+                                                        <view class="subadd" wx:elif="{{(lo.catId!=1 || food.bargainType==2)&&closeButton}}">
+                                                            <image bindtap="{{food.size.length>0||food.taste.length>0?'shopp':'sub'}}" wx:if="{{food.numb > 0}}" data-serve="1" data-index="{{index}}" data-foodindex="{{foodindex}}" class="sub" src="https://image.aftdc.com/images/sub.png"></image>
+                                                            <text class="number" wx:if="{{food.numb > 0}}">{{food.numb}}</text>
+                                                            <image bindtap="{{food.goodsStock==0||food.todayGoodsStock==0||food.timeType&&food.timeType !== 1?'':food.size.length>0||food.taste.length>0?'boxshow':'add'}}" style="opacity:{{food.goodsStock==0||food.todayGoodsStock==0||food.timeType&&food.timeType !== 1?'0.3':''}}"
+                                                                data-index="{{index}}" data-foodindex="{{foodindex}}" data-Stock="{{food.goodsStock}}" class="add" src="https://image.aftdc.com/images/add.png" wx:if="{{showPrice==0}}"></image>
+                                                        </view>
+
+                                                        <!--砍价  -->
+                                                        <view class="subadd" wx:elif="{{closeButton}}">
+                                                            <view class="buts" bindtap="bargainBoxFn" data-index="{{index}}" data-foodindex="{{foodindex}}">{{food.bargainType==1?'帮我砍价':'砍价'}}</view>
+                                                            <!-- <view class="buts" bindtap="bargainBoxFn" data-index="{{index}}" data-foodindex="{{foodindex}}">帮我砍价</view> -->
+                                                        </view>
+                                                        <!--  -->
+                                                    </view>
+                                                </view>
+                                            </view>
+                                        </block>
+                                    </view>
+                                </block>
+                            </view>
+                            <!-- 团购商品 -->
+                            <view wx:else>
+                                <block wx:for="{{Von}}" wx:for-index="index" wx:for-item="lo" wx:if="{{foodindex==index}}">
+                                    <view class="tkDishes" id="order{{index}}">
+                                        <block wx:for="{{lo.distop}}" wx:for-item="food" wx:for-index="foodi">
+
+                                            <view class='foodTop'>
+                                                <view class="food" bindtap="selectfood" data-index="{{index}}" style="border-bottom-width: 0;">
+                                                    <image bindtap="boxshow" data-index="{{index}}" data-type="{{food.type}}" data-foodindex="{{foodi}}" src="https://image.aftdc.com/{{food.goodsImg}}"></image>
+                                                    <view class="disfood">
+                                                        <view class="disfood-name" bindtap="boxshow" data-index="{{index}}" data-foodindex="{{foodi}}">
+                                                            <text class="foodname" style='font-size: 32rpx;line-height: 36rpx'>{{food.goodsName}}</text>
+                                                            <text class='foodDetails'>{{food.goodsDesc}}</text>
+                                                        </view>
+                                                        <view class="disfood-bottom">
+                                                            <!-- spec-market -->
+                                                            <view class="tgSpecMarket">
+                                                                <text class="foodprice">￥{{food.shopPrice}}</text>
+                                                                <view>
+                                                                    <text class='originalPrice'>原价</text>
+                                                                    <text class="marketPrice" wx:if="{{food.marketPrice!=food.shopPrice}}">￥{{food.marketPrice}}</text>
+                                                                    <text wx:else>　</text>
+                                                                </view>
+                                                            </view>
+
+                                                            <view class="subadd" wx:if="{{lo.catId!=1 || food.result}}">
+                                                                <image bindtap="{{food.size.length>0||food.taste.length>0?'shopp':'sub'}}" wx:if="{{food.numb > 0}}" data-serve="1" data-index="{{index}}" data-foodindex="{{foodi}}" class="sub" src="https://image.aftdc.com/images/sub.png"></image>
+                                                                <text class="number" wx:if="{{food.numb > 0}}">{{food.numb}}</text>
+                                                                <image bindtap="{{food.size.length>0||food.taste.length>0?'boxshow':'add'}}" data-index="{{index}}" data-foodindex="{{foodi}}" data-Stock="{{food.goodsStock}}" data-grouptype="{{car.length>0&&food.groupId!=car[0].arr.groupId?'1':''}}" class="add" style="opacity:{{car.length>0&&food.groupId!=car[0].arr.groupId?'0.3':''}}"
+                                                                    src="https://image.aftdc.com/images/add.png" wx:if="{{showPrice==0}}"></image>
+                                                            </view>
+                                                        </view>
+                                                    </view>
+                                                </view>
+
+                                                <view class='backDiv'>
+                                                    <text class='backText'>随时退</text>
+                                                    <text class='backText' wx:if="{{!food.subscribeTime}}">| 免预约</text>
+                                                    <text class='backText'>| 过期自动退</text>
+                                                </view>
+
+                                            </view>
+
+                                            <view class="mealDetail" wx:if="{{type==1||type==2}}">
+                                                <view class='detailDiv' wx:if="{{food.goodslist.length>0}}">
+                                                    <text class="inforName">套餐</text>
+                                                    <block wx:for="{{food.goodslist}}" wx:for-item="list">
+                                                        <view class="mealKind">
+                                                            <view class='aiCenter'>
+                                                                <text class="name" decode="{{true}}">&nbsp;•&nbsp;{{list.goodsName}}&nbsp;</text>
+                                                                <text class="numb" wx:if="{{list.numAndSpe}}">({{list.numAndSpe}})</text>
+                                                                <text class="numb" wx:else>（{{list.goodsNum}}份）</text>
+                                                            </view>
+                                                            <text class="money" decode="{{true}}">￥{{list.goodsPrice}}</text>
+                                                        </view>
+                                                    </block>
+                                                </view>
+
+                                                <view class='moreInfo'>
+                                                    <text class="inforName" wx:if="{{food.groupDes}}">备注:</text>
+                                                    <view class="mealKindTwo" wx:if="{{food.groupDes}}">
+                                                        <text decode="{{true}}">&nbsp;•&nbsp;</text>
+                                                        <text>{{food.groupDes}}</text>
+                                                    </view>
+
+                                                    <text class="inforName">有效期:</text>
+                                                    <view class="mealKindTwo">
+                                                        <text decode="{{true}}">&nbsp;•&nbsp;{{food.startTime}} 至 {{food.endTime}}</text>
+                                                    </view>
+
+                                                    <text class="inforName" wx:if="{{food.useData}}">不可用日期:</text>
+                                                    <view class="mealKindTwo" wx:if="{{food.useData}}">
+                                                        <text decode="{{true}}">&nbsp;•&nbsp;</text>
+                                                        <text>{{food.useData}}</text>
+                                                    </view>
+
+                                                    <text class="inforName">使用时间:</text>
+                                                    <view class="mealKindTwo">
+                                                        <text decode="{{true}}">&nbsp;•&nbsp;</text>
+                                                        <view class='mealKindWrap'>
+                                                            <text decode="{{true}}" wx:for="{{food.dataList}}" wx:for-item="dataL" wx:for-index="dataIndex">{{dataL.start}}-{{dataL.end}}{{dataIndex!=food.dataList.length-1?',':''}}&nbsp;</text>
+                                                        </view>
+                                                    </view>
+
+                                                    <text class="inforName">使用规则:</text>
+
+                                                    <view class="mealKindTwo" wx:if="{{!food.subscribeTime}}">
+                                                        <text decode="{{true}}">&nbsp;•&nbsp;</text>
+                                                        <text>无需预约,消费高峰时可能需要等位</text>
+                                                    </view>
+
+                                                    <view class="mealKindTwo" wx:if="{{food.subscribeTime}}">
+                                                        <text decode="{{true}}">&nbsp;•&nbsp;</text>
+                                                        <text>预约需提前: {{food.subscribeTime}}</text>
+                                                    </view>
+
+                                                    <view class="mealKindTwo" wx:for="{{food.ruleList}}" wx:for-item="rule">
+                                                        <text decode="{{true}}">&nbsp;•&nbsp;</text>
+                                                        <text>{{rule.text}}</text>
+                                                    </view>
+                                                </view>
+                                            </view>
+
+                                        </block>
+                                    </view>
+                                </block>
+                            </view>
+
+                        </scroll-view>
+                    </view>
+                    <view class="back" wx:if="{{goods}}" bindtap="shopp" data-serve="0"></view>
+                    <!--购买详情弹出框->背景-->
+                </swiper-item>
+
+                <!-- 评价 -->
+                <swiper-item>
+                    <view class="zanBox {{dzan?'cartoonZan':''}}" hidden="{{!dzan}}">
+                        <image src="https://image.aftdc.com/images/zan.png"></image>
+                    </view>
+                    <scroll-view scroll-y="true" style="height:100%;" lower-threshold='20' bindscrolltolower='plScrolltolower' scroll-with-animation='true' scroll-into-view="{{pinlunView}}">
+                        <view class='pinlun' id="pinlun" wx:if="{{arr.pinglun.all!=''}}">
+
+                            <view class="pingfen">
+                                <view class="block1 inetr">
+                                    <view class="fenshu louinting">{{arr.pinglun.allScroe}}</view>
+                                    <view class="leixing inderin">综合评分</view>
+                                </view>
+                                <view class="block1 inetr" style="flex:1.55">
+                                    <view class="starss">
+                                        <text style="color:#666;flex:1.5;text-align:left;">口味</text>
+                                        <text style="flex:3;text-align:left;" wx:if="{{arr.pinglun.taste>0}}"><text wx:for="{{arr.pinglun.taste}}">★</text></text>
+                                        <text style="flex:1;text-align:left;" wx:if="{{arr.pinglun.taste>0}}">{{arr.pinglun.taste}}</text>
+                                        <text style="flex:1.5;text-align:left;color:#53beb7" wx:if="{{arr.pinglun.taste==0}}">暂无</text>
+                                    </view>
+                                    <view class="starss">
+                                        <text style="color:#666;flex:1.5;text-align:left;">包装</text>
+                                        <text style="flex:3;text-align:left;" wx:if="{{arr.pinglun.warp>0}}"><text wx:for="{{arr.pinglun.warp}}">★</text></text>
+                                        <text style="flex:1;text-align:left;" wx:if="{{arr.pinglun.warp>0}}">{{arr.pinglun.warp}}</text>
+                                        <text style="flex:1.5;text-align:left;color:#53beb7" wx:if="{{arr.pinglun.warp==0}}">暂无</text>
+                                    </view>
+                                </view>
+
+                                <view class="block1" style="border-left: 1rpx solid #dedede;border-right: 1rpx solid #dedede;height:140rpx;">
+                                    <view class="fenshu" wx:if="{{arr.pinglun.psScore>0}}">{{arr.pinglun.psScore}}</view>
+                                    <view class="nofenshu" wx:if="{{arr.pinglun.psScore==0}}">暂无</view>
+                                    <view class="leixing">配送评分</view>
+                                </view>
+                            </view>
+
+                            <view class='reason'>
+                                <text data-plindex="1" class=" {{plindex=='1'?'btnReason':''}}" bindtap='plindex'>全部</text>
+                                <text data-plindex="2" class=" {{plindex=='2'?'btnReason':''}}" bindtap='plindex'>有图</text>
+                                <text data-plindex="3" class=" {{plindex=='3'?'btnReason':''}}" bindtap='plindex'>评分</text>
+                            </view>
+
+                            <view style='padding:0 3%;'>
+                                <block wx:for="{{arr.pinglun.all}}" wx:for-index="index">
+                                    <view class="userpj">
+                                        <!--优质评论  -->
+                                        <image wx:if="{{item.isGood==1}}" class="yzpl" src="https://image.aftdc.com/images/yzpl.png"></image>
+
+                                        <view class="userpjHead">
+                                            <navigator url="../../../personal/pages/dynamic/dynamic?userId={{item.userId}}&userPhoto={{item.userPhoto}}&userName={{item.userName}}">
+                                                <image wx:if="{{item.userPhoto}}" src="{{item.userPhoto}}"></image>
+                                                <image wx:else src="https://image.aftdc.com/images/wtx.png"></image>
+                                            </navigator>
+                                        </view>
+
+                                        <view class="userpjContent">
+                                            <view class="userpjContent-top">
+                                                <view class="username">
+                                                    <view class='usernames'>{{item.userName}}</view>
+                                                    <!-- <image src="https://image.aftdc.com/images/v{{item.grade}}.png"></image> -->
+                                                </view>
+                                                <text class="timePj">{{item.createTime}}</text>
+                                            </view>
+
+                                            <view class="stars">
+                                                <text class="starsWord">对商品打分：</text>
+                                                <block wx:for="{{item.avg}}">
+                                                    <text class="star">★</text>
+                                                </block>
+
+
+                                            </view>
+                                            <view class="plContent">
+                                                <text class="wrap" wx:if="{{item.content}}">对商品评价：{{item.content}}</text>
+                                            </view>
+                                            <view class="stars" wx:if="{{item.wgoods}}">
+                                                <text class="starsWord">对服务员打分：</text>
+                                                <block wx:for="{{item.wgoods}}">
+                                                    <text class="star">★</text>
+                                                </block>
+                                            </view>
+
+                                            <view class="plContent" wx:if="{{item.wContent}}">
+                                                <text>对服务员评价：{{item.wContent}}</text>
+                                            </view>
+                                            <view class="imgPj">
+                                                <block wx:for="{{item.appraisesAnnex}}" wx:for-item="i" wx:for-index="numb">
+                                                    <image src="https://image.aftdc.com/{{i.img}}" class="plimg" catchtap="enlargeImg" data-type="pingjia" data-ind="{{index}}" data-index="{{numb}}"></image>
+                                                </block>
+                                            </view>
+                                            <view class='plGoods' wx:if="{{item.goodslist.length>0}}">
+                                                <image src="https://image.aftdc.com/images/zanfood.png"></image>
+                                                <view class='plgoodsDiv'>
+                                                    <view wx:for="{{item.goodslist}}" class='plgoodslist' wx:for-item='ig'>{{ig.goodsName}}</view>
+                                                </view>
+                                            </view>
+                                            <view class='plGoods' style='color:#53beb7;' wx:if="{{item.tagStr}}">
+                                                <image src="https://image.aftdc.com/images/shuqian.png"></image>
+                                                <view> {{item.tagStr}}</view>
+                                            </view>
+
+                                            <view class="replyAll">
+                                                <image class="replyAll-img {{item.writePl?'':'mt'}}" src="https://image.aftdc.com/images/replyAll.png" wx:if="{{item.reply!=null}}"></image>
+                                                <view class="replyAll-detail">
+                                                    <text class="replyword" wx:if="{{item.shopReply!=null}}"><text class="replyName">商家回复 </text>{{item.shopReply.content}}</text>
+                                                </view>
+                                            </view>
+
+                                            <view class='plGoods' style='justify-content: space-between; margin-bottom: 10rpx;align-items: center;'>
+                                                <view>浏览量:{{item.readNum}}</view>
+                                                <view class='Praise' bindtap='Praise' data-id="{{item.id}}" data-index="{{index}}">
+                                                    <image src="https://image.aftdc.com{{item.isDZ==0?'/images/allzan.png':'/images/allzan1.png'}}"></image>
+                                                    <text wx:if="{{item.numbs!=0}}">{{item.numbs}} <text style="font-size:24rpx"> 热 度</text></text>
+                                                    <text wx:else>赞</text>
+                                                </view>
+                                            </view>
+
+                                        </view>
+                                    </view>
+
+                                </block>
+                                <view class='more' wx:if='{{more}}'>
+                                    <image src="https://image.aftdc.com/images/flash.gif"></image>
+                                </view>
+
+                                <view class="with-line" wx:if="{{!plScrolltolower}}">我是有底线的</view>
+                            </view>
+
+                        </view>
+                        <view class='wuPl' wx:else>暂无评论...</view>
+                        <view class='bottomFill' wx:if="{{shopInfo.shopAtive==2&&!shopcar&&shopType != 21&&shopType != 26 || shopType == 1&&distance>=shopInfo.range}}"></view>
+                    </scroll-view>
+                    <view class='zanBack' hidden="{{!dzan}}"></view>
+                </swiper-item>
+
+                <!--商家详情  -->
+                <swiper-item>
+                    <scroll-view scroll-y="true" style="height:100%">
+                        <view class="shopmessage">
+
+                            <view class='title' wx:if="{{shopType == 21 || shopType == 26}}">商家服务</view>
+                            <view class='row' wx:if="{{shopType == 21 || shopType == 26}}">
+                                <view class="waimai" bindtap="goshop" wx:if='{{shopInfo.wm==1}}'>
+                                    <view class="serviceLeft">
+                                        <image class="serviceImg" src="https://image.aftdc.com/images/abroad.png"></image>
+                                        <text class="serviceName">外卖</text>
+                                    </view>
+                                    <view class='activity' wx:if="{{shopInfo.mj===1||shopInfo.newCou===1}}">
+                                        <text>{{shopInfo.mj===1?'满减':shopInfo.newCou===1?'立减':''}}</text>
+                                    </view>
+                                    <image class='arrowIcon' src='https://image.aftdc.com/images/lt.png'></image>
+                                </view>
+
+                                <view class="waimai" wx:if="{{shopInfo.tsyd}}" bindtap="godesk">
+                                    <view class="serviceLeft">
+                                        <image class="serviceImg" src="https://image.aftdc.com/images/rese.png"></image>
+                                        <text class="serviceName">预订</text>
+                                    </view>
+                                    <image class='arrowIcon' src='https://image.aftdc.com/images/lt.png'></image>
+                                </view>
+
+                                <view class="waimai" wx:if="{{shopInfo.ddzq}}" bindtap="gotake">
+                                    <view class="serviceLeft">
+                                        <image class="serviceImg" src="https://image.aftdc.com/images/mdzq.png"></image>
+                                        <text class="serviceName">到店自取</text>
+                                    </view>
+                                    <image class='arrowIcon' src='https://image.aftdc.com/images/lt.png'></image>
+                                </view>
+                            </view>
+
+                            <view class='huangjin' wx:if='{{shopInfo.lunbo}}'>
+                                <view class='title'>商家信息</view>
+                                <view class='huangjinImg' style='  align-items:inherit;'>
+                                    <scroll-view scroll-x="true" style='width:100%'>
+                                        <block wx:for="{{shopInfo.lunbo}}">
+                                            <image mode='aspectFill' style='width:200rpx;height:150rpx' src='https://image.aftdc.com/{{item.ImgUrl}}' catchtap="enlargeImg" data-type="env" data-index="{{index}}"></image>
+                                        </block>
+                                    </scroll-view>
+                                </view>
+                            </view>
+
+                            <view class='shopDetail'>
+                                <!-- <view class='title'>商家信息</view> -->
+                                <view class="noteView">
+                                    <image class="noteImage" src="https://image.aftdc.com/images/note.jpg"></image>
+                                    <text>公告：{{shopInfo.notice}}</text>
+                                </view>
+                                <view class="phone" bindtap='address'>
+                                    <image src="https://image.aftdc.com/images/dw.png"></image>
+                                    <text>位置：{{shopInfo.shopAddress}}</text>
+                                </view>
+                                <view class="phone" bindtap='phone'>
+                                    <image src="https://image.aftdc.com/images/phone.png"></image>
+                                    <text>电话：{{shopInfo.shopTel}}</text>
+                                </view>
+                                <view class="phone">
+                                    <image src="https://image.aftdc.com/images/send1.png"></image>
+                                    <text>配送服务：由 商家 提供配送服务</text>
+                                </view>
+                                <view class="serviceTime">
+                                    <image src="https://image.aftdc.com/images/time.png"></image>
+                                    <text>营业时间：</text>
+                                    <text wx:for="{{shopInfo.serviceTime}}">{{item.serviceStartTime}}-{{item.serviceEndTime}}{{index!=shopInfo.serviceTime.length-1?',':''}}</text>
+                                </view>
+                                <view bindtap="qualifications" class="phone">
+                                    <image src="https://image.aftdc.com/images/licence.png"></image>
+                                    <text>营业资质</text>
+                                </view>
+                                <view class="phone" wx:if="{{shopInfo.certification==1}}" bindtap='seeAttestation'>
+                                    <image src='https://image.aftdc.com/images/daV.png'></image>
+                                    <text>已认证</text>
+                                </view>
+                            </view>
+
+                            <view class="activity" wx:if="{{shopInfo.projectNum>0}}" style='margin-bottom:0;'>
+                                <view class='title'>商家活动</view>
+                                <!-- <view class='cz'>
+                  <view>
+                    <text class="bl"><text class="bl-miao">充</text>充值成为商家VIP会员，享受更多优惠</text>
+                  </view>
+                  <view class='chongzhis' bindtap="recharge">充值</view>
+                </view> -->
+                                <view class='bl_view'>
+
+                                    <text class="bl" wx:if="{{shopInfo.newCou}}"><text class="bl-xin">新</text>新用户立减{{shopInfo.newCouNum}}元</text>
+                                    <!-- <text class="bl" wx:if="{{shopInfo.yhq}}"><text class="bl-lin">领</text>进店领取优惠券</text> -->
+                                    <text class="bl" wx:if="{{shopInfo.zk}}"><text class="bl-zhe">折</text>折扣商品</text>
+                                    <text class="bl" wx:if="{{shopInfo.tg}}"><text class="bl-tuan">团</text>团购商品</text>
+                                    <text class="bl" wx:if="{{shopInfo.djq}}"><text class="bl-lin">代</text>抢购代金券</text>
+                                    <text class="bl" wx:if="{{shopInfo.kj}}"><text class="bl-kan">砍</text>砍价商品</text>
+                                    <text class="bl" wx:if="{{shopInfo.ms}}"><text class="bl-miao">秒</text>秒杀商品</text>
+                                    <text class="bl" wx:if="{{shopInfo.hb}}"><text class="bl-jian">红</text>进店领红包</text>
+                                    <text class="bl" wx:if="{{shopInfo.mz}}"><text class="bl-man">赠</text>指定商品有赠品</text>
+                                    <text class="bl" wx:if="{{shopInfo.jf}}"><text class="bl-jf">积</text>购买赠送积分</text>
+
+                                    <view class='blDiv' wx:if="{{shopInfo.mj}}">
+                                        <text class="bl-jian">减</text>
+                                        <text class="blTwo">{{shopInfo.youhui}}</text>
+                                    </view>
+
+                                </view>
+                            </view>
+
+                            <!-- <view class="address" bindtap="address">
+                <text>位于{{shopInfo.shopAddress}}</text>
+                <text><text class="jiantou">›</text></text>
+              </view> -->
+                            <view class='shopInfoBottom'>
+
+                                <!-- <form class='form1 flex1' bindsubmit="{{shopInfo.colType==0?'collect':'cancelCollect'}}" report-submit='true'> -->
+                                <!-- <view class="address" style='border-bottom:solid 1rpx #dedede;' catchtap="{{shopInfo.colType==0?'collect':'gotoCollect'}}"> -->
+                                <!-- <button class="address" form-type='submit' style='height:90rpx;border-width:0;'>
+                                        <text>{{shopInfo.colType==1?'已收藏商家':'收藏商家'}}</text>
+                                    </button>
+                                </form> -->
+
+                                <view class="address" bindtap="{{shopInfo.colType==0?'collect':'cancelCollect'}}">
+                                    <text>{{shopInfo.colType==1?'已收藏商家':'收藏商家'}}</text>
+                                </view>
+
+                                <view class="address" bindtap="report">
+                                    <text>举报商家</text>
+                                </view>
+                            </view>
+                        </view>
+                        <view class='bottomFill' wx:if="{{shopInfo.shopAtive==2&&!shopcar&&shopType != 21&&shopType != 26 || shopType == 1&&distance>=shopInfo.range}}"></view>
+                    </scroll-view>
+
+                </swiper-item>
+            </swiper>
+        </view>
+
+    </view>
+
+    <view class='bottom' wx:if='{{currentTab==0}}'>
+        <!--购买详情弹出框-->
+        <view class="buyBox">
+            <view class="buy" animation="{{animationData}}" wx:if="{{goods&&sharing!=1}}">
+
+                <view class="carEmpty">
+                    <view catchtap="closeCars" class="carEmpty-right">
+                        <image src="https://image.aftdc.com/images/closeCar.png"></image>
+                        <text>清空购物车</text>
+                    </view>
+                </view>
+                <scroll-view scroll-y="true" class="carScrollView">
+                    <block wx:for="{{car}}" wx:for-index="index">
+                        <view class="buy-name">
+                            <view class="name-size">
+                                <text>{{item.arr.goodsName}}</text>
+                                <text class="spec-color" wx:if="{{item.arr.zkGoodsId&&item.arr.preferentialNumb!=0&&item.arr.numb>item.arr.preferentialNumb}}">含{{item.arr.numb*1-item.arr.preferentialNumb*1}}份原价商品</text>
+
+                                <text class="spec-color" wx:elif="{{item.arr.spec_size||item.arr.spec_taste}}">{{item.arr.goodsAttrName}}</text>
+                                <text class="spec-color" wx:elif="{{item.arr.bargainId&&item.arr.numb>1}}">含{{item.arr.numb*1-1}}份原价商品</text>
+
+                            </view>
+                            <text class="buy-price">￥{{item.arr.totalPrice}}</text>
+
+                            <view class="buy-subadd">
+                                <image class="sub" bindtap="buysub" data-i="{{index}}" src="https://image.aftdc.com/images/sub.png"></image>
+                                <text class="number">{{item.arr.numb}}</text>
+                                <image class="add" bindtap="buyadd" data-i="{{index}}" src="https://image.aftdc.com/images/add.png"></image>
+                            </view>
+                        </view>
+                    </block>
+                    <view class="buy-name" wx:if="{{boxFee>0 && shopType!=2}}">
+                        <!-- 更改 -->
+                        <view class="name-size">
+                            <text>餐盒费</text>
+                        </view>
+                        <text class="buy-price">{{boxFee}}</text>
+                        <view class="buy-subadd">
+                        </view>
+                    </view>
+                </scroll-view>
+            </view>
+        </view>
+        <!-- 拼单购物车弹出框 -->
+        <view class="buyBox">
+            <view class="buy" animation="{{animationData}}" wx:if="{{goods&&sharing==1}}">
+
+
+                <scroll-view scroll-y="true" class="carScrollView">
+                    <view class="carEmpty" style='justify-content:flex-start;padding:10rpx 20rpx'>
+                        <view class="carEmpty-name">
+                            <image src="{{usersInfo.userPhoto}}"></image>
+                            <text>{{usersInfo.userName}}</text>
+                            <text style='font-size:20rpx;'>（ 我 ）</text>
+                        </view>
+                    </view>
+                    <block wx:if="{{car.length>0}}">
+                        <block wx:for="{{car}}" wx:for-index="index">
+                            <view class="buy-name">
+                                <view class="name-size">
+                                    <text>{{item.arr.goodsName}}</text>
+                                    <text class="spec-color" wx:if="{{item.arr.zkGoodsId&&item.arr.preferentialNumb!=0&&item.arr.numb>item.arr.preferentialNumb}}">含{{item.arr.numb*1-item.arr.preferentialNumb*1}}份原价商品</text>
+
+                                    <text class="spec-color" wx:elif="{{item.arr.spec_size||item.arr.spec_taste}}">{{item.arr.goodsAttrName}}</text>
+                                    <text class="spec-color" wx:elif="{{item.arr.bargainId&&item.arr.numb>1}}">含{{item.arr.numb*1-1}}份原价商品</text>
+
+                                </view>
+                                <text class="buy-price">￥{{item.arr.totalPrice}}</text>
+
+                                <view class="buy-subadd">
+                                    <image class="sub" bindtap="buysub" data-i="{{index}}" src="https://image.aftdc.com/images/sub.png"></image>
+                                    <text class="number">{{item.arr.numb}}</text>
+                                    <image class="add" bindtap="buyadd" data-i="{{index}}" src="https://image.aftdc.com/images/add.png"></image>
+                                </view>
+                            </view>
+                        </block>
+                        <view class="buy-name" wx:if="{{boxFee>0}}">
+                            <view class="name-size">
+                                <text>餐盒费</text>
+                            </view>
+                            <text class="buy-price">￥{{boxFee}}</text>
+                            <view class="buy-subadd">
+                            </view>
+                        </view>
+                    </block>
+                    <block wx:else>
+                        <view class="noChoseShareGoods">
+                            <text>你还没有选购商品哦~</text>
+                        </view>
+                    </block>
+                    <block wx:for="{{otherSharer}}" wx:for-index="index">
+                        <view class="carEmpty" style='justify-content:flex-start;padding:10rpx 20rpx'>
+                            <view class="carEmpty-name">
+                                <image src="{{item.userPhoto}}"></image>
+                                <text>{{item.userName}}</text>
+                                <text style='font-size:20rpx;' wx:if="{{item.goodsStatus==1}}"> ✓ 已点完</text>
+                                <text style='font-size:20rpx;color:#ff4500' wx:if="{{item.goodsStatus==3}}">  ● 修改中</text>
+                            </view>
+                        </view>
+                        <block wx:for="{{item.goodsInfo}}" wx:for-item="goods" wx:if="{{item.goodsInfo.length>0}}" wx:for-index="otherSharerIndex">
+                            <view class="buy-name">
+                                <view class="name-size">
+                                    <text>{{goods.goodsName}}</text>
+                                    <text class="spec-color" wx:if="{{goods.zkGoodsId&&goods.preferentialNumb!=0&&goods.numb>goods.preferentialNumb}}">含{{goods.numb*1-goods.preferentialNumb*1}}份原价商品</text>
+
+                                    <text class="spec-color" wx:elif="{{goods.spec_size||goods.spec_taste}}">{{goods.goodsAttrName}}</text>
+                                    <text class="spec-color" wx:elif="{{goods.bargainId&&goods.numb>1}}">含{{goods.numb*1-1}}份原价商品</text>
+
+                                </view>
+                                <text class="buy-price">￥{{goods.totalPrice}}</text>
+
+                                <view class="buy-subadd">
+                                    <text class="number">×{{goods.numb}}</text>
+                                </view>
+                            </view>
+                        </block>
+                        <view class="buy-name" wx:if="{{item.goodsInfoBoxFee>0}}">
+                            <view class="name-size">
+                                <text>餐盒费</text>
+                            </view>
+                            <text class="buy-price">￥{{item.goodsInfoBoxFee}}</text>
+                            <view class="buy-subadd">
+                            </view>
+                        </view>
+                    </block>
+                </scroll-view>
+            </view>
+        </view>
+        <!-- 拼单购物车弹出框 -->
+        <view class="paran" bindtap="{{!goods?'shopp':''}}" data-serve="1">
+            <view data-serve="1" wx:if="{{!goods}}" class="shoppimg">
+                <image src="https://image.aftdc.com/images/car.png"></image>
+                <view class="sunamount" wx:if="{{(shareId&&shareNumb > 0)||(!shareId&&totalnumb>0)}}">{{shareId?shareNumb:totalnumb}}</view>
+            </view>
+            <view class="moneyCar">
+                <view class="moneyCar_share">
+                    <text class="shopp-price">￥{{shareId?shareTotalPrice:totalprice}}</text>
+                    <text class="shopp-sharePrice" wx:if="{{shareId&&shareTotalPrice>0}}">（我已点￥{{totalprice}}）</text>
+                </view>
+                <text class="shoppGive" wx:if="{{(shopInfo.deliveryStartMoney>0&&car.length>0&&orderType==0)||(shareId&&otherSharer.length>0)}}">另需配送费￥{{shopInfo.deliveryStartMoney}}元</text>
+            </view>
+        </view>
+        <!--外卖按钮  -->
+        <view class="btn {{shopcar?'sure':''}}" wx:if="{{shareInitiator&&orderType==0&&closeButton}}">
+            <view wx:if="{{distance>shopInfo.range}}">超出配送范围</view>
+            <view wx:else>
+                <view wx:if="{{distance_price>0 && showPrice==0 && car.length>0}}">还差{{distance_price}}元起送</view>
+                <view wx:if="{{car&&car.length==0&&otherSharer.length==0}}">￥{{shopInfo.deliveryFreeMoney}}元起送</view>
+                <view wx:if="{{shopcar}}" class="xiadan" style="width:160rpx;" catchtap="price">下单</view>
+            </view>
+        </view>
+        <!--外卖拼单按钮  -->
+        <view class="btn {{car.length>0?'sure':''}}" bindtap="{{car.length>0?'shareAdd':''}}" wx:if="{{!shareInitiator&&shareId}}">
+            <view class="xiadan">选好了</view>
+        </view>
+        <!--到店自取按钮  -->
+        <view class="btn {{shopcar?'sure':''}}" wx:if="{{shareInitiator&&orderType==5&&closeButton}}">
+            <view wx:if="{{distance>shopInfo.selfDistance}}">超出配送范围</view>
+            <view wx:else>
+                <view wx:if="{{distance_price>0 && showPrice==0 && car.length>0}}">还差{{distance_price}}元起购</view>
+                <view wx:if="{{car&&car.length==0&&otherSharer.length==0}}">￥{{shopInfo.selfDeliveryFreeMoney}}元起购</view>
+                <view wx:if="{{shopcar}}" class="xiadan" style="width:160rpx;" catchtap="price">下单</view>
+            </view>
+        </view>
+        <!--堂食预订按钮  -->
+        <view class="btn {{shopcar?'sure':''}}" wx:if="{{!shareId&&orderType==3}}">
+            <view wx:if="{{distance_price>0 && showPrice==0 && car.length>0}}">还差{{distance_price}}元起订</view>
+            <view wx:if="{{car&&car.length==0}}" class="xiadan">￥{{shopInfo.bookingMoney}}元起订</view>
+            <view wx:if="{{shopcar}}" class="xiadan" catchtap='book'>填写预订信息</view>
+        </view>
+        <!--团购按钮  -->
+        <view class="btn {{shopcar?'sure':''}}" wx:if="{{!shareId&&orderType==4}}">
+            <view wx:if="{{car&&car.length==0}}" class="xiadan">未选择商品</view>
+            <view wx:if="{{shopcar}}" class="xiadan" style="width:160rpx;" catchtap='price'>下单</view>
+        </view>
+    </view>
+
+
+    <!--商品详情弹出框-->
+    <view class="back" wx:if="{{boxshow||isclose==1}}" bindtap="hidden"></view>
+    <view class="box" wx:if="{{boxshow}}">
+        <view class="del" bindtap="hidden">×</view>
+        <image mode='widthFix' src="https://image.aftdc.com/{{box.goodsImg}}"></image>
+        <scroll-view class="boxContent" scroll-y="true">
+            <view class="name">{{box.goodsName}}</view>
+            <view class='discountDivTwo' wx:if="{{box.catId==3}}">
+                <image class='discountIcon' src='https://image.aftdc.com/appBimg/discountDetails.png'></image>
+                <text class='discountText'>{{box.discount}}折 {{box.buyNum==-1?'不限量':'限'+box.buyNum+'份'}}</text>
+            </view>
+            <view class='discountDivTwo' style='width:130rpx' wx:if="{{box.buyMininum>1}}">
+                <image class='discountIcon' src='https://image.aftdc.com/appBimg/discountDetails.png'></image>
+                <text class='discountText'>{{box.buyMininum}}份起购</text>
+            </view>
+            <view class='fullGiveDiv' style='margin-left: 20rpx;' wx:if="{{box.catId==4}}">
+                <image class='discountIcon' style='margin-top:4rpx' src='https://image.aftdc.com/appBimg/discountDetails.png'></image>
+                <text class='discountText' style='max-width:550rpx;'>买{{box.buy_num}}份赠{{box.gift_num}}份{{box.gift_goods.goodsName}}</text>
+            </view>
+            <text class='boxDetails' wx:if="{{box.goodsDesc}}">{{box.goodsDesc}}</text>
+            <view class="spec" wx:if="{{box.guige.length>0||box.guigeAttr.length>0}}">
+                <view class="size" wx:if="{{box.guige.length>0}}">
+                    <view class='guigeName'>规格</view>
+                    <view class='guigeNameR'>
+                        <block wx:for="{{box.guige}}">
+                            <view catchtap="{{item.stock==0?'':'size'}}" class="specclass {{box.choose==index?'select':''}}" style="opacity:{{item.stock==0?'0.3':''}}" data-size="{{index}}" data-val="{{item.guigeName}}">{{item.guigeName}} </view>
+                        </block>
+                    </view>
+                </view>
+                <view class="taste" wx:if="{{box.guigeAttr.length>0}}">
+                    <block wx:for="{{box.guigeAttr}}" wx:for-index="index">
+                        <view class="size" style='margin-top:10rpx;'>
+                            <view class='guigeName'>{{item.attrName}}</view>
+                            <view class='guigeNameR'>
+                                <block wx:for="{{item.attrContent}}" wx:for-item="i" wx:for-index="idx">
+                                    <view catchtap="taste" class="specclass {{box.guigeAttr[index].choose==idx?'select':''}}" data-index="{{index}}" data-taste="{{idx}}" data-val="{{i}}">{{i}}</view>
+                                </block>
+                            </view>
+                        </view>
+                    </block>
+                </view>
+            </view>
+        </scroll-view>
+        <view class="bott">
+            <view class="price">
+                <text class="sale">￥{{box.shopPrice}}</text>
+                <text class="marketPriceTwo" wx:if="{{(box.marketPrice!=box.shopPrice&&!box.guige.length>0&&!box.guigeAttr.length>0)||box.zkGoodsId}}">￥{{box.marketPrice}}</text>
+                <text wx:else></text>
+            </view>
+            <view wx:if="{{closeButton}}">
+                <view class="okbtn" style='background-color: #dedede;' wx:if="{{(box.guige.length>0&&box.nochooseGG)||(box.guigeAttr.length>0&&box.nochooseAttr)}}">请选择</view>
+                <view class="okbtn" wx:else bindtap="ok" data-grouptype="{{car.length>0&&box.groupId!=car[0].arr.groupId?'1':''}}" style="opacity:{{car.length>0&&box.groupId!=car[0].arr.groupId?'0.3':''}}">选好了</view>
+            </view>
+        </view>
+    </view>
+
+    <!--砍价弹出框  -->
+    <view class="back" wx:if="{{bargainTogle}}" bindtap="bargainTogleFn"></view>
+    <view class="box" wx:if="{{bargainTogle}}">
+        <view class="del" bindtap="bargainTogleFn">×</view>
+        <image src="https://image.aftdc.com/{{bargainBox.goodsImg}}"></image>
+        <text class="name">{{bargainBox.goodsName}}</text>
+        <view class="wordLR-degree">
+            <view class="price">
+                <text>￥{{bargainBox.start}}</text>
+                <text>￥{{bargainBox.end}}</text>
+            </view>
+            <view class="degreeBox">
+                <view class="degreeL">
+                    <view class="circle"></view>
+                </view>
+                <view class="degreeR">
+                    <view class="circle"></view>
+                </view>
+
+                <view class="finish" style="width:{{bargainBox.percent>=0?bargainBox.percent:'100'}}%;">
+                    <view class="degreeC {{bargainBox.result?'active':''}}">
+                        <view class="circle"></view>
+                    </view>
+                    <view class="result" wx:if="{{bargainBox.result}}">
+                        <view class="arrow"></view>
+                        <text>￥{{bargainBox.result}}</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+
+        <!-- <view class="BargainBut" bindtap="{{bargainBox.bargainType==2?'ok':'bargainBut'}}" wx:if="{{!bargainBox.bargainType||bargainBox.bargainType==2}}">{{bargainBox.bargainType==2?'加入购物车':'砍价'}}</view> -->
+        <form wx:if="{{(!bargainBox.bargainType||bargainBox.bargainType==2)&&closeButton}}" report-submit='true' bindsubmit="{{bargainBox.bargainType==2?'ok':'bargainBut'}}">
+            <view>
+                <button class="BargainBut" formType="submit">{{bargainBox.bargainType==2?'加入购物车':'砍价'}}</button>
+            </view>
+        </form>
+
+        <button wx:if="{{((shopInfo.reserve&&shopInfo.shopAtive!=0)||shopInfo.shopAtive==1)&&bargainBox.bargainType!=2}}" class="BargainButHelp" open-type="share">帮我砍价</button>
+    </view>
+
+    <!--砍价提示弹框  -->
+    <view class="modelBack" wx:if="{{model.togle}}">
+        <view class="model">
+            <text class="model-title">-{{model.price}}</text>
+            <text class="model-txt">{{model.txt}}</text>
+            <view class="model-but" bindtap="modelClose">确定</view>
+        </view>
+    </view>
+
+    <!--优惠券弹出框-->
+    <view class="conpouback" wx:if="{{conpouBox}}"></view>
+    <view class="boxwbk" wx:if="{{conpouBox}}">
+        <view class="conpouBox">
+            <view class="conpouBox-top">
+                <view class="halfTop">
+                    <view class="halfTop-box">
+                        <view class="name">本店专享</view>
+                        <view class="halfTop-border">
+                            <text class="halfTopWord">成功领取<text class="halfTopNub">{{receiveSum}}</text>元红包</text>
+                            <text class="xidan">快去下单吧</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="conpouBox-content">
+                <view class="Boxconpou-detail">
+                    <scroll-view scroll-y="true" style="height:500rpx;">
+                        <block wx:for="{{redPackets}}">
+                            <view class="Boxconpou">
+                                <view class="BoxreceiveLeft">
+                                    <text class="price">￥<text class="priceNub">{{item.piece}}</text></text>
+                                    <view class="Boxyuan"></view>
+                                    <view class="Boxyuan2"></view>
+                                    <view class="boxLeft">
+                                        <block wx:for="{{7}}">
+                                            <view class="boxyuan3"></view>
+                                        </block>
+                                    </view>
+                                </view>
+                                <view class="BoxreceiveRight">
+                                    <text class="tj">满{{item.money}}使用</text>
+                                    <text class="time">有效期{{item.end_time}}</text>
+                                    <view class="boxRight">
+                                        <block wx:for="{{7}}">
+                                            <view class="boxyuan3"></view>
+                                        </block>
+                                    </view>
+                                </view>
+                            </view>
+                        </block>
+                    </scroll-view>
+                </view>
+
+                <view class="Boxbottom">
+                    <text class="Boxbottom1"></text>
+                    <text class="Boxbottom2">可与其它优惠同享</text>
+                    <text class="Boxbottom1"></text>
+                </view>
+            </view>
+            <text class="Boxcha" bindtap="close" data-show="0"><text class="Boxcha-text">×</text></text>
+        </view>
+    </view>
+
+    <!--红包弹框 hongbaoState未领取-->
+    <view class="redBox-tc" wx:if="{{hongbaoBox && !hongbaoState}}">
+
+        <!-- <view class="red-tearBox" bindtap="hongBaoShow" wx:if="{{!hongbaoBox2}}">
+      <image mode='widthFix' src="https://image.aftdc.com/images/openRed.png"></image>
+      </view> -->
+
+        <view class="red-getBox">
+            <view class="getBox-price">
+                <text class="red-txt">恭喜你获得红包</text>
+                <text class="red-numb"><text>{{hongbaoSum}}</text>元</text>
+            </view>
+            <view class="getBox-tips">
+                <text class="tipsLine"></text>
+                <text class="tipsTxt">红包已放入您的钱包</text>
+                <text class="tipsLine"></text>
+            </view>
+            <image src="https://image.aftdc.com/images/getRed.png"></image>
+        </view>
+
+        <view class="closeRed" bindtap="closeRed">×</view>
+    </view>
+
+    <!--加载弹窗  -->
+    <view class="backload" hidden="{{loading}}">
+        <view class="loadingBox" hidden="{{loading}}">
+            <view class="loading">
+                <image src="https://image.aftdc.com/images/flash.gif"></image>
+                <text>马上到了…</text>
+            </view>
+        </view>
+    </view>
+
+    <!--放大图片  -->
+    <view class="enlargeBox" wx:if="{{enlargeBox}}" bindtap="enlargeClose">
+        <swiper class="enlargeSwiper" indicator-dots="true" circular="true" current="{{enlargeNumb}}">
+            <block wx:for="{{enlargeSrc}}">
+                <swiper-item>
+                    <image mode="widthFix" src="https://image.aftdc.com/{{item.ImgUrl}}"></image>
+                </swiper-item>
+            </block>
+        </swiper>
+    </view>
+
+    <!-- 休息中接受预订提醒 -->
+    <view class='bottom yuding' wx:if="{{shopInfo.shopAtive==2&&car.length==0&&shopType != 21&&shopType != 26&&shareInitiator&&otherSharer.length==0}}">
+        <text wx:if="{{(!shopInfo.reserve&&(shopType==1||shopType==4))||(!shopInfo.selfReserve&&shopType==3)||(!restTimeBookForward&&shopType==2)}}">商家休息中，不可预订</text>
+        <text wx:elif="{{restTimeBookForward&&shopType==2}}">商家休息中，接受预订</text>
+        <text wx:else>商家休息中，现在预订，最早{{presetTime[0].today}} {{presetStartTime}}开始{{shopType == 1  || shopType == 4?'配送':'受理'}}</text>
+    </view>
+    <view class='bottom yuding' wx:if="{{shopInfo.shopAtive==0}}">
+        <text>商家已暂停营业</text>
+    </view>
+    <!-- 超出配送范围 -->
+    <view class='bottom yuding' wx:if="{{shopType == 1&&distance>=shopInfo.range&&shareInitiator&&otherSharer.length==0}}">
+        <text>您的位置太远了，商家送不到</text>
+    </view>
+    <!-- 超出自取范围 -->
+    <view class='bottom yuding' wx:if="{{shopType == 3&&distance>=shopInfo.selfDistance&&shareInitiator&&otherSharer.length==0}}">
+        <text>您的位置距离商家太远了</text>
+    </view>
+</view>
+
+<include src="/page/common/toast.wxml" />

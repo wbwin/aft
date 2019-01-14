@@ -1,0 +1,11 @@
+<view class='download'>
+	<view class='downloadworld'>扫一扫，下载APP，体验更流畅</view>
+
+	<!-- <view class='downButton'>
+		<button bindtap='download' disabled='{{down}}' class="backColor">
+			<text wx:if='{{progress==0}}'>立即下载</text>
+			<text wx:if='{{progress>0&&progress<100}}'>已下载 {{progress}}%</text>
+			<text wx:if='{{progress==100}}'>下载完成</text>
+		</button>
+	</view> -->
+</view>

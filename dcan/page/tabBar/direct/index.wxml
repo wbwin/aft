@@ -1,0 +1,358 @@
+<view>
+  <!-- <scroll-view scroll-x="true" class="tab-h" scroll-into-view="{{toView}}"> -->
+  <view class="tab-h">
+    <!-- <block wx:for="{{cat}}"  wx:key='this'>
+         <view id='id{{index}}' class="tab-item {{currentTab==index?'active':''}}"  data-current="{{index}}" bindtap="swichNav">{{item.name}}</view>
+        </block> -->
+    <block wx:for="{{cat}}" wx:key='this'>
+      <view id='id{{index}}' class="tab-item {{currentTab==index?'active':''}}" data-current="{{index}}" bindtap="swichNav">{{item.name}}</view>
+    </block>
+  </view>
+  <view class='line'></view>
+  
+  <view>
+    <view class='direct' wx:if="{{article!=''}}">
+
+      <block wx:for="{{article}}" wx:for-index="index" wx:key='this'> 
+            
+        <view class='block1' bindtap='seeDetail' data-id="{{item.id}}" wx:if="{{item.cover_type==3}}">
+          <view class='title_top'>
+            <view class='title_top_l'>
+              <image src='https://image.aftdc.com/{{item.shopImg}}'></image>
+            </view>
+            <view class='title_top_c'>{{item.shopName}}</view>
+            <view class='title_top_r'>{{item.city}} {{item.distance}}</view>
+          </view>
+          <view class='title'>
+            <text>{{item.title}}</text>
+          </view>
+          <view class='img'>
+            <block wx:for="{{item.cover_img}}" wx:for-item="i" wx:key=''>
+              <image src='https://image.aftdc.com/{{i}}'></image>
+            </block>
+          </view>
+          <view class='tip'>
+            <view class='tip_left'>
+              <view class='tip_left_l'>
+              <!-- <view class='time' wx:if="{{currentTab!=1}}" style="color:{{item.attention==0?'':'#53beb7'}}">{{item.attention==0?'':'已关注 · '}}</view> -->
+                <!-- <view class='name'>{{item.shopName}}</view> -->
+                <!-- <view class='time'>{{item.distance}}</view>
+                            <view class='time'>{{item.city}}</view> -->
+                <view class='ly'>{{item.read_num}}阅读</view>
+                <view class='ly'>{{item.comment_num}}{{item.commentOrleaveWord==1?'评论':'留言'}}</view>
+                <view class='ly'>{{item.praise_num}}点赞</view>
+                <view class='time'>{{item.timestamp}}</view>
+               
+               
+                <!-- <view style='padding:0 16rpx;' data-index="{{index}}" catchtap='noInterest'>   
+                  <view class='x'>✕</view>
+                </view> -->
+              </view>
+              
+
+            </view>
+            <view class='tip_right'>
+              <view class='xblock' data-index="{{index}}" catchtap='noInterest'>   
+                <view class='x'>✕</view>
+              </view>
+              <!-- <text>{{item.city}} {{item.distance}}</text> -->
+            </view>
+          </view>
+          
+        </view>
+
+        <view class='block2' bindtap='seeDetail' data-id="{{item.id}}" wx:if="{{item.cover_type==2}}">
+          <view class='title_top'>
+            <view class='title_top_l'>
+              <image src='https://image.aftdc.com/{{item.shopImg}}'></image>
+            </view>
+            <view class='title_top_c'>{{item.shopName}}</view>
+            <view class='title_top_r'>{{item.city}} {{item.distance}}</view>
+          </view>
+          <view class='title'>
+            <text>{{item.title}}</text>
+          </view>
+          <view>
+            <image mode='aspectFill' class='bigImg' src='https://image.aftdc.com/{{item.cover_img[0]}}'></image>
+          </view>
+          <view class='tip'>
+            <view class='tip_left'>
+              <view class='tip_left_l'>
+              <!-- <view class='time' wx:if="{{currentTab!=1}}" style="color:{{item.attention==0?'':'#53beb7'}}">{{item.attention==0?'':'已关注 · '}}</view> -->
+                <!-- <view class='name'>{{item.shopName}}</view> -->
+                <!-- <view class='time'>{{item.distance}}</view>
+                            <view class='time'>{{item.city}}</view> -->
+                <view class='ly'>{{item.read_num}}阅读</view>
+                <view class='ly'>{{item.comment_num}}{{item.commentOrleaveWord==1?'评论':'留言'}}</view>
+                <view class='ly'>{{item.praise_num}}点赞</view>
+                <view class='time'>{{item.timestamp}}</view>
+                
+              </view>
+              
+
+            </view>
+            <view class='tip_right'>
+              <view class='xblock' data-index="{{index}}" catchtap='noInterest'>   
+                <view class='x'>✕</view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class='block3' bindtap='seeDetail' data-id="{{item.id}}" wx:if="{{item.cover_type==1}}">
+          <view class='title_top'>
+            <view class='title_top_l'>
+              <image src='https://image.aftdc.com/{{item.shopImg}}'></image>
+            </view>
+            <view class='title_top_c'>{{item.shopName}}</view>
+            <view class='title_top_r'>{{item.city}} {{item.distance}}</view>
+          </view>
+          <view class='title_img'>
+            <view class='title_img_left'>
+              <text>{{item.title}}</text>
+            </view>
+            
+            <view class='title_img_right'>
+              <image src='https://image.aftdc.com/{{item.cover_img[0]}}'></image>
+            </view>
+          </view>
+          <view class='tip'>
+            <view class='tip_left'>
+              <view class='tip_left_l'>
+                <!-- <view class='time' wx:if="{{currentTab!=1}}" style="color:{{item.attention==0?'':'#53beb7'}}">{{item.attention==0?'':'已关注 · '}}</view> -->
+                <!-- <view class='name'>{{item.shopName}}</view> -->
+                <!-- <view class='time'>{{item.distance}}</view>
+                            <view class='time'>{{item.city}}</view> -->
+                <view class='ly'>{{item.read_num}}阅读</view>
+                <view class='ly'>{{item.comment_num}}{{item.commentOrleaveWord==1?'评论':'留言'}}</view>
+                <view class='ly'>{{item.praise_num}}点赞</view>
+                <view class='time'>{{item.timestamp}}</view>
+                
+              </view>
+              
+
+            </view>
+            <view class='tip_right'>
+              <view class='xblock' data-index="{{index}}" catchtap='noInterest'>   
+                <view class='x'>✕</view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class='block4' bindtap='seeDetail' data-id="{{item.id}}" wx:if="{{item.cover_type==4}}">
+          <view class='title_top'>
+            <view class='title_top_l'>
+              <image src='https://image.aftdc.com/{{item.shopImg}}'></image>
+            </view>
+            <view class='title_top_c'>{{item.shopName}}</view>
+            <view class='title_top_r'>{{item.city}} {{item.distance}}</view>
+          </view>
+          <view class='title'>
+            <text>{{item.title}}</text>
+          </view>
+          <view class='tip'>
+            <view class='tip_left'>
+              <view class='tip_left_l'>
+                <!-- <view class='time' wx:if="{{currentTab!=1}}" style="color:{{item.attention==0?'':'#53beb7'}}">{{item.attention==0?'':'已关注 · '}}</view> -->
+                <!-- <view class='name'>{{item.shopName}}</view> -->
+                <!-- <view class='time'>{{item.distance}}</view>
+                            <view class='time'>{{item.city}}</view> -->
+                <view class='ly'>{{item.read_num}}阅读</view>
+                <view class='ly'>{{item.comment_num}}{{item.commentOrleaveWord==1?'评论':'留言'}}</view>
+                <view class='ly'>{{item.praise_num}}点赞</view>
+                <view class='time'>{{item.timestamp}}</view>
+              
+              </view>
+              
+
+            </view>
+            <view class='tip_right'>
+              <view class='xblock' data-index="{{index}}" catchtap='noInterest'>   
+                <view class='x'>✕</view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class='block5' bindtap='seeDetail' data-id="{{item.id}}" wx:if="{{item.cover_type==5}}">
+          <view class='title_top'>
+            <view class='title_top_l'>
+              <image src='https://image.aftdc.com/{{item.shopImg}}'></image>
+            </view>
+            <view class='title_top_c'>{{item.shopName}}</view>
+            <view class='title_top_r'>{{item.city}} {{item.distance}}</view>
+          </view>
+          <view class='title'>
+            <text>{{item.title}}</text>
+          </view>
+          <view class='video'>
+            <image mode='aspectFill' class='bigImg' src='https://image.aftdc.com/{{item.cover_img[0]}}'></image>
+            <view class='menceng'>
+                <image class='bofan' src='https://image.aftdc.com/images/bofan.png'></image>
+            </view>
+            <!-- <text class='titleText'>{{item.title}}
+            <text style='font-size:24rpx'>{{item.read_num}}播放</text></text> -->
+          </view>
+          <view class='tip'>
+            <view class='tip_left'>
+              <view class='tip_left_l'>
+                <!-- <view class='time' wx:if="{{currentTab!=1}}" style="color:{{item.attention==0?'':'#53beb7'}}">{{item.attention==0?'':'已关注 · '}}</view> -->
+                <!-- <view class='name'>{{item.shopName}}</view> -->
+                <!-- <view class='time'>{{item.distance}}</view>
+                            <view class='time'>{{item.city}}</view> -->
+                <view class='ly'>{{item.read_num}}播放</view>
+                <view class='ly'>{{item.comment_num}}{{item.commentOrleaveWord==1?'评论':'留言'}}</view>
+                <view class='ly'>{{item.praise_num}}点赞</view>
+                <view class='time'>{{item.timestamp}}</view>
+           
+              </view>
+
+            </view>
+            <view class='tip_right'>
+              <view class='xblock' data-index="{{index}}" catchtap='noInterest'>   
+                <view class='x'>✕</view>
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <!-- 小视频推荐 -->
+        <!-- <view class='videoRecommend' wx:if="{{index==4 && currentTab==0 && videoRecommendData}}">
+          <view class='videoRecommendHead'>
+            <text class='vrhLeft'>小视频推荐</text>
+            <view class='vrhRight'bindtap="moreVideo">
+              <text>更多</text>
+              <image src='https://image.aftdc.com/appBimg/icon_arrow_black.png'></image>
+            </view>
+          </view>
+          <scroll-view scroll-x class='videoRecommendContent'>
+            <view class='videoFill'></view>
+            <view class='smallVideo' wx:for="{{videoRecommendData}}" bindtap='seeDetail' data-id="{{item.id}}">
+              <image class='videoImg' src='https://image.aftdc.com/{{item.cover_img[0]}}'></image>
+              <view class='videoInfo'>
+                <view class='playAndFabulous'>
+                  <view class='aiCenter'>
+                    <image class='videoPlayIcon' src='https://image.aftdc.com/appBimg/ic_video_play.png'></image>
+                    <text>{{item.read_num}}</text>
+                  </view>
+                  <view class='aiCenter'>
+                    <text>{{item.praise_num}}点赞赞</text>
+                  </view>
+                </view> 
+                <view class='videoTitle'>{{item.title}}</view>
+              </view> 
+            </view>
+            <view class='videoFill'></view>
+          </scroll-view>
+        </view> -->
+
+<!-- this is test  -->
+
+      </block>
+    </view>
+    <view class='noArticle' wx:if="{{articleRes==0}}">
+      <text>暂无相关文章</text>
+    </view>
+  </view>
+  
+  <view class='more' wx:if='{{more}}'>
+    <image src="https://image.aftdc.com/images/flash.gif"></image>
+  </view>
+  <view class="with-line" wx:if="{{!onreachBottom}}">没有更多文章</view>
+</view>
+
+<view class='back' wx:if="{{noInterest}}" bindtap='closeBox'>
+  <view class='noInterestBoxB' wx:if="{{noInterest}}" catchtap='null'>
+    <swiper class="" current="{{uninterestedTab}}" duration="200" style="height:100%">
+      <swiper-item catchtouchmove='catchTouchMove'>
+        <view class="ulItem aiCenter row {{uninterestedText.length-1===index?'noBorder':''}}" wx:for="{{uninterestedText}}" wx:for-index="index" data-index='{{index}}' wx:if="{{index!=2}}" bindtap='uninterestedClick'>
+           <view class="row aiCenter">
+            <view class="circleIcon" wx:if="{{index!==2}}">
+              <view class="forkOne {{index===4?'tr0':''}}" wx:if="{{index===0||!article[0].attention&&index===4}}"></view>
+              <view class="forkTwo {{index===4?'tr90':''}}" wx:if="{{index===0||index===3||index===4}}"></view>
+              <view class="exclamatoryMarkOne" wx:if="{{index===1}}"></view>
+              <view class="exclamatoryMarkTwo" wx:if="{{index===1}}"></view>
+            </view>
+            <image class="ulPullBlack" src="https://image.aftdc.com/appBimg/ic_pullBlack_gray.png" wx:else></image>
+            <view class='ulText'>
+              <text class="ulLineHeight fontSize32" wx:if="{{index<2||index===3}}">{{item.title}}</text>
+              <text class="ulLineHeight fontSize32" wx:if="{{index===2}}">拉黑作者</text>
+              <text class="ulLineHeight fontSize32" wx:if="{{index===4}}">{{chooseHobby[0].name}}</text>
+              <text class="ulLineHeight gray fontSize24" wx:if="{{index<2}}">{{item.subTitle}}</text>
+              <view wx:if="{{index===3}}">
+                <text class="ulLineHeight gray fontSize24" wx:for="{{shield}}">{{item}} </text>
+              </view>
+            </view>
+          </view> 
+          <image class="ulArrowIcon" src="https://image.aftdc.com/appBimg/ic_expanded_up.jpg" wx:if="{{index%2!==0}}"></image>
+        </view>
+      </swiper-item>
+      <swiper-item catchtouchmove='catchTouchMove' >
+        <view class="nrHead row aiCenter">
+          <view class="nrHeadLeft flex1 row aiCenter" bindtap='uninterestedReturn'>
+            <image class="ulArrowIcon tr270" src="https://image.aftdc.com/appBimg/ic_expanded_up.jpg"></image>
+            <text class='fontSize32'>返回</text>
+          </view>
+          <text class="flex1 nrHeadTitle fontSize32">反馈</text>
+          <view class="flex1"></view>
+        </view>
+        <view class="nrContent">
+          <view class="nrContentItem aiCenter {{urText.length-1===index?'noBorder':''}}" wx:for="{{urText}}" wx:for-index="index" data-index='{{index}}' bindtap='feedback' >
+            <text class='fontSize32'>{{item}}</text>
+          </view>
+        </view>
+      </swiper-item>
+      <swiper-item catchtouchmove='catchTouchMove'>
+        <view class="nrHead row aiCenter">
+          <view class="nrHeadLeft flex1 row aiCenter"  bindtap='uninterestedReturn'>
+            <image class="ulArrowIcon tr270" src="https://image.aftdc.com/appBimg/ic_expanded_up.jpg"></image>
+            <text class='fontSize32'>返回</text>
+          </view>
+          <text class="flex1 nrHeadTitle fontSize32">屏蔽</text>
+          <view class="flex1"></view>
+        </view>
+        <view class="nrContent">
+          <view class="nrContentItem aiCenter" wx:for="{{shield}}" wx:for-index="index" data-index="{{index}}" bindtap="shieldType">
+            <text class="fontSize32">屏蔽：{{item}}</text>
+          </view>
+          </view>
+      </swiper-item>
+    </swiper>
+  </view>
+</view>
+<!-- <view class='noInterestBox' wx:if="{{noInterest}}">
+  <view class='hobby' catchtap='null'>
+    <view class='reason'>
+      <view class='reasonTop'>
+        <view class='reasonTopL'> 可选理由，精准推荐和屏蔽</view>
+        <view class='reasonTopR' wx:if="{{!chooseH}}" bindtap='notInterestfun'>不感兴趣</view>
+        <view class='reasonTopR' wx:if="{{chooseH}}" bindtap='sureReason'>确定</view>
+      </view>
+      <view class='reasonBottom'>
+
+        <view>
+          <block wx:for='{{chooseHobby}}' wx:for-item='i'>
+            <view class="chooseHobby {{i.sel?'cHobby':''}}" data-index="{{index}}" data-id="{{item.cuisineId}}" bindtap='chooseHobby'>  -->
+              <!-- <text wx:if="{{i.id==10&&item.attentionType==1}}">取消关注</text> -->
+              <!-- <text>{{i.name}}</text>
+            </view>
+          </block>
+        </view>
+      </view>
+    </view>
+  </view>
+</view> -->
+
+
+
+
+
+
+<!-- <view class='cancel' wx:if="{{noInterest}}" catchtap="closeBox">
+    <image src='https://image.aftdc.com/images/cancel.png'></image>
+</view> -->
+
+
+<include src="/page/common/toast.wxml" />
+<include src="/page/common/loadAnimation.wxml" />

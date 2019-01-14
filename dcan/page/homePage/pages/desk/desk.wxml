@@ -1,0 +1,165 @@
+<view class="modalBox">
+  <view class='noPhone' wx:if="{{noPhone}}">
+    <view class='tishi'>提示</view>
+    <button open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber">设置手机号</button>
+  </view>
+
+  <view class="child">
+    <view class="modalChoice" bindtap="pickshow">
+      <text>用餐人数</text>
+      <text>{{pickNumb}} <text class="more">›</text></text>
+    </view>
+    <picker mode="date" value="{{reserveTime}}" start="{{orderStartDate}}" end="{{orderEndDate}}"  bindchange="bindDateChange">
+      <view class="modalChoice">
+        <text>预订日期</text>
+        <text>{{reserveTime}} <text class="more">›</text></text>
+      </view>
+    </picker>
+    <!-- <picker mode="time" value="{{time}}"  start="{{orderStartTime}}" end="{{orderEndTime}}" bindchange="bindTimeChange">
+      <view class="modalChoice">
+        <text>用餐时间</text>
+        <text>{{time}} <text class="more">›</text></text>
+      </view>
+    </picker> -->
+      
+    <picker bindchange="bindPickerChange" value="{{selectionTime}}" range="{{allTime}}">
+      <view class="modalChoice">
+        <text>用餐时间</text>
+        <text>{{time}} <text class="more">›</text></text>
+      </view>
+    </picker>
+
+
+
+    <view class="modalChoice2">
+      <text class="modalWidth">备餐时间</text>
+      <radio-group bindchange="mealTimeChoose">
+        <radio value="1" /> 到店前
+        <radio value="2" checked/> 到店后</radio-group>
+    </view>
+    <view class="modalChoice">
+      <text>需要包间</text>
+      <view>
+        <switch bindchange="switch1Change" />
+      </view>
+    </view>
+    <view class="modalChoice" style="justify-content:flex-start;" wx:if="{{isBj}}">
+      <checkbox-group bindchange="radioChanges">
+        <checkbox value="{{baojian}}" checked/>
+        如订不到包厢，可接受大厅
+      </checkbox-group>
+    </view>
+  </view>
+
+  <view class="child">
+    <view class="modalChoice2">
+      <text class="modalWidth">姓名</text>
+      <input type="text" bindblur="names" value='{{name}}' maxlength="30"  class="modalInputs" placeholder="请填写用餐人姓名" placeholder-style="color:#ccc;" />
+    </view>
+    <view class="modalChoice2">
+      <text class="modalWidth">电话</text>
+      <input type="number"  bindinput='phoneInput' class="modalInputs" maxlength='11' placeholder="请填写用餐人电话" placeholder-style="color:#ccc;" />
+    </view>
+    <view class="modalChoice2">
+      <text class="modalWidth">性别</text>
+      <radio-group bindchange="sexChoose">
+        <radio value="1" /> 女 士
+        <label style='margin-left:46rpx'>
+          <radio value="2" checked/> 先 生 </label>
+      </radio-group>
+    </view>
+    <!-- <view class="modalChoice2">
+      <text>电话　</text>
+      <input type="number" bindblur="phones"   class="modalInputs" placeholder="请填写电话" placeholder-style="color:#ccc;" />
+    </view> -->
+  </view>
+
+  <!-- <view class="child">
+
+    <view class="modalChoice2" style="background:#fff;">
+      <text class='modalWidth'>备注　</text>
+      <input bindblur="remarks"  type="text" class="modalInputs" placeholder="填写你的附加要求，我们会尽量安排" placeholder-style="color:#ccc;" />
+    </view> -->
+  <!-- <view class="modalChoice2">
+      <text>需付定金：</text>
+      <text>{{money}}</text>
+    </view> -->
+  <!-- <view class="modalChoice" wx:if="{{isYus!=1}}">
+    <text>是否要预定菜单</text> -->
+
+  <!-- <radio-group class="radio-group" bindchange="radioChange">
+      <label class="radio" >
+        <radio value="1"/>是
+        <radio value="0" checked="checked"/>否
+      </label>
+    </radio-group> -->
+
+  <!-- </view> -->
+  <!-- <view class="modalChoice" bindtap="seeDesk">
+      <text>查看环境</text>
+      <view> <text class="more">›</text></view>
+    </view>
+  </view> -->
+
+  <view class="modalBut">
+    <form class="modalForm" report-submit="true" bindsubmit="Reserves">
+      <button class="ok" form-type="submit">提交</button>
+      <!-- <navigator url="deskOrder/deskOrder" hover-class='none'>
+		<button class="yuding">我的预订</button>
+	</navigator>  -->
+    </form>
+    <!-- <button class="cancel" bindtap="ReserveClose">取消</button> -->
+  </view>
+
+  <!-- <navigator url="deskOrder/deskOrder" class="deskOrder">
+   <image src="https://image.aftdc.com/images/deskOrder.png"></image>
+   <text>订单</text>
+ </navigator>  -->
+
+  <view class="pickerbox" hidden="{{pick}}">
+    <view class="pickTop">请选择用餐人数</view>
+    <scroll-view class="scroll" scroll-y style="height: 400rpx;">
+      <block wx:for="{{30}}">
+        <view class="picks" bindtap="picks" data-numb="{{index+1}}">{{index+1}}</view>
+      </block>
+    </scroll-view>
+  </view>
+</view>
+
+<view hidden="{{showTime}}" class='modals'>
+  <view class="ctime">
+    <text class="close"></text>
+    <text class="ctimes">选择用餐时间</text>
+    <text class="close" bindtap="quxiao">✖</text>
+  </view>
+  <view class="modals-content">
+    <view class="modalsLeft">
+      <scroll-view scroll-y style="height:400rpx;background: #E8E8E8">
+        <view class="data {{datacolor==0?'datacolor':''}}" bindtap='today'>今天 {{dataThree.today}}</view>
+        <view class="data {{datacolor==1?'datacolor':''}}" bindtap="toTime" data-id='1'>明天 {{dataThree.today1}}</view>
+        <view class="data {{datacolor==2?'datacolor':''}}" bindtap='toTime' data-id='2'>后天 {{dataThree.today2}}</view>
+      </scroll-view>
+    </view>
+    <view class="modalsRight">
+      <scroll-view scroll-y style="height:400rpx">
+
+        <block wx:for="{{timearr}}">
+          <view class="data-h" bindtap="comTime" data-time="{{item}}" data-number="{{index}}">
+            <text>{{item}}</text>
+            <text style="color:#daa520" wx:if="{{gett==index}}">✔</text>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
+</view>
+<!--放大图片  -->
+<view class="enlargeBox" wx:if="{{enlargeBox}}" bindtap="enlargeClose">
+  <swiper class="enlargeSwiper" indicator-dots="true" autoplay="true" circular="true" current="{{enlargeNumb}}">
+    <block wx:for="{{enlargeSrc}}">
+      <swiper-item>
+        <image mode="widthFix" src="https://image.aftdc.com/{{item.img}}" data-src="{{item.ImgUrl}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>

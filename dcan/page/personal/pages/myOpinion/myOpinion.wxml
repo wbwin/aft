@@ -1,0 +1,27 @@
+<view class="listBox" wx:for="{{feedbackList}}" wx:if="{{feedback}}">
+  <view class="list-item">
+
+    <view class="itemlr">
+      <text class="name">时间:</text>
+      <text>{{item.createTime}}</text>
+    </view>
+    <view class="itemlr">
+      <text class="name">问题:</text>
+      <text>{{clasData[item.feedtype]}}</text>
+    </view>
+      <view class="items">
+      <text class="name">内容:</text>
+      <text>{{item.question}}</text>
+    </view>
+      <view class="items">
+      <text class="name">回复:</text>
+      <text wx:if="{{!item.reply}}">暂无回复</text>
+    </view>
+  </view>
+</view>
+
+  <!--暂无内容  -->
+  <view class="notContent" wx:if="{{!feedback}}">
+   <image src="https://image.aftdc.com/images/noorders.jpg"></image>
+   <text>暂无反馈</text>
+  </view>

@@ -1,0 +1,488 @@
+page
+{
+ background-color: #F7F7F7;
+}
+.page-top
+{
+  width: 100%;
+  height: 200rpx;
+  display: flex;
+  align-items: center;
+  margin-left: 30rpx;
+}
+.page-top image
+{
+  width:80rpx;
+height:80rpx;
+border-radius:50%;
+
+}
+
+.page-tip
+{
+  background-color: #51d862;
+  width: 75%;
+  height: 130rpx;
+  margin-left: 35rpx;
+  border-radius: 10rpx
+}
+.page-tip text
+{
+ color: #fff;
+ font-size: 35rpx;
+ margin-left:20rpx; 
+ margin-top: 20rpx;
+ display: block
+}
+.top
+{
+  width: 100%;
+  height: 320rpx;
+  background-color: #fff;
+  text-align: center;
+  font-size: 31rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center
+}
+.top image
+{
+  width:110rpx;
+height:110rpx;
+border-radius:50%;
+}
+.top text
+{
+  display: block;
+  
+}
+.top-text
+{
+  font-size: 25rpx;
+  color: #808080
+}
+.top button
+{
+  background-color: #1998f9;
+  width: 90%;
+  color:#fff;
+  margin-top: 20rpx;
+}
+.body
+{
+  background-color: #fff;
+  margin-top: 20rpx
+}
+.body-top
+{
+ 
+  display: flex;
+  flex-flow: row;
+  font-size:30rpx;
+   align-items: center;
+}
+.body-top image
+{
+width:85rpx;
+height:85rpx;
+border-radius:50%;
+margin: 10rpx 0 0 30rpx
+}
+.body-top-view
+{
+  width:130rpx
+}
+.body-top-ss
+{
+  display: flex;
+  flex-flow: row;
+  border-bottom:1rpx solid #dedede ;
+  height: 60rpx;
+  align-items: center;
+  width:100%;
+  margin-left:20rpx 
+}
+.body-me
+{
+margin-left:11px;
+border:1rpx solid sandybrown;
+color:sandybrown;
+text-align: center;
+font-size: 25rpx;
+height: 30rpx;
+line-height: 30rpx
+}
+.body-me-goods
+{
+border:1rpx solid sandybrown;
+color:sandybrown;
+font-size: 26rpx;
+margin-left:110rpx;
+width: 120rpx;
+text-align: center;
+height: 40rpx;
+line-height: 40rpx
+}
+.body-userName
+{
+  width: 200rpx;
+   white-space:nowrap;
+   overflow:hidden; 
+   text-overflow:ellipsis;
+   font-size: 28rpx;
+}
+.body-me-goodss
+{
+  border:1rpx solid #808080;
+color:#808080;
+font-size: 26rpx;
+margin-left:20rpx;
+width: 110rpx;
+text-align: center;
+height: 40rpx;
+line-height: 40rpx
+}
+.body-bottom
+{
+  color: #808080;
+  font-size: 28rpx;
+  padding-left: 120rpx 
+}
+.shopp{
+width:100%;
+height:90rpx;
+position:fixed;
+bottom:0;
+display:flex;
+flex-direction:row;
+justify-content:space-between;
+align-items:center;
+z-index:99;
+}
+.shopp-dsm
+{
+  width: 80%;
+  background-color: #8F8F8F;
+  height: 90rpx;
+  font-size: 25rpx;
+  line-height: 90rpx;
+  padding-left: 20rpx;
+  color: #fff
+}
+.shopp-dsmF
+{
+  width: 80%;
+  background-color: #8F8F8F;
+  height: 90rpx;
+  font-size: 40rpx;
+  color: #fff;
+  padding-left: 20rpx;
+}
+.shopp-dsmF-text
+{
+  font-size: 20rpx;
+  text-decoration: line-through;
+}
+.shopp-dsmF-view
+{
+  font-size: 25rpx
+}
+.shopp-dfm
+{
+  width: 20%;
+  background-color: #8F8F8F;
+  height: 90rpx;
+  font-size: 27rpx;
+  line-height: 90rpx;
+  color: #fff
+}
+.body-bottom1
+{
+  color: #000000;
+  display: flex;
+  flex-flow: row
+}
+.body-text
+{
+  width: 300rpx;
+  white-space:nowrap;
+   overflow:hidden; 
+   text-overflow:ellipsis;
+}
+.body-text2
+{
+  margin-left: 10rpx
+}
+.body-text3
+{
+  margin-left: 100rpx;
+  color: red
+}
+.bottom
+{
+  margin-top: 25rpx;
+  background-color: #fff;
+  width: 100%;
+  height: 200rpx;
+}
+.bottom-voe
+{
+  /*padding: 25rpx 0 0 25rpx;*/
+  font-size: 28rpx;
+  height: 100rpx;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+}
+.bottom-text1
+{
+  width: 250rpx;
+  margin-left: 20rpx;
+}
+.bottom-text
+{
+  border-bottom: 1rpx solid #dedede;
+  width: 80%;
+  height: 80rpx;
+  margin-left: 40rpx;
+  line-height: 80rpx;
+  padding-left: 400rpx;
+}
+.noshare
+{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: #808080
+ 
+}
+.noshare image
+{
+   margin-top: 50%;
+   width: 230rpx;
+   height: 200rpx;
+	 margin-bottom: 5%;
+}
+
+
+/*新版  */
+page{
+  background-color: #E0E0E0;
+}
+.goShareTop{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-color: #53beb7;
+  color: #fff;
+  align-items: center;
+}
+.shopIcon{
+  width: 160rpx;
+  height: 160rpx;
+  margin:40rpx 0 30rpx;
+  border-radius: 50%;
+}
+.shopName{
+  font-size: 36rpx;
+  font-weight: 700;
+}
+.shopPeople{
+  color: #E8E8E8;
+  font-size: 28rpx;
+  margin-top: 20rpx;
+  width: 96%;
+  overflow: hidden;
+  display: flex;
+  flex-flow: nowrap row;
+  justify-content: center;
+}
+.shopBut{
+  margin: 30rpx 0;
+  background-color: #fff;
+  width: 70%;
+  line-height: 88rpx;
+  color: #999;
+  font-size: 32rpx;
+}
+/*点餐人  */
+.goShare{
+  margin-bottom: 50rpx;
+}
+.people-box,.content{
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+}
+.content{
+  padding-left: 12rpx;
+}
+.people{
+border-bottom: 1rpx solid #eee;
+padding: 30rpx 20rpx;
+display: flex;
+flex-direction: column;
+}
+.people .title{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between
+}
+.people .title .name{
+ font-size: 34rpx;
+ flex: auto;
+overflow: hidden;
+display: flex;
+flex-flow: nowrap row;
+}
+.name-txt{
+ overflow: hidden;
+ text-overflow: ellipsis;
+ white-space: nowrap;
+}
+ .name-image{
+ width: 34rpx;
+ height: 34rpx;
+ margin-left: 5rpx;
+ flex: none;
+}
+.people-numb{
+
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  width: 50rpx;
+  height: 50rpx;
+  font-size: 34rpx;
+  margin-right: 12rpx;
+  flex: none;
+} 
+.cost{
+  background-color: #FF7F24;
+  font-weight: 700;
+}
+
+
+.people .title .but{
+ flex: none;
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ font-size: 26rpx;
+}
+.but-revise,.but-close{
+ border-radius: 4rpx;
+ padding:6rpx 16rpx; 
+ margin-left: 16rpx;
+text-align: center;
+}
+.but-revise{
+  color: #53beb7;
+   border: solid 1rpx #53beb7;
+}
+.but-close{
+   color: #a0a0a0;
+   border: solid 1rpx #a0a0a0;
+}
+
+.foods-box{
+margin-left: 70rpx;
+margin-top: 26rpx;
+color: #a0a0a0;
+display: flex;
+flex-direction: column;
+font-size: 28rpx;
+flex: auto;
+}
+.foods{
+  display: flex;
+flex-direction: row;
+margin-bottom: 16rpx;
+}
+.foodName{
+  width: 70%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.foodNumb{
+  width: 10%;
+}
+.foodPrice{
+  width:20%;
+  text-align: right;
+  font-size: 30rpx;
+  color: #909090;
+}
+
+
+.sum{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  color: #a0a0a0;
+  font-size: 30rpx;
+  padding: 30rpx 20rpx;
+  align-items: baseline
+}
+.totalPrice{
+ font-size: 34rpx;
+ color: #666;
+ margin-left: 20rpx;
+}
+
+
+.body-me-goodss
+{
+  border:1rpx solid #808080;
+color:#808080;
+font-size: 26rpx;
+margin-left:20rpx;
+width: 110rpx;
+text-align: center;
+height: 40rpx;
+line-height: 40rpx
+}
+.nowraptxt{
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 60%;
+}
+
+/*点餐人颜色  */
+
+ .people-box .people:nth-child(1n+0) .people-numb {
+    background-color: #FF4040;
+}
+ .people-box .people:nth-child(2n+0) .people-numb  {
+    background-color: #ff6000;
+}
+
+.people-box .people:nth-child(3n+0) .people-numb {
+    background-color: #ffb038;
+}
+
+ .people-box .people:nth-child(4n+0) .people-numb  {
+    background-color: #72d53b;
+}
+
+.people-box .people:nth-child(5n+0) .people-numb  {
+    background-color: #6dd3dc;
+}
+
+.people-box .people:nth-child(6n+0) .people-numb  {
+    background-color: #3199e8;
+}
+
+.people-box .people:nth-child(7n+0) .people-numb  {
+    background-color: #bc97ff;
+}
+

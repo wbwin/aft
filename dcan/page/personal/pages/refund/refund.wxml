@@ -1,0 +1,76 @@
+<view class="refund">
+    <view class="name">
+        <text class="name-left">商品名称</text>
+        <text class="name1-right">{{order.goodsName}}</text>
+    </view>
+    <view class="name">
+        <text class="name-left">订单金额</text>
+        <text class="name2-right">￥{{order.realTotalMoney}}</text>
+    </view>
+    <view class="name">
+        <text class="name-left">订单编号</text>
+        <text class="name3-right">{{order.orderNo}}</text>
+    </view>
+    <view class="name">
+        <text class="name-left">交易时间</text>
+        <text class="name4-right">{{order.createTime}}</text>
+    </view>
+
+    <view class="name" bindtap="box1" data-status="1">
+        <view class="name2-left">
+            <text class="name-left">退款方式</text>
+            <text class="name-left2">{{mode_display}}</text>
+        </view>
+        <view class="name56-right">></view>
+    </view>
+    <view class="name" bindtap="box2" data-rea="1">
+        <view class="name2-left">
+            <text class="name-left">退款原因</text>
+            <text class="name-left2">{{reason_display}}</text>
+        </view>
+        <view class="name56-right">></view>
+    </view>
+
+    <!-- <view class="name3">
+    <text class="name-left">退货数量</text>
+    <text class="name-left2">1</text>
+  </view> -->
+    <view class="name3">
+        <text class="name-left">退还积分</text>
+        <text class="name-left2">{{order.useScore}}</text>
+    </view>
+    
+    <view class='explainBox'>
+      <textarea class="explain" name="search" placeholder="请输入退款说明最多200字" placeholder-class="sword" bindinput="refund_sm" wx-if="{{!show_box1&&!show_box2}}" value="{{refundRemark}}"/>
+    </view>
+    
+
+    <button class="but" bindtap="but">提交</button>
+
+    <!--弹出的内容-->
+    <view class="back1" bindtap="box1" data-status="0" wx:if="{{show_box1}}"></view>
+    <view class="back1" bindtap="box2" data-rea="0" wx:if="{{show_box2}}"></view>
+    <!--退款方式-->
+    <view class="box1" wx:if="{{show_box1}}">
+        <block wx:for="{{mode}}" wx:for-item="item">
+            <view class="box1-word" bindtap="mode" data-circle="{{index}}">
+                <view class="circle">
+                    <view class="circle-2" wx:if="{{item.circle}}"></view>
+                </view>
+                <text>{{item.name}}</text>
+            </view>
+        </block>
+    </view>
+    <!--退款原因-->
+    <view class="box2" wx:if="{{show_box2}}">
+        <block wx:for="{{reason}}" wx:for-item="item">
+            <view class="box1-word" bindtap="reason" data-circle="{{index}}">
+                <view class="circle">
+                    <view class="circle-2" wx:if="{{item.circle}}"></view>
+                </view>
+                <text>{{item.name}}</text>
+            </view>
+        </block>
+
+    </view>
+</view>

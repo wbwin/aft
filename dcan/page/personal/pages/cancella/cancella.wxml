@@ -1,0 +1,51 @@
+<view class='Confter'> 
+
+   <view  class='conderone'>注销账户</view>
+   <view class='Users'> <span class='Guding'>用户：</span> 周宝航</view>
+   
+   <view class='Mimar'> <span class='Guding'>密码：</span> <input type='password' placeholder='请输入密码'/></view>
+   
+   <view class='Phoin'> <span class='Guding'>预留手机：</span> <input class='shouji' type='text' placeholder='请输入手机号'/> </view>
+
+   
+   
+   <view class='YuanyEr'> 
+       <span class='Guding'>注销原因：</span> 
+       <span class='Denking'> 
+            
+            <view class='Sinderi' bindtap='togleFn'>{{reasonSure}}</view>
+
+            <view class='LieBiao' wx:if="{{togle}}"> 
+                <view class='Lei' wx:for="{{reason}}" bindtap='choice' data-txt='{{item}}'>{{item}}</view>
+            </view>
+
+
+       </span> 
+   </view>
+
+
+
+      <view class='Anjian' > 
+        <span class='biEn'>确认</span> 
+        <span class='biCo'>取消</span>
+      </view> 
+
+
+
+
+</view>
+
+
+<view style='display:none'>
+   <view class='Phoin'> 
+        <span class='Guding'>手机：</span> 
+        <input class='shouji' type='text' placeholder='请输入手机号'/>
+        <span class='hqyzm'>获取验证码</span>
+        <span class='yzmtime'>60秒</span>
+   </view>
+   <view class='Pcode'> <span class='Guding'>验证码：</span> <input type='text' placeholder='请输入验证码'/></view>
+   <view class='Yuany'> 
+       <span class='Guding'>注销原因：</span> 
+       <span class='wenbenk'> <textarea class='txtder'></textarea> </span> 
+   </view>
+</view>

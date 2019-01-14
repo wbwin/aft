@@ -1,0 +1,42 @@
+<view class="opinion">
+    <navigator url="../myOpinion/myOpinion" class="myOpinion whitle">
+        <text>我的反馈</text>
+        <text>></text>
+    </navigator>
+
+    <view class="clasIfy whitle">
+        <text>请选择反馈类型：</text>
+        <view class="clasIfy-choiceBox">
+            <text wx:for="{{clasData}}" class="{{clasIndex==index?'active':''}}" data-index="{{index}}" bindtap="clasChoice">{{item}}</text>
+        </view>
+    </view>
+
+    <view class="write whitle">
+        <textarea bindblur="bindTextAreaBlur" placeholder="请详细描述问题" />
+        <view class="uploadImg">
+            <image src="https://image.aftdc.com/images/upload.png" bindtap="uploadImg"></image>
+            <view class="relative" wx:for="{{imgData}}">
+                <image src="{{item}}"></image>
+                <view class="closeImg" bindtap="closeImg" data-index="{{index}}">×</view>
+            </view>
+        </view>
+    </view>
+
+    <view class="whitle contact">
+        <label>
+            联系方式:
+            <input type="number" placeholder="请留下您的手机号码，方便与您联系" bindblur="phoneBlur" maxlength='11' />
+        </label>
+    </view>
+
+    <view class="date">
+        反馈提交后，我们会在3个工作日内回复您
+    </view>
+    <view class="butBox">
+        <button bindtap="submitBut">提交</button>
+    </view>
+</view>
+
+<view class='contactDiv' bindtap='contactClick'>
+    <image class='contactIcon' src='https://image.aftdc.com/appBimg/ic_phone_blue.png'></image>
+</view>

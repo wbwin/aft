@@ -1,0 +1,68 @@
+page{
+  background-color: #f8f8f8;
+}
+
+/*还没营业  */
+.not{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  padding-top: 50rpx;
+  padding-bottom: 50rpx;
+}
+.not image{
+  width: 160rpx;
+  height: 150rpx;
+  margin-bottom: 50rpx;
+}
+.not .tips{
+ font-size: 36rpx;
+}
+.not .time{
+ color: #999;
+ font-size: 28rpx;
+ margin-top: 16rpx;
+}
+
+/*预定成功信息  */
+.success{
+  margin: 30rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border-radius: 5rpx;
+  font-size: 28rpx;
+  color: #999;
+  padding-bottom: 20rpx;
+
+}
+.success .shopName{
+font-size: 32rpx;
+padding: 30rpx 0;
+border-bottom: solid 1rpx #eee;
+width: 80%;
+text-align: center;
+color: #333;
+margin-bottom: 40rpx;
+}
+.success>text{
+  margin-bottom: 30rpx;
+}
+
+
+.seeBox{
+    background-color: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 92%;
+    padding: 20rpx 4%;
+}
+.seeBut{
+ background-color:#ff9900;
+ color: #fff;
+ font-size: 34rpx;
+}
+

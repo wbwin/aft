@@ -1,0 +1,58 @@
+<form bindsubmit="formSubmit" report-submit='true'>
+    <view class="scheme">
+        <view class="choices {{choice==1?'active':''}}">
+            <text class="titles">商家线上营业额收费</text>
+            <view class="serve-item" wx:for="{{serveData}}">
+                <image src="https://image.aftdc.com/images/packageA/sure.png"></image>
+                {{item}}
+            </view>
+
+            <view class="choiceBut" bindtap="choiceFn" data-index="1">{{choice==1?'✔':'请点击确认'}}</view>
+            <view class="datailBut" bindtap="datailFn" data-index="0">收费明细</view>
+        </view>
+
+        <!-- <view class="choices {{choice==2?'active':''}}">
+            <text class="titles">阿凡提配送</text>
+            <view class="serve-item" wx:for="{{serveData}}">
+                <image src="https://image.aftdc.com/images/packageA/sure.png"></image>
+                {{item}}
+            </view>
+
+            <view class="choiceBut" bindtap="choiceFn" data-index="2">{{choice==2?'✔':'选择'}}</view>
+            <view class="datailBut" bindtap="datailFn" data-index="1">收费明细</view>
+        </view> -->
+
+        <button class="nextBut" form-type='submit'>提交</button>
+        <!-- <view class="nextBut" bindtap="submitBut">提交</view> -->
+    </view>
+</form>
+
+
+
+<!--弹框  -->
+<view class="modealBox" wx:if="{{togle}}">
+    <view class="modeal">
+        <view class="modeal-top"> {{modealTxt.name}}收费计划
+            <text class="close-modeal" bindtap="closeModeal">×</text> </view>
+        <view class="modeal-content">
+            <text>{{modealTxt.per}}</text>
+            <text class="shili">示例</text>
+            <view class="shili-word">
+                <text wx:for="{{modealTxt.shili}}">{{item}}</text>
+            </view>
+        </view>
+    </view>
+</view>
+
+<!-- 确认提交提示框 -->
+<view class='tipBigDiv' wx:if="{{tipShow}}">
+    <view class='tipDiv'>
+        <text class='tipTitle'>提示</text>
+        <text class='tipDetails'>资料审核通过后不可更改</text>
+        <view class='tipBthDiv'>
+            <text class='tipTextOne'></text>
+            <text class='tipTextTwo' bindtap="tipCancelClick">取消</text>
+            <text class='tipTextThree' bindtap="tipConfirmClick">确认</text>
+        </view>
+    </view>
+</view>

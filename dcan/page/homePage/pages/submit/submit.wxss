@@ -1,0 +1,1247 @@
+page {
+    background: #eaeaea;
+}
+
+.submit {
+    font-size: 28rpx;
+    padding: 0 18rpx 200rpx 18rpx;
+}
+
+.modals {
+    background: #fff;
+    width: 100%;
+    height: 40%;
+    left: 0;
+    bottom: 0;
+    position: fixed;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    border-top: 1rpx solid #dedede;
+}
+.selectTime{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+    background-color: rgba(0, 0, 0,0.7)
+}
+
+.modals-content {
+    display: flex;
+    flex-direction: row;
+    height: 480rpx;
+    background-color: #f8f8f8;
+    font-size: 26rpx;
+}
+
+.modalsLeft {
+    width: 40%;
+    flex: none;
+    text-align: center;
+}
+
+.modalsLeft .data {
+    padding: 10%;
+}
+
+.datacolor {
+    background: #fff;
+    border-top: solid 1rpx #dedede;
+    border-bottom: solid 1rpx #dedede;
+}
+
+.modalsRight {
+    flex: auto;
+    text-align: center;
+    background-color: #fff;
+}
+
+.instant {
+    color: #1e90ff;
+}
+
+.modalsRight .data-h {
+    padding: 5% 8%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modals-but {
+    height: 100rpx;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: solid #dedede 1rpx;
+}
+
+.reTime {
+    font-size: 26rpx;
+    color: #53beb7;
+    padding-left: 8rpx;
+}
+.reTime-It{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.line {
+    background: #eaeaea;
+    height: 12rpx;
+}
+
+/*地址*/
+
+.append {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3%;
+    /* border-bottom: solid 1rpx #F0F0F0; */
+    font-size: 35rpx;
+    position: relative;
+    background-color: #fff;
+}
+
+.addressShow {
+    flex: auto;
+    color: #666;
+    font-size: 28rpx;
+}
+
+.address .myname {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 12rpx;
+}
+
+.address .myname text {
+    flex: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.addressName {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+
+.append .checkaddr {
+    color: #53beb7;
+    font-weight: bold;
+}
+
+.addressLine {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+}
+
+.addressLine .colorLine {
+    width: 18rpx;
+    height: 6rpx;
+    margin-right: 8rpx;
+}
+
+/*内容*/
+
+.top {
+    display: flex;
+    flex-direction: column;
+    padding: 20rpx 0rpx 0rpx 20rpx;
+    font-weight: 600;
+}
+
+.top text {
+    margin-bottom: 20rpx;
+}
+
+.orderfood {
+    background-color: #fff;
+}
+
+.shopName {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 28rpx;
+    padding: 20rpx 12rpx;
+    color: #808080;
+}
+
+.shopName-L {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    overflow: hidden;
+    max-width: 80%;
+}
+
+.shopName-L image {
+    width: 48rpx;
+    height: 48rpx;
+    border: solid 1rpx #c0c0c0;
+    border-radius: 50%;
+    margin-right: 10rpx;
+    flex: none;
+}
+
+.shopName-L text {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.shopName .foodps {
+    font-size: 23rpx;
+    border: solid 1rpx #808080;
+    padding: 8rpx;
+}
+
+.order-details {
+    display: flex;
+    flex-direction: row;
+    padding: 12rpx 20rpx 12rpx 20rpx;
+    background: #f8f8f8;
+    margin-bottom: 10rpx;
+    align-items: center;
+}
+
+.order-details image {
+    width: 126rpx;
+    height: 126rpx;
+}
+
+.order-details .word {
+    display: flex;
+    flex-direction: column;
+    flex: 8;
+}
+
+.word-top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.word-topView{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.order-details .word .name {
+    max-width: 340rpx;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  
+}
+
+.order-details .word .number {
+    font-size: 28rpx;
+    margin: 16rpx 0rpx;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: #999;
+}
+
+.number-L {
+    display: flex;
+    flex-direction: column;
+}
+
+.number-R {
+    text-decoration: line-through;
+}
+
+.order-details .word .decide {
+    font-size: 26rpx;
+    color: #8a8a8a;
+}
+
+.closeFood {
+    margin-left: 16rpx;
+    flex: 1.5;
+    text-align: center;
+}
+
+.closeFood image {
+    width: 42rpx;
+    height: 42rpx;
+}
+
+.shopContinue {
+    display: flex;
+    flex-direction: column;
+    margin: 0 20rpx;
+}
+
+.shopContinue-back {
+    background: #53beb7;
+    padding: 12rpx;
+    border-radius: 5rpx;
+    color: #fff;
+    font-size: 30rpx;
+    text-align: center;
+    margin-left: 12rpx;
+}
+
+.alltop {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1rpx #eaeaea;
+    padding: 12rpx;
+}
+
+.all {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 20rpx;
+    justify-content: space-between;
+}
+
+.all-right {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.allnumber {
+    /* flex: 2; */
+    font-size: 28rpx;
+    /* color: #757575; */
+    padding: 12rpx;
+}
+
+.allprice {
+    /* flex: 1.5; */
+    font-size: 30rpx;
+    padding: 12rpx;
+    /* font-weight: 600; */
+}
+
+.submit-remark {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 30rpx 16rpx;
+    background-color: #fff;
+}
+
+.submit-remark text {
+    flex: none;
+}
+
+.remark {
+    font-size: 30rpx;
+    border: solid 2rpx #8a8a8a;
+    flex: auto;
+    margin: auto;
+    padding: 10rpx 8rpx;
+    border-radius: 10rpx;
+}
+
+/*折扣后*/
+
+.reduce {
+    display: flex;
+    flex-direction: column;
+    padding: 0rpx 16rpx;
+    margin-bottom: 30rpx;
+    background-color: #fff;
+}
+
+.reduce text {
+    line-height: 60rpx;
+    padding: 12rpx 0rpx;
+    font-size: 28rpx;
+}
+
+.morecoupon {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20rpx 0;
+}
+
+.actual {
+    margin-top: 20rpx;
+    margin-right: 16rpx;
+    align-self: flex-end;
+}
+
+.actual text {
+    font-size: 38rpx;
+    font-weight: 600;
+    color: #53beb7;
+}
+
+.btn {
+    font-weight: 600;
+    color: #fff;
+    background: #53beb7;
+    width: 90%;
+    margin: 40rpx auto;
+}
+
+/*可用优惠券*/
+
+.docoupon {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6)
+}
+
+.back {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: #000;
+    opacity: 0.4;
+}
+
+.couponscroll {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    background: #fff;
+    border-radius: 10rpx;
+}
+
+.couponName {
+    font-size: 32rpx;
+    font-weight: bold;
+    padding: 26rpx 0rpx;
+}
+
+.receive {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    background: #fff;
+    font-size: 30rpx;
+    border-radius: 12rpx;
+    margin-top: 20rpx;
+    width: 96%;
+}
+
+.receiveLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: auto;
+    padding: 15rpx 15rpx;
+    border-right: dashed 5rpx #dedede;
+    position: relative;
+}
+
+.receiveLeft .mj {
+    font-size: 35rpx;
+    /* font-weight: bold; */
+    margin-bottom: 5rpx;
+}
+
+.time {
+    /* padding: 3%; */
+    font-size: 28rpx;
+    background: #fff;
+    display: flex;
+    flex-direction: row;
+    margin-top: 25rpx;
+    justify-content: space-between;
+    text-align: center;
+    color: #333;
+}
+
+.pricetj {
+    font-size: 28rpx;
+}
+
+.yuan {
+    width: 20rpx;
+    height: 20rpx;
+    border-radius: 50%;
+    background: #f8f8f8;
+    position: absolute;
+    right: -10rpx;
+    top: -10rpx;
+}
+
+.yuan2 {
+    width: 20rpx;
+    height: 20rpx;
+    border-radius: 50%;
+    background: #f8f8f8;
+    position: absolute;
+    right: -10rpx;
+    bottom: -10rpx;
+}
+
+.receiveRight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: 200rpx;
+    color: #f08080;
+    position: relative;
+}
+.selectIcon{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width:55rpx;
+    height:55rpx;
+}
+
+.price {
+    font-size: 28rpx;
+    /* font-weight: bold; */
+}
+.limitText{
+    font-size: 24rpx;
+    color: #666;
+}
+
+.priceNub {
+    font-size: 70rpx;
+}
+
+.name {
+    font-size: 26rpx;
+}
+
+.scrool {
+    background: #f8f8f8;
+}
+
+.qxScroll {
+    width: 90%;
+    margin: 20rpx 0rpx;
+    font-size: 28rpx;
+    padding-top: 10rpx;
+    padding-bottom: 10rpx;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bill {
+    height: 50rpx;
+    padding: 2%;
+    background: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.bills {
+    color: gray;
+}
+
+.deskInfo {
+    background-color: #fff;
+    margin: 2% 0;
+}
+
+.desk {
+    padding: 3%;
+}
+
+/*发票*/
+
+.invoice {
+    padding: 4%;
+}
+
+.top {
+    height: 40rpx;
+    display: flex;
+}
+
+.top-L {
+    flex: 1;
+    text-align: left;
+}
+
+.top-R {
+    flex: 1;
+    text-align: right;
+    color: #53beb7;
+}
+
+.tips {
+    width: 100%;
+    height: 300rpx;
+    line-height: 300rpx;
+    text-align: center;
+}
+
+.myinvoice {
+    margin-top: 5%;
+    background-color: #fff;
+    box-shadow: 0 0 5px #999;
+    display: flex;
+    border-radius: 10rpx;
+    width: 100%;
+    height: 200rpx;
+}
+
+.names {
+    flex: 3;
+    line-height: 200rpx;
+}
+
+.names text {
+    padding: 50rpx 100rpx;
+}
+
+.edit text {
+    padding: 50rpx 40rpx;
+    border-left: 1rpx solid #dedede;
+}
+
+.edit {
+    flex: 1;
+    line-height: 200rpx;
+    color: red;
+}
+
+.setBtn {
+    background-color: #53beb7;
+    color: #fff;
+    margin-top: 25rpx;
+}
+
+.colseBtn {
+    margin-top: 25rpx;
+}
+
+/*打烊提示框*/
+
+.closeshop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 30rpx;
+}
+
+.tip {
+    border-radius: 20rpx;
+    background-color: #fff;
+    width: 80%;
+    height: 450rpx;
+    z-index: 65;
+    padding: 30rpx;
+    color: #666;
+    text-align: center;
+    line-height: 80rpx;
+}
+
+.tiptitle {
+    font-size: 32rpx;
+    color: #000;
+    font-weight: bold;
+}
+
+.goon {
+    border-top: 1rpx solid #dedede;
+    margin-top: 50rpx;
+    color: #53beb7;
+    font-size: 30rpx;
+}
+
+.back {
+    width: 100%;
+    height: 100%;
+    background: #000;
+    position: fixed;
+    opacity: 0.5;
+}
+
+/*发票备注弹出框  */
+
+.remarkBox {
+    font-size: 28rpx;
+    background-color: rgba(0, 0, 0,0.7);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 999;
+}
+
+.remarkBox-top {
+    width: 92%;
+    padding: 2% 4%;
+    background: #fff;
+}
+
+.remarkView {
+    width: 100%;
+    position: relative;
+}
+
+.remarkTxt {
+    border: solid 1rpx #dedeed;
+    background-color: #f8f8f8;
+    padding: 3%;
+    width: 93%;
+    height: 240rpx;
+}
+
+.remarkNumb {
+    position: absolute;
+    bottom: 10rpx;
+    right: 20rpx;
+    color: #989898;
+}
+
+.remarkLabel {
+    display: flex;
+    flex-flow: wrap row;
+    margin-top: 27rpx;
+    font-size: 27rpx;
+}
+
+.remarkLabel .items {
+    border: solid 1rpx #dedeed;
+    padding: 18rpx;
+    margin-bottom: 18rpx;
+    margin-right: 16rpx;
+    border-radius: 5rpx;
+}
+
+.tableware {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: #fff;
+    margin-top: 20rpx;
+    padding: 20rpx 20rpx;
+    font-size: 28rpx;
+}
+.tableware-bill{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    margin-top: 20rpx;
+    font-size: 28rpx;
+}
+.tableware-billChose{
+  display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 20rpx 20rpx;
+    align-items: center;
+}
+
+.tableware-color {
+    display: flex;
+    align-items: center;
+    color: #989898;
+}
+
+.black-color {
+    color: #333;
+}
+
+.pickerbox {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    width: 100%;
+    background: #fff;
+}
+
+.pickTop {
+    text-align: center;
+    padding: 26rpx 0;
+    color: #a0a0a0;
+}
+
+.pickerbox .scroll {
+    border-top: solid 2rpx #f0f0f0;
+}
+
+.picks {
+    text-align: center;
+    padding: 26rpx 0;
+    border-bottom: solid 2rpx #f0f0f0;
+}
+
+.picksYes {
+    color: #53beb7;
+}
+
+/* 底部支付 */
+
+.payment {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 90rpx;
+    background: #fff;
+    border-top: solid 1rpx #eaeaea;
+    display: flex;
+    flex-direction: row;
+}
+
+.paymentTxt {
+    display: flex;
+    flex: auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20rpx;
+    font-size: 26rpx;
+}
+
+.paymentNumb {
+    color: #53beb7;
+    font-size: 32rpx;
+    font-weight: 700;
+}
+
+.payBut {
+    color: #fff;
+    background: #53beb7;
+    height: 100%;
+    border-radius: 0;
+    flex: none;
+}
+
+.tipsIfor {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #fff1cf;
+    font-size: 26rpx;
+    text-align: center;
+    padding: 12rpx 20rpx;
+    letter-spacing: 2rpx;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.tipsIfor image {
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 12rpx;
+}
+
+/*虚线边界  */
+
+.dashed {
+    width: 94%;
+    background-color: #fff;
+    padding: 0 3%;
+    position: relative;
+}
+
+.dashedTop {
+}
+
+.dashedTop, .dashedBot {
+    border-left: solid 2rpx #eaeaea;
+    border-right: solid 2rpx #eaeaea;
+}
+
+.dashed::before, .dashed::after {
+    content: "";
+    width: 30rpx;
+    height: 30rpx;
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    margin-top: -15rpx;
+    background-color: #eaeaea;
+}
+
+.dashed::before {
+    left: -15rpx;
+}
+
+.dashed::after {
+    right: -15rpx;
+}
+
+/*优惠  */
+
+.discount {
+    background-color: #fff;
+    padding: 16rpx 26rpx;
+}
+
+.discountTxt {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20rpx 0;
+    padding-right: 25rpx;
+}
+.bargainTxt{
+  flex: 1;
+  display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+     align-items: center;
+}
+.conpute {
+    background: #fff;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    font-size: 30rpx;
+    padding-right: 45rpx;
+}
+.conputeTk{
+  padding-top: 20rpx;
+  padding-bottom: 20rpx;
+}
+.conpute-yh {
+    color: #989898;
+    margin-right: 16rpx;
+}
+
+.yu-pay {
+    background: #fff;
+    padding: 50rpx 20rpx 20rpx;
+}
+
+.invoiceRemark {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 30rpx 20rpx;
+    align-items: center;
+    background-color: #fff;
+    font-size: 28rpx;
+}
+
+.remarkBox-but {
+    margin-top: 50rpx;
+}
+
+.remarkBox-but button {
+    width: 90%;
+    margin: 35rpx auto;
+}
+
+.remarkBox-sure {
+    color: #fff;
+    background: #53beb7;
+}
+
+.store {
+    background-color: #fff;
+    margin: 0 18rpx;
+    height: 90rpx;
+    align-items: center;
+    display: flex;
+    flex-flow: row;
+}
+
+.store-view {
+    margin-left: 20rpx;
+    font-size: 35rpx;
+}
+
+.store-icon {
+    margin-left: auto;
+    margin-right: 10rpx;
+}
+
+.tostore {
+    margin-top: 10rpx;
+    background-color: #fff;
+    padding: 0 10rpx;
+    height: 90rpx;
+    align-items: center;
+    display: flex;
+    flex-flow: row;
+    font-size: 35rpx;
+}
+
+.tostore-view {
+    margin-left: 5rpx;
+}
+
+.tostore-icon {
+    margin-left: auto;
+}
+
+.tostore-body {
+    background-color: #fff;
+    padding: 0 18rpx;
+    display: flex;
+    flex-flow: column;
+    font-size: 38rpx;
+    flex-direction: column;
+}
+
+.tostore-body image {
+    width: 38rpx;
+    height: 38rpx;
+}
+
+.tostore-body-view {
+    display: flex;
+    align-items: center;
+    flex-flow: row;
+    font-size: 30rpx;
+    flex-wrap: wrap;
+    margin-top: 20rpx;
+    padding-bottom: 20rpx;
+    border-bottom: 1rpx solid #dedede;
+    line-height: 45rpx;
+}
+
+.tostore-body-view image {
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 20rpx;
+}
+
+.tostore-body-view>view {
+    flex: 6;
+}
+
+.tostore-body-shopName {
+    font-size: 30rpx;
+    color: #808080;
+}
+
+.userPhone {
+    display: flex;
+    align-items: center;
+}
+
+.userPhone button {
+    font-size: 30rpx;
+}
+
+.lt {
+    width: 32rpx;
+    height: 32rpx;
+}
+
+.peisongImg {
+    width: 48rpx;
+    height: 48rpx;
+    margin-right: 15rpx;
+}
+
+.more {
+    display: flex;
+    align-items: center;
+}
+
+/* 颜色条 */
+
+.colorLines {
+    width: 94%;
+    height: 3px;
+    background-color: #13a1d1;
+    padding: 0 3% 0 3%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.linesBlock {
+    width: 12.5%;
+    height: 100%;
+    background-color: white;
+    transform: skew(135deg);
+    display: flex;
+    justify-content: center;
+}
+
+.redBlock {
+    width: 40%;
+    height: 100%;
+    background-color: #bf294c;
+    /* transform: skew(135deg); */
+}
+
+/* 协议 */
+
+.read {
+    margin: 3% 0;
+}
+
+.read image {
+    vertical-align: middle;
+}
+
+.protocolRadio {
+    width: 34rpx;
+    height: 34rpx;
+    margin-right: 20rpx;
+}
+
+.read text {
+    text-align: center;
+    margin-left: 1%;
+    font-size: 28rpx;
+}
+
+.read text:nth-child(3) {
+    color: #53beb7;
+}
+
+.reTimeView {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.tableware-text {
+    text-align: right;
+    white-space: nowrap;
+    width: 448rpx;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.tableware-view {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.billMessage{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 24rpx;
+  color: #333
+}
+.billMessage text{
+  max-width: 500rpx;
+   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.package {
+    padding-left: 20rpx;
+    padding-bottom: 20rpx;
+    color: #53beb7;
+    font-size: 32rpx;
+}
+.bl-zhe {
+    color: #fff;
+    background: #f4a460;
+    padding: 0rpx 8rpx;
+    margin-left: 5rpx;
+    display: flex;
+    height: 60%;
+    line-height: 1.8;
+    font-size: 22rpx;
+}
+.bl-kan {
+    color: #fff;
+    background: yellowgreen;
+    padding: 0rpx 8rpx;
+    margin-left: 5rpx;
+    display: flex;
+    height: 60%;
+    line-height: 1.8;
+    font-size: 22rpx;
+}
+
+.bl-miao {
+    color: #fff;
+    background: green;
+    padding: 0rpx 8rpx;
+    margin-left: 5rpx;
+    display: flex;
+    height: 60%;
+    line-height: 1.8;
+    font-size: 22rpx;
+}
+
+.carEmpty {
+  display: flex;
+  flex-flow: wrap row;
+  justify-content: flex-start;
+  padding:10rpx 20rpx;
+  background-color: #fff;
+  font-size: 26rpx;
+  color: #8a8a8a;
+  margin-top: 20rpx;
+}
+
+
+.carEmpty-name{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.carEmpty-name image{
+  width: 45rpx;
+  height: 45rpx;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+.carEmpty-name text{
+  font-size: 24rpx;
+  max-width: 180rpx;
+   white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
