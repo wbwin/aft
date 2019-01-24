@@ -1,0 +1,279 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    padding: 40px;
+    background: #ebeef2;
+}
+
+
+[v-cloak] {
+    display: none;
+}
+.dec{
+    min-height: 500px;
+    /*background: #ebeef2;*/
+    /*padding: 30px 80px 550px 25px;*/
+}
+
+.ocfwjeh{
+    height: 45px;
+    line-height: 45px;
+    padding: 0 20px;
+    background: #fafafa;
+    color: #000;
+    font-size: 13px;
+}
+.cwseoi{
+    font-size: 10px;
+    color: #ccc;
+}
+
+
+.wj{
+    width: 90px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    display: inline-block;
+    color: #06c1ae;
+    text-decoration: none;
+    float: right;
+    border: 1px solid #06c1ae;
+    margin: 7px 0 0 0;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.eweScedi{
+    min-height:250px;
+    background: #fff;
+    padding:0 20px;
+}
+
+
+.vverxcbe{
+    width: 150px;
+    height: 200px;
+    display: inline-block;
+    border: 2px solid #eee;
+    margin: 20px 20px 0 20px;
+}
+
+.dj{
+    height: 25px;
+    line-height: 25px;
+    font-size: 13px;
+    color: #666;
+    text-align: center;
+    margin: 30px 0 0 0;
+    font-weight: 900;
+}
+
+
+.edjcve{
+    padding: 0 10px;
+    font-size: 13px;
+    color: #666;
+    min-height: 25px;
+    line-height: 20px;
+    margin: 20px 0 0 0;
+}
+.cedji{
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    font-size: 10px;
+    color: #bababa;
+    margin: 10px 0 0 0px;
+}
+
+.faajun{
+    width: 90%;
+    height:25px;
+    line-height: 25px;
+    text-align: center;
+    font-size: 10px;
+    color: #fff;
+    background: #06c1ae;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px auto 0 auto;
+}
+.faajun a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.cewi{
+    min-height: 300px;
+    background: #fff;
+    margin: 30px 0 0 0;
+
+}
+.cdjio{
+    height: 60px;
+    line-height: 60px;
+    font-size: 13px;
+    background: #fafafa;
+    display: flex;
+    border-bottom: 1px solid #999;
+    margin: 0 0 10px 0;
+}
+.ben{
+    width: 100px;
+    height:60px;
+    line-height: 60px;
+    text-align: center;
+    color: #666;
+    cursor: pointer;
+    /*background: red;*/
+}
+
+.zuotoip{
+    color: #06c1ae;
+    border-top:3px solid #06c1ae;
+    background: #fff;
+}
+
+.zuobb{
+    min-height: 100px;
+    background: #fff;
+    padding: 0 20px;
+}
+.cekvir{
+    height: 60px;
+    display:flex;
+    align-items: center;
+}
+.crjvr{
+    width: 100px;
+    height: 30px;
+    outline: none;
+    line-height: 30px;
+    text-indent: 1em;
+    font-size: 13px;
+    margin: 0 0 0 10px;
+    border: 1px solid #eee;
+}
+
+#cej{
+    margin-left: 20px;
+}
+.ecwkojHk{
+    width: 100px;
+    height: 75px;
+    position: absolute;
+    border: 1px solid #eee;
+    margin: 56px 0 0 58px;
+}
+.ener{
+    height: 25px;
+    line-height: 25px;
+    font-size: 13px;
+    color: #000;
+    cursor: pointer;
+    text-indent: 1em;
+}
+.ener:hover{
+    background: green;
+    color: #fff;
+}
+.ceoio{
+    min-height: 200px;
+    margin: 20px 0 0 0;
+    background: #fff;
+}
+.cekovAjklk{
+    height: 40px;
+    line-height: 40px;
+    background: #fafafa;
+    font-size: 13px;
+    padding: 0 20px;
+
+}
+
+.wejiuHkl{
+    min-height: 90px;
+    background: red;
+    margin: 20px 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.wejiuHkl div{
+    width: 90px;
+    height: 90px;
+    background: pink;
+}
+
+#wekd{
+    height: 40px;
+    background: green;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

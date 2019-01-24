@@ -1,0 +1,283 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+/*body{
+     background: #bababa;
+     padding-left: 200px;
+}*/
+.dec{
+    min-height: 1000px;
+    background: #ebeef2;
+    padding: 0 0px 0 0;
+}
+[v-cloak] {
+    display: none;
+}
+.quester_all{
+    min-height: 800px;
+    /*background: #ccc;*/
+    padding: 20px 20px;
+}
+
+.fanhia{
+    min-height: 40px;
+    line-height: 40px;
+    background: #fafafa;
+    font-size: 15px;
+    padding: 0 15px;
+}
+.thespan{
+    font-size: 12px;
+    margin: 0 0 0 10px;
+    color: #666;
+}
+.open_xwq{
+    min-height: 400px;
+    background: #fff;
+    padding: 15px 50px;
+}
+
+.topu_mon{
+    /*background: #eee;*/
+    padding: 10px 0px;
+    font-size: 15px;
+}
+
+.topu_mon sub{
+    color:red;
+}
+
+.title_span{
+    margin:0 20px 0 0;
+}
+
+.topu_wom{
+    /*background: #eee;*/
+    padding: 10px 0px;
+    font-size: 15px;
+}
+.topu_wom sub{
+    color:red;
+}
+
+
+.title_sped{
+    margin:0 0px 0 0;
+}
+.topu_wom input{
+    margin:0 5px 0 20px;
+}
+
+.topu_end{
+    /*background: #eee;*/
+    padding: 5px 0px;
+    font-size: 15px;
+    height:120px;
+}
+.xck_ksw {
+    float: left;
+}
+.xck_ksw sub{
+    color:red;
+}
+.alli_iiw{
+    width: 500px;
+    height: 100px;
+    /*background: red;*/
+    float: left;
+    margin: 0 0 0 20px;
+}
+#topjh{
+    width: 480px;
+    height: 90px;
+    border: 1px solid #d2d2d2;
+    border-radius: 5px;
+    margin: 0 0 0 0px;
+    outline: none;
+    padding: 5px 10px;
+    text-indent: 1em;
+    resize: none;
+}
+.xiansiimg{
+    min-width: 0px;
+    height: 45px;
+    /*background: red;*/
+    display: inline-block;
+    margin: 0 0 0 22px;
+}
+.dingwi{
+    position: absolute;
+    margin: -25px 0px 0px 440px;
+    font-size: 10px;
+    color: #dddddd;
+}
+
+#word{
+    width: 27px;
+    /*background: pink;*/
+    display: inline-block;
+    text-align: right;
+}
+.kao_xjd{
+    /*background: red;*/
+    padding: 10px 0px;
+    height: 45px;
+    line-height: 45px;
+    display: flex;
+}
+.casd_kj{
+    width: 40px;
+    height: 40px;
+    line-height: 35px;
+    text-align: center;
+    border: 2px solid #c9c9c9;
+    border-radius: 5px;
+    font-size: 40px;
+    color: #c9c9c9;
+    cursor: pointer;
+    margin: 0 0 0 20px;
+}
+.xocic_ksx{
+    width: 300px;
+    height: 45px;
+    line-height: 22px;
+    /*background: yellow;*/
+    display: inline-block;
+    margin: 0 0 0 25px;
+    font-size: 13px;
+    color: #a0a0a0;
+}
+
+
+
+
+.cdsacs{
+   /* background: #eee;*/
+    padding: 10px 0 30px 0px;
+    font-size: 15px;
+}
+.cdsacs sub{
+    color:red;
+}
+
+.cdsacs #rexsaa{
+    width: 300px;
+    height: 33px;
+    margin: 0 0 0 13px;
+    outline: none;
+    border: 1px solid #d2d2d2;
+    border-radius: 6px;
+    text-indent: 1em;
+}
+
+.tijiaoak{
+    width: 100px;
+    height: 40px;
+    line-height: 40px;
+    background: #06c1ae;
+    display: inline-block;
+    text-align: center;
+    font-size: 14px;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 0 0 85px;
+}
+.tijiaoak:hover{
+    background: #10af9f; 
+}
+
+.fan_cxshia{
+    min-height: 40px;
+    line-height: 40px;
+    background: #fafafa;
+    font-size: 15px;
+    padding: 0 15px;
+    margin:20px 0 0 0;
+}
+.ofrn_xwq{
+    min-height: 400px;
+    background: #fff;
+    padding: 15px 50px;
+}
+
+.ccjp_oisw{
+    width: 100%;
+    height: 220px;
+    /*background: red;*/
+    margin: 70px 0 0 0;
+}
+
+.cwekj_fgwe{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.das_dpa{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 17px;
+    text-align: center;
+}
+
+.xew_kiei{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 13px;
+    text-align: center;
+}
+
+
+.yikh_kuanhg{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    /*background: rgba(0, 0, 0, 0.5);*/
+    top: 0;
+    left: 200px;
+}
+.xewqlk_jh{
+    width: 400px;
+    height: 100%;
+    margin: auto;
+    /*background: red;*/
+    display: flex;
+    align-items: center;
+}
+
+.cjw_eio{
+    width: 400px;
+    height: 150px;
+    line-height: 150px;
+    background: rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: #fff;
+    border-radius: 8px;
+}
+.xscn{
+    width:20px;
+    height:20px;
+    line-height: 20px;
+    border:2px solid #06c1ae;
+    border-radius: 56px;
+    display:inline-block;
+    color:#06c1ae;
+    margin:0 10px;
+}
+
+
+
+
+
+
+
+
+
+
+

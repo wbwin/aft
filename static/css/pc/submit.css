@@ -1,0 +1,1135 @@
+
+.submitTop {
+    width: 100%;
+    color: #fff;
+    background: #1998F8;
+}
+
+.topNav-sign .more .jt {
+    background: #309ad1;
+}
+
+/*头部信息*/
+.submit-top-infor {
+    font-size: 14px;
+    padding: 8px 0;
+    border-bottom: 1px solid #027ecb;
+}
+
+.submit-top-inforL {
+    display: inline-block;
+    cursor: pointer;
+}
+
+.submit-top-inforR {
+    float: right;
+    vertical-align: top;
+}
+
+.submit-top-inforR .more {
+    display: inline-block;
+    position: relative;
+}
+
+.submit-top-inforR .more:hover .user-more {
+    display: block;
+}
+
+.submit-top-inforR .more .jt {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    line-height: 16px;
+    text-align: center;
+    font-weight: 700;
+    transform: rotate(90deg);
+    cursor: pointer;
+    background: #309ad1;
+    font-size: 24px;
+    border-radius: 3px;
+    opacity: 0.9;
+    vertical-align: middle;
+}
+
+.user-more {
+    position: absolute;
+    background: #fff;
+    width: 120px;
+    top: 30px;
+    right: -3px;
+    display: none;
+    z-index: 20;
+}
+
+.user-more .point {
+    width: 0;
+    height: 0;
+
+    border: solid 6px transparent;
+    border-bottom-color: #fff;
+    position: absolute;
+    top: -12px;
+    right: 12px;
+}
+
+.user-more a {
+    display: block;
+    line-height: 32px;
+    padding: 0 15px;
+    color: #666;
+    font-size: 13px;
+}
+
+.user-more a:hover {
+    background: #F0F0F0;
+}
+
+.user-more a img {
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+}
+
+.user-more a span {
+
+    vertical-align: middle;
+}
+
+/*头部流程*/
+.submit-top-flow {
+    padding: 20px 0;
+}
+
+.submit-top-flowL {
+    display: inline-block;
+}
+
+.submit-top-flowL .logo {
+    font-size: 33px;
+    font-weight: 700;
+}
+
+.submit-top-flowL .floword {
+    display: inline-block;
+    font-size: 25px;
+    font-weight: 700;
+    border-left: solid 1px #fff;
+    padding-left: 10px;
+    margin-left: 10px;
+}
+
+.submit-top-flowR {
+    float: right;
+    position: relative;
+    margin-top: 7px;
+}
+
+.submit-flowR-item {
+    position: relative;
+    z-index: 5;
+    display: inline-block;
+    text-align: center;
+    font-size: 12px;
+    counter-increment: number 1;
+    width: 100px;
+    color: #9cc9ee;
+
+}
+
+.submit-flowR-item.active {
+    color: #fef22f;
+
+}
+
+.submit-flowR-item:before {
+    content: counter(number);
+    margin: 0 40px 8px;
+    width: 22px;
+    line-height: 22px;
+    border-radius: 50%;
+    background-color: #a5d0f3;
+    color: #0089dc;
+    font-weight: 700;
+    display: inline-block;
+    text-align: center;
+    font-size: 12px;
+}
+
+.submit-flowR-item.active:before {
+    background-color: #fef22f;
+}
+
+.submit-flowR-item + .submit-flowR-item {
+    margin-left: 35px;
+}
+
+.submit-flowR-line {
+    position: absolute;
+    top: 10px;
+    left: 50px;
+    height: 3px;
+    width: 270px;
+    background-color: #9cc9ee;
+}
+
+.submit-flowR-line:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 3px;
+    background: #fef22f;
+
+    width: 200px;
+}
+
+.submit-line-item {
+    position: absolute;
+    top: 0;
+    left: -54px;
+    border-top: dashed 3px #fff;
+    width: 54px;
+}
+
+/*内容*/
+.content {
+    padding-top: 20px;
+    box-sizing: border-box;
+}
+
+.content-left {
+    float: left;
+    width: 34%;
+    border: 1px solid #e0e0e0;
+    border-bottom: 0;
+    line-height: 1;
+    background: url("/static/image/pc/half.png") repeat-x bottom;
+    background-color: #FFF;
+
+}
+
+.content-right {
+    padding: 25px 2% 150px;
+    float: right;
+    width: 64%;
+    border: 1px solid #e0e0e0;
+}
+
+.checkcart-title {
+    position: relative;
+    padding: 20px;
+    border-bottom: 1px solid #eee;
+}
+
+.checkcart-title h2 {
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+}
+
+.checkcart-title a {
+    position: absolute;
+    top: 18px;
+    right: 28px;
+    font-size: 12px;
+    color: #666;
+}
+
+.checkcart-title a:before {
+    content: "<";
+    font-size: 15px;
+    margin-right: 3px;
+}
+
+.checkcart-tablerow {
+    display: table;
+    table-layout: fixed;
+    background-color: #fff;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 18px 0 20px;
+    width: 100%;
+    font-size: 12px;
+    color: #999;
+    font-weight: 700;
+}
+
+.content-left .cell {
+    display: table-cell;
+    border-bottom: 1px solid #eee;
+    vertical-align: middle;
+}
+
+.checkcart-tablerow .cell {
+    border: none;
+}
+
+.item-name {
+    width: 45%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-right: 1.5%;
+}
+
+.item-numb {
+    width: 30%;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.item-numb-center {
+    text-align: center;
+    padding-left: 18%;
+}
+.item-numb-center:after {
+    content: "";
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+.item-price {
+    width: 22%;
+    text-align: left;
+    padding-right: 1.5%;
+}
+
+.foodsum {
+    display: table;
+    table-layout: fixed;
+    background-color: #fcfaf8;
+    height: 48px;
+    line-height: 48px;
+    padding: 0 18px 0 20px;
+    width: 100%;
+    font-size: 14px;
+    color: #666;
+
+}
+
+.itemtity {
+    　font-size: 0;
+}
+
+.itemtity button {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    background: #fff;
+    width: 24px;
+    height: 24px;
+    border: 1px solid #eee;
+    outline: 0;
+    -webkit-appearance: button;
+    float: left;
+
+}
+
+.itemtity input {
+    position: relative;
+    display: inline-block;
+    width: 26px;
+    height: 24px;
+    border: 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+    outline: 0;
+    float: left;
+}
+
+.extra .zk {
+    color: #f74342;
+    padding: 10px 0 5px 18px;
+}
+
+.newTip {
+    line-height: 30px;
+}
+
+.extra-item {
+    line-height: 1;
+    height: 1em;
+    padding-top: 18px;
+    background-color: #fff;
+    display: table;
+    table-layout: fixed;
+    height: 42px;
+    line-height: 42px;
+    padding: 0 18px 0 20px;
+    width: 100%;
+    font-size: 14px;
+    color: #666;
+}
+
+.extra-item-name {
+    display: table-cell;
+}
+
+.extra-item-price {
+    display: table-cell;
+    text-align: left;
+    padding-left: 101px;
+}
+
+.extra > p {
+    padding: 0 18px 0 20px;
+    color: #666;
+    line-height: 1.6;
+    font-size: 16px;
+    margin-top: 10px;
+    color: #1998f8;
+}
+
+.total-price {
+    color: #f74342;
+    padding: 52px 28px 10px;
+    font-size: 46px;
+    text-align: right;
+}
+
+.total-price:before {
+    content: "￥";
+    font-size: 24px;
+}
+
+.total-numb {
+    padding: 0 30px 22px;
+    font-size: 15px;
+    color: #666;
+    text-align: right;
+}
+
+/*右边*/
+.check-select {
+    margin-bottom: 30px;
+}
+
+.content-right h2 {
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.address-add {
+    float: right;
+    font-size: 14px;
+    font-weight: 400;
+    color: #1998F8;
+    cursor: pointer;
+}
+
+.address .address-item.active {
+    position: relative;
+    display: table;
+    z-index: 1;
+}
+
+.addressN {
+    position: relative;
+    display: table;
+    border: 1px solid #0089dc;
+    z-index: 1;
+    background: url("/static/image/pc/address-yes.png") right bottom no-repeat;
+    background-size: 30px 30px;
+}
+
+.address-item {
+    display: none;
+    position: relative;
+    margin-bottom: -1px;
+    padding: 15px 20px 15px 0;
+    width: 100%;
+    border: 1px solid #eee;
+    cursor: pointer;
+}
+
+.adrmore {
+    display: block;
+    max-height: 400px;
+    overflow-y: scroll;
+}
+
+.adrmore li {
+    display: table;
+}
+
+.address-item:hover .address-operate {
+    display: inline-block;
+}
+
+.addressBack {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: #fff;
+}
+
+.addressBack p {
+    vertical-align: middle;
+    text-align: center;
+    line-height: 5.2;
+}
+
+.address-item .icon {
+    display: table-cell;
+    margin-top: 3px;
+    float: left;
+    padding: 0 12px;
+    vertical-align: middle;
+    border-right: solid 1px #eee;
+    margin-right: 12px;
+}
+
+.address-item .icon img {
+    width: 36px;
+    height: 36px;
+}
+
+.address-content {
+    display: table-cell;
+    vertical-align: top;
+    font-size: 15px;
+    overflow: hidden;
+    overflow: hidden;
+    padding-right: 50px;
+    float: left;
+}
+
+.address-txt {
+    margin-top: 5px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+}
+
+.address-operate {
+    color: #1998F8;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 14px;
+    display: none;
+}
+
+.address-operate span:last-child {
+    font-size: 18px;
+    vertical-align: middle;
+}
+
+.seeAddress {
+    margin-top: 5px;
+    color: #999;
+    cursor: pointer;
+    list-style: none;
+}
+
+.seeAddress .more {
+    display: inline-block;
+
+    vertical-align: middle;
+    font-size: 16px;
+}
+
+.seeAddress .tran1 {
+    transform: rotate(90deg);
+
+}
+
+.seeAddress .tran2 {
+    transform: rotate(270deg);
+}
+
+.payment-item {
+    position: relative;
+    border-color: #0089dc;
+    z-index: 1;
+    background: url("/static/image/pc/address-yes.png") right bottom no-repeat;
+    background-size: 30px 30px;
+    margin-bottom: -1px;
+    padding: 15px 20px;
+    width: 100%;
+    border: 1px solid #eee;
+    cursor: pointer;
+    line-height: 20px;
+}
+
+.check-info {
+    margin-bottom: 20px;
+}
+
+.check-info .name {
+    display: inline-block;
+    margin-right: 20px;
+    width: 5em;
+    text-align: right;
+}
+
+.discount .txt {
+    color: #999;
+}
+
+.discount .tis {
+    color: #f74342;
+}
+
+.select-time {
+    line-height: 30px;
+    height: 30px;
+    font-size: 15px;
+}
+
+.select-time .option {
+    padding: 5px 0;
+}
+
+.invoice {
+    padding: 5px 10px;
+    width: 235px;
+    border: 1px solid #e0e0e0;
+    outline: 0;
+    color: #B0B0B0;
+    background-color: #eee;
+}
+
+.remark {
+    padding: 5px 10px;
+    width: 235px;
+    border: 1px solid #e0e0e0;
+    outline: 0;
+    color: #666;
+}
+
+.surePlace {
+    background-color: #f74342;
+    color: #fff;
+    padding: 12px 30px;
+    font-size: 16px;
+    display: inline-block;
+    line-height: 1;
+    border: none;
+    border-radius: 2px;
+    outline: 0;
+    cursor: pointer;
+    text-align: center;
+}
+
+.surePlace[disabled] {
+    background-color: #bbb;
+    border-color: #bbb;
+    color: #fff;
+    cursor: default;
+}
+
+/*修改地址*/
+
+.open_yincang {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0px;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 9;
+    display: none;
+}
+
+.open_yincang .news_ko {
+    width: 100%;
+    min-height: 550px;
+    /*background:red;*/
+    margin: 7% 0 0 0;
+}
+
+.open_yincang .news_ko .ture_model {
+    width: 780px;
+    padding: 0 10px;
+    min-height: 550px;
+    margin: auto;
+    background: #fff;
+}
+
+.and_onopen {
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    /*background:#ccc;*/
+}
+
+.and_onopen span {
+    font-size: 1.2rem;
+    font-weight: 800;
+    display: inline-block;
+}
+
+.and_onopen #tui_out {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    text-align: center;
+    font-size: 2rem;
+    float: right;
+    color: #999;
+    cursor: pointer;
+    /* background: red;*/
+}
+
+.ture_model .thisname {
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    padding: 15px 0;
+    /*background: red;*/
+    text-indent: 3em;
+    color: #666;
+    font-size: 1rem;
+}
+
+.ture_model .thisname input {
+    width: 300px;
+    height: 40px;
+    margin: 0 0 0 10px;
+    text-indent: 0.5em;
+}
+
+.ture_model .thissex {
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    padding: 15px 0 0;
+    /*background: red;*/
+    text-indent: 3em;
+    color: #666;
+    font-size: 1rem;
+}
+
+.ture_model .thissex input {
+    margin: 0 10px;
+}
+
+.ture_model .thisweizhi {
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    padding: 15px 0;
+    /*background: red;*/
+    color: #666;
+    text-indent: 3em;
+    font-size: 1rem;
+    position: relative;
+}
+
+.ture_model .thisweizhi-icon {
+    position: absolute;
+    top: 10px;
+    left: 16px;
+    width: 26px;
+    height: 26px;
+}
+
+.ture_model .thisweizhi input {
+    width: 300px;
+    height: 40px;
+    margin: 0 0 0 10px;
+    text-indent: 3em;
+    border: 1px solid #dedede;
+}
+
+.ture_model .thisdizhi {
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    padding: 15px 0;
+    /*background: red;*/
+    color: #666;
+    text-indent: 1em;
+    font-size: 1rem;
+}
+
+.ture_model .thisdizhi input {
+    width: 300px;
+    height: 40px;
+    margin: 0 0 0 10px;
+    text-indent: 0.5em;
+}
+
+.ture_model .thisnumber {
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    padding: 15px 0;
+    /* background: red;*/
+    color: #666;
+    text-indent: 1.75em;
+    font-size: 1rem;
+}
+
+.ture_model .thisnumber .biankuan {
+    width: 190px;
+    height: 40px;
+    margin: 0 0 0 10px;
+    text-indent: 2em;
+}
+
+.ture_model .thisnumber #gengduo {
+    width: 100px;
+    height: 40px;
+    font-size: 0.9rem;
+    margin: 0 0 0 5px;
+    border: 1px solid #0089dc;
+    color: #0089dc;
+    cursor: pointer;
+    padding: 11px 5px;
+    border-radius: 3px;
+}
+
+.ture_model .thisnumber #gengduo:hover {
+    background-color: #0089dc;
+    color: #fff;
+}
+
+.ture_model .thisguhua {
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    padding: 15px 0;
+    /* background: red;*/
+    color: #666;
+    text-indent: 1.75em;
+    font-size: 1rem;
+    display: none;
+}
+
+.ture_model .thisguhua input {
+    width: 190px;
+    height: 40px;
+    margin: 0 0 0 62px;
+    text-indent: 2em;
+}
+
+.ture_model .thisguhua #guhuadelete {
+    width: 100px;
+    height: 40px;
+    font-size: 0.9rem;
+    margin: 0 0 0 6px;
+    border: 1px solid red;
+    color: red;
+    cursor: pointer;
+    padding: 11px 34px;
+    border-radius: 3px;
+}
+
+.ture_model .thisguhua #guhuadelete:hover {
+    background-color: red;
+    color: #fff;
+}
+
+.ture_model .zuihou {
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    padding: 15px 0;
+    /*background:red;*/
+}
+
+.ture_model .zuihou .baocun {
+    float: left;
+    width: 150px;
+    display: inline-block;
+    text-align: center;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    margin-left: 89px;
+    cursor: pointer;
+    border-radius: 3px;
+    background: #1e89e0;
+    border: 0;
+}
+
+.ture_model .zuihou .quxiao {
+    float: left;
+    width: 50px;
+    display: inline-block;
+    text-align: center;
+    height: 45px;
+    line-height: 45px;
+    color: #999;
+    margin-left: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+    /* background: #1e89e0;*/
+}
+
+.dontyingy {
+    width: 300px;
+    height: 110px;
+    margin-left: -15px;
+    margin-top: -95px;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.deletedizhi {
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    /* margin: 0px 0 0 0; */
+    padding: 22px 0 0 0;
+    /*background: red;*/
+}
+
+.yanny {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    /*background: red;*/
+}
+
+.yanny .zhiqieding {
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    display: inline-block;
+    background: #1e89e0;
+    cursor: pointer;
+    margin-right: 10px;
+    border-radius: 3px;
+}
+
+.yanny .zhiquxiao {
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #000;
+    display: inline-block;
+    background: #fff;
+    cursor: pointer;
+    margin-left: 10px;
+    border-radius: 3px;
+}
+
+.err {
+    color: #ff464c;
+    font-size: 12px;
+    line-height: 20px;
+    bottom: 5px;
+    padding-left: 96px;
+    text-indent: 0;
+}
+
+.err:before {
+    content: "×";
+    background-color: #ff464c;
+    color: #fff;
+    text-align: center;
+    width: 15px;
+    height: 15px;
+    line-height: 13px;
+    border-radius: 50%;
+    vertical-align: middle;
+    display: block;
+    float: left;
+    margin-top: 3px;
+    margin-right: 4px;
+}
+
+.errBorder {
+    border: solid 1px #ff464c !important;
+}
+
+.errBorder:focus {
+    outline: 0;
+}
+
+.thisweizhi-box {
+    display: inline-block;
+    text-indent: 0;
+    position: relative;
+}
+
+.address-list {
+    position: absolute;
+    background: #fff;
+    left: 10px;
+    width: 300px;
+    top: 46px;
+    border: 1px solid #ddd;
+    height: 150px;
+    overflow: auto;
+    z-index: 100;
+    display: none;
+
+}
+
+.address-list li {
+    list-style: none;
+    line-height: 16px;
+    cursor: pointer;
+}
+
+.address-list li:hover {
+    background-color: #eee;
+}
+
+.address-list .name, .address-list .address {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.address-list .name {
+    padding: 4px 12px;
+    font-size: 14px;
+    color: #666;
+}
+
+.address-list .address {
+    font-size: 12px;
+    color: #999;
+    padding: 0 12px 5px;
+}
+
+.addressTis {
+    position: absolute;
+    left: 330px;
+    width: 290px;
+    top: 0;
+    padding: 5px;
+    line-height: 24px;
+    font-size: 14px;
+    border: 1px solid #dedede;
+    background: #f4f4f4;
+    display: none;
+}
+
+.addressTis p {
+    margin: 5px;
+    color: #999;
+}
+
+.addressTis p:first-child {
+    color: #333;
+}
+
+.addressTis .zx {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-left: 1px solid #dedede;
+    border-bottom: 1px solid #dedede;
+    background-color: #f4f4f4;
+    top: 10px;
+    left: -6px;
+    transform: rotate(45deg);
+}
+
+/*没有商品的时候*/
+.commodity {
+    width: 100%;
+    height: 160px;
+    text-align: center;
+    padding-top: 70px;
+    /*display: none;*/
+
+}
+
+.commodity-text {
+    position: relative;
+    display: inline-block;
+    width: 260px;
+    height: 50px;
+    line-height: 50px;
+    /*border: 1px solid #000;*/
+    top: -42px;
+    font-size: 13px;
+    color: #c6c6c6;
+}
+
+.home {
+    margin: 0 5px;
+    color: #1998f8;
+}
+
+/*删除地址提示框*/
+
+.deleteAdrBox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    background: #fff;
+    box-sizing: border-box;
+    height: 180px;
+    width: 20%;
+    margin-top: -90px;
+    margin-left: -10%;
+    padding: 30px;
+    border-radius: 2px;
+}
+
+.deleteX {
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    color: #ccc;
+    font-size: 26px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.deleteAdrIcon {
+    display: inline-block;
+    width: 42px;
+    height: 42px;
+    vertical-align: middle;
+}
+
+.deleteAdrTitle {
+    font-size: 18px;
+    font-weight: 700;
+    color: #666;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.deleteChoice {
+    margin-top: 25px;
+    margin-left: 50px;
+}
+
+.deleteChoice .sure {
+    background-color: #0089dc;
+    color: #fff;
+    padding: 10px 26px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.deleteChoice .sure:hover {
+    background-color: #0074b7;
+}
+
+.deleteChoice .cancel {
+    color: #999;
+    background: 0 0;
+    border: 0;
+    padding: 10px 20px;
+    cursor: pointer;
+}

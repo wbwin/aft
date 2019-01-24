@@ -1,0 +1,513 @@
+
+body{
+    background: #efeef4;
+}
+
+
+
+.dec{
+    min-height: 1000px;
+    background: #fff;
+    padding: 10px 30px 550px 25px;
+}
+[v-cloak] {
+    display: none;
+}
+.ckewfe{
+    height: 40px;
+    line-height: 40px;
+    background: #fafafa;
+    font-size: 13px;
+    color: #000;
+    font-weight: 900;
+    padding: 0 0 0 20px;
+}
+.xsakcj{
+    height: 60px;
+    line-height: 60px;
+    /*background: #bababa;*/
+    padding: 0 0 0 40px;
+    font-size: 13px;
+}
+sub{
+    color: red;
+}
+.sjcdk{
+    width: 300px;
+    height: 30px;
+    border: 1px solid #eee;
+    outline: none;
+    text-indent: 1em;
+    margin: 0 0 0 20px;
+}
+
+.sjcvfrdk{
+    width: 300px;
+    height: 30px;
+    border: 1px solid #eee;
+    outline: none;
+    text-indent: 1em;
+    margin: 0 0 0 20px;
+}
+
+.xsakcscj{
+    height: 60px;
+    line-height: 60px;
+  /*  background: #bababa;*/
+    padding: 0 0 0 48px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+}
+
+.zauo{
+    width: 50px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 10px;
+    text-align: center;
+    color: #fff;
+    background: #06c1ae;
+    outline: none;
+    margin-left: 20px;
+    border:1px solid #06c1ae;
+    cursor: pointer;
+}
+.youk{
+    width: 48px;
+    height: 23px;
+    line-height: 23px;
+    font-size: 10px;
+    text-align: center;
+    color: #06c1ae;
+    outline: none;
+    border:1px solid #06c1ae;
+    margin-left: 20px; 
+    cursor: pointer;
+}
+
+
+
+.xvcdcj{
+    height: 60px;
+    line-height: 60px;
+    /*background: #bababa;*/
+    padding: 0 0 0 48px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+}
+.scdcdk{
+    width: 150px;
+    height: 30px;
+    border: 1px solid #eee;
+    outline: none;
+    text-indent: 1em;
+    margin: 0 0 0 20px;
+}
+
+.swjn{
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 10px;
+    background: #eee;
+    border-radius: 50px;
+    color: #fff;
+    display: inline-block;
+    margin: 0 20px;
+    cursor: pointer;
+    text-align: center;
+}
+.swjndder{
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 10px;
+    background: #eee;
+    border-radius: 50px;
+    color: #fff;
+    display: inline-block;
+    margin: 0 25px 0 0;
+    cursor: pointer;
+    text-align: center;
+}
+
+.xwkdw{
+    margin-left: 10px;
+}
+
+.xsakdscj{
+    height: 60px;
+    line-height: 60px;
+    /*background: #bababa;*/
+    padding: 0 0 0 40px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+}
+.xsakdcscscj{
+    height: 60px;
+    line-height: 60px;
+    /*background: #bababa;*/
+    padding: 0 0 0 27px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+}
+.scddk{
+    width: 150px;
+    height: 30px;
+    border: 1px solid #eee;
+    outline: none;
+    text-indent: 1em;
+    margin: 0 0 0 20px;
+}
+.xong{
+    width: 30px;
+    height: 30px;
+    border:1px solid #eee;
+}
+.shang{
+    height: 14px;
+    line-height: 14px;
+    text-align: center;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+.xia{
+    height: 14px;
+    line-height: 14px;
+    text-align: center;
+    cursor: pointer;
+    border-top: 1px solid #eee;
+}
+
+
+.xvcxadcj{
+    height: 60px;
+    line-height: 60px;
+    /*background: #bababa;*/
+    padding: 0 0 0 60px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+}
+
+
+.ldewa{
+    margin-left: 20px;
+}
+
+
+.xvDj{
+    height: 60px;
+    line-height: 60px;
+    /*background: #bababa;*/
+    padding: 0 0 0 8px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+}
+
+
+.butt{
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    color: #fff;
+    background: #06c1ae;
+    font-size: 10px;
+    outline: none;
+    border: 0px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: 110px;
+    border-radius: 5px;
+}
+
+.A_own{
+    width: 120px;
+    height: 30px;
+    display: inline-table;
+    margin: 0 20px 0 0;
+
+}
+
+#Aown,#Aurh{
+    text-indent: 1em;
+    outline: none;
+    width: 120px;
+    height: 30px;
+    border:1px solid #bababa;
+}
+
+.cdeoFkj{
+    width: 150px;
+    height: 125px;
+    position: absolute;
+    background: #fff;
+    font-size: 13px;
+    border: 1px solid #666;
+    margin: 85px 0 0 65px;
+}
+
+.alltrFack{
+    height: 25px;
+    line-height: 25px;
+    background: #eee;
+    text-indent: 1em;
+    cursor: pointer;
+}
+.alltrFack:hover{
+    background: green;
+    color: #fff;
+}
+.ceoiIkom{
+    position: absolute;
+    margin: 23px 0 0 -22px;
+}
+
+.cweoiFk{
+    border: 1px solid #eee;
+    position: absolute;
+    width: 355px;
+    line-height: 15px;
+    margin: -3px 0 0 270px;
+    padding: 5px 5px;
+    background: #fff;
+    font-size: 10px;
+    color: #999;
+    text-align: center;
+    border-radius: 4px;
+}
+.cdeKuij{
+    position: absolute;
+    margin: 12px 0 0 -16px;
+    transform: rotate(90deg);
+}
+
+
+
+.oneiFk{
+    border: 1px solid #eee;
+    position: absolute;
+    width: 125px;
+    line-height: 15px;
+    margin: -81px 0 0 72px;
+    padding: 5px 5px;
+    background: #fff;
+    font-size: 10px;
+    color: #999;
+    text-align: center;
+    border-radius: 4px;
+}
+.oneuij{
+    position: absolute;
+    margin: 20px 0 0 38px;
+    /*transform: rotate(90deg);*/
+}
+
+
+
+
+.twoiFk{
+    border: 1px solid #eee;
+    position: absolute;
+    width: 125px;
+    line-height: 15px;
+    margin: -81px 0 0 170px;
+    padding: 5px 5px;
+    background: #fff;
+    font-size: 10px;
+    color: #999;
+    text-align: center;
+    border-radius: 4px;
+}
+.twouij{
+    position: absolute;
+    margin: 20px 0 0 38px;
+    /*transform: rotate(90deg);*/
+}
+
+
+
+
+.theeiFk{
+    border: 1px solid #eee;
+    position: absolute;
+    width: 125px;
+    line-height: 15px;
+    margin: -81px 0 0 270px;
+    padding: 5px 5px;
+    background: #fff;
+    font-size: 10px;
+    color: #999;
+    text-align: center;
+    border-radius: 4px;
+}
+.theeuij{
+    position: absolute;
+    margin: 20px 0 0 38px;
+    /*transform: rotate(90deg);*/
+}
+
+
+
+
+.fouriFk{
+    border: 1px solid #eee;
+    position: absolute;
+    width: 125px;
+    line-height: 15px;
+    margin: -81px 0 0 380px;
+    padding: 5px 5px;
+    background: #fff;
+    font-size: 10px;
+    color: #999;
+    text-align: center;
+    border-radius: 4px;
+}
+.fouruij{
+    position: absolute;
+    margin: 20px 0 0 38px;
+    /*transform: rotate(90deg);*/
+}
+
+
+.fiveFk{
+    border: 1px solid #eee;
+    position: absolute;
+    width: 125px;
+    line-height: 15px;
+    margin: -81px 0 0 477px;
+    padding: 5px 5px;
+    background: #fff;
+    font-size: 10px;
+    color: #999;
+    text-align: center;
+    border-radius: 4px;
+}
+.fiveuij{
+    position: absolute;
+    margin: 20px 0 0 38px;
+    /*transform: rotate(90deg);*/
+}
+
+
+
+
+.Fgrtdscj{
+    height: 60px;
+    line-height: 60px;
+    /*background: #bababa;*/
+    padding: 0 0 0 40px;
+    font-size: 13px;
+}
+
+
+
+
+
+.sicFk{
+    border: 1px solid #eee;
+    position: absolute;
+    width: 180px;
+    line-height: 15px;
+    margin: -81px 0 0 103px;
+    padding: 5px 5px;
+    background: #fff;
+    font-size: 10px;
+    color: #999;
+    text-align: center;
+    border-radius: 4px;
+}
+.sicuij{
+    position: absolute;
+    margin: 20px 0 0 38px;
+    /*transform: rotate(90deg);*/
+}
+
+
+
+
+
+
+.seveFk{
+    border: 1px solid #eee;
+    position: absolute;
+    width: 220px;
+    line-height: 15px;
+    margin: -81px 0 0 240px;
+    padding: 5px 5px;
+    background: #fff;
+    font-size: 10px;
+    color: #999;
+    text-align: center;
+    border-radius: 4px;
+}
+.seveuij{
+    position: absolute;
+    margin: 20px 0 0 38px;
+    /*transform: rotate(90deg);*/
+}
+
+
+.enghtFk{
+    border: 1px solid #eee;
+    position: absolute;
+    width: 220px;
+    line-height: 15px;
+    margin: -81px 0 0 403px;
+    padding: 5px 5px;
+    background: #fff;
+    font-size: 10px;
+    color: #999;
+    text-align: center;
+    border-radius: 4px;
+}
+.enghtuij{
+    position: absolute;
+    margin: 20px 0 0 38px;
+    /*transform: rotate(90deg);*/
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

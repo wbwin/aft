@@ -1,0 +1,8 @@
+table th{
+    color: #06c1ae;
+    height: 40px;
+    text-align: center;
+}
+.table>tbody>tr>td{
+    padding: 10px 25px;
+}

@@ -1,0 +1,463 @@
+@charset "utf-8";
+/* CSS Document */
+@import "style.css";
+
+.all_right .dizhi_guanli{
+    width: 100%;
+    height: 60px;
+    font-size: 1.1rem;
+    line-height: 60px;
+    border-bottom: 2px solid #eee;
+    font-weight: 900;
+    text-indent: 1em;
+   
+}
+
+.all_right .mei_zhi{
+    width: 100%;
+    min-height: 690px;
+    background: #ccc;
+    display: none;
+}
+.all_right .mei_zhi img{
+    margin: 100px 0 0 350px;
+}
+.all_right .mei_zhi span{
+    position: absolute;
+    margin: 135px 0 0 20px;
+    font-size: 1rem;
+    color: #999;
+}
+
+
+.all_right .you_dizhi{
+    width:100%;
+    min-height:690px;
+    background:#eee;
+    /*display: inline-block;*/
+}
+
+.all_right .you_dizhi .all_price{
+    float: left;
+    width: 270px;
+    height: 90px;
+    display: inline-block;
+    padding: 10px 15px;
+    background: #fff;
+    margin: 10px 20px 0 0;
+    border: 1px solid #ddd;
+}
+.all_right .you_dizhi .all_price .names{
+    font-size: 0.95rem;
+    padding: 0 0 15px 0px;
+}
+.all_right .you_dizhi .all_price span{
+    font-size: 0.5rem;
+    color: #999;
+    cursor: pointer;
+}
+.all_right .you_dizhi .n_right{
+    display: inline-block;
+    float: right;
+}
+.all_right .you_dizhi .all_price .xg{
+       margin: 0 0 0 120px;
+}
+.all_right .you_dizhi .all_price .delete{
+       margin: 0 0 0 10px;
+}
+.all_right .you_dizhi .all_price .never{
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /*color:#999;*/
+    /*background: red;*/
+}
+.all_right .you_dizhi .all_price .tele{
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    font-size: 0.9rem;
+    /*color:#999;*/
+    /*background: red;*/
+}
+
+
+.all_right .you_dizhi .add_price{
+    float: left;
+    width: 270px;
+    height: 90px;
+    text-align: center;
+    line-height: 90px;
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 10px 20px 0 0;
+    color: #999;
+    cursor: pointer;
+    border: 1px solid #ddd;
+}
+
+
+
+/************影藏框*************/
+.open_yincang{
+    position:fixed;
+    width:100%;
+    height:100%;
+    top: 0;
+    left:0px;
+    background:rgba(0, 0, 0, 0.7);
+    display:none;
+}
+.open_yincang .news_ko{
+    width:100%;
+    min-height:550px;
+    /*background:red;*/
+    margin:7% 0 0 0;
+}
+.open_yincang .news_ko .ture_model{
+    width:780px;
+    padding:0 10px; 
+    min-height:550px;
+    margin:auto;
+    background:#fff;
+}
+
+.and_onopen{
+     width:100%;
+     height:80px;
+     line-height: 80px;
+     /*background:#ccc;*/
+}
+.and_onopen span{
+     font-size: 1.2rem;
+     font-weight: 800;
+     display:inline-block;
+}
+.and_onopen .tianadd{
+     display:inline-block;
+}
+.and_onopen .bianji{
+     display:none;
+}
+
+
+
+
+.and_onopen #tui_out{
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    text-align: center;
+    font-size: 2rem;
+    float: right;
+    color: #999;
+    cursor: pointer;
+   /* background: red;*/
+}
+
+
+
+
+
+.ture_model .thisname{
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    padding: 15px 0;
+    /*background: red;*/
+    text-indent: 3em;
+    color: #666;
+    font-size: 1rem;
+}
+.ture_model .thisname input{
+    width:300px;
+    height:40px;
+    margin:0 0 0 10px;
+    text-indent: 0.5em;
+}
+
+
+
+
+.ture_model .thissex{
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    padding: 15px 0;
+    /*background: red;*/
+    text-indent: 3em;
+    color: #666;
+    font-size: 1rem;
+}
+.ture_model .thissex input{
+    margin:0 10px;
+}
+
+
+
+.ture_model .thisweizhi{
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    padding: 15px 0;
+    /*background: red;*/
+    color: #666;
+    text-indent: 3em;
+    font-size: 1rem;
+    position: relative;
+}
+
+.ture_model .thisweizhi input{
+    width:300px;
+    height:40px;
+    margin:0 0 0 10px;
+    text-indent: 2em;
+}
+
+
+.ture_model .thisdizhi{
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    padding: 15px 0;
+    /*background: red;*/
+    color: #666;
+    text-indent: 1em;
+    font-size: 1rem;
+}
+.ture_model .thisdizhi input{
+    width:300px;
+    height:40px;
+    margin:0 0 0 10px;
+    text-indent: 2em;
+}
+
+
+
+
+
+
+.ture_model .thisnumber{
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    padding: 15px 0;
+   /* background: red;*/
+    color: #666;
+    text-indent: 1.75em;
+    font-size: 1rem;
+}
+.ture_model .thisnumber .biankuan{
+    width:190px;
+    height:40px;
+    margin:0 0 0 10px;
+    text-indent: 2em;
+}
+.ture_model .thisnumber #gengduo{
+    width: 100px;
+    height: 40px;
+    font-size: 0.9rem;
+    margin: 0 0 0 5px;
+    border: 1px solid #0089dc;
+    color: #0089dc;
+    cursor: pointer;
+    padding: 11px 5px;
+    border-radius: 3px;
+}
+
+
+
+.ture_model .thisguhua{
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    padding: 15px 0;
+   /* background: red;*/
+    color: #666;
+    text-indent: 1.75em;
+    font-size: 1rem;
+    display:none;
+}
+.ture_model .thisguhua input{
+    width: 190px;
+    height: 40px;
+    margin: 0 0 0 62px;
+    text-indent: 2em;
+}
+.ture_model .thisguhua #guhuadelete{
+    width: 100px;
+    height: 40px;
+    font-size: 0.9rem;
+    margin: 0 0 0 6px;
+    border: 1px solid red;
+    color: red;
+    cursor: pointer;
+    padding: 11px 34px;
+    border-radius: 3px;
+}
+
+.ture_model .zuihou{
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    padding: 15px 0;
+    /*background:red;*/
+}
+.ture_model .zuihou .baocun{
+    float: left;
+    width: 150px;
+    display: inline-block;
+    text-align: center;
+    height: 45px;
+    line-height: 45px;
+    color: #fff;
+    margin-left: 89px;
+    cursor:pointer;
+    border-radius: 3px;
+    background: #1e89e0;
+}
+.ture_model .zuihou .quxiao{
+    float: left;
+    width: 50px;
+    display: inline-block;
+    text-align: center;
+    height: 45px;
+    line-height: 45px;
+    color: #999;
+    margin-left: 5px;
+    cursor:pointer;
+    border-radius: 3px;
+   /* background: #1e89e0;*/
+}
+
+.dontyingy{
+    width: 300px;
+    height: 110px;
+    margin-left: -15px;
+    margin-top: -95px;
+    background: rgba(0, 0, 0, 0.5);
+    display:none;
+}
+
+
+.deletedizhi{
+    display: inline-block;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    /* margin: 0px 0 0 0; */
+    /*padding: 22px 0 0 0;*/
+    /*background: red;*/
+}
+.yanny{
+    position: relative;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    /*background: red;*/
+}
+.yanny p{
+color: #fff;
+vertical-align: top;
+font-size: 14px;
+line-height: 26px;
+}
+.yanny .zhiqieding{
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    display: inline-block;
+    background: #1e89e0;
+    cursor: pointer;
+    margin-right: 10px;
+    border-radius: 3px;
+}
+
+.yanny .zhiquxiao{
+    width:60px;
+    height:30px;
+    line-height: 30px;
+    text-align: center;
+    color:#000;
+    display:inline-block;
+    background:#fff;
+    cursor:pointer;
+    margin-left: 10px;
+    border-radius: 3px;
+}
+
+.city-scrollbar {
+    z-index: 1;
+    position: absolute;
+    top: 63px;
+    left: 90px;
+    width: 303px;
+    background-color: #fff;
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, .085);
+    overflow-y: auto;
+    max-height: 155px;
+    min-height: 155px;
+    display: none;
+    border: 1px solid #ddd;
+}
+
+
+.city-scrollbar li:hover {
+    background-color: #f2f5f7;
+}
+
+.city-scrollbar li {
+    list-style: none;
+    line-height: 16px;
+    cursor: pointer;
+    height: 50px;
+}
+.addressLI{
+    list-style:none;
+}
+#address .suggent-name{
+    padding: 6px 0;
+    font-size: 14px;
+    color: #666;
+}
+#address .suggent-addr{
+    font-size: 12px;
+    color: #999;
+    padding: 0 0;
+}
+#address .suggent-name, #address .suggent-addr{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

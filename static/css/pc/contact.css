@@ -1,0 +1,165 @@
+@charset "utf-8";
+/* CSS Document */
+@import "style.css";
+@font-face {
+	font-family: 'aft';
+	src: url('../fonts/glyphicons-halflings-regular.eot');
+	src: url('../fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('../fonts/glyphicons-halflings-regular.woff') format('woff'), url('../fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+}
+h2,p{
+	margin-bottom: 10px;
+}
+.contact{
+	   background-color: #fff;
+    padding: 50px 55px;
+}
+a {
+	color: #0089dc;
+}
+.contact>ul>li{
+	 margin-bottom: 5px;
+}
+.contact-title{
+	height: 65px;
+    line-height: 65px;
+    display: block;
+
+    width: 100%;
+    overflow: hidden;
+    font-size: 24px;
+   
+    text-decoration: none;
+    position: relative;
+    vertical-align: middle;
+}
+.contaceN{
+	    background-color: #eff8fb;
+	     color: #7ecaf3;
+	cursor: pointer;
+}
+.contaceY{
+	color: #999;
+    background-color: #f5f5f5;
+	cursor: pointer;
+}
+
+.contact-title.user:before,
+.contact-title.unite:before,
+.contact-title.add:before,
+.contact-title.league:before,
+.contact-title.help:before,
+.contact-title.service:before
+{
+	content:"" ;
+	font-family: "aft";
+	vertical-align: middle;
+	margin:0 12px;
+	font-size: 32px;
+}
+.contact-title.user:before{
+	content:"\e008" ;
+}
+.contact-title.unite:before{
+	content: "\e111";
+}
+.contact-title.add:before{
+	content: "\e005";
+}
+
+.contact-title.league:before{
+	content: "\e021";
+}
+.contact-title.help:before{
+	content: "\e136";
+}
+.contact-title.service:before{
+	content: "\e022";
+}
+
+
+.arrow{
+	 position: absolute;
+    right: 15px;
+    top: 0;
+    margin: 0;
+    font-style: normal;
+    font-family: "aft";
+    	
+}  
+.contaceN .arrow-icon:before{
+	content: "\e094";
+}
+.contaceY .arrow-icon:before{
+	content: "\e093";
+
+}
+
+.contact-item{
+	padding: 5px 20px 20px;
+	color: #666;
+	font: 14px/180% Arial,Helvetica,sans-serif;
+}
+
+.contact-item .introduction{
+	margin: 10px 0;
+	text-indent: 28px;
+	overflow: hidden;
+}
+.contact-item .introduction img{
+	float: left;
+	margin-right: 25px;
+	border: 1px solid #e8e8e8;
+	padding: 4px;
+	width: 200px;
+	height: 75px;
+}
+.contact-item h3,.contact-item h4{
+	margin: 15px 0;
+	padding: 0;
+	font-size: 16px;
+	color: #333;
+	font-weight: 700;
+}
+.contact-item h4{
+	font-size: 14px;
+}
+.contact-item dl{
+	line-height: 26px;
+	overflow: hidden;
+	margin-bottom: 50px;
+}
+.contact-item dt{
+	float: left;
+	clear: left;
+}
+.contact-item dt.contact-tel{
+	line-height: 28px;
+}
+.contact-item dd{
+	float: left;
+}
+.contact-item dd strong{
+	font-size: 20px;
+	font-weight: 400;
+}
+.contact-item .follows{
+	margin-bottom: 0;
+}
+.contact-item .follows a{
+	margin-right: 20px;
+	height: 24px;
+	display: inline-block;
+	line-height: 1;
+}
+.blockquote{
+	position: relative;
+	color: #999;
+	font-weight: 300;
+	border-left: 1px solid #1abc9c;
+	padding-left: 10px;
+	margin: 10px 30px 10px 20px;
+}
+h2{
+	font-weight: 600;
+	margin-top: 20px;
+}

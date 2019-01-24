@@ -1,0 +1,554 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    padding: 40px;
+    background: #ebeef2;
+}
+
+
+[v-cloak] {
+    display: none;
+}
+.dec{
+    min-height: 500px;
+    background: #fff;
+    /*padding: 30px 80px 550px 25px;*/
+}
+.cedwkl{
+    height: 40px;
+    line-height: 40px;
+    background: #fafafa;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.xeko{
+    color: #000;
+    margin-left: 20px;
+    font-weight: 900;
+
+}
+
+
+.xewkl{
+    height: 50px;
+    line-height: 50px;
+    /*background: red;*/
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+}
+.sews{
+    width: 300px;
+    height:50px;
+    line-height: 50px;
+    text-align: right;
+    font-size: 13px;
+    margin-right: 30px;
+    /*background: pink;*/
+}
+
+.cejk{
+    width: 350px;
+    height: 35px;
+    text-indent: 1em;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    outline: none;
+}
+
+.zuotext,.csdevwe{
+    width: 150px;
+    text-indent: 1em;
+    height: 35px;
+    border: 1px solid #eee;
+    border-top-left-radius: 5px;
+    outline: none;
+    border-bottom-left-radius: 5px;
+}
+.cewojk{
+    width: 35px;
+    height: 35px;
+    display: flex;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #eee;
+}
+
+.seng{
+    margin-right: 30px;
+}
+
+.cejvck{
+    width: 350px;
+    height: 35px;
+    text-indent: 1em;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    outline: none;
+}
+.cdejk{
+    width: 100px;
+    height:35px;
+    line-height: 35px;
+    border: 1px solid #06c1ae;
+    color: #06c1ae;
+    font-size: 13px;
+    text-align: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.cedvvbn{
+    color: #06c1ae;
+    cursor: pointer;
+}
+
+
+.vrver{
+    height: 50px;
+    line-height: 50px;
+    /*background: pink;*/
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 310px;
+}
+
+.cedj{
+    width: 58px;
+    height: 33px;
+    line-height: 33px;
+    color: #06c1ae;
+    text-align: center;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius:5px;
+    margin: 0 5px;
+    border: 1px solid #06c1ae;
+}
+.cedj:hover{
+    background: #ececec;
+}
+
+.cevddj{
+    width: 60px;
+    height: 35px;
+    line-height: 35px;
+    border-radius:5px;
+    margin: 0 5px;
+    color: #fff;
+    text-align: center;
+    background: #06c1ae;
+    font-size: 13px;
+    cursor: pointer;
+}
+.cevddj:hover{
+    background: #0eb0a0;
+}
+
+
+
+
+
+
+
+.xewkl_er{
+    height: 100px;
+    /*background: pink;*/
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+}
+.sewsdv {
+    width: 300px;
+    height: 100px;
+    text-align: right;
+    font-size: 13px;
+    margin-right: 30px;
+    /*background: #666;*/
+}
+.cedwoj{
+    width: 250px;
+    height: 100px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    display: flex;
+}
+.cedo{
+    width: 80px;
+    height: 80px;
+    border-right: 1px dashed #eee;
+    text-align: center;
+    padding: 20px 0 0 0;
+}
+.cwej{
+    color: red;
+    font-size: 20px;
+}
+
+.cedjk{
+    width: 170px;
+    height:100px;
+}
+.cdkjl{
+    height: 35px;
+    line-height: 35px;
+    display: flex;
+    font-size: 15px;
+    color: #06c1ae;
+    align-items: center;
+    justify-content: flex-end;
+}
+.cdkjl span{
+    margin-right: 10px;
+    cursor: pointer;
+}
+
+.cedi{
+    font-size: 18px;
+    height:30px;
+    line-height: 30px;
+    text-align: center;
+    margin: 10px 0 0 0;
+    color: #eee;
+}
+
+
+.cdeojkw{
+    width: 100%;
+    height:100%;
+    position: fixed;
+    left: 0px;
+    top:0px;
+    background: rgba(0,0,0,0.5);
+}
+.cweoi{
+    width: 600px;
+    height:100%;
+    /*background: red;*/
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
+.cewcj{
+    width: 600px;
+    height:500px;
+    background: #fff;
+}
+
+.cweio{
+    height:40px;
+    line-height:40px;
+    font-size: 13px;
+    padding:0 20px;
+    background: #fafafa;
+}
+.ce{
+    width: 40px;
+    height:40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 20px;
+    float: right;
+    cursor: pointer;
+}
+.cweijo{
+    height: 400px;
+    /* background: red; */
+    overflow: auto;
+    padding: 0 12px;
+    font-size: 10px;
+}
+.cedjko{
+    height: 40px;
+    /*background: #666;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 13px 0 0 0;
+    border-top: 3px solid #eee;
+}
+.cvdk{
+    padding: 7px 15px;
+    border:1px solid #06c1ae;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #06c1ae;
+    font-size: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+.cdeocdjkw{
+    width: 100%;
+    height:100%;
+    position: fixed;
+    left: 0px;
+    top:0px;
+    background: rgba(0,0,0,0.5);
+}
+.cwedDoi{
+    width: 600px;
+    height:100%;
+    /*background: red;*/
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
+.cewAj{
+    width: 600px;
+    height:400px;
+    background: #fff;
+}
+
+
+
+.cUio{
+    height:40px;
+    line-height:40px;
+    font-size: 13px;
+    padding:0 20px;
+    background: #fafafa;
+}
+.Hikjh{
+    width: 40px;
+    height:40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 20px;
+    float: right;
+    cursor: pointer;
+}
+
+
+
+.xHkkl{
+    height: 50px;
+    line-height: 50px;
+    /*background: red;*/
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+}
+.sdFws{
+    width: 150px;
+    height:50px;
+    line-height: 50px;
+    text-align: right;
+    font-size: 13px;
+    margin-right: 30px;
+    /*background: pink;*/
+}
+
+.cTRBHk{
+    width: 150px;
+    height: 35px;
+    text-indent: 1em;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    outline: none;
+}
+.esoi{
+    margin-left: 20px;
+}
+.cdkoj{
+    height:30px;
+    padding:0 0 0 180px;
+    font-size: 13px;
+    color: #666;
+}
+.cTvHk{
+    width: 150px;
+    height: 35px;
+    text-indent: 1em;
+    border: 1px solid #eee;
+    margin-left: 10px;
+    border-radius: 5px;
+    outline: none;
+}
+
+.cTvffrb{
+    width: 100px;
+    height: 35px;
+    text-indent: 1em;
+    border: 1px solid #eee;
+    margin-left: 10px;
+    border-radius: 5px;
+    outline: none;
+}
+
+
+.fgnbrHO{
+    height: 50px;
+    line-height: 50px;
+    border-top: 3px solid #eee;
+    margin: 90px 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.decvw{
+    width: 100px;
+    height:40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 12px;
+    color: #fff;
+    background: #06c1ae;
+    border-radius: 5px;
+    cursor: pointer;
+    margin:0 10px;
+}
+.csdjmhy{
+    width: 50px;
+    height: 38px;
+    line-height: 38px;
+    font-size: 12px;
+    color: #06c1ae;
+    text-align: center;
+    border-radius:5px;
+    margin:0 10px;
+    cursor: pointer;
+    border:1px solid #06c1ae;
+}
+
+
+.cedjkbh{
+    position: absolute;
+    width: 100px;
+    height: 150px;
+    margin: -4px 0 0 230px;
+    border: 1px solid #eee;
+    background: #fff;
+}
+
+.ceJre{
+    height: 15px;
+    line-height: 15px;
+    text-align: center;
+    font-size: 10px;
+    color: #000;
+    cursor: pointer;
+}
+.ceJre:hover{
+    background: green;
+    color: #000;
+}
+
+
+
+
+
+
+.cdeGjh_kw{
+    width: 100%;
+    height:100%;
+    position: fixed;
+    left: 0px;
+    top:0px;
+    background: rgba(0,0,0,0.5);
+}
+.c_Doi{
+    width: 600px;
+    height:100%;
+    /*background: red;*/
+    display: flex;
+    align-items: center;
+    margin: auto;
+}
+.cH_wAj{
+    width: 600px;
+    height: 325px;
+    background: #fff;
+    border-radius: 10px;
+}
+
+
+
+.ck_Uio{
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    padding: 0 20px;
+    background: #06c1ae;
+    color: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.Hh_kjh{
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 33px;
+    float: right;
+    cursor: pointer;
+}
+
+h3{
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+}
+
+.creo{
+    padding: 0 20px;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

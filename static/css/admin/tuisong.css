@@ -1,0 +1,119 @@
+.tuisong{
+    width: 50%;
+    background: #f5f2f2;
+    position: absolute;
+    border-radius: 10px;
+    left: 25%;
+    top: 5%;
+    margin: auto;
+    /*text-align: center;*/
+
+}
+.openMsg{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0px;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 5;
+}
+.title input{
+    width: 40%;
+    height: 40px;
+    text-indent: 1em;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    margin-bottom: 16px;
+}
+
+#img-change{
+    margin-top: 10px;
+    /*margin-left: 12.5%;*/
+    display: inline;
+    flex: none;
+    width: 100px;
+    height: 100px;
+}
+#img-matter{
+    margin-top: 10px;
+    /*padding-left: 5.5%;*/
+    /*display: flex;*/
+    /*flex: none;*/
+    width: 100px;
+    height: 100px;
+    /*float: left;*/
+}
+.matter_img p{
+    float: left;
+    padding-top: 4.5%;
+}
+.top{
+    padding: 0 20px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    color: #fff;
+    background: #06c1ae;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.close{
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    /* background: red; */
+    float: right;
+    cursor: pointer;
+    font-size: 35px;
+}
+.tuisong_content{
+    margin: 15px;
+}
+.tuisong_content span{
+    display: inline-block;
+    width: 10%;
+    text-align: right;
+}
+.tuisong_content textarea{
+    border-radius: 5px;
+    text-indent: 1em;
+    border: 0;
+    padding: 10px;
+    vertical-align: middle;
+}
+.select select{
+    width: 40%;
+    height: 40px;
+    text-indent: 1em;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    margin-bottom: 16px;
+}
+.btnOk{
+    margin: 20px auto;
+    width: 80px;
+    display: inherit;
+}
+.close1 {
+    color: red;
+    position: absolute;
+    left: 142px;
+    top: 0px;
+    cursor: pointer;
+    display: none;
+    height: 1.5rem;
+    margin: 0 0 0 -35px;
+    line-height: 1.5rem;
+    font-weight: bold;
+}
+.moreImg_ul{
+    float: right;
+    width: 75%;
+    overflow: auto;
+    display: inline-flex;
+
+}

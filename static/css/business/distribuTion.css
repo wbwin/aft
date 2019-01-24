@@ -1,0 +1,280 @@
+
+
+body{
+    font-size: 13px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+[v-cloak] {
+    display: none;
+}
+.Sondere{
+    min-height: 332px;
+    background: #fff;
+    padding: 15px;
+}
+
+
+.Neitao{
+    height: 30px;
+    border-bottom:1px solid #ededee;
+    position: relative;
+}
+
+.Ainder{
+    position: absolute;
+    display: block;
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #ededee;
+    border-bottom: 1px solid #fff;
+    margin: -1px 0 0 0;
+}
+.ernter{
+    margin: 10px 0 0 0;
+    height: 40px;
+    border-bottom: 1px solid #ededee;
+    display: flex;
+    align-items: center;
+}
+
+.hyuan{
+    display: block;
+    width: 10px;
+    height: 10px;
+    border: 1px solid red;
+    border-radius: 50%;
+    margin: 0 10px 0 10px;
+}
+.wenhao{
+    display: block;
+    width: 13px;
+    height: 13px;
+    line-height: 13px;
+    text-align: center;
+    background: #0077de;
+    color: #fff;
+    font-size: 10px;
+    border-radius: 50%;
+    margin: 0 10px 0 10px;
+}
+
+
+
+.Xinfer{
+    height: 80px;
+    /*border:1px solid #bababa;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Sunthe{
+    height: 30px;
+    line-height: 30px;
+    /*background: #eee;*/
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+.Sunthe div{
+    width: 170px;
+    margin: 0 30px 0 0;
+    /*background: red;*/
+    text-align: right;
+}
+
+.bin {
+    height: 100%;
+    /*background: pink;*/
+    width: 10%;
+}
+
+
+
+
+.one{
+    /*background: red;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Spver{
+    width: 80px;
+    height: 35px;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.two{
+    /*background: pink;*/
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.diongv{
+    position: absolute;
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 13px;
+    top: 15px;
+}
+
+.jiantou{
+    width: 100px;
+}
+
+
+
+
+
+.the{
+    /*background: yellow;*/
+    border:1px solid #cdcdcd;
+}
+.XinPern{
+    /*background: #bababa;*/
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    margin: 7px 0 0 0;
+    text-indent: 7%;
+    /*display: flex;*/
+    /*align-items: center;*/
+}
+
+.xcws{
+    /*background: #eee;*/
+    height: 40px;
+    padding: 0 7%;
+    display: flex;
+}
+
+
+.inpuin{
+    width: 100%;
+    height: 30px;
+    border: 1px solid #bababa;
+    text-indent: 1em;
+    outline: none;
+}
+.baifen{
+width: 25px;
+    height: 30px;
+    flex: none;
+    border: 1px solid #bababa;
+    border-left: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #ededee;
+}
+
+
+.four{
+    /*background: pink;*/
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.five{
+    /*background: red;*/
+    border: 1px solid #cdcdcd;
+}
+.six{
+    /*background: pink;*/
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.seven{
+    /*background: green;*/
+    border: 1px solid #cdcdcd;
+}
+
+
+.yijuimg{
+    width: 15px;
+    height: 15px;
+}
+
+
+
+
+
+
+.Myself{
+    margin: 0 10px 0 0;
+}
+
+.onmdese{
+    margin: 0 0 0 70px;
+}
+
+
+
+.Fdnqewiu{
+    height: 30px;
+    padding: 0 0 0 50px;
+    margin: 20px 0;
+}
+
+.baocun{
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    left: 100px;
+    top: 300px;
+    line-height: 30px;
+    text-align: center;
+    background: #06c1ae;
+    cursor: pointer;
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

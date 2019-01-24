@@ -1,0 +1,398 @@
+body {
+    /*  background: #F7F7F7;*/
+    font-family: "微软雅黑";
+    font-size: 14px;
+}
+
+.top{
+    width: 100%;
+    height: 60px;
+    background-color: #1998F8;
+    color: #fff;
+}
+[v-cloak] {
+    display: none;
+}
+*{
+    box-sizing:border-box;
+}
+
+
+.top a{
+    color: #fff;
+}
+.topCenter{
+    height: 60px;
+    line-height: 60px;
+    width: 1000px;
+    margin: 0 auto;
+}
+
+.topLeft{
+    display: inline-block;
+}
+.topLeft .logo{
+    font-size: 24px;
+    margin-right: 5px;
+}
+.topRight{
+    float: right;
+}
+
+/*-------------------- 内容 -----------*/
+.shop-content{
+    padding: 32px 50px;
+    background-color: #fff;
+    width: 1000px;
+    margin: 16px auto 0;
+}
+
+/*************************************************/
+
+.Kaier{
+    height: 50px;
+    line-height: 50px;
+    font-size: 19px;
+    font-weight: 600;
+    border-bottom: 1px solid #bababa;
+    margin: 0 0 15px 0;
+}
+
+.xuwanshan{
+    height:40px;
+    line-height: 40px;
+    text-align: center;
+    background:#fdf5e6;
+    color:#eb9e05;
+    border:1px solid #fbeccd;
+}
+
+.TheNext{
+    padding: 15px 0;
+    display: flex;
+    /*align-items: center;*/
+    justify-content: space-between;
+    width: 98%;
+    margin: 0 auto;
+}
+
+.Lefter{
+   /* width:350px;*/
+    height:90px;
+    display:flex;
+}
+
+.rihter{
+
+    margin: 2px 60px 0 0;
+    display: flex;
+    flex-flow:column;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.rihter span{
+    display: block;
+    width: 100px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 5px;
+    /*border: 1px solid #FF0000;*/
+    background-color: #FF0000;
+    color: #fff;
+}
+.delete{
+
+    margin: 2px 60px 0 0;
+    display: flex;
+    flex-flow:column;
+    cursor: pointer;
+    font-size: 13px;
+}
+.delete span{
+    display: block;
+    width: 100px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 5px;
+    /*border: 1px solid #FF0000;*/
+    background-color: #FF0000;
+    color: #fff;
+}
+.give{
+
+    margin: 2px 60px 0 0;
+    display: flex;
+    flex-flow:column;
+    cursor: pointer;
+    font-size: 13px;
+}
+.give span{
+    display: block;
+    width: 100px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 5px;
+    /*border: 1px solid #FF0000;*/
+    background-color: #FF0000;
+    color: #fff;
+}
+.cipher{
+
+    margin: 2px 60px 0 0;
+    display: flex;
+    flex-flow:column;
+    cursor: pointer;
+    font-size: 13px;
+}
+.cipher span{
+    display: block;
+    width: 100px;
+    height: 35px;
+    text-align: center;
+    line-height: 35px;
+    border-radius: 5px;
+    /*border: 1px solid #FF0000;*/
+    background-color: #FF0000;
+    color: #fff;
+}
+.logout{
+    margin-bottom: 10px;
+}
+
+.imge{
+    width:90px;
+    height:90px;
+}
+
+.Imgert{
+    width:90px;
+    height:90px;
+    /*background:red;*/
+    flex:none;
+    margin:0 10px 0 0;
+}
+.Wender{
+    width:100%;
+    height:90px;
+   /* background:green;*/
+}
+
+.Title{
+    height: 25px;
+    line-height: 25px;
+   /* background: red;*/
+    margin: 10px 0 0 0;
+    font-size: 15px;
+}
+.Mser{
+    height: 22px;
+    line-height: 22px;
+    /*background: pink;*/
+    font-size: 10px;
+    color:#968da5;
+}
+
+.Timeter{
+    height: 20px;
+    line-height: 20px;
+    /*background: yellow;*/
+    font-size: 10px;
+    color:#968da5;
+}
+
+
+.Masseger{
+    /*background: red;*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 0;
+}
+
+
+.THone{
+    width:150px;
+    height:150px;
+   /* background:pink;*/
+}
+.THtwo{
+    width:150px;
+    height:150px;
+   /* background:green;*/
+}
+
+.THthr{
+    width:150px;
+    height:150px;
+    /*background:#ccc;*/
+}
+
+.Topder{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    /*text-align: center;*/
+   /* background: #bababa;*/
+    font-size: 15px;
+    color: #000;
+}
+.needer{
+    height:25px;
+    line-height: 25px;
+    /*text-align: center;*/
+    /*background:red;*/
+    color:#ee9e05;
+}
+
+.Shong{
+    width:50px;
+    height:30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 12px;
+    background:#e8f3ff;
+    cursor:pointer;
+    margin:10px 0 0 0;
+    border-radius:5px;
+    border:1px solid #1989fa;
+    color:#1989fa;
+}
+
+.Unong{
+    width:50px;
+    height:30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 12px;
+    background:#e8f3ff;
+    cursor:pointer;
+    margin:10px 0 0 0;
+    border-radius:5px;
+    border:1px solid #1989fa;
+    color:#1989fa;
+}
+
+
+.Gnong{
+    width:50px;
+    height:30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 12px;
+    background:#e8f3ff;
+    cursor:pointer;
+    margin:10px 0 0 0;
+    border-radius:5px;
+    border:1px solid #1989fa;
+    color:#1989fa;
+}
+
+
+.wait-buts{
+     width: 230px;
+    line-height: 42px;
+    border-radius: 10px;
+    background-color: #53beb7;
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin: 30px auto;
+    text-align: center;
+    cursor: pointer;
+}
+
+
+
+/*支付弹出框*/
+
+.dcwef{
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    position: fixed;
+    top:0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cve{
+    width: 330px;
+    height: 350px;
+    background: #fff;
+    border-radius: 10px;
+   overflow: hidden;
+}
+
+
+.cef{
+    height: 40px;
+    padding: 0 20px;
+    display: flex;
+     flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+       background-color: #53beb7;
+    color: #fff;
+}
+.cewce{
+    font-size: 26px;
+    cursor: pointer;
+    display: block;
+}
+
+
+.cwcvweki{
+/*    width: 250px;
+    height: 250px;*/
+    padding:20px;
+}
+
+.ImgerTu{
+   width: 220px;
+    height: 220px;
+    display: block;
+    margin: 0 auto;
+}
+
+/*设置密码*/
+.password-word label{
+    display: block;
+    line-height: 36px;
+    margin-bottom: 16px
+}
+.password-word label span{
+    width: 60px;
+    text-align: right;
+    display: inline-block;
+
+
+}
+.password-word input{
+       width: 180px;
+    height: 35px;
+    border: 1px solid #A8A8A8;
+    margin: 0 0 0 10px;
+    outline: none;
+    padding-left: 10px;
+        border-radius: 3px;
+}
+.password-word{
+    margin-top: 30px;
+}
+.pass-but{
+    width: 60%;
+    line-height: 36px;
+    border-radius: 8px;
+    background-color: #53beb7;
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-align: center;
+    margin: 35px auto 0;
+}

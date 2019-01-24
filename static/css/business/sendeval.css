@@ -1,0 +1,530 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+body{
+    /*min-height: 1000px;*/
+    background: #ebeef2;
+    /*padding: 50px 0px 0 200px;*/
+}
+[v-cloak] {
+    display: none;
+}
+#sendeval{
+    height: 50px;
+    line-height: 50px;
+    font-size: 14px;
+    background: #fef4d6;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    color: #666;
+}
+.labaImg{
+    margin: 0 20px 0 0;
+}
+.Denter{
+    height: 45px;
+    line-height: 45px;
+    background: #fff;
+    padding: 0 0 0 20px;
+    font-size: 14px;
+    color: #666;
+}
+.wHen{
+    margin: 0 15px 0 0;
+}
+.TiaoZhuan{
+    color: #06c1ae;
+    cursor: pointer;
+}
+.TheAllEvery{
+    min-height: 1000px;
+    padding:20px;
+    /*background: red;*/
+}
+.EXing{
+    height: 40px;
+    line-height: 40px;
+    background: #fafafa;
+    padding: 0 15px;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.allQuanBai{
+    min-height: 560px;
+    background: #fff;
+}
+.cxcKdnwj{
+    height: 200px;
+    /*background: #eee;*/
+    display: flex;
+}
+.perKer_left{
+    width: 130px;
+    height: 200px;
+    line-height: 30px;
+    /*background: #ccc;*/
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+sub{
+    color: red;
+}
+.perKer_right{
+    height: 200px;
+    /*background: #bababa;*/
+}
+
+.inpuAll{
+    height: 33px;
+    line-height: 33px;
+    font-size: 13px;
+    color: #666;
+}
+
+
+
+input[type=radio]:checked+.custom-radio::before {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 8px;
+    height: 8px;
+    top: 3px;
+    left: 3px;
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.DunJer{
+    /*background: pink;*/
+    height: 150px;
+    display: flex;
+    margin: 20px 0 0 0;
+}
+.YunHon{
+    /*background: yellow;*/
+    width: 130px;
+    height: 150px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 14px;
+    color: #666;
+}
+.wqkjKoin{
+    height: 150px;
+    /*background: green;*/
+    width: 350px;
+    display: flex;
+}
+
+#texTa{
+    height:130px;
+    resize:none;
+}
+.DingWei{
+    width: 133px;
+    height: 20px;
+    line-height: 20px;
+    font-size: 13px;
+    color: #666;
+    position: absolute;
+    margin: 120px 0 0 280px;
+    display: flex;
+}
+#Nunbtn{
+    width: 37px;
+    height: 20px;
+    display: block;
+    /*background: red;*/
+    text-align: right;
+}
+
+.tHreesan{
+    height: 70px;
+    padding: 20px 0;
+    /*background: #ccc;*/
+    display: flex;
+}
+.tHreesans{
+    height: 70px;
+    padding: 20px 0;
+    /*background: #ccc;*/
+    display: flex;
+}
+.tHreesanss{
+    height: 70px;
+    padding: 20px 0;
+    /*background: #ccc;*/
+    display: flex;
+}
+.wentuzi{
+    width: 130px;
+    height: 70px;
+    /*background: pink;*/
+    font-size: 14px;
+    text-align: center;
+    color: #666;
+}
+.wentuzis{
+    width: 130px;
+    height: 70px;
+    /*background: pink;*/
+    font-size: 14px;
+    text-align: center;
+    color: #666;
+}
+.wentuziss{
+    width: 130px;
+    height: 70px;
+    /*background: pink;*/
+    font-size: 14px;
+    text-align: center;
+    color: #666;
+}
+.imgKuang{
+    height: 70px;
+    /*background: red;*/
+    display: flex;
+}
+.imgKuangs{
+    height: 70px;
+    /*background: red;*/
+    display: flex;
+}
+.imgKuangss{
+    height: 70px;
+    /*background: red;*/
+    display: flex;
+}
+.imhon{
+    min-width:0px;
+    height:70px;
+    /*background: #eee;*/
+    margin: 0 10px;
+}
+.imhons{
+    min-width:0px;
+    height:70px;
+    /*background: #eee;*/
+    margin: 0 10px;
+}
+.imhonss{
+    min-width:0px;
+    height:70px;
+    /*background: #eee;*/
+    margin: 0 10px;
+}
+.imhonss{
+    min-width:0px;
+    height:70px;
+    /*background: #eee;*/
+    margin: 0 10px;
+}
+.xcsDik{
+    width: 68px;
+    height: 68px;
+    border: 1px solid #e5e5e5;
+    color: #e5e5e5;
+    line-height: 60px;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 900;
+    cursor: pointer;
+    margin: 0 20px 0 0px;
+}
+.xcsDiks{
+    width: 68px;
+    height: 68px;
+    border: 1px solid #e5e5e5;
+    color: #e5e5e5;
+    line-height: 60px;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 900;
+    cursor: pointer;
+    margin: 0 20px 0 0px;
+}
+.xcsDikss{
+    width: 68px;
+    height: 68px;
+    border: 1px solid #e5e5e5;
+    color: #e5e5e5;
+    line-height: 60px;
+    text-align: center;
+    font-size: 50px;
+    font-weight: 900;
+    cursor: pointer;
+    margin: 0 20px 0 0px;
+}
+.zhushji{
+    height: 40px;
+    /*background: green;*/
+    font-size: 13px;
+    color: #666;
+    padding: 15px 0;
+}
+.zhushjis{
+    height: 40px;
+    /*background: green;*/
+    font-size: 13px;
+    color: #666;
+    padding: 15px 0;
+}
+
+.cweUen{
+    height: 50px;
+    line-height: 50px;
+    /*background: #ccc;*/
+    margin: 10px 0 0 0;
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 130px;
+}
+
+.Ohjubao{
+    width: 90px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    background: #06c1ae;
+    color: #fff;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+.Ohjubao:hover{
+    background: #0fb6a5;
+}
+.Nogback{
+    width:88px;
+    height:33px;
+    line-height: 33px;
+    text-align: center;
+    font-size: 13px;
+    color: #06c1ae;
+    border:1px solid #06c1ae;
+    border-radius: 5px;
+    cursor: pointer;
+    margin:0 20px;
+}
+.Nogback:hover{
+    background: #f1f1f1;
+}
+.xainwenzi{
+    font-size: 10px;
+    color: #666;
+}
+.fdaoh{
+    margin: 0 20px 0 0;
+}
+
+
+
+
+
+
+/**************555555555555555*******************/
+.jihuws_wj{
+    width:100%;
+    height: 100%;
+    top:0px;
+    left: 0px;
+    position: fixed;
+    background: rgba(0,0,0,0.3);
+}
+.xcewcjswj{
+    width:400px;
+    height:100%;
+    /*background: red;*/
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+.xmokJ{
+    width: 400px;
+    height: 150px;
+    background: rgba(0,0,0,0.5);
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+}
+.tanhao{
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 50px;
+    border: 3px solid #f5a535;
+    font-size: 15px;
+    font-weight: 900;
+    color: #f5a535;
+    margin: 0 10px;
+}
+
+
+/**************555555555555555*******************/
+
+.csekjHoio{
+    width:100%;
+    height: 100%;
+    top:0px;
+    left: 0px;
+    position: fixed;
+    background: rgba(0,0,0,0.5);
+}
+.xselcjO{
+    width:400px;
+    height:100%;
+    /*background: red;*/
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+.xswclkj{
+    width: 400px;
+    height: 200px;
+    background:#fff;
+}
+.edckjUx{
+    height: 45px;
+    background: #fafafa;
+    padding: 0 10px;
+    line-height: 45px;
+}
+.cselk{
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+  /*  background: red;*/
+    font-size: 35px;
+    float: right;
+    cursor: pointer;
+}
+.dxw_g{
+    height: 30px;
+    line-height: 30px;
+    padding: 30px 10px;
+}
+.ewjYolw{
+    height: 40px;
+    /*background: red;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.jixu{
+    width: 90px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    background: #06c1ae;
+    color: #fff;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+.jixu:hover{
+    background: #13a99a;
+}
+.quxua{
+    width:50px;
+    height: 33px;
+    line-height: 33px;
+    text-align: center;
+    border: 1px solid #06c1ae;
+    color: #06c1ae;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 4px;
+    margin: 0 20px;
+}
+.quxua:hover{
+    background: #eeeded;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

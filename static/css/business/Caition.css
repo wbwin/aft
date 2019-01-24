@@ -1,0 +1,233 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+[v-cloak] {
+    display: none;
+}
+/*body{
+     background: #bababa;
+     padding-left: 200px;
+}*/
+.dec{
+    /*min-height: 500px;*/
+    background: #fff;
+}
+.Neibiankuan{
+    padding: 10px 20px;
+    /*background: red;*/
+}
+.topjsa{
+    height: 50px;
+    line-height: 50px;
+    font-size: 14px;
+    color: #000;
+    text-indent: 2em;
+    /*background: #eee;*/
+}
+.topjsa .ssppan{
+    font-size: 18px;
+    color: #000;
+    font-weight: 900;
+}
+.fanhuiback{
+    width: 70px;
+    height: 36px;
+    line-height: 36px;
+    text-align: center;
+    float: right;
+    background: #ff7c00;
+    text-indent: 0em;
+    margin: 7px 0 0 0;
+    color: #fff;
+    cursor: pointer;
+}
+.fanhuiback:hover{
+    background: #f59337;
+}
+.clert{
+    height: 40px;
+    line-height: 40px;
+    border: 1px solid #ffe0dd;
+    background: #fff3f3;
+    margin: 10px 0 0 0;
+    font-size: 13px;
+    text-indent: 2em;
+}
+.biaodan{
+    height: 180px;
+    margin: 30px 0 0 0;
+    border: 1px solid #dbdbdb;
+}
+.wqdkiOne{
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background: #f8f8f8;
+    font-size: 13px;
+    color: #000;
+    font-weight: 900;
+    display: flex;
+    border-bottom: 1px solid #dbdbdb;
+}
+.wqdkitwo{
+    width:100%;
+    height: 60px;
+    line-height: 60px;
+    font-size: 13px;
+    display: flex;
+    border-bottom: 1px solid #dbdbdb;
+}
+.wqdkithree{
+    width:100%;
+    height: 60px;
+    line-height: 60px;
+    display: flex;
+    font-size: 13px;
+    /*border-bottom: 1px solid #dbdbdb;*/
+}
+.one_yi{
+    width: 25%;
+    text-align: center;
+    border-right: 1px solid #dbdbdb;
+}
+.two_er{
+    width: 15%;
+    text-align: center;
+    border-right: 1px solid #dbdbdb;
+}
+.three_san{
+    width: 15%;
+    text-align: center;
+    border-right: 1px solid #dbdbdb;
+}
+.four_si{
+    width: 25%;
+    text-align: center;
+    border-right: 1px solid #dbdbdb;
+    position: relative;
+}
+.five_wu{
+    width: 25%;
+    text-align: center;
+    /*border-right: 1px solid #dbdbdb;*/
+}
+.one_yione{
+    width: 23.75%;
+    text-align: center;
+    border-right: 1px solid #dbdbdb;
+}
+.allwu{
+    width: 75%;
+    text-align: center;
+}
+.xsk_Pon{
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    display: inline-block;
+    background: #9a9a9a;
+    color: #fff;
+    font-size: 10px;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+.lvsekuang{
+    width: 170px;
+    height: 70px;
+    color: #fff;
+    line-height: 35px;
+    position: absolute;
+    font-weight: 900;
+    background: #36c3b7;
+    margin: -140px 0 0 145px;
+    padding: 10px 10px;
+    display: none;
+    left: -223px;
+}
+
+.SinWeichat{
+    /*background: red;*/
+    position: relative;
+}
+
+
+
+
+
+
+
+
+
+
+.colorer{
+    color:red;
+}
+.scc{
+    height:60px;
+    line-height: 60px;
+    font-size:10px;
+    color: #666;
+    text-indent: 2em;
+}
+.xk_erenrt{
+    width: 800px;
+    height: 40px;
+    /*background: pink;*/
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.xk_erenrt .bent{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    font-size: 13px;
+    color: #bababa;
+    border: 3px solid #d9d9d9;
+    border-radius: 50px;
+    /*margin: 0 45px;*/
+}
+.line{
+    width:80px;
+    height: 3px;
+    /*margin: 0 10px;*/
+    background: #d9d9d9;
+}
+#btone{
+    background: #08883e;
+    color: #fff;
+    border: 3px solid #08883e;
+}
+#lineone{
+    background:#08883e ;
+}
+#bttwo{
+    border: 3px solid #08883e;
+    color: #08883e;
+}
+
+.enterword{
+    width: 800px;
+    height: 40px;
+    /*background: yellow;*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.botter_One{
+    width: 130px;
+    height: 40px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 900;
+    /*background: pink;*/
+}
+
+.botter_One span{
+    font-weight: 100;
+}

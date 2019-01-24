@@ -1,0 +1,202 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+[v-cloak] {
+    display: none;
+}
+/*body{
+     background: #bababa;
+     padding-left: 200px;
+}*/
+.dec{
+    min-height: 1000px;
+    background: #ebeef2;
+    padding: 30px 30px 550px 25px;
+}
+
+.cqwecjq_wejdf{
+    width: 1000px;
+    height: 580px;
+    /*background: #fff;*/
+    margin: auto;
+    /*border: 1px solid #fff;*/
+}
+.sadf_jao{
+    width:100%;
+    height:90px;
+    /*background:pink;*/
+}
+.enj_logo{
+    width: 180px;
+    height: 90px;
+    /*background: #666;*/
+    float: left;
+    display: inline-block;
+}
+
+.wdq_cxiw{
+    width: 480px;
+    height: 90px;
+    /*background: yellow;*/
+    float: left;
+    display: inline-block;
+}
+.afanti{
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    font-size: 50px;
+    color: #2bb8aa;
+    font-weight: 900;
+}
+.wangzhi{
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    color: #2bb8aa;
+    font-size: 30px;
+    margin: -5px 0 0 0;
+}
+.eskj{
+    padding: 0 0 0 15px;
+    /*background: red;*/
+    height: 45px;
+    display:flex;
+    margin: 15px 0 0 0;
+}
+
+.eskj div{
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.kiv_mimn{
+   border-bottom: 5px solid #c5c4c4;
+}
+.ced_kjex{
+   border-bottom: 5px solid #2bb8aa;
+}
+.xwedfi_ckejnc{
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    border: 1px solid #ffe4bf;
+    background: #fff5e4;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #666;
+    margin: 40px 0 0 0;
+}
+
+
+.isikdui{
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    background: #22ac38;
+    color: #fff;
+    font-size: 20px;
+    border-radius: 50px;
+    margin: 0 22px;
+}
+.cwp_jiws{
+    height: 150px;
+    width: 450px;
+    background: #eee;
+    border: 1px solid #bababa;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.comdes{
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #bababa;
+    font-size: 13px;
+    color: #666;
+    text-align: center;
+}
+
+.allder{
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #bababa;
+    font-size: 13px;
+    color: #666;
+}
+
+.disfriter{
+    height: 30px;
+    line-height: 30px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;  
+}
+.disfriter a{
+    color: green;
+    text-decoration: none;
+}
+
+.fued{
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    /*background: red;*/
+    display: inline-block;
+    text-align: right;  
+    margin-right: 20px;
+}
+
+.backindex{
+    width: 70px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    background: #06c1ae;
+    font-size: 13px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: auto;
+    margin-top: 20px;
+}
+.backindex a{
+    color: #fff;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

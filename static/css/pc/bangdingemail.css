@@ -1,0 +1,203 @@
+@charset "utf-8";
+/* CSS Document */
+@import "style.css";
+
+
+.all_right .gg_phone{
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    font-size: 1.2rem;
+    border-bottom: 2px solid #f4f4f4;
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-indent: 1em;
+}
+
+
+
+
+.all_right .yz_shenfen{
+    width: 100%;
+    height: 40px;
+    font-size: 0.9rem;
+    line-height: 40px;
+    padding: 55px 0 0 0;
+    /* background: #ccc; */
+    text-indent: 12em;
+}
+
+
+.all_right .you_dizhi{
+    width: 100%;
+    text-indent: 12em;
+    height: 40px;
+    line-height: 40px;
+    font-size: 0.95rem;
+    padding: 10px 0 1px 0;
+    color: #666;
+    /*background: #999;*/
+    outline: none;
+}
+.all_right .you_dizhi input{
+    width: 250px;
+    height: 35px;
+    text-indent: 1em;
+    margin: 0 0 0 20px;
+    line-height: 35px;
+    font-size: 0.8rem;
+    /* color: #eee; */
+    border: 1px solid #eee;
+}
+
+
+.no_everything{
+    width:100%;
+    height:25px;
+    /*background:red;*/
+    
+
+}
+
+.have_jiaodian{
+    width: 500px;
+    height: 25px;
+    line-height: 25px;
+ /*   background: red;*/
+    font-size: 0.8rem;
+    display: flex;
+    padding: 0 0 0 265px;
+    align-items: center;
+    display:none;
+
+}
+
+.no_jiaodian{
+    width: 500px;
+    height: 25px;
+    line-height: 25px;
+    color:red;
+  /*  background: #ccc;*/
+    font-size: 0.8rem;
+    display: flex;
+    padding: 0 0 0 265px;
+    align-items: center;
+    display:none;
+}
+
+
+.yanzheng{
+    width: 100%;
+    height: 40px;
+    line-height: 35px;
+    text-indent: 12em;
+   /* background: pink;*/
+    margin-top: 15px;
+}
+
+.yanzheng .codekog{
+    width: 140px;
+    height: 35px;
+    line-height: 35px;
+    margin: 0 0 0 22px;
+    border: 1px solid #eee;
+}
+.yanzheng .spaned{
+    width: 60px;
+    height: 35px;
+    padding: 7px 10px 9px 10px;
+    margin: 0 0 0 15px;
+    font-size: 0.9rem;
+    color: #1e89e0;
+    border: 1px solid #1e89e0;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.yanzheng .spaned:hover{
+    color: #fff;
+    background:#1e89e0;
+}
+
+.yanzheng_bottem{
+    width: 550px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 0.7rem;
+/*    background: red;*/
+    color: #999;
+    padding: 0 0 0 264px;
+}
+
+
+.yanzheng_bottem .block{
+    color:#000;
+    display:none;
+}
+
+.yanzheng_bottem .reder{
+    color:red;
+    display:none;
+}
+
+.cofirm_email{
+    width: 100%;
+    padding: 30px 0 40px 0;
+    height: 35px;
+    /*background: pink;*/
+}
+
+
+.cofirm_email .com_email{
+    width: 250px;
+    height: 40px;
+    line-height: 40px;
+    margin: 0 0 0 260px;
+    text-align: center;
+    color: #fff;
+    background: #1e89e0;
+    border-radius: 5px;
+    cursor:pointer;
+}
+.cofirm_email .com_email:hover{
+    background: #036fb1;
+}
+
+.douhave{
+    width: 500px;
+    height: 25px;
+    line-height: 25px;
+    margin: 0 0 0 190px;
+    font-size: 0.9rem;
+    padding: 5px 0;
+    color: #666;
+    font-weight: 900;
+}
+.tisione{
+    width: 700px;
+    height: 25px;
+    line-height: 25px;
+    margin: 0 0 0 190px;
+    font-size: 0.9rem;
+    padding: 0px 0;
+    color: #666;
+    font-weight: 100;
+}
+
+.Times{
+    border: 1px solid #bababa;
+    color: #fff;
+    padding: 8px 30px;
+    margin: 0 0 0 20px;
+    border-radius: 3px;
+    cursor: pointer;
+    background:#bababa;
+
+}
+
+
+
+
+
+
+
+

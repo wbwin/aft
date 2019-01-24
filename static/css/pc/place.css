@@ -1,0 +1,288 @@
+body {
+    background: #F7F7F7;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.place-top {
+    width: 100%;
+    height: 80px;
+    background-color: #1998F8;
+    color: #fff;
+    line-height: 80px;
+    font-size: 20px;
+}
+
+.place-top span:first-child {
+    font-size: 28px;
+    display: inline-block;
+    margin-left: 30px;
+    padding-right: 10px;
+}
+
+.text-muted {
+    color: #666;
+}
+
+.text-price {
+    color: orangered;
+}
+
+.order-detail {
+    margin: 10px auto;
+    padding: 15px 30px;
+    border: 1px solid #e0e0e0;
+    background-color: #fff;
+}
+
+.order-title {
+    padding-bottom: 10px;
+    border-bottom: 2px solid #f4f4f4;
+    font-size: 1.5em;
+}
+
+.order-ifor {
+    margin-top: 12px;
+}
+
+.ifor-word {
+    display: inline-block;
+    line-height: 1.5;
+}
+
+.order-desc {
+    width: 480px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.message {
+    white-space: inherit;
+    width: 30px;
+    height: 24px;
+}
+
+.msg {
+    display: table;
+!important;
+}
+
+.desc-column {
+    display: block !important;
+}
+
+.desc-column span {
+    display: block;
+}
+
+.order-desc-more {
+    display: inline-block;
+    vertical-align: top;
+    color: #1998F8;
+    cursor: pointer;
+}
+
+.order-desc-more span:after {
+    content: "";
+    width: 0;
+    height: 0;
+    border: solid 6px transparent;
+    border-top-color: #1998F8 !important;
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 3px;
+}
+
+.descSQ {
+    /*display: none;*/
+    /*margin-top: 49px;*/
+    /*margin-left: -484px;*/
+}
+
+.descSQ:after {
+    transform: rotate(180deg);
+    margin-bottom: 8px;
+}
+
+.desc-column + .order-desc-more {
+    display: inline-block !important;
+}
+
+.desc-column + .order-desc-more .descCk {
+    display: none;
+}
+
+.price {
+    display: inline-block;
+    float: right;
+    font-size: 16px;
+    margin-top: 8px;
+}
+
+.priceNumb {
+
+    font-size: 27px;
+    font-weight: 800;
+}
+
+.payTitle {
+    padding-bottom: 10px;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.payTitle .payTitle-item1 {
+    font-size: 1.4em;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.payMode {
+    border-bottom: 1px solid #E0E0E0;
+    padding: 28px 0;
+}
+
+.payMode > p {
+
+    font-weight: 600;
+}
+
+.payMode > p > span {
+    font-size: 20px;
+    font-weight: 800;
+    padding-left: 5px;
+}
+
+.payMode-item {
+    margin-top: 10px;
+}
+
+.payMode-zfb, .payMode-wx {
+    border: solid 1px #E0E0E0;
+    display: inline-block;
+    margin-right: 20px;
+    padding: 15px 26px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.payMode-zfb:before, .payMode-wx:before {
+    content: "";
+    width: 36px;
+    height: 36px;
+    display: inline-block;
+    background-size: 38px 38px;
+    vertical-align: middle;
+}
+
+.payMode-zfb:before {
+    background: url(/static/image/pc/payzfb.png) no-repeat;
+}
+
+.payMode-wx:before {
+    background: url(/static/image/pc/paywx.png) no-repeat;
+}
+
+.payMode-zfb span, .payMode-wx span {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.payModeYes {
+    border-color: #FF4040;
+    background: url(/static/image/pc/payYes.png) no-repeat bottom right;
+    background-size: 32px 32px;
+}
+
+.payBut {
+    background-color: #FF4040;
+    border: none;
+    padding: 12px 28px;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    background-image: none;
+    color: #fff;
+    margin-top: 20px;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.payButd {
+    position: absolute;
+    width: 141px;
+    height: 61px;
+    margin-left: -135px;
+    margin-top: 15px;
+    font-size: 18px;
+    color: #fff;
+    border: none;
+    outline: none;
+    background-color: #ffffff00 !important;
+    display: none
+}
+
+/*弹框*/
+.payqBoxBackZfb {
+    background: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 6;
+    display: none;
+}
+
+.payqBoxBackWx {
+    background: rgba(0, 0, 0, 0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 6;
+    display: none;
+}
+
+.payBox {
+    width: 520px;
+    height: 500px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 16px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -260px;
+    margin-left: -270px;
+    text-align: center;
+
+}
+
+.payBox img {
+    display: block;
+    width: 80%;
+    margin: 16px auto;
+}
+
+.minWidth {
+    width: 960px;
+    font-size: 15px;
+    margin: 0 auto;
+}
+
+@media only screen and (min-width: 1260px) {
+    .minWidth {
+        width: 1180px;
+        margin: 0 auto;
+    }
+
+}

@@ -1,0 +1,486 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    padding: 40px;
+}
+.thisjidj .zuotext,.thisjidj .csdevwe{
+    width: 150px;
+    text-indent: 1em;
+    height: 30px;
+    border: 1px solid #bababa;
+    border-radius: 0;
+    border-top-left-radius: 5px;
+    outline: none;
+    border-bottom-left-radius: 5px;
+    margin: 0 0;
+
+}
+input[type=date]::-webkit-inner-spin-button { visibility: hidden; }
+
+.thisjidj .cewojk{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #bababa;
+}
+
+
+[v-cloak] {
+    display: none;
+}
+.dec{
+    min-height: 500px;
+    background: #ebeef2;
+    /*padding: 30px 80px 550px 25px;*/
+}
+.yingcangkuzng{
+    width: 100%;
+    height: 100%;
+    background: #ebeef2;
+    /* background: rgba(0, 0, 0, 0.5);*/
+    position: fixed;
+    /* left: 0; */
+    top: 0;
+}
+.allthisper{
+    width: 1200px;
+    height: 320px;
+    background: #fff;
+    /* margin: 0px 0 0 0px; */
+    margin-left: 180px;
+}
+.huodwedws{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    /*background: red;*/
+    font-size: 15px;
+}
+.huodwedws span{
+    color: #06c1ae;
+    margin: 0 15px;
+}
+
+.actiontime{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    /*background: pink;*/
+    text-indent: 6em;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+}
+.actiontime span{
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    text-align: center;
+    background: #06c1ae;
+    text-indent: 0;
+    color: #fff;
+    margin: 0 28px 0px 10px;
+    border-radius: 23px;
+}
+
+.actiontime input{
+    width: 350px;
+    height: 32px;
+    outline: none;
+    text-indent: 1em;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 1px solid #eee;
+}
+
+.thisEon{
+    width: 300px;
+    height: 105px;
+    position: absolute;
+    background: #fff;
+    border-radius: 8px;
+    margin: -20px 0 0 200px;
+    border: 1px solid #eee;
+}
+.orderent{
+    height: 35px;
+    line-height: 35px;
+    background: #ece9e8;
+    text-indent: 1em;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+.siwoen_img {
+    position: absolute;
+    margin: 6px 0 0 -11px;
+}
+.siwoen{
+    height: 60px;
+    line-height: 20px;
+    /* background: red; */
+    padding: 0 10px;
+    text-indent: 0em;
+    font-size: 15px;
+}
+.huizhiu{
+    width: 85px;
+    text-indent: 0;
+    background: #ebeef2;
+    text-align: center;
+    height: 32px;
+    line-height: 32px;
+    border: 1px solid #d2d2d2;
+}
+.emeny{
+    width: 40px;
+    height: 32px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+    border: 1px solid #d2d2d2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.overtime{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    /*background: pink;*/
+    text-indent: 6em;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+}
+.overtime span{
+    width: 15px;
+    height: 15px;
+    line-height: 15px;
+    text-align: center;
+    background: #06c1ae;
+    text-indent: 0;
+    color: #fff;
+    margin: 0 28px 0px 10px;
+    border-radius: 23px;
+}
+
+.overtime input{
+    width: 350px;
+    height: 32px;
+    outline: none;
+    border: 1px solid #eee;
+    text-indent: 1em;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+
+.thedEon{
+    width: 300px;
+    height: 105px;
+    position: absolute;
+    background: #fff;
+    border-radius: 8px;
+    margin: -20px 0 0 200px;
+    border: 1px solid #eee;
+}
+.orreent{
+    height: 35px;
+    line-height: 35px;
+    background: #ece9e8;
+    text-indent: 1em;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+
+
+.siwzn_img{
+    position: absolute;
+    margin: 6px 0 0 -11px;
+}
+.siwven{
+    height: 60px;
+    line-height: 20px;
+    /* background: red; */
+    padding: 0 10px;
+    text-indent: 0em;
+    font-size: 15px;
+}
+
+.overhiu{
+    width: 85px;
+    text-indent: 0;
+    background: #ebeef2;
+    text-align: center;
+    height: 32px;
+    line-height: 32px;
+    border: 1px solid #d2d2d2;
+}
+.uneny{
+    width: 40px;
+    height: 32px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+    border: 1px solid #d2d2d2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.btn{
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    background: #06c1ae;
+    cursor: pointer;
+    color: #fff;
+    border: none;
+    border-radius: 7%;
+}
+.huodwedwsfunck{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    /*background: red;*/
+    font-size: 15px;
+}
+.huodwedwsfunck span{
+    color: #06c1ae;
+    margin: 0 15px;
+}
+.thisjidj{
+    width: 100%;
+    line-height: 40px;
+    /*background: #eee;*/
+    font-size: 14px;
+    margin-left: 100px;
+}
+
+
+
+.mjDoubt{
+    width: 15px;
+    line-height: 15px;
+    height: 15px;
+    background: #06c1ae;
+    text-indent: 0;
+    display: inline-block;
+    text-align: center;
+    color: #fff;
+    border-radius: 26px;
+    margin: 0 25px 0 12px;
+}
+
+.thisjidj input{
+    width: 135px;
+    height: 30px;
+    outline: none;
+    border: 1px solid #bababa;
+    border-radius: 5px;
+    margin: 0 5px;
+    text-indent: 1em;
+}
+
+.thedSan{
+    width: 300px;
+    height: 65px;
+    position: absolute;
+    background: #fff;
+    border-radius: 8px;
+    margin: -140px 0 0 100px;
+    border: 1px solid #eee;
+}
+.orresan{
+    height: 35px;
+    line-height: 35px;
+    background: #ece9e8;
+    text-indent: 1em;
+    border-top-left-radius: 7px;
+    border-top-right-radius: 7px;
+}
+.san_img{
+    position: absolute;
+    margin: -8px 0 0 -11px;
+}
+.siwsan{
+    height: 25px;
+    line-height: 25px;
+    /* background: red; */
+    padding: 0 10px;
+    text-indent: 0em;
+    font-size: 15px;
+}
+
+.xieyihao{
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    /* background: red;*/
+    padding: 10px 0;
+}
+.xieyihao input{
+    margin:0 0 0 210px;
+}
+.xieyihao a{
+    text-decoration: none;
+    color:#06c1ae;
+}
+
+.baocunz{
+    /*position: absolute;*/
+    width: 68px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    border: 1px solid #06c1ae;
+    border-radius: 5px;
+    margin: 0 0 0 210px;
+    display: inline-block;
+    cursor: pointer;
+    color: #fff;
+    outline:none;
+    background: #06c1ae;
+    /*left: 180px;*/
+    /*top: 234px;*/
+}
+.xinzeng{
+    /*position: absolute;*/
+    width: 68px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    border: 1px solid #06c1ae;
+    border-radius: 5px;
+    /*margin: 0 0 0 210px;*/
+    display: inline-block;
+    cursor: pointer;
+    color: #fff;
+    outline:none;
+    background: #06c1ae;
+    /*left: 180px;*/
+    /*top: 234px;*/
+}
+.allUender{
+    width:100%;
+    height: 100%;
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 2;
+    background: rgba(0,0,0,0.5);
+}
+.pasjUnjs{
+    width:650px;
+    height: 100%;
+    /*background: red;*/
+    margin: auto;
+    display: flex;
+    align-items: center;
+}
+.ekjpSkd{
+    width: 650px;
+    height: 320px;
+    background: #fff;
+    border-radius: 10px;
+}
+
+.maddeToubu{
+    height: 50px;
+    line-height: 50px;
+    background: #06c1ae;
+    padding: 0 10px;
+    color: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    font-size: 16px;
+}
+
+.dckAws{
+    width:50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    /*background: red;*/
+    font-size: 30px;
+    cursor: pointer;
+    float: right;
+}
+.xswDoi{
+    height: 60px;
+    line-height: 60px;
+    /*background: red;*/
+    padding: 0 20px;
+    font-size: 18px;
+    margin: 0px 0 0 0;
+}
+.alxSid{
+    height: 160px;
+    line-height: 20px;
+    /* background: pink; */
+    font-size: 14px;
+    padding: 0 20px;
+}
+
+/*----------------------------------------*/
+.mjTitle{
+    display: inline-block;
+    vertical-align: top;
+}
+.mjBox{
+     display: inline-block;
+}
+
+.mj-mark{
+    font-style: normal;
+    display: inline-block;
+    vertical-align: middle;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    line-height: 18px;
+    overflow: hidden;
+    font-size: 18px;
+    font-weight: 700;
+    margin-left: 10px;
+    margin-top: 8px;
+    cursor: pointer;
+}
+.mj-add{
+    background-color: #53beb7;
+}
+.mj-sub{
+    background-color: #ff0000;
+}
+.infocus{
+    border:1px solid #06c1ae;
+}
+.inblur{
+    border:1px solid #bababa;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

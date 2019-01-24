@@ -1,0 +1,340 @@
+
+
+.row{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+::-webkit-scrollbar{
+    display: none
+}
+
+/*page{
+    height:100%;
+      background-color: #f8f8f8;
+    }*/
+.collageAll{
+    background-color: #f8f8f8;
+    padding-left: 0.266667rem;
+    padding-right: 0.266667rem;
+    padding-top: 0.266667rem;
+    padding-bottom: 0.266667rem;
+}
+.title{
+    position: relative;
+}
+.titleIcon{
+    width: 1.333333rem;
+    height: 1.333333rem;
+    border-radius: 50%
+}
+.titleText{
+    display: flex;
+    width: 7.733333rem;
+    background-color: #53beb7;
+    margin-left: 0.4rem;
+    padding-top: 0.266667rem;
+    padding-bottom: 0.266667rem;
+    padding-left: 0.2rem;
+    border-radius: 0.133333rem;
+    color: #fff;
+    font-size: 0.373333rem;
+}
+.titleDiv{
+    position: absolute;
+    left: 1.64rem;
+    top: 0.533333rem;
+    width: 0.266667rem;
+    height: 0.266667rem;
+    background-color: #53beb7;
+    transform: rotate(45deg)
+}
+.shop{
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    justify-content: center;
+    align-items: center;
+    margin-top: 0.533333rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+}
+.shopName{
+    font-weight: bold;
+    font-size: 0.426667rem;
+    margin-top: 0.266667rem;
+    color: #666;
+}
+.shopActive{
+    font-size: 0.32rem;
+    color: #999;
+    margin-top: 0.133333rem;
+    margin-bottom: 0.2rem;
+}
+.joinCollage{
+    width: 8.866667rem;
+    padding-top: 0.266667rem;
+    padding-bottom: 0.266667rem;
+    font-size: 0.426667rem;
+    text-align: center;
+    color: #fff;
+    background-color: #53beb7;
+}
+.myCollage{
+    background-color: #fff;
+    margin-top: 0.266667rem;
+}
+.myCollageDiv{
+    justify-content: space-between;
+    padding-top: 0.133333rem;
+    padding-bottom: 0.133333rem;
+    padding-left: 0.266667rem;
+
+}
+.myIcon{
+    width: 1.066667rem;
+    height: 1.066667rem;
+    border-radius: 50%
+}
+.myName{
+    font-weight: bold;
+    margin-left: 0.266667rem;
+    font-size: 0.373333rem;
+    color: #666;
+    max-width: 2.666667rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+.myLabel{
+    margin-left: 0.133333rem;
+    padding-top: 0.04rem;
+    padding-bottom: 0.04rem;
+    padding-left: 0.066667rem;
+    padding-right: 0.066667rem;
+    font-size: 0.266667rem;
+    color: #53beb7;
+    border: 1px solid #53beb7;
+    border-radius: 0.066667rem;
+
+}
+.editShop{
+    width: 1.733333rem;
+    padding-top: 0.066667rem;
+    padding-bottom: 0.066667rem;
+    color: #53beb7;
+    font-size: 0.32rem;
+    border: 1px solid #53beb7;
+    margin-right: 0.266667rem;
+    text-align: center;
+    border-radius: 0.066667rem;
+
+}
+.noCollage{
+    width: 1.733333rem;
+    padding-top: 0.066667rem;
+    padding-bottom: 0.066667rem;
+    color: #999;
+    font-size: 0.32rem;
+    border: 1px solid #999;
+    text-align: center;
+    border-radius: 0.066667rem;
+    margin-right: 0.266667rem;
+}
+.myFood{
+    padding-bottom: 0.333333rem;
+    margin-left: 1.6rem;
+    border-top-style: solid;
+    border-top-width: 1px;
+    border-top-color: #dedede;
+}
+.myFoodList{
+    margin-top: 0.2rem;
+}
+.remaks{
+    margin-top: 0.333333rem;
+    justify-content: space-between
+}
+.myFoodName{
+    font-size: 0.346667rem;
+    color: #666;
+    width: 3.6rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+
+}
+.noGoods{
+    margin-top: 0.2rem;
+    font-size: 0.346667rem;
+    color: #666;
+}
+.myFoodNum{
+    width: 1.733333rem;
+    text-align: center;
+    font-size: 0.346667rem;
+    color: #666;
+    margin-right: 0.266667rem;
+}
+.myFoodMoney{
+    width: 1.733333rem;
+    text-align: right;
+    font-size: 0.346667rem;
+    color: #666
+}
+.orderFriends{
+    display: block;
+    padding:0.2rem 0;
+    padding-left: 0.266667rem;
+    color: #999;
+    font-size: 0.32rem;
+}
+.orderLabel{
+    margin-left: 0.133333rem;
+    padding-top: 0.04rem;
+    padding-bottom: 0.04rem;
+    padding-left: 0.066667rem;
+    padding-right: 0.066667rem;
+    font-size: 0.293333rem;
+    color: #5486b5;
+    border: 1px solid #5486b5;
+    border-radius: 0.066667rem;
+}
+.orderFoodMoney{
+    width: 1.733333rem;
+    text-align: right;
+    font-size: 0.346667rem;
+    color: #666;
+}
+.orderCollage{
+    background-color: #fff;
+}
+.total{
+    background-color: #fff;
+    margin-top: 0.266667rem!important;
+}
+.totalDiv{
+    width: 9.466667rem;
+}
+.cost{
+    padding-left: 0.266667rem;
+    width: 1.333333rem;
+    font-size: 0.346667rem;
+    color: #666;
+}
+.costMoney{
+    width: 7.866667rem;
+    text-align: right;
+    padding-right: 0.266667rem;
+    color: #666;
+    font-size: 0.346667rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-bottom-color: #dedede;
+}
+.costMoneyTwo{
+    width: 7.866667rem;
+    text-align: right;
+    padding-right: 0.266667rem;
+    color: #666;
+    font-size: 0.346667rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+}
+.remaksTwo{
+    font-size: 0.293333rem;
+    color: #999;
+    width: 3.6rem!important;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    margin-top: 0.066667rem;
+}
+.remaksTwoDiv{
+    width: 3.6rem!important;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    font-size: 0.293333rem;
+    color: #999;
+    margin-top: 0.066667rem;
+}
+.noCollages{
+    text-align: center;
+    padding-top:50%;
+    font-size: 0.373333rem;
+    z-index: 99999;
+
+}
+.noCollages img{
+    width: 2.0rem;
+    height: 2.0rem;
+    margin-bottom: 5%;
+    z-index: 99999;
+}
+.red{
+    color: #fb5147;
+}
+.share_popup{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(0,0,0,0.6);
+}
+.share_popupContent{
+    width: 80%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background: #fff
+}
+.share_popupContent span{
+    padding:0.466667rem 0;
+    font-size: 0.4rem;
+    color: #666;
+}
+.share_popupButton{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+    border-top:0.013333rem solid #dedede;
+}
+.share_popupButton button{
+    flex: 1;
+    color: #53beb7;
+    padding:0.333333rem 0;
+    font-size: 0.4rem;
+    background: #fff;
+    border: none;
+    border-left: 1px solid #dedede
+}
+.hobbyTips{
+    font-size: 0.346667rem;
+    position: fixed;
+    width: 80%;
+    padding: 2%;
+    left: 7%;
+    bottom: 3%;
+    background-color: #53beb7;
+    opacity: 0.9;
+    border-radius: 0.533333rem;
+    text-align: center;
+    color: #fff;
+    z-index:999;
+}

@@ -1,0 +1,49 @@
+img {
+    max-width: 100px;
+}
+
+.ATRoot {
+    height: 22px;
+    line-height: 22px;
+    margin-left: 5px;
+    clear: both;
+    cursor: pointer;
+}
+
+.ATNode {
+    margin-left: 5px;
+    line-height: 22px;
+    margin-left: 17px;
+    clear: both;
+    cursor: pointer;
+}
+
+.Hide {
+    display: none;
+}
+
+dl.areaSelect {
+    padding: 0 5px;
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 0; /*border:1px solid #eee;*/
+}
+
+dl.areaSelect:hover {
+    border: 1px solid #E5CD29;
+}
+
+dl.areaSelect:hover dd {
+    display: block;
+}
+
+dl.areaSelect dd {
+    float: left;
+    margin-left: 20px;
+    cursor: pointer;
+}
+.table-title{
+    margin: 20px;
+    font-size: 15px;
+    font-weight: bold;
+}

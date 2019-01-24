@@ -1,0 +1,497 @@
+@charset "utf-8";
+/* CSS Document */
+@import "style.css";
+
+
+.all_right .wode_shoucang{
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    font-size: 1.2rem;
+    border-bottom: 2px solid #f4f4f4;
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-indent: 1em;
+}
+
+.all_right .elm_tishi{
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    padding: 15px 0 10px 0;
+    font-size: 0.9rem;
+    text-indent: 1em;
+    color: #999999;
+    /*background: red;*/
+}
+
+.howmay{
+    font-size: 1rem;
+    color:red;
+    padding:0 5px;
+}
+
+
+
+.all_right .wu_shoucang{
+    width: 100%;
+    min-height: 250px;
+    /*background: #ccc;*/
+}
+
+
+
+
+.all_right .now_quyu{
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    padding: 15px 0 10px 0;
+    font-size: 0.9rem;
+    text-indent: 1em;
+    color: #999999;
+    /*background: red;*/
+}
+
+
+
+
+.all_right .wu_peisong{
+    width: 100%;
+    min-height: 300px;
+    /*background: #ccc;*/
+}
+
+
+
+
+.wu_shoucang .no_peisong .imgone{
+    margin: 70px 0 0 320px;
+    /*display: none;*/
+}
+
+.wu_shoucang .no_peisong .spanone{
+    position: absolute;
+    font-size: 0.9rem;
+    color: #999;
+    margin: 110px 0 0 17px;
+    /*display:none;*/
+}
+
+
+
+
+
+.wu_peisong .no_peisong .imgtwo{
+    margin: 80px 0 0 320px;
+}
+.wu_peisong .no_peisong .spantwo{
+    position: absolute;
+    font-size: 0.9rem;
+    color: #999;
+    margin: 110px 0 0 17px;
+}
+
+
+
+
+.ture_shoucang{
+    width: 313px;
+    height: 240px;
+    background: #fff;
+    display: inline-block;
+    border: 1px solid #eee;
+    margin: 0 8px 22px 0;
+
+}
+
+.ture_shoucang  .ban_toumin{
+    position: absolute;
+    width: 313px;
+    height: 241px;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.5);
+    display:none;
+}
+.ture_shoucang .ban_toumin .under{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    position: relative;
+    color: #fff;
+    padding: 85px 0 0 0;
+    /*background: pink;*/
+}
+
+.teotter{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    justify-content: center;
+    display: flex;
+    padding: 20px 0;
+   /* background: yellow;*/
+}
+
+
+.teotter .deit_qu{
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    display: inline-block;
+    margin: 0 5px 0 0;
+    border: 1px solid red;
+    background: red;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 3px;
+}
+.teotter .no_quxiao{
+    width: 80px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    display: inline-block;
+   /* background: red;*/
+    margin: 0 0 0 5px;
+    cursor: pointer;
+    color: #fff;
+    border-radius: 3px;
+    border: 1px solid #fff;
+}
+
+
+
+
+
+
+
+.allprotener{
+    width: 100%;
+    height: 90px;
+    background: #000;
+    cursor: pointer;
+}
+
+.allprotener .logfunck{
+    position: absolute;
+    width: 190px;
+    height: 30px;
+    color: #fff;
+    line-height: 30px;
+    margin: -44px 0 0 115px;
+    z-index: 2;
+    /*background: pink;*/
+    display: inline-block;
+}
+.allprotener .logfunck a{
+   text-decoration: none;
+   color:#fff;
+}
+
+.allprotener .dian_logo{
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    z-index: 2;
+    margin: -50px 0 0 16px;
+    border: 1px solid #fff;
+    border-radius: 82px;
+    display: inline-block;
+    background: #1e89e0;
+    cursor: pointer;
+}
+
+.allprotener .dian_logo .xiaologo{
+    width: 80px;
+    height: 80px;
+    border-radius: 82px;
+}
+
+
+
+.ture_shoucang .star{
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+   /* background: #ccc;*/
+}
+
+
+.star .yu_shou{
+    width: 100px;
+    height: 35px;
+    color: #666;
+    font-size: 0.95rem;
+    /*background: pink;*/
+    padding: 0 0 0 10px;
+    float: right;
+}
+
+
+.star .fivestar{
+    width: 71.5px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    font-size: 1.1rem;
+    /* font-weight: 900; */
+    float: right;
+    color: #ccc;
+   /* background: red;*/
+}
+
+.ture_shoucang .submenter{
+    width: 100%;
+    display: flex;
+    height: 75px;
+    justify-content: center;
+    /*background: #eee;*/
+}
+
+
+
+
+.submenter .subzuo{
+    width:85px;
+    height:75px;
+    display:inline-block;
+    /*background:pink;*/
+}
+.submenter .subzuo .qisong_jia{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+    padding: 3px 0 0 0;
+    line-height: 30px;
+   /* background: #ccc;*/
+}
+.submenter .subzuo .change_money{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    /*background: yellow;*/
+    text-align: center;
+    font-size: 1.25rem;
+}
+.submenter .subzuo .change_money span{
+    color:#666;
+    font-size: 0.9rem;
+}
+
+
+
+
+
+
+
+
+
+
+.submenter .subline{
+    width: 1px;
+    height: 40px;
+    margin-top: 17px;
+    border-left: 1px solid #999;
+}
+
+.submenter .subyou{
+    width:85px;
+    height:75px;
+    display:inline-block;
+    /*background:yellow;*/
+}
+
+
+.submenter .subyou .song_time{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #666;
+    padding: 3px 0 0 0;
+    line-height: 30px;
+    /*background: #ccc;*/
+}
+
+
+.submenter .subyou .need_time{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    /*background: yellow;*/
+    text-align: center;
+    font-size: 1.25rem;
+}
+.submenter .subyou .need_time span{
+    color:#666;
+    font-size: 0.9rem;
+}
+
+
+.better_top{
+    width: 273px;
+    padding: 0 20px 0 20px;
+    height: 40px;
+    line-height: 40px;
+    border-top: 1px solid #eee;
+    /*background: pink;*/
+}
+
+
+
+.better_top .bao{
+    width: 20px;
+    height: 20px;
+    font-size: 0.5rem;
+    padding: 0px 3px;
+    color: #666;
+    border: 1px solid #666;
+    border-radius: 3px;
+}
+.better_top .piao{
+    width: 20px;
+    height: 20px;
+    font-size: 0.5rem;
+    padding: 0px 3px;
+    color: #666;
+    border: 1px solid #666;
+    border-radius: 3px;
+}
+
+
+.better_top .shan_delete{
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    background: red;
+    display: inline-block;
+    float: right;
+    margin-top: 12px;
+    cursor:pointer;
+}
+/********/
+.fodblock-stars {
+	position: relative;
+	font-size: 14px;
+	  display: inline-block;
+    line-height: 1em;
+}
+
+.fodblock-stars:before {
+	content: "★★★★★";
+	color: #CCCCCC;
+	font-size:18px
+}
+
+.fodblock-starsNum {
+	position: absolute;
+	top: 0;
+	left: 0;
+	overflow: hidden;
+}
+
+.fodblock-starsNum:before {
+	content: "★★★★★";
+	color: #FFC30C;
+	font-size:18px
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,224 @@
+/*body {
+	background: #ccc;
+	padding-left: 200px;
+}*/
+
+
+/*店铺体检情况*/
+
+.examina-text {
+	padding: 20px 0 10px 20px;
+}
+[v-cloak] {
+	display: none;
+}
+.loading-wrapper {
+	border-radius: 50%;
+	width: 120px;
+	height: 120px;
+	background: linear-gradient(180deg, #57e7ef, #06c1ae);
+	padding: 5px;
+}
+
+.loading-inner {
+	box-sizing: border-box;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	border: 5px solid #fff;
+	background-image: url(../../../static/image/business/loading1.png), url(../../../static/image/business/loading2.png);
+	background-repeat: no-repeat;
+	background-color: #fff;
+}
+
+.inner-score {
+	width: 107px;
+	height: 70px;
+	color: #388a93;
+	text-align: center;
+	padding-top: 20px;
+}
+
+.inner-score .acount {
+	font-size: 45px;
+}
+
+.examina-result {
+	margin: 10px 0 30px 20px;
+}
+
+.result-score {
+	color: #f1a62f;
+}
+
+.text-danger {
+	color: #ff5a5a;
+}
+
+.recomand {
+	margin: 20px 0;
+}
+
+
+/*问题项*/
+
+.problem .icon {
+	font-size: 15px;
+	font-weight: 700;
+}
+
+.problem-box {
+	margin: 10px 0 10px 90px;
+}
+
+.mr {
+	margin-right: 40px;
+}
+
+.ex-item {
+	border: 1px solid #e9e9e9;
+	width: 300px;
+	height: 400px;
+	margin-bottom: 20px;
+}
+
+.item-tap {
+	width: 74px;
+	height: 22px;
+	border: 2px solid #2bb8aa;
+	border-radius: 20px;
+	color: #2bb8aa;
+	text-align: center;
+	margin: 10px 0 0 20px;
+}
+
+.feel-icon {
+	width: 80px;
+	height: 75px;
+	margin: 10px auto;
+	background: url(../../../static/image/business/feel-icons.png) no-repeat;
+}
+
+.item-text {
+	margin: 0 20px;
+	height: 210px;
+}
+
+.re-text {
+	font-size: 18px;
+}
+
+.inf-text {
+	font-size: 15px;
+	color: #787878;
+	margin: 5px 0;
+}
+
+.det-text {
+	font-size: 13px;
+	color: #9a9a9a;
+	margin-bottom: 10px;
+}
+
+.com-text {
+	font-size: 13px;
+	color: #06C1AE;
+}
+
+.com-icon {
+	display: inline-block;
+	margin-right: 10px;
+	width: 20px;
+	height: 20px;
+	background: url(../../../static/image/business/feel-icons.png) no-repeat -160px bottom;
+}
+
+
+/*无问题项*/
+
+.not-problem .icon {
+	font-size: 13px;
+	background-color: #86cc5c;
+}
+
+.no-item {
+	border: 1px solid #e9e9e9;
+	width: 300px;
+	height: 200px;
+	margin-bottom: 20px;
+}
+
+.not-problem-box {
+	margin: 10px 0 10px 90px;
+}
+
+
+/*背景图片*/
+
+
+/*背景图片*/
+
+   	/*起送*/
+.giveIcon {
+	background-position: -163px 90%;
+}
+
+.not-giveIcon {
+	background-position: -80px 6%;
+}
+	/*时间*/
+.timeIcon {
+	background-position: 11px 39%;
+}
+
+.not-timeIcon {
+	background-position: -160px -70px;
+}
+	/*活动*/
+.activIcon {
+	background-position: 11px 71%;
+}
+
+.not-activIcon {
+	background-position: -160px -145px;
+}
+	/*差评*/
+.diffIcon {
+	background-position: 11px -18px;
+}
+
+.not-diffIcon {
+	background-position: -158px -2%;
+}
+	/*图片完整*/
+.imgIcon {
+	background-position: -234px -2%;
+}
+
+.not-imgIcon {
+	background-position: -80px 37%;
+}
+	/*可售*/
+.allowIcon {
+	background-position: -234px -70px;
+}
+
+.not-allowIcon {
+	background-position: -80px 68%;
+}
+	/*催单*/
+.urgeIcon {
+	background-position: -240px 90%;
+}
+
+.not-urgeIcon {
+	background-position: -80px 102%;
+}
+	/*无效单*/
+.notIcon {
+	background-position: -234px -145px;
+}
+
+.not-notIcon {
+	background-position: 11px 102%;
+}

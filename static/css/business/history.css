@@ -1,0 +1,113 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    padding: 20px;
+}
+
+.Funppt {
+    background: #fff;
+    padding: 15px;
+    min-height: 450px;
+}
+[v-cloak] {
+    display: none;
+}
+.Finjpet {
+    background: #fff;
+    min-height: 35px;
+    border: 1px solid #bababa;
+    border-bottom: 0px;
+}
+
+.Sdkf {
+    min-height: 35px;
+    background: #fafafa;
+    border-bottom: 1px solid #999;
+    display: flex;
+}
+
+.Nin {
+    width: 100%;
+    border-left: 1px solid #999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+.Xokode {
+    min-height: 35px;
+    /* background: #eee; */
+    display: flex;
+    border-bottom: 1px solid #999;
+}
+
+
+
+.sin {
+    width: 100%;
+    border-left: 1px solid #999;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+    justify-content: center;
+    color: #000;
+}
+
+
+
+.cdewq {
+    height: 45px;
+    line-height: 40px;
+    /*background: red;*/
+    margin: 20px 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cdewq span {
+    display: block;
+    border: 1px solid #bababa;
+    color: #fff;
+    background: #06c1ae;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.cdewq span:hover {
+    background: #88f5e9;
+    color: #000;
+}
+
+
+
+.cnse {
+    width: 40px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.Neter {
+    width: 60px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.num {
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    padding: 0 10px;
+}
+
+.avtive {
+    background: #88f5e9;
+    color: #000;
+}

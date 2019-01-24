@@ -1,0 +1,399 @@
+.loginBox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 750px;
+}
+
+.themeach {
+    width: 100%;
+    height: 60px;
+    /* background: pink; */
+    margin: 100px 0 0 0;
+}
+
+.themeach .conter {
+    width: 200px;
+    height: 60px;
+    display: flex;
+    line-height: 60px;
+    background: #1998f9;
+    margin: auto;
+}
+
+.themeach .conter .ima {
+    margin: 0 8px;
+}
+
+.themeach .conter .aft {
+    font-size: 2.3rem;
+    font-weight: bold;
+    color: #fff;
+}
+
+.teor {
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    display: flex;
+    /*background: red;*/
+    justify-content: center;
+}
+
+.teor span {
+    font-weight: 800;
+    font-size: 1rem;
+    color: #1998f9;
+    margin: 0 10px;
+}
+
+.fangshi {
+    width: 100%;
+    height: 66px;
+    line-height: 85px;
+    display: flex;
+    /*background: #eee;*/
+    justify-content: center;
+}
+
+.fangshi span {
+    margin: 0px 30px;
+    color: #000;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.fangshi .duanxin, .fangshi .mima, .fangshi .weixin {
+    color: #000;
+    font-weight: 100;
+    border-bottom: 0px solid #1998f9
+}
+
+.fangshi .active {
+    color: #1998f9;
+    font-weight: 900;
+    border-bottom: 3px solid #1998f9
+}
+
+.fangshi .weixin，.fangshi .mima {
+    font-weight: 100;
+    color: #000;
+    border-bottom: 0px solid #1998f9;
+}
+
+.shuru_one {
+    padding: 8px 0;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    display: flex;
+    justify-content: center;
+    /*background: pink;*/
+}
+
+.shuru_one .dx_phone {
+    width: 320px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    text-indent: 1em;
+    outline: none;
+}
+
+.shuru_one .hqyzm {
+    position: absolute;
+    font-size: 0.8rem;
+    color: #bbb;
+    margin: 0 0 0 120px;
+    font-weight: 900;
+}
+
+.shuru_one .Times {
+    position: absolute;
+    font-size: 0.8rem;
+    color: #bbb;
+    margin: 0 0 0 120px;
+    font-weight: 900;
+}
+
+.shuru_two {
+    padding: 8px 0;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    display: flex;
+    justify-content: center;
+    /*background: pink;*/
+}
+
+.shuru_two .dx_yzm {
+    width: 320px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    text-indent: 1em;
+    outline: none;
+}
+
+.shuru_three {
+    padding: 8px 0;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    display: flex;
+    justify-content: center;
+    /*background: pink;*/
+}
+
+.shuru_three .wxts {
+    width: 320px;
+    line-height: 24px;
+    height: 50px;
+    color: #999;
+    font-size: 0.95rem;
+    /*background:red;*/
+}
+
+.shuru_three .wxts a {
+    text-decoration: none;
+    color: #1998f9;
+}
+
+/***********************/
+.duanxin_denglu {
+    display: block;
+
+}
+
+/************************/
+
+.dengluanniv {
+    padding: 8px 0;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    display: flex;
+    justify-content: center;
+    /*background: pink;*/
+}
+
+.dengluanniv input {
+    width: 320px;
+    line-height: 24px;
+    height: 50px;
+    color: #fff;
+    background: #1998f9;
+    cursor: pointer;
+    border: 0px;
+    border-radius: 5px;
+    font-size: 0.95rem;
+
+}
+
+.aboutus {
+    width: 100%;
+    height: 55px;
+    line-height: 55px;
+    font-size: 0.8rem;
+    text-align: center;
+    color: #999;
+}
+
+.aboutus a {
+    text-decoration: none;
+    color: #999;
+}
+
+/***********************************/
+
+/*.mima_denglu, .weixin_denglu {*/
+    /*display: none;*/
+
+/*}*/
+
+/********************************/
+
+.mima_denglu .shuru_four {
+    padding: 8px 0;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    display: flex;
+    justify-content: center;
+    /*background: yellow;*/
+}
+
+.shuru_six {
+    padding: 8px 0;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    display: flex;
+    justify-content: center;
+    /*background: yellow;*/
+}
+
+.shuru_six .mima_code {
+    width: 180px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    text-indent: 1em;
+    outline: none;
+}
+
+.shuru_six .yanzhenma {
+    width: 120px;
+    height: 49px;
+    margin-left: 20px;
+    cursor: pointer;
+    background: red;
+}
+
+.shuru_four .mima_phone {
+    width: 320px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    text-indent: 1em;
+    outline: none;
+}
+
+.shuru_five {
+    padding: 8px 0;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    display: flex;
+    justify-content: center;
+    /* background: #eee;*/
+}
+
+.passwordBox {
+    display: flex;
+    position: relative;
+}
+
+.shuru_five .mima_password {
+    width: 320px;
+    border: 1px solid #eee;
+    border-radius: 5px;
+    text-indent: 1em;
+    outline: none;
+}
+
+.tuoyuan {
+    width: 50px;
+    height: 14px;
+    display: inline-block;
+    border: 1px solid #bbb;
+    border-radius: 11px;
+    position: absolute;
+    /*margin: 16px 0 0 125px;*/
+    cursor: pointer;
+    right: 8px;
+    top: 18px;
+}
+
+.tuoyuan .kaiguan {
+    float: left;
+    width: 18px;
+    height: 14px;
+    margin: -1px 0 0 0;
+    display: block;
+    border: 1px solid #999;
+    border-radius: 10px;
+    cursor: pointer;
+    background: #1998f9;
+}
+
+.zuixiamian {
+    position: absolute;
+    width: 100%;
+    /*height: 135px;*/
+    background: #eee;
+    bottom: 0px;
+    left: 0;
+}
+
+.footer-copyright {
+    font-size: 12px;
+    clear: both;
+    /*    padding-top: 60px;*/
+    color: #999;
+    text-align: center;
+}
+
+.aller {
+    color: #0e0e0e;
+    margin-bottom: 3px;
+}
+
+.footer-police {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    /* background: red; */
+}
+
+.jizhu {
+    width: 100%;
+    height: 20px;
+    /*background:red;*/
+}
+
+.jizhu .jizhumima {
+    width: 320px;
+    height: 20px;
+    margin: auto;
+    font-size: 0.8rem;
+}
+
+.aa {
+    background: #32cdbb;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

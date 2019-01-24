@@ -1,0 +1,322 @@
+@charset "utf-8";
+/* CSS Document */
+@import "style.css";
+
+
+.all_right .genren_ziliao{
+    width: 100%;
+    height: 60px;
+    font-size: 1.1rem;
+    line-height: 60px;
+    border-bottom: 2px solid #eee;
+    font-weight: 900;
+    text-indent: 1em;
+
+    /*margin-bottom: 45px;*/
+}
+
+.all_right .shangchuan{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 1rem;
+    color:#666;
+    padding: 30px 0 30px 0;
+    /*background: #ccc;*/
+}
+
+.all_right .shangchuan .felishang{
+    width: 125px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 0.9rem;
+    color: #1e89e0;
+    text-align: center;
+    display: inline-block;
+    margin: 0 25px 0 20px;
+    cursor: pointer;
+    border: 1px solid #1e89e0;
+}
+
+
+.zuidakuang{
+    width:100%;
+    height:322px;
+    /*background:pink;*/
+}
+
+.zuidakuang .betterbig{
+    float: left;
+    width:320px;
+    height:320px;
+    background:#eee;
+    border:1px solid #999;
+    background: url(../image/11.jpg) no-repeat;
+    background-size:100% 100%;
+}
+
+.zuidakuang .nextbig{
+    float: left;
+    width: 210px;
+    height: 210px;
+    margin: 0 0 0 40px;
+    border:1px solid #999;
+    background: url(../image/22.jpg) no-repeat;
+    background-size:100% 100%;
+}
+
+.zuidakuang .threebig{
+    float: left;
+    width: 50px;
+    height: 50px;
+    margin: 0 0 0 30px;
+    border: 1px solid #999;
+    background: url(../image/332.jpg) no-repeat;
+    background-size:100% 100%;
+}
+
+.zuidakuang .zuixiao{
+    float: left;
+    width: 25px;
+    height: 25px;
+    margin: 94px 0 0 -52px;
+    border: 1px solid #999;
+    background: url(../image/44.jpg) no-repeat;
+    background-size:100% 100%;
+}
+
+
+.bestwenzi{
+    height: 30px;
+    color: #999;
+    font-size: 1rem;
+    position: absolute;
+    margin: 230px 0 0 -210px;
+}
+
+
+
+.zhongwanzi{
+    height: 30px;
+    color: #999;
+    font-size: 1rem;
+    position: absolute;
+    margin: 60px 0 0 -52px;
+}
+
+.xaiowenzi{
+    height: 30px;
+    color: #999;
+    font-size: 1rem;
+    position: absolute;
+    margin: 140px 0 0 -52px;
+
+}
+
+
+
+.thedowent{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    /*background: #eee;*/
+    margin: 35px 0 0 0;
+}
+
+
+.thedowent .save{
+    width: 120px;
+    height: 40px;
+    font-size: 0.9rem;
+    text-align: center;
+    display: inline-block;
+    color: #fff;
+    line-height: 40px;
+    border-radius: 3px;
+    background: #bbb;
+}
+
+
+.thedowent .quxiao{
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    display: inline-block;
+    line-height: 40px;
+    font-size: 1rem;
+    color: #000;
+    cursor: pointer;
+    margin: 0 0 0 20px;
+}
+
+
+.coumen{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display:none; 
+
+}
+
+
+.coumen .subdom{
+    width: 100%;
+    margin: 10% 0 0 0;
+    height: 210px;
+    /*background: red;*/
+}
+
+.coumen .subdom .baikuang{
+    width: 400px;
+    height: 200px;
+    background: #fff;
+    margin: auto;
+}
+
+.coumen .subdom .baikuang .chaone{
+    width:100%;
+    height:30px;
+    /*background:yellow;*/
+
+}
+
+.coumen .subdom .baikuang .chaone .spaer{
+    width: 30px;
+    float: right;
+    height: 30px;
+    line-height: 30px;
+    font-weight: 900;
+    color: #999;
+    font-size: 1.2rem;
+    display: inline-block;
+    text-align: center;
+    /*background: red;*/
+    cursor: pointer;
+}
+
+
+
+.coumen .subdom .baikuang .biaoti{
+    width: 100%;
+    height: 30px;
+    padding: 12px 0;
+    font-size: 1.05rem;
+    line-height: 30px;
+   /* background: pink;*/
+    font-weight: 900;
+    color: #666;
+}
+.coumen .subdom .baikuang .biaoti .sessces{
+    width: 200px;
+    margin: 0 0 0 70px;
+    display:none;
+}
+
+.coumen .subdom .baikuang .biaoti .luzer{
+    width: 250px;
+    display: inline-block;
+    /*background: #eee;*/
+    margin: 0 0 0 30px;
+    
+}
+
+.coumen .subdom .baikuang .biaoti .luzer span{
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    font-size: 1.2rem;
+    text-align: center;
+    background: red;
+    color: #fff;
+    margin: 0 10px 0 0;
+    border-radius: 59px;
+
+}
+
+
+.coumen .subdom .baikuang .fanhui{
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    padding: 5px 0;
+    font-size: 0.5rem;
+    color: #666;
+   /* background: #999;*/
+}
+.coumen .subdom .baikuang .fanhui .yester{
+    margin: 0 0 0 70px;
+    display:none;
+}
+
+.coumen .subdom .baikuang .fanhui .noter{
+    margin:0 0 0 70px;
+
+}
+
+.coumen .subdom .baikuang .zuixiabnain{
+    width: 100%;
+    height: 35px;
+    line-height: 35px;
+    padding: 20px 0;
+    /*background: red;*/
+}
+
+.coumen .subdom .baikuang .zuixiabnain .queding{
+    width: 95px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    display: inline-block;
+    color: #fff;
+    font-size: 0.95rem;
+    margin: 0 0 0 70px;
+    background: #0089dc;
+    border-radius: 3px;
+    cursor: pointer;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

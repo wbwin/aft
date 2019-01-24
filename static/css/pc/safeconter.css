@@ -1,0 +1,463 @@
+@charset "utf-8";
+/* CSS Document */
+@import "style.css";
+
+
+.all_right .safeall{
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    font-size: 1.2rem;
+    border-bottom: 2px solid #f4f4f4;
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-indent: 1em;
+}
+
+.all_right .safe_dengji{
+    width: 100%;
+    height: 55px;
+    line-height: 55px;
+    text-indent: 1em;
+    background: #f8f8f6;
+}
+
+.all_right .safe_dengji .di_jindu{
+    width: 200px;
+    height: 12px;
+    display: inline-block;
+    background: #e2e0c0;
+    border-radius: 20px;
+}
+.all_right .safe_dengji .di_jindu .jingdu_tiao{
+    width: 60%;
+    height: 12px;
+   /* display: inline-block;*/
+    background: #94c852;
+    border-radius: 20px;
+}
+.all_right .safe_dengji span{
+    height: 15px;
+    padding: 0 8px;
+    font-size: 0.9rem;
+    color: #94c852;
+}
+
+.all_right .safe_dengji .soan{
+    height: 15px;
+    padding: 0 0 0 45px;
+    font-size: 0.9rem;
+    color: #ff9c00;
+}
+
+
+.all_right .one_yi{
+    width: 100%;
+    height: 120px;
+    border-bottom: 1px solid #eeeeee;
+    /*background: red;*/
+}
+
+.all_right .one_yi .all_tupian{
+    width: 31px;
+    float: left;
+    height: 31px;
+    display: inline-block;
+    padding: 45px 20px;
+    /*background: red;*/
+}
+.all_right .one_yi .all_tupian .yes_xian{
+    display:block;
+}.all_right .one_yi .all_tupian .no_xian{
+    display:block;
+}
+.all_right .one_yi .passow{
+    width: 130px;
+    height: 120px;
+    float: left;
+    line-height: 120px;
+    text-align: center;
+    display: inline-block;
+   /* background: green;*/
+}
+.all_right .one_yi .shezhi_pw{
+    float: left;
+    width: 575px;
+    height: 120px;
+    display: inline-block;
+    /*background: pink;*/
+    margin-left: 40px;
+}.all_right .one_yi .shezhi_pwyingcang{
+    float: left;
+    width: 575px;
+    height: 120px;
+    line-height: 120px;
+    font-size: 0.9rem;
+    display: inline-block;
+   
+    /*background: pink;*/
+}
+
+.all_right .one_yi .shezhi_pw .one{
+    width: 100%;
+    /*background: red;*/
+    margin-top: 30px;
+    padding: 7px 0;
+    font-size: 0.9rem;
+}
+.all_right .one_yi .shezhi_pw .two{
+    width: 100%;
+    /*background: red;*/
+    padding: 6px 0;
+    color:#999999;
+    font-size: 0.5rem;
+}
+
+
+.all_right .one_yi .xzk_all{
+    width: 204px;
+    height: 120px;
+    float: right;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   /*background: green;*/
+}
+.all_right .one_yi .xzk_all a{
+    text-decoration: none;
+    color:#1e89e0;
+
+
+
+}
+.all_right .one_yi .xzk_all .dvd a{
+    background: #f74342;
+    padding: 5px 15px;
+    display: inline-block;
+    color:#fff;
+    font-size: 0.95rem;
+    border-radius: 3px;
+    cursor:pointer;
+
+    /*display:none;*/
+
+}
+.all_right .one_yi .xzk_all .dvd a:hover{
+    background: red;
+}
+
+
+
+
+
+
+
+
+
+.all_right .two_er{
+    width: 100%;
+    height: 120px;
+    border-bottom: 1px solid #eeeeee;
+    /*background: red;*/
+}
+.all_right .two_er .all_tupian{
+    width: 31px;
+    float: left;
+    height: 31px;
+    display: inline-block;
+    padding: 45px 20px;
+    /*background: red;*/
+}
+
+.all_right .two_er .all_tupian .no_xian{
+    /*display:none;*/
+}.all_right .two_er .all_tupian ._xian{
+    display:block;
+}
+
+.all_right .two_er .yanzheng{
+    width: 130px;
+    height: 120px;
+    float: left;
+    line-height: 120px;
+    text-align: center;
+    display: inline-block;
+}
+
+.all_right .two_er .shezhi_pw{
+    float: left;
+    width: 575px;
+    height: 120px;
+    line-height: 120px;
+    display: inline-block;
+    font-size: 0.9rem;
+    
+}.all_right .two_er .shezhi_pwyingcang{
+    float: left;
+    width: 575px;
+    height: 120px;
+    line-height: 120px;
+    display: inline-block;
+    font-size: 0.9rem;
+    /*display:none;*/
+}
+
+.all_right .two_er .xzk_all{
+    width: 204px;
+    height: 120px;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   /*background: green;*/
+}
+.all_right .two_er .xzk_all a{
+    text-decoration: none;
+    color:#1e89e0;
+
+
+}
+.all_right .two_er .xzk_all .dvd a{
+    background: #f74342;
+    padding: 5px 15px;
+    display: inline-block;
+    color:#fff;
+    font-size: 0.95rem;
+    border-radius: 3px;
+    cursor:pointer;
+
+    /*display:none;*/
+}
+.all_right .two_er .xzk_all .dvd a:hover{
+    background: red;
+}
+
+
+
+
+
+
+
+
+
+
+.all_right .three_san{
+    width: 100%;
+    height: 120px;
+    border-bottom: 1px solid #eeeeee;
+    /*background: red;*/
+}
+
+.all_right .three_san .all_tupian{
+    width: 31px;
+    float: left;
+    height: 31px;
+    display: inline-block;
+    padding: 45px 20px;
+    /*background: red;*/
+}
+.all_right .three_san .all_tupian .yes_xian{
+    display:block;
+}.all_right .three_san .all_tupian .no_xian{
+
+     /*display:none;*/
+}
+.all_right .three_san .passow{
+    width: 130px;
+    height: 120px;
+    float: left;
+    line-height: 120px;
+    text-align: center;
+    display: inline-block;
+   /* background: green;*/
+}
+.all_right .three_san .shezhi_pw{
+    float: left;
+    width: 575px;
+    height: 120px;
+    display: inline-block;
+    /*background: pink;*/
+
+}.all_right .three_san .shezhi_pwyingcang{
+    float: left;
+    width: 575px;
+    height: 120px;
+    line-height: 120px;
+    font-size: 0.9rem;
+    display: inline-block;
+     /*display:none;*/
+    /*background: pink;*/
+}
+
+.all_right .three_san .shezhi_pw .one{
+    width: 100%;
+    /*background: red;*/
+    margin-top: 30px;
+    padding: 7px 0;
+    font-size: 0.9rem;
+}
+.all_right .three_san .shezhi_pw .two{
+    width: 100%;
+    /*background: red;*/
+    padding: 6px 0;
+    color:#999999;
+    font-size: 0.5rem;
+}
+
+
+.all_right .three_san .xzk_all{
+    width: 204px;
+    height: 120px;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   /*background: green;*/
+}
+.all_right .three_san .xzk_all a{
+    text-decoration: none;
+    color:#1e89e0;
+
+
+}
+.all_right .three_san .xzk_all .dvd a{
+    background: #f74342;
+    padding: 5px 15px;
+    display: inline-block;
+    color:#fff;
+    font-size: 0.95rem;
+    border-radius: 3px;
+    cursor:pointer;
+
+    /*display:none;*/
+}
+.all_right .three_san .xzk_all .dvd a:hover{
+    background: red;
+}
+
+
+
+
+
+
+
+
+
+.all_right .four_si{
+    width: 100%;
+    height: 120px;
+    border-bottom: 1px solid #eeeeee;
+    /*background: red;*/
+}
+
+.all_right .four_si .all_tupian{
+    width: 31px;
+    float: left;
+    height: 31px;
+    display: inline-block;
+    padding: 45px 20px;
+    /*background: red;*/
+}
+.all_right .four_si .all_tupian .yes_xian{
+    display:block;
+}.all_right .four_si .all_tupian .no_xian{
+    display:none;
+}
+.all_right .four_si .passow{
+    width: 130px;
+    height: 120px;
+    float: left;
+    line-height: 120px;
+    text-align: center;
+    display: inline-block;
+   /* background: green;*/
+}
+.all_right .four_si .shezhi_pw{
+    float: left;
+    width: 575px;
+    height: 120px;
+    display: inline-block;
+    /*background: pink;*/
+    
+}.all_right .four_si .shezhi_pwyingcang{
+    float: left;
+    width: 575px;
+    height: 120px;
+    line-height: 120px;
+    font-size: 0.9rem;
+    display: inline-block;
+    display:none;
+    /*background: pink;*/
+}
+
+.all_right .four_si .shezhi_pw .one{
+    width: 100%;
+    /*background: red;*/
+    margin-top: 30px;
+    padding: 7px 0;
+    font-size: 0.9rem;
+}
+.all_right .four_si .shezhi_pw .two{
+    width: 100%;
+    /*background: red;*/
+    padding: 6px 0;
+    color:#999999;
+    font-size: 0.5rem;
+}
+
+
+.all_right .four_si .xzk_all{
+    width: 204px;
+    height: 120px;
+    float: left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   /*background: green;*/
+}
+.all_right .four_si .xzk_all a{
+    text-decoration: none;
+    color:#1e89e0;
+
+
+}
+.all_right .four_si .xzk_all .dvd a{
+    background: #f74342;
+    padding: 5px 15px;
+    display: inline-block;
+    color:#fff;
+    font-size: 0.95rem;
+    border-radius: 3px;
+    cursor:pointer;
+
+    display:none;
+}
+.all_right .four_si .xzk_all .dvd a:hover{
+    background: red;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

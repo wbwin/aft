@@ -1,0 +1,62 @@
+@charset "utf-8";
+/* CSS Document */
+@import "style.css";
+
+
+.all_right .dai_pjdingdan{
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    font-size: 1.2rem;
+    border-bottom: 2px solid #f4f4f4;
+    font-weight: 900;
+    margin-bottom: 10px;
+    text-indent: 1em;
+}
+.all_right .dai_pjdingdan span{
+    font-size: 0.7rem;
+    color: #999;
+}
+
+
+/********************无订单*************************/
+.all_right .wu_daipjdingdan{
+    width: 100%;
+    height: 700px;
+   /* display: none;*/
+    /*background: #ccc;*/
+}
+.all_right .wu_daipjdingdan img{
+    margin: 80px 0 0 375px;
+}
+.all_right .wu_daipjdingdan span{
+    position: absolute;
+    margin: 130px 0 0 25px;
+    font-size: 0.9rem;
+    color: #999;
+}
+
+
+/********************无订单*************************/
+
+/*******************有订单*************************/
+.all_right .you_daipjdingdan{
+    width:100%;
+    height:700px;
+    background:#ccc;
+    display:none;
+}
+/*******************有订单*************************/
+
+
+
+
+
+
+
+
+
+
+
+
+

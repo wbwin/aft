@@ -1,0 +1,118 @@
+body{
+	background-color: #efefef;
+}
+header .but-choice{
+    width: 33.333333333%;
+}
+p{
+	margin-bottom: 0.08rem;
+}
+.notBar{
+	border: none !important;
+}
+.txtLine{
+	line-height: 0.65rem;
+	padding-left: 0.2rem;
+}
+.panel-heading{
+	padding: 0.2rem 0;
+}
+
+/**/
+.flowpd{
+padding-left: 1.3rem;
+
+}
+.flowStateBox{
+	position: absolute;
+	left: 0;
+	top:0.4rem;
+	width: 1.5rem;
+	color: #000;
+	font-size: 0.21rem;
+}
+.flowState{
+  position: absolute;
+  right: 0;
+  top: 0;
+  text-align: center;
+}
+.flowState > .words{
+	display:block;
+	line-height: 0.32rem;
+	padding: 0 0.18rem;
+	border-radius: 50px;
+	border:solid 1px #FFA500;
+	position: relative;
+}
+.lineArrow,.line{
+	display: inline-block;
+	position: relative;
+	width: 0.02rem;
+	height:0.7rem;
+	background-color:#C8C8C8;
+	margin-top: 0.08rem;
+}
+.line{
+height: 0.6rem;
+}
+.lineArrow:after{
+  content: "";
+  display: block;
+  width:0.12rem;
+  height: 0.12rem;
+  border-bottom:solid 0.02rem #C8C8C8;
+ border-left:solid 0.02rem #C8C8C8;
+ position: absolute;
+ bottom:0.018rem;
+ left: 50%;
+ margin-left: -0.01rem;
+ transform:translateX(-50%) rotate(-45deg);
+}
+
+/*数据*/
+.flowData{
+	min-height: 5rem;
+	overflow: hidden;
+}
+.flowData .numbTxt{
+  padding: 0.2rem 0;
+}
+.numbTxt>div{
+	text-align: center;
+	min-height: 0.78rem;
+}
+.flowData .fa-up{
+	font-size: 0.24rem;
+	margin: 0 0.01rem;
+}
+.fontNumb{
+	font-size: 0.4rem;
+}
+.rateBox{
+	width: 80%;
+	background-color: #F0F0F0;
+	line-height: 0.52rem;
+	font-size: 0.22rem;
+	text-align: center;
+	border-radius: 50px;
+	margin: 0.1rem auto;
+	position: relative;
+}
+.rateBox:before,.rateBox:after{
+	content: "";
+	display: block;
+	width: 0.4rem;
+	height: 1px;
+	position: absolute;
+	top: 50%;
+	background-color: #E8E8E8;
+}
+.rateBox:before{
+	content: "";
+	right: 100%;
+}
+.rateBox:after{
+	content: "";
+	left: 100%;
+}

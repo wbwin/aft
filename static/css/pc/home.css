@@ -1,0 +1,308 @@
+.home-top {
+    width: 100%;
+    height: 500px;
+    background: url("/static/image/pc/home-bg.png") center no-repeat #008de1;
+    background-size: cover;
+    font-size: 14px;
+}
+
+.map-header {
+    padding-top: 25px;
+    color: #fff;
+    line-height: 45px;
+
+}
+
+
+
+.map-headerL {
+    float: left;
+}
+
+.map-headerL img {
+    vertical-align: middle;
+    height: 26px;
+}
+
+.map-headerR {
+    float: right;
+    line-height: 45px;
+}
+
+.map-headerR img {
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+}
+
+.use-name, .use-login {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.map-headerR .kd {
+    display: inline-block;
+    padding: 7px 17px;
+    line-height: 1;
+    border: none;
+    border-radius: 2px;
+    outline: 0;
+    cursor: pointer;
+    font-size: 14px;
+    text-align: center;
+    background-color: #5db423;
+    margin-left: 5px;
+    color: #fff;
+}
+
+.map-conter {
+    margin-bottom: 53px;
+    margin-top: 40px;
+    color: #fff;
+    font-size: 50px;
+    opacity: 1;
+    max-height: 100px;
+    text-align: center;
+    will-change: transform;
+    /*    transition: all 1s ease,opacity 1s ease;*/
+
+}
+
+.map-conter img {
+    width: 280px;
+}
+
+.map-navbar {
+    width: 60%;
+    line-height: 56px;
+    margin: 0 auto;
+    z-index: 900;
+    /*  transition: all .8s ease;*/
+}
+
+.map-city {
+    width: 100px;
+    float: left;
+    position: relative;
+}
+
+.mapcity-current {
+    display: block;
+    position: relative;
+    background-color: #fff;
+    text-align: center;
+    height: 56px;
+    font-size: 20px;
+    color: #333;
+}
+
+.mapcity-current:after {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    top: 45%;
+    right: 13px;
+    margin-left: 5px;
+    vertical-align: middle;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #999;
+}
+
+.map-search {
+    float: left;
+    width: 70%;
+    position: relative;
+}
+
+.map-search:before {
+    content: "";
+    position: absolute;
+    top: 13px;
+    left: 0;
+    height: 30px;
+    border-left: 1px solid #dcdcdc;
+}
+
+.mapsearch-inputs {
+    height: 56px;
+    background-color: #fff;
+}
+
+.mapsearch-inputs input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: 0;
+    padding-left: 18px;
+    font-size: 16px;
+}
+
+.mapsearch-inputs button {
+    position: absolute;
+    top: 0;
+    right: -138px;
+    width: 128px;
+    padding: 0;
+    line-height: 56px;
+    font-size: 20px;
+    right: -158px;
+    border-radius: 0;
+    background-color: #f74342;
+    color: #fff;
+    border: none;
+}
+
+.city-scrollbar {
+    z-index: 1;
+    position: absolute;
+    top: 56px;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 20px 20px 0 rgba(0, 0, 0, .085);
+    overflow-y: auto;
+    max-height: 321px;
+    display: none;
+}
+
+.city-scrollbar li:hover {
+    background-color: #f2f5f7;
+}
+
+.city-scrollbar li {
+    cursor: pointer;
+    padding-left: 18px;
+    line-height: 58px;
+    border-top: 1px solid #eee;
+    text-align: center;
+    z-index: 1;
+}
+
+.addressLI {
+    list-style: none;
+}
+
+.suggent-name {
+    line-height: normal;
+    padding-top: 10px;
+}
+
+.suggent-addr {
+    line-height: normal;
+    padding-bottom: 10px;
+    font-size: 12px;
+    color: #999;
+    overflow: hidden;
+}
+
+.mapfooter {
+    margin: 30px auto 10px;
+    text-align: center;
+}
+
+.mapfooter-app {
+    display: inline-block;
+    padding-top: 60px;
+    padding-bottom: 90px;
+    text-align: left;
+}
+
+.mapfooter-app-img {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    width: 150px;
+    height: 150px;
+    padding: 15px;
+    border: 1px solid #ddd;
+}
+
+.mapfooter-app-img img {
+    width: 100%;
+}
+
+.mapfooter-app-img span {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: -10px;
+    left: 25px;
+    right: 25px;
+    background-color: #fff;
+    text-align: center;
+    color: #999;
+}
+
+.mapfooter-text {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 16px;
+    margin-left: 8px;
+}
+
+.mapfooter-text .aggrav {
+    color: #f74342;
+    font-size: 30px;
+    font-weight: 700;
+    padding: 5px 0;
+}
+
+.mapfooter-link {
+    color: #666;
+    font-size: 12px;
+    line-height: 1;
+    margin-bottom: 10px;
+    /*    text-align: center;*/
+}
+
+.mapfooter-link a {
+
+    border-left: solid 1px #ccc;
+    display: inline-block;
+    padding: 0 7px;
+    color: inherit;
+}
+
+.mapfooter-link a:first-child {
+    border-left: 0;
+}
+
+.mapfooter-link:after {
+    content: ".";
+    visibility: hidden;
+    display: block;
+    clear: both;
+}
+
+.mapfooter-serif {
+    font-size: 12px;
+    clear: both;
+    padding-top: 6px;
+    color: #999;
+    text-align: center;
+}
+
+.mapfooter-serif a {
+    color: inherit;
+}
+
+.mapfooter-serif a:hover {
+    text-decoration: underline
+}
+
+.mapfooter-polic img {
+    margin-top: 10px;
+    height: 30px;
+}
+
+/*滚动条的大小 和颜色*/
+.city-scrollbar::-webkit-scrollbar-thumb {
+    background-color: #000;
+    background-color: rgba(0, 0, 0, .26);
+}
+
+.city-scrollbar::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}

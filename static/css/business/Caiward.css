@@ -1,0 +1,157 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+[v-cloak] {
+    display: none;
+}
+
+.dec{
+    min-height: 500px;
+    background: #ebeef3;
+}
+.Neibiankuan{
+    padding: 10px 20px;
+    /*background: red;*/
+}
+
+.colerd{
+    color: #00bfab;
+}
+.okerder{
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    /*background: #eee;*/
+}
+.enkrend{
+    height: 35px;
+    line-height: 35px;
+    background: #fafafa;
+    font-size: 13px;
+    font-weight: 900;
+    color: #000;
+    text-indent: 2em;
+}
+.swlkred_all{
+    min-height: 240px;
+    background: #fff;
+}
+
+
+.A_Sone{
+    height:40px;
+    line-height: 40px;
+    font-size: 14px;
+    color: #666;
+}
+.all_aer{
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+    text-align: right;
+    color: #bababa;
+    display: inline-block;
+    margin-right: 20px;
+}
+.mingzai{
+    height: 35px;
+    line-height: 35px;
+    font-size: 13px;
+    font-weight: 900;
+    background:#fafafa ;
+    text-indent: 2em;
+    margin: 20px 0 0 0;
+}
+.innerHtml{
+    height: 70px;
+    background: #f5fffe;
+    display: flex;
+    justify-content: space-between;
+}
+.Azuo{
+    width: 215px;
+    height: 70px;
+    line-height: 70px;
+    border-left: 3px solid #03c0ac;
+    text-indent: 1em;
+    font-size: 13px;
+    font-weight: 900;
+}
+.Ayou{
+    width: 155px;
+    height: 70px;
+    /*background: #ccc;*/
+}
+.Ayou_shang{
+    height: 35px;
+    line-height: 35px;
+    font-size: 13px;
+    font-weight: 900;
+}
+.Ayou_xia{
+    height: 35px;
+    line-height: 35px;
+    font-size: 13px;
+    color: #9e9d9b;
+}
+.saxaAer{
+    min-height: 110px;
+    padding: 0 20px;
+    background: #fff;
+}
+.LimIer{
+    height: 35px;
+    line-height: 35px;
+    font-size: 12px;
+    display: flex;
+    border-bottom: 1px dashed #e5e5e5;
+    justify-content: space-between;
+}
+.wsd_Ren{
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    display: inline-block;
+    /*background: red;*/
+}
+.end_Ren{
+    width: 200px;
+    height: 35px;
+    line-height: 35px;
+    display: inline-block;
+    /*background: yellow;*/
+}
+.ernPasd{
+    width: 100px;
+    height: 25px;
+    line-height: 25px;
+    /*background: pink;*/
+    display: inline-block;
+    margin: 0 0 0 30px;
+    color: #00bda9;
+}
+
+.ernPasd a{
+    color: #00bda9;
+    text-decoration: none;
+}
+
+
+.onLiner{
+    margin:  0 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

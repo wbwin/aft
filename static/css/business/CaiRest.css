@@ -1,0 +1,142 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+[v-cloak] {
+    display: none;
+}
+/*body{
+     background: #bababa;
+     padding-left: 200px;
+}*/
+.dec{
+    min-height: 1000px;
+    background: #ebeef2;
+    padding: 30px 30px 550px 25px;
+}
+
+
+
+
+.tio_xdws{
+    width:100%;
+    height:100%;
+    top: 0;
+    /*left:200px;*/
+    background:#ffffff;
+    position: fixed;
+}
+.ojd_hsxcs{
+    width: 900px;
+    height: 384px;
+    border: 2px solid #189b8e;
+    margin: 30px auto 0 auto;
+}
+.xekjc_cmke{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    background: #189b8e;
+    text-indent: 1em;
+    font-size: 18px;
+    font-weight: 900;
+    color: #fff;
+}
+
+
+.sac_sj{
+    width: 600px;
+    height: 230px;
+    border-right: 1px solid #999;
+    margin: 50px 0 0 30px;
+}
+
+.biao_tot{
+    font-size: 13px;
+    height: 45px;
+    font-weight: 900;
+    line-height: 45px;
+    /*background: #eee;*/
+}
+.cdjn_kosw{
+    font-size: 13px;
+    height: 45px;
+    font-weight: 100;
+    line-height: 45px;
+    /*background: #eee;*/
+}
+#man{
+      margin: 0px 10px 0 0px;
+}
+#wij{
+      margin: 0px 10px 0 30px;
+}
+
+.sj_kjoqw{
+    font-size: 13px;
+    height: 85px;
+    font-weight: 100;
+    line-height: 45px;
+    /*background: #ccc;*/
+}
+
+.xcenc{
+    float: left;
+}
+
+.xsw_sk{
+    width: 500px;
+    height: 75px;
+    line-height: 30px;
+    display: inline-block;
+    /*border: 1px solid red;*/
+    margin: 10px 0 0 0;
+}
+.wubai_m,.qita_m{
+  margin: 0 10px 0 5px;
+
+}
+.yiqian_m{
+    margin:0 10px 0 65px;
+}
+.erqian_m{
+    margin:0 10px 0 65px;
+}
+
+.wuqian_m{
+    margin:0 10px 0 65px;
+}
+.yuanshu_ru{
+    width: 100px;
+    height: 25px;
+    border: 1px solid #ccc;
+    outline: none;
+    margin: 0 0 0 30px;
+    text-indent: 1em;
+}
+.xscm_cxe{
+    width: 100%;
+    /*height: 80px;*/
+    line-height: 80px;
+   /* background: pink;*/
+    text-align: center;
+    margin: 20px 0 0 0;
+}
+
+.cjiisd_zhji{
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    background: #189b8e;
+    color: #fff;
+    margin: auto;
+    text-align: center;
+    cursor: pointer;
+}
+.cjiisd_zhji a{
+    text-decoration: none;
+    color:#fff;
+}
+
+
+

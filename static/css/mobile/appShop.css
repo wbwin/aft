@@ -1,0 +1,124 @@
+/*选择更多的三角箭头*/
+.tria-down:after,.tria-up:after{
+ content: "›";
+ display: inline-block;
+ vertical-align: middle;
+ font-size: 0.3rem;
+ line-height: 0.3rem;
+ 
+ margin-left: 0.1rem;
+}
+.tria-down:after{
+transform:rotate(90deg);	
+}
+.tria-up:after{
+transform:rotate(-90deg);	
+}
+
+
+
+/**/
+p{
+	margin-bottom: 0.08rem;
+}
+
+.item-1,.item-2,.item-3,.item-4,.item-5,.item-6,.item-7,.item-8,.item-9,.item-10,.item-11,.item-12{
+	padding:0;
+
+}
+
+.navs{
+ line-height: 0.6rem;
+ font-size: 0.22rem;
+ border-bottom: solid 0.16rem #efefef;
+ position: relative;
+}
+.navs >div{
+	text-align: center;
+}
+.choiceDate{
+	position: fixed;
+	top: 0.6rem;
+	left: 0;
+	width: 100%;
+	height: 100%;
+  background-color: rgba(0,0,0,0.5);
+	color: #a0a0a0;
+}
+.choiceDate li{
+ border-top: solid 1px #efefef;
+ padding-left: 0.2rem;
+ 	background-color: #fff;
+}
+.choiceDate li.active{
+	color: #53beb7;
+}
+
+
+/*菜品*/
+.goodData{
+
+	padding-left: 0.2rem;
+}
+.goodData li{
+	padding: 0.2rem 0.2rem 0.2rem 0;
+	border-bottom: solid 1px #efefef;
+}
+.goodData .padt{
+	padding-top: 0.05rem;
+}
+.goodData .numb{
+  display: inline-block;
+  vertical-align: middle;
+  width:0.3rem;
+  height: 0.3rem;
+  text-align: center;;
+  line-height: 0.3rem;
+  color: #fff;
+  background-color: #95acbc;
+  border-radius: 50px;
+}
+.goodData li:nth-child(1) .numb{
+ background-color: #ff5a5a;
+}
+.goodData li:nth-child(2) .numb{
+ background-color:rgb(255, 117, 1);
+}
+.goodData li:nth-child(3) .numb{
+ background-color: rgb(255, 193, 0);
+}
+
+
+
+/*更多详情*/
+.moretxt{
+	color: #909090;
+	text-align: center;
+	font-size: 0.19rem;
+	padding: 0.05rem 0;
+}
+
+/*帮你选折扣菜*/
+.helpGoods{
+	background-color: #20dbcf;
+	position: fixed;
+	bottom: 50px;
+	right: 0;
+	color: #fff;
+	border-radius: 50px 0 0 50px;
+	padding: 0.1rem ;
+	font-size: 0.24rem;
+}
+.helpGoods img{
+	width: 0.5rem;
+	height: 0.5rem;
+	display: inline-block;
+	vertical-align: middle;
+}
+/*无内容*/
+
+.notContent{
+	text-align: center;
+	padding-top: 0.8rem;
+	 color: #6A6A6A;
+}

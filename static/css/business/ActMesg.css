@@ -1,0 +1,218 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+/*body{
+     background: #bababa;
+     padding-left: 200px;
+}*/
+.dec{
+    /*min-height: 1000px;*/
+    background: #ebeef2;
+    padding: 0 0px 0 0;
+}
+.ma_top{
+    height: 45px;
+    line-height: 45px;
+    background: #fff;
+    border-bottom: 1px solid #06c1ae;
+    display: flex;
+    margin: 0 0 20px 0px;
+}
+.ma_top div{
+    width: 122px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 13px;
+    cursor: pointer;
+}
+.ywwu_de{
+    color: #06c1ae;
+    border-bottom: 5px solid #06c1ae;
+}
+
+.efp{
+    min-height: 400px;
+    /*background: #ccc;*/
+    padding: 0 20px;
+}
+
+
+.skaj_ks{
+    padding: 0 160px 0px 10px;
+    height: 45px;
+    line-height: 45px;
+    background: #f5f5f5;
+    border-bottom: 2px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.saik_ikwj{
+    padding: 10px 160px 10px 10px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    justify-content: space-between;
+    color: #000000;
+}
+
+.tan_all{
+    color:#06c1ae;
+    cursor:pointer;
+}
+
+
+
+.wekj_k{
+        min-height: 400px;
+ /*   background: red;*/
+    padding: 0 20px;
+}
+
+.tio_oopp{
+    height:35px;
+    line-height: 35px;
+    background:#f5f5f5;
+    text-align: center;
+    font-size: 15px;
+}
+
+.ewqj_kj{
+    height: 50px;
+    line-height: 50px;
+    background: #fff;
+    padding: 8px 20px;
+    font-size: 15px;
+}
+.wekj_kj{
+    height: 35px;
+    line-height: 35px;
+    /*background: red;*/
+    display: flex;
+    cursor: pointer;
+    font-size: 10px;
+    justify-content: flex-end;
+    margin:10px 0 0 0;
+}
+.wekj_kj div{
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #eee;
+    margin: 0 5px;
+    border-radius: 4px;
+
+}
+#xioj_jian{
+    background:#06c1ae;
+    color:#000;
+}
+
+.cei_xc{
+    min-height: 400px;
+    /*background: yellow;*/
+    padding: 0 20px;
+}
+
+.ocjes{
+    width: 100%;
+    min-height: 2.5rem;
+    line-height: 2.5rem;
+    background: #f5f5f5;
+    border-bottom: 2px solid #dddddd;
+    display: flex;
+    font-size: 0.2rem;
+}
+
+.shik{
+    width: 30%;
+    color: #000;
+    font-weight: 900;
+    text-indent: 1em;
+}
+.xixixi{
+    width:70%;
+    color: #000;
+    font-weight: 900;
+}
+
+.ji_osxa{
+    width: 100%;
+    min-height: 2.5rem;
+    background: #fff;
+    border-bottom: 1px solid #dddddd;
+    display: flex;
+    font-size: 0.2rem;
+}
+
+.wj_kis{
+    width: 30%;
+    color: #000;
+    padding: 10px 0;
+    text-indent: 1em;
+}
+
+.xgfixi{
+    width: 70%;
+    color: #000;
+    padding: 10px 0;
+}
+
+
+
+
+
+
+
+.wekxxj_kj{
+    height: 35px;
+    line-height: 35px;
+    /*background: red;*/
+    display: flex;
+    cursor: pointer;
+    font-size: 10px;
+    justify-content: flex-end;
+    margin:10px 0 0 0;
+}
+.wekxxj_kj div{
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #eee;
+    margin: 0 5px;
+    border-radius: 4px;
+
+}
+
+
+
+#xiojcxs_jian{
+    background:#06c1ae;
+    color:#000;
+}
+[v-cloak] {
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,472 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+[v-cloak] {
+    display: none;
+}
+/*body{
+     background: #bababa;
+     padding-left: 200px;
+}*/
+.dec{
+    /*min-height: 1000px;*/
+    background: #ebeef2;
+    padding: 30px 30px 0 25px;
+}
+
+.herder{
+    height: 40px;
+    line-height: 40px;
+    background: #fafafa;
+    border-bottom: 1px solid #d2d2d2;
+    display: flex;
+    font-size: 14px;
+}
+.herder div{
+    padding: 0 7px;
+    cursor: pointer;
+}
+
+
+
+
+
+#yijie{
+  color: #fff;
+  background:#06c1ae;
+
+}
+
+
+#zheshijiesuan{
+    min-height: 500px;
+   /*border:1px solid #bababa; */
+}
+
+
+#zheshiweijiesuan{
+    min-height: 500px;
+    /* border: 1px solid #000; */
+    display: none;
+    margin: 30px 0 0 0;
+}
+
+.cask_kan{
+    color:#06c1ae;
+    cursor:pointer;
+}
+.cask_kan a{
+    color:#06c1ae;
+    text-decoration:none;
+    font-size: 13px;
+}
+
+
+
+
+
+
+
+.sjk_jsk{
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    font-size: 13px;
+    margin: 30px 0 0 0;
+}
+
+.svfr_jsk{
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    font-size: 13px;
+    color:#06c1ae;
+    cursor:pointer;
+    margin: 0px 0 0 0;
+}
+.svfr_jsk a{
+    text-decoration: none;
+    color: #2bb8aa;
+}
+
+
+
+
+
+
+.dcjkoe_sk{
+    width:100%;
+    height:40px;
+    line-height: 40px;
+    font-size: 20px;
+    font-weight: 900;;
+}
+
+
+
+#topbu{
+    height: 75px;
+    line-height: 75px;
+    background: #fff;
+    margin: 20px 0 0 0;
+    padding: 0 20px;
+
+}
+
+#topbu input{
+    height: 30px;
+    width: 150px;
+    outline: none;
+    text-indent: 1em;
+}
+
+.chaxun{
+    width: 50px;
+    height: 30px;
+    background: #06c1ae;
+    margin: 0 0 0 20px;
+    padding: 7px 15px;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+}
+
+.quanbu{
+    background: #06c1ae;
+    margin: 0 0 0 60px;
+    padding: 11px 25px;
+    border-radius: 4px;
+    color: #fff;
+    font-size: 10px;
+    cursor: pointer;
+}
+.pagiation{
+    float: left;
+}
+.pagiation li{
+    float: left;
+    list-style: none;
+    width: 25px;
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    border: 1px solid #d2d2d2;
+    margin: 0 2px;
+    font-size: 13px;
+    cursor: pointer;
+    background: #fff;
+}
+
+#activer{
+    background:#06c1ae;
+    color:#fff;
+}
+
+
+
+
+
+.whdohufwoecfh{
+    width: 100%;
+    min-height: 150px;
+    background: #fff;
+    padding: 0 0 15px 0;
+}
+
+
+
+
+
+
+.chmod{
+    width: 1603px;
+    height: 150px;
+    background: #fff;
+    /*display: flex;*/
+}
+
+.chmod .kone{
+    float: left;
+    width: 350px;
+    height: 150px;
+    border-right: 1px solid #eee;
+    display: inline-block;
+}
+
+
+.owehcfwo{
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+
+}
+
+.comdwidfji{
+    width:500px;
+    margin:auto;
+}
+
+.wefkjw{
+    width: 25%;
+    border-right: 1px solid #e5e5e5;
+    min-height: 150px;
+}
+.qishiwu{
+    width:75%;
+    min-height: 150px;
+   /* border-bottom: 1px dashed  #666;*/
+}
+.xuiha_s{
+    width:100%;
+    height:50px;
+    line-height: 50px;
+    text-indent: 1em;
+    font-size: 13px;
+    color:#666;
+    background:#fff;  /*****#ffff*****/
+}
+.oversk_ja{
+    width:46.55%;
+    min-height:150px;
+    background:#f5fffe;
+}
+.oversk_fr{
+    width:53.45%;
+    min-height:150px;
+    background:#fff;
+}
+
+.on_hsangh{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.ck_skjc{
+    font-size: 15px;
+    color:#000;
+    font-weight: 900;
+}
+
+
+
+
+.dvov_nsdk{
+    /*background: red;*/
+    width: 50%;
+    text-align: center;
+}
+
+.cwvwk_ojs{
+    /*background: pink;*/
+    width: 50%;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.cweohw{
+    height: 50px;
+    line-height: 50px;
+    background: #fafafa;
+    font-size: 13px;
+    color: #666;
+    display: flex;
+}
+
+.wekvncwo{
+    width:25%;
+    height: 50px;
+    line-height: 50px;
+    background:#fafafa;
+}
+
+
+.rej_kckc{
+    width: 35%;
+    height: 50px;
+    line-height: 50px;
+    display: flex;
+    background: #fafafa;
+    justify-content: space-evenly;
+}
+.dvsjkvdk{
+    width:40%;
+    height: 50px;
+    line-height: 50px;
+    background:#fafafa;
+}
+
+.alllkuahnh{
+    min-height: 150px;
+    width: 100%;
+    background: #fff;
+    display: flex;
+    padding: 0 0 15px 0;
+}
+.cdkwe{
+    width: 100%;
+    min-height: 150px;
+    display: flex;
+    border-bottom: 1px dashed #e5e5e5;
+}
+
+
+.cwe_ohw{
+    height: 50px;
+    line-height: 50px;
+    background: #fafafa;
+    font-size: 13px;
+    color: #666;
+    display: flex;
+    margin: 20px 0 0 0;
+}
+.wek_time{
+    width:25%;
+    height: 50px;
+    line-height: 50px;
+    background:#fafafa;
+}
+.okh_ckc{
+    width: 35%;
+    height: 50px;
+    line-height: 50px;
+    display: flex;
+    background: #fafafa;
+    justify-content: space-evenly;
+}
+
+.dvs_kvdk{
+    width:40%;
+    height: 50px;
+    line-height: 50px;
+    background:#fafafa;
+}
+
+
+
+.alllk_uahnh{
+    min-height: 150px;
+    width: 100%;
+    background: #fff;
+    display: flex;
+}
+.we_fkjw{
+    width: 25%;
+    border-right: 1px solid #e5e5e5;
+}
+.xu_dwh{
+    width:100%;
+    height:50px;
+    line-height: 50px;
+    text-indent: 1em;
+    font-size: 13px;
+    color:#666;
+    background:#fff;  /*****#ffff*****/
+}
+.qish_iwu{
+    width:75%;
+    min-height: 150px;
+    border-bottom: 1px dashed  #e5e5e5;
+}
+.cdk_we{
+    width: 100%;
+    height: 150px;
+    display: flex;
+    border-bottom: 1px dashed #666;
+}
+.over_cda{
+    width:46.55%;
+    min-height:150px;
+    background:#f5fffe;
+}
+.on_angh{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.ckjk_jc{
+    font-size: 15px;
+    color: #000;
+    font-weight: 900;
+    width: 50%;
+    /*background: pink;*/
+    text-align: center;
+}
+.casui_an{
+    color: #06c1ae;
+    cursor: pointer;
+    font-size: 13px;
+    width: 50%;
+    text-align: center;
+}
+
+.casui_an a{
+    text-decoration: none;
+    color:#06c1ae;
+
+}
+
+
+.over_clr{
+    width:53.45%;
+    min-height:150px;
+    background:#fff;
+}
+.sjl_jsk{
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    font-size: 13px;
+    margin: 30px 0 0 0;
+}
+.dcjk_sk{
+    width:100%;
+    height:40px;
+    line-height: 40px;
+    font-size: 20px;
+    font-weight: 900;;
+}
+
+.svf_sk{
+    width: 100%;
+    height: 25px;
+    line-height: 25px;
+    font-size: 13px;
+    color:#06c1ae;
+    cursor:pointer;
+    margin: 0px 0 0 0;
+}
+
+
+
+

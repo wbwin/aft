@@ -1,0 +1,458 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {}
+[v-cloak] {
+    display: none;
+}
+.preOrder {
+    padding: 10px 20px 0 20px;
+    background: #ebeef2;
+}
+
+
+.Sinfer {
+    min-height: 200px;
+    background: #fff;
+    display: flex;
+    padding: 5px 0;
+}
+
+.Bing {
+    width: 200px;
+    flex: none;
+    /*background: red;*/
+}
+
+.Cing {
+    width: 100%;
+    /*background: #ccc;*/
+}
+
+.DuiHao {
+    width: 60px;
+    height: 60px;
+}
+
+.neiti {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*background: #666;*/
+}
+
+.Sionpter {
+    height: 25px;
+    line-height: 25px;
+    text-align: center;
+    /*background: pink;*/
+    font-size: 16px;
+}
+
+.shiFou {
+    height: 30px;
+    /*background: yellow;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Cin {
+    display: block;
+    border: 1px solid red;
+    font-size: 14px;
+    padding: 1px 2px;
+    border-radius: 3px;
+    /*cursor: pointer;*/
+}
+
+
+.ykai {
+    display: none;
+}
+
+
+.Andev {
+    height: 40px;
+    /*background: #bababa;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Din {
+    display: block;
+    background: #1aad18;
+    border: 1px solid #1aad18;
+    font-size: 14px;
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    border-radius: 3px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.dekai {
+    display: none;
+}
+
+
+
+
+
+
+.Xerper {
+    height: 55px;
+    /*background: #222;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.Peiche {
+    display: block;
+    background: #fcfcfc;
+    border: 1px solid #e6e9eb;
+    font-size: 14px;
+    width: 100px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    border-radius: 3px;
+    color: #000;
+    cursor: pointer;
+}
+
+
+.Sindrt {
+    /*background: red;*/
+    font-size: 13px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.OnderOne {
+    min-height: 30px;
+    /*background: #bababa;*/
+    display: flex;
+    margin: 0 0 5px 0;
+}
+
+.dianc {
+    width: 30px;
+    flex: none;
+    color: #e6e9eb;
+    /*background: pink;*/
+}
+
+.wenzi {
+    width: 100%;
+    color: #8d8d8d;
+    /*background: yellow;*/
+}
+
+
+
+
+.Sinde {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+
+.Nebcing {
+    width: 560px;
+    height: 100%;
+    /*background: red;*/
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.XinPer {
+    width: 100%;
+    height: 555px;
+    padding: 0 10px;
+    background: #fff;
+}
+
+
+
+
+
+
+
+
+
+.Honger {
+    height: 35px;
+    /*background: red;*/
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.Cuoinder {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    text-align: center;
+    display: block;
+    /*background: pink;*/
+    cursor: pointer;
+    font-size: 30px;
+    color: #666;
+}
+
+.Eing {
+    height: 30px;
+    line-height: 30px;
+    font-size: 12px;
+    color: #000;
+    margin: 0 0 10px 0;
+    /*background: #bababa;*/
+}
+
+.Saner {
+    height: 20px;
+    /*background: pink;*/
+    display: flex;
+}
+
+.Shuzi {
+    width: 19px;
+    height: 19px;
+    line-height: 19px;
+    text-align: center;
+    margin: 0 10px 0 0;
+    border-radius: 50px;
+    flex: none;
+    border: 1px solid #5e3f40;
+}
+
+.minNi {
+    width: 100%;
+    min-height: 20px;
+    font-size: 12px;
+}
+
+
+
+.Kong {
+    width: 20px;
+    /*height: 20px;*/
+    line-height: 20px;
+    text-align: center;
+    margin: 0 10px 0 0;
+    flex: none;
+}
+
+
+
+.DeiNi {
+    width: 100%;
+    min-height: 20px;
+    font-size: 12px;
+    color: #b2afab;
+}
+
+
+
+.Engerkon {
+    min-height: 20px;
+    /*background: pink;*/
+    display: flex;
+    margin: 0 0 10px 0;
+}
+
+
+.EngBig {
+    min-height: 50px;
+    /*background: pink;*/
+    display: flex;
+    align-items: center;
+    margin: 0 0 10px 0;
+}
+
+.nexter {
+    width: 75px;
+    color: #b2afab;
+    margin: 0 30px 0 0;
+    flex: none;
+}
+
+
+.CInei {
+    width: 130px;
+    height: 35px;
+    border: 1px solid #666;
+    border-radius: 4px;
+}
+
+.Zhizhao {
+    width: 100%;
+}
+
+
+.endless {
+    width: 100%;
+    height: 45px;
+    /*background: red;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.SenQin {
+    width: 150px;
+    height: 33px;
+    line-height: 33px;
+    text-align: center;
+    background: #15af16;
+    color: #fff;
+    font-size: 13px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+/***********************************************/
+
+.CunTern {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+/*.Sfen{
+    width: 100%;
+    height: 225px;
+    background: #fff;
+    border-radius: 10px;
+
+}*/
+
+.Sfen {
+    width: 50%;
+    height: 85%;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.Sonttern {
+    height: 40px;
+    background: #06c1ae;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 20px;
+    color: #fff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.Deting {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    display: block;
+    color: #fff;
+    font-size: 40px;
+    cursor: pointer;
+}
+
+
+/*.Sounfen{
+    height: 50px;
+     background: #fafafa; 
+    padding: 0 10px;
+    display: flex;
+}*/
+
+.Sounfen {
+    height: 50px;
+    /* background: #fafafa; */
+    padding: 0 10px;
+    float: left;
+    margin-left: 286px;
+    /* display: flex; */
+}
+
+.Sounfen .bin {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a0a0a0;
+    background: #fafafa;
+}
+
+
+
+
+
+.Xunfen {
+    /* height: 50px; */
+    display: block;
+    /* display: flex; */
+    float: left;
+    overflow: hidden;
+}
+
+
+/*.Xunfen{
+    height: 50px;
+     background: #fafafa; 
+    padding: 0 10px;
+    display: flex;
+}*/
+
+.Xunfen .cin {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #a0a0a0;
+    background: #fafafa;
+}
+
+.u {
+    overflow: hidden;
+}
+
+.l {
+    overflow: hidden;
+}
+
+.a {
+    float: left;
+    width: 105px;
+}

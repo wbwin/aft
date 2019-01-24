@@ -1,0 +1,133 @@
+.Huod {
+    /*width: 100%;*/
+    background: #fff;
+    /* margin-top: 100px;*/
+    padding: 20px 20px 20px 20px;
+}
+.search {
+    height: 50px;
+    /*background: #bababa;*/
+    display: flex;
+    align-items: center;
+}
+.Cinpr {
+    width: 250px;
+    height: 35px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 1px solid #bababa;
+    outline: none;
+    text-indent: 1em;
+}
+.content table, th, td {
+    border: 1px solid #bababa;
+}
+table tr {
+    height: 40px;
+}
+
+.content table {
+    width: 100%;
+    text-align: center;
+}
+.hangius {
+    width: 100%;
+    height: 30px;
+    background: #FAFAFA;
+    line-height: 30px;
+    padding-left: 5px;
+    font-size: 17px;
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+.Xin {
+    width: 45px;
+    height: 35px;
+    display: block;
+    line-height: 35px;
+    text-align: center;
+    background: #06c1ae;
+    color: #fff;
+    font-size: 14px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+}
+
+textarea{
+    /*width: 100%;*/
+    height: 115px;
+    border: none;
+}
+.content p{
+    text-align: initial;
+    white-space: pre-line;
+    width: 100%;
+    height: 100px;
+    overflow: auto;
+}
+.updataClass{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0px;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 5;
+    display: none;
+}
+.updataClass .content{
+    width: 50%;
+    background: #f5f2f2;
+    position: absolute;
+    border-radius: 10px;
+    left: 25%;
+    top: 5%;
+    margin: auto;
+}
+.updataClass .content .top{
+    padding: 0 20px;
+    height: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    color: #fff;
+    background: #06c1ae;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.updataClass .content .top .close{
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    /* background: red; */
+    float: right;
+    cursor: pointer;
+    font-size: 35px;
+}
+.updataClass .content .content_class{
+    margin: 15px;
+}
+.updataClass .content .content_class span{
+    display: inline-block;
+    width: 10%;
+    text-align: right;
+}
+.updataClass .content .content_class input{
+    width: 40%;
+    height: 40px;
+    text-indent: 1em;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    margin-bottom: 16px;
+}
+.updataClass .content .content_class textarea{
+    border-radius: 5px;
+    text-indent: 1em;
+    border: 0;
+    padding: 10px;
+    vertical-align: middle;
+    resize:none;
+}
+

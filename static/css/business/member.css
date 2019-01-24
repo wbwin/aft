@@ -1,0 +1,584 @@
+* {
+    /*margin:0;*/
+    /*padding:0;*/
+    list-style: none;
+    box-sizing: border-box;
+}
+
+.drop {
+    width: 100%;
+    height: auto;
+    /*margin:100px auto;*/
+    margin-bottom: 16px;
+}
+[v-cloak] {
+    display: none;
+}
+.drop-header {
+    width: 100%;
+    padding: 5px 10px;
+    border: #c7c7c7 1px solid;
+    word-wrap: break-word;
+    min-height: 32px;
+}
+
+.drop-header span {
+    position: relative;
+    display: inline-block;
+    padding-right: 5px;
+    padding-left: 5px;
+    margin: 1px 5px 1px;
+    line-height: 20px;
+    background-color: #a9a9a9;
+    color: #fff;
+    cursor: pointer;
+}
+
+.drop-dwon {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    line-height: 25px;
+    border: #c7c7c7 1px solid;
+    box-shadow: #c7c7c7 1px 1px 4px;
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.drop-dwon li {
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.drop-dwon li:hover,
+.drop-dwon li.active:hover {
+    color: #fff;
+    background-color: #18717b;
+}
+
+.drop-dwon li.active {
+    color: #fff;
+    background-color: #07a4b5;
+}
+
+.Huod {
+    width: 100%;
+    background: #fff;
+    /* margin-top: 100px;*/
+    padding: 20px 20px 20px 20px;
+}
+
+#Huod {
+    width: 100%;
+    height: auto;
+    background: #f5f2f2;
+    /*padding-bottom:20px;*/
+}
+
+#Jian {
+    width: 50%;
+    margin: 0px auto;
+    padding-top: 40px;
+}
+
+
+/*.Jian table, th, td{*/
+
+
+/*border:1px solid black;*/
+
+
+/*border-collapse:collapse;*/
+
+
+/*}*/
+
+.Jian table,
+th,
+td {
+    border: 1px solid #bababa;
+}
+
+
+.Jian table {
+    width: 100%;
+    text-align: center;
+}
+
+#parentIframe {
+    padding: 8px;
+    margin: 0 0 20px 8px;
+    background: #06c1ae;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.pplianshch {
+    padding: 8px;
+    margin: 0 0 20px 8px;
+    background: #06c1ae;
+    color: #fff;
+    border-radius: 5px;
+}
+
+#Jian .input {
+    width: 317px;
+    height: 26px;
+    text-indent: 1em;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    margin-bottom: 16px;
+}
+
+#Jian label {
+    font-size: 13px;
+    margin-right: 20px;
+    margin-bottom: 16px;
+}
+
+.zuotext {
+    width: 122px;
+    height: 26px;
+    text-indent: 1em;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    margin-bottom: 16px;
+    margin-right: 5px;
+}
+
+.csdevwe {
+    width: 122px;
+    height: 26px;
+    text-indent: 1em;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    margin-bottom: 16px;
+    margin-right: 5px;
+}
+
+.img {
+    width: 80px;
+    height: 80px;
+    margin: 0 66px 16px 50px;
+    border-style: dotted;
+    font-size: 50px;
+    text-align: center;
+    float: right;
+    cursor: pointer;
+}
+
+#TuImg {
+    height: 80px;
+}
+
+#TuImg label {
+    line-height: 80px;
+}
+
+#imgT {
+    width: 80px;
+    height: 80px;
+    border: 1px solid #b5b5b5;
+    float: right;
+    margin-bottom: 20px
+}
+
+#Jian textarea {
+    width: 100%;
+    height: 120px;
+    border-radius: 5px;
+    padding-top: 10px;
+    text-indent: 1em;
+    outline: none;
+    border: none;
+    resize: none;
+    margin-top: 40px;
+}
+
+.end_zuohou {
+    font-size: 15px;
+    color: #666;
+    height: 30px;
+    line-height: 30px;
+    margin-top: 12px;
+}
+
+.cohn_SDUC {
+    color: #05c2ac;
+    cursor: pointer;
+}
+
+.Tyes {
+    width: 100px;
+    height: 40px;
+    background: #d6d6d6;
+    border: none;
+    margin: 20px 160px;
+}
+
+
+/*鼠标悬停信息*/
+
+#tooltips {
+    position: relative;
+    /*这个是关键*/
+    z-index: 2;
+}
+
+#tooltips:hover {
+    z-index: 3;
+    background: none;
+    /*没有这个在IE中不可用*/
+}
+
+#tooltips .protocol {
+    display: none;
+}
+
+#tooltips:hover .protocol {
+    /*span 标签仅在 :hover 状态时显示*/
+    display: block;
+    position: absolute;
+    top: -310px;
+    left: -186px;
+    width: 600px;
+    border: 1px solid black;
+    background-color: #ababab;
+    padding: 3px;
+    color: red;
+}
+
+
+
+/*上下三角形箭头 单个*/
+
+.threeS {
+    display: inline-block;
+    vertical-align: middle;
+    border: solid 5px transparent;
+    border-top-color: #6A6A6A;
+    margin-top: 3px;
+    margin-left: 3px;
+    cursor: pointer;
+}
+
+.threeSTop {
+    border-top-color: transparent !important;
+    border-bottom-color: #6A6A6A;
+    margin-top: -6px !important;
+}
+
+.foodsSelect {
+    display: inline-block;
+    position: relative;
+    ;
+    margin-bottom: 16px;
+}
+
+.foodsSelect .threeS {
+    position: absolute;
+    top: 17px;
+    right: 12px;
+    margin-top: -5px;
+}
+
+.foodInput {
+    cursor: pointer;
+    width: 310px;
+    min-height: 26px;
+    /* text-indent: 1em;*/
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    background-color: #fff;
+    padding: 3px 30px 0 12px
+}
+
+.foodSpec {
+    display: inline-block;
+    padding: 0 15px 0 10px;
+    position: relative;
+    background-color: #06c1ae;
+    color: #fff;
+    font-size: 12px;
+    border-radius: 3px;
+    line-height: 20px;
+    margin-bottom: 3px;
+    margin-right: 5px;
+}
+
+.foodSpec i {
+    display: inline-block;
+    font-style: normal;
+    position: absolute;
+    top: -2px;
+    right: 1px;
+    line-height: 1;
+    font-size: 15px;
+}
+
+.drop label {
+    vertical-align: top;
+}
+
+
+/*下拉菜品选择*/
+
+ul li {
+    list-style: none;
+}
+
+.goods {
+    position: absolute;
+    ;
+    top: 26px;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 5px;
+    display: none;
+    max-height: 300px;
+    overflow: auto;
+}
+
+.goods li {
+    line-height: 30px;
+    border-bottom: solid 1px #dedede;
+    padding-left: 12px;
+    cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.goods li:hover {
+    background-color: #eee;
+}
+
+.goods::-webkit-scrollbar {
+    width: 2px;
+}
+
+
+
+
+
+.hangius {
+    width: 100%;
+    height: 30px;
+    background: #FAFAFA;
+    line-height: 30px;
+    padding-left: 5px;
+    font-size: 17px;
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+
+
+.laijie {
+    color: red;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+table tr {
+    height: 40px;
+}
+
+
+
+.Dingder {
+    height: 50px;
+    /*background: #bababa;*/
+    display: flex;
+    align-items: center;
+}
+
+.Cinpr {
+    width: 250px;
+    height: 35px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border: 1px solid #bababa;
+    outline: none;
+    text-indent: 1em;
+}
+
+.Xin {
+    width: 45px;
+    height: 35px;
+    display: block;
+    line-height: 35px;
+    text-align: center;
+    background: #06c1ae;
+    color: #fff;
+    font-size: 14px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+.chakan {
+    height: 100px;
+    display: flex;
+    align-items: center;
+}
+
+.jinexc {
+    margin-right: 10px;
+    font-size: 15px;
+}
+
+.amount {
+    height: 40px;
+    width: 200px;
+    border: 1px solid #bababa;
+    /* border-right: 0px; */
+    border-top-left-radius: 7px;
+    border-bottom-left-radius: 7px;
+    text-indent: 1em;
+    outline: none;
+}
+
+.button {
+    width: 60px;
+    height: 40px;
+    border: 1px solid #06c1ae;
+    background: #06c1ae;
+    color: #fff;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    cursor: pointer;
+    outline: none;
+}
+
+
+
+
+.dcwef {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cve {
+    width: 300px;
+    height: 350px;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+
+.cef {
+    height: 40px;
+    padding: 0 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #f8f8f8;
+}
+
+.cewce {
+    font-size: 25px;
+    cursor: pointer;
+    color: #000;
+    display: block;
+}
+
+
+.cwcvweki {
+    width: 250px;
+    height: 250px;
+    padding: 20px;
+}
+
+.ImgerTu {
+    width: 250px;
+    height: 250px;
+}
+
+.Sinew {
+    height: 40px;
+    /*background: #bababa;*/
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+}
+
+.Sinew input {
+    width: 60px;
+    height: 30px;
+    background: #06c1ae;
+    margin-right: 10px;
+    border: 0px;
+    border-radius: 7px;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+}
+
+.Sinew input:hover {
+    background: #63dfd2;
+}
+
+.ATERN {
+    text-decoration: none;
+    color: #06c1ae;
+}
+
+.Minew {
+    height: 40px;
+
+    margin: 5px 0;
+    display: flex;
+    align-items: center;
+}
+
+.Xince {
+    width: 70px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    display: block;
+    border-radius: 7px;
+    background: #06c1ae;
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+}
+
+.Xince:hover {
+    background: #63dfd2;
+}
+.dcwef{
+    background-color: #f85;
+    border-radius: 20px;
+    width: 300px;
+    height: 350px;
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 11000;
+}

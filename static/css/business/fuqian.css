@@ -1,0 +1,332 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+/*body{
+     background: #bababa;
+     padding-left: 200px;
+}*/
+.dec{
+    min-height: 1000px;
+    background: #ebeef2;
+    padding: 30px 30px 550px 25px;
+}
+[v-cloak] {
+    display: none;
+}
+.cqwecjq_wejdf{
+    width: 1000px;
+    height: 580px;
+    /*background: #fff;*/
+    margin: auto;
+    /*border: 1px solid #fff;*/
+}
+.sadf_jao{
+    width:100%;
+    height:90px;
+    /*background:pink;*/
+}
+.enj_logo{
+    width: 180px;
+    height: 90px;
+    /*background: #666;*/
+    float: left;
+    display: inline-block;
+}
+
+.wdq_cxiw{
+    width: 480px;
+    height: 90px;
+    /*background: yellow;*/
+    float: left;
+    display: inline-block;
+}
+.afanti{
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    font-size: 50px;
+    color: #2bb8aa;
+    font-weight: 900;
+}
+.wangzhi{
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    color: #2bb8aa;
+    font-size: 30px;
+    margin: -5px 0 0 0;
+}
+.eskj{
+    padding: 0 0 0 15px;
+    /*background: red;*/
+    height: 45px;
+    display:flex;
+    margin: 15px 0 0 0;
+}
+
+.eskj div{
+    width: 140px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 15px;
+}
+
+.kiv_mimn{
+    border-bottom: 5px solid #2bb8aa;
+}
+.ced_kjex{
+    border-bottom: 5px solid #c5c4c4;
+}
+.xwedfi_ckejnc{
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    border: 1px solid #ffe4bf;
+    background: #fff5e4;
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #666;
+    margin: 40px 0 0 0;
+}
+
+.dew_kcx{
+    margin: 0 15px;
+}
+.xckn_ksw{
+    font-size: 15px;
+    font-weight: 900;
+    color:#f76120;
+    margin:0 10px;
+}
+.cwp_jiws{
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    font-size: 13px;
+    /*background: red;*/
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.jiner{
+    font-size: 18px;
+    color:#f76120;
+    font-weight: 900;
+}
+.ewk_qina{
+    width: 100%;
+    height: 55px;
+    line-height: 50px;
+    display: flex;
+    border-bottom: 3px solid #06c1ae;
+    margin: 0 0 15px 0;
+}
+.ewk_qina div{
+    height:55px;
+    line-height: 55px;
+}
+
+
+
+.alipai{
+    background: #fff;
+    font-size: 13px;
+    width: 150px;
+    text-align: center;
+    border: 2px solid #06c1ae;
+    cursor: pointer;
+    border-bottom: 2px solid #fff;
+}
+.yhangp{
+    /*background:red;*/
+    font-size: 13px;
+    width: 90px;
+    cursor: pointer;
+    text-align: center;
+}
+.tangsj{
+    /*background:pink;*/
+    font-size: 13px;
+    width: 120px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.wsdj_one{
+    min-height: 80px;
+    /*background: red;*/
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #dddddd;
+}
+#weichat{
+    margin:0 5px 0 0;
+}
+#caifutong{
+    margin:0 5px 0 30px;
+}
+#alipay{
+    margin:0 5px 0 30px;
+}
+
+
+
+.wsdj_two{
+    min-height: 80px;
+   /* background: yellow;*/
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #dddddd;
+}
+#g_shang{
+    margin:0 5px 0 0;
+}
+#j_tong{
+    margin:0 5px 0 30px;
+}
+#z_mins{
+    margin:0 5px 0 30px;
+}
+
+
+
+
+.wsdj_three{
+   /* background:pink;*/
+    min-height: 80px;
+/*    display: flex;
+    align-items: center;*/
+    border-bottom: 1px solid #dddddd;
+}
+
+.wsdj_nrie{
+   /* background:pink;*/
+    height: 35px;
+    padding:10px 0;
+    display: flex;
+    align-items: center;
+
+}
+
+
+
+
+
+
+#y_a{
+    margin:0 5px 0 0;
+}
+#y_b{
+    margin:0 5px 0 30px;
+}
+#y_c{
+    margin:0 5px 0 30px;
+}
+#y_d{
+    margin:0 5px 0 30px;
+}
+#y_e{
+    margin:0 5px 0 30px;
+}
+#y_f{
+    margin:0 5px 0 0px;
+}
+#y_g{
+    margin:0 5px 0 30px;
+}
+
+
+
+
+.cxewkj{
+    width:100%;
+    height:45px;
+    line-height: 45px;
+    text-align: right;
+    font-size: 14px;
+    color:#666;
+    font-weight: 900;
+}
+.cewjcn{
+    font-size: 19px;
+    color:#f76120;
+}
+.cioko{
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    display: flex;
+    /*background: red;*/
+    justify-content: flex-end;
+}
+.efj_ds{
+    width:110px;
+    height:45px;
+    line-height: 45px;
+    text-align: center;
+    background:#06c1ae;
+    color:#fff;
+    font-size: 15px;
+    cursor:pointer;
+}
+
+.mnkkmk{
+    width:100%;
+    height:35px;
+    line-height: 35px;
+    text-align: right;
+}
+.mnkkmk a{
+    color:#06c1ae;
+    text-decoration: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

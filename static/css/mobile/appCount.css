@@ -1,0 +1,870 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+    background: #efefef;
+}
+
+
+.topnBun{
+    height: 0.9rem;
+    line-height: 0.9rem;
+    background: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0 0.25rem;
+    /* font-size: 0.1rem; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.shiSi{
+    font-size: 0.3rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+.lvLin{
+    display: block;
+    width: 0.08rem;
+    height: 0.3rem;
+    background: #09c1a9;
+    margin-right: 0.2rem;
+}
+
+.xiangQin{
+    font-size: 0.25rem;
+    color: #bababa;
+}
+
+.PerQin{
+    font-size: 0.25rem;
+    color: #bababa;
+}
+
+
+
+.TwouDer{
+    height: 1.4rem;
+    padding: 0 0.25rem;
+    background: #fff;
+    display: flex;
+    align-items: center;
+}
+
+.bin{
+    width:100%;
+    height:1rem;
+}
+
+.Bzuo{
+    /*background:pink;*/
+    border-right: 1px solid #e0e0e0;
+}
+.Byou{
+    /*background:red;*/
+    border-left: 1px solid #e0e0e0;
+}
+
+
+.DerNser{
+    height: 0.4rem;
+    line-height: 0.65rem;
+    /* background: green; */
+    font-size: 0.225rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+}
+
+.Newser{
+    width: 0.275rem;
+    height: 0.275rem;
+    border: 1px solid red;
+    color: red;
+    display: flex;
+    font-size: 0.2rem;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 0 0.2rem;
+    border-radius: 2px;
+}
+
+.Querter{
+    width: 0.275rem;
+    height: 0.275rem;
+    background: #C0C0C0;
+    font-size: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 0 0 0 0.2rem;
+    color: #fff;
+}
+
+
+.DerNonc{
+    height: 0.5rem;
+    line-height: 0.5rem;
+    /* background: #bababa; */
+    font-size: 0.4rem;
+    font-weight: 800;
+    color: #333;
+}
+
+
+.DerNonc .Sin{
+    font-size: 0.275rem;
+    font-weight: 400;
+}
+
+
+
+
+.DerTser{
+    height: 0.4rem;
+    line-height: 0.65rem;
+    /* background: green; */
+    font-size: 0.225rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 0.25rem;
+}
+
+.QueIter{
+    width: 0.275rem;
+    height: 0.275rem;
+    background: #C0C0C0;
+    font-size: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 0 0 0 0.2rem;
+    color: #fff;
+}
+
+
+.DerPonc{
+    height: 0.5rem;
+    line-height: 0.5rem;
+    padding: 0 0 0 0.2rem;
+    font-size: 0.4rem;
+    font-weight: 800;
+    color: #333;
+}
+
+
+.DerPonc .Siv{
+    font-size: 0.275rem;
+    font-weight: 400;
+}
+
+
+
+
+
+
+.QieHuan{
+    height: 0.8rem;
+    line-height: 0.8rem;
+    background: #fff;
+    font-size: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0.15rem 0 0 0;
+}
+
+
+.Kin{
+    width: 100%;
+    height: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 8px 0;
+    color: #666;
+}
+.Kin.active{
+	 border-bottom:0.1rem solid #09c1a9;
+    color:#09c1a9;
+}
+
+
+.XiHunped{
+    height: 0.9rem;
+    line-height: 0.9rem;
+    background: #fff;
+    font-size: 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid #e0e0e0;
+} 
+
+
+
+
+.CenTen{
+    width: 0.5rem;
+    height: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Time{
+    width: 2.25rem;
+    height: 0.6rem;
+    border: 1px solid #e0e0e0;
+    outline: none;
+    font-size: 0.25rem;
+    text-align: center;
+}
+
+
+
+
+.Necter{
+    height: 0.9rem;
+    line-height: 0.9rem;
+    background: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.15rem 0 0 0;
+}
+
+
+.HinSer{
+    min-height: 2rem;
+    background: #fff;
+    padding: 0 0.25rem 0.25rem 0.25rem;
+}
+
+
+
+
+
+
+.DerNser_d{
+    height: 0.5rem;
+    line-height: 0.5rem;
+    font-size: 0.225rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    padding: 0.2rem 0 0 0;
+}
+.Newser_d{
+    width: 0.275rem;
+    height: 0.275rem;
+    border: 1px solid red;
+    color: red;
+    display: flex;
+    font-size: 0.2rem;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 0 0.2rem;
+    border-radius: 2px;
+}
+
+.Querter_d{
+    width: 0.275rem;
+    height: 0.275rem;
+    background: #C0C0C0;
+    font-size: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 0 0 0 0.2rem;
+    color: #fff;
+}
+
+
+.DerNonc_d{
+    height: 0.5rem;
+    line-height: 0.5rem;
+    font-size: 0.4rem;
+    font-weight: 800;
+    color: #333;
+}
+
+
+.DerNonc_d .Sing{
+    font-size: 0.25rem;
+    font-weight: 400;
+}
+
+.funsIn{
+    height: 0.5rem;
+    line-height: 0.5rem;
+    font-size: 0.225rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+}
+
+
+.jianTou{
+    margin: 0 5px 0 5px;
+    font-size: 0.275rem;
+}
+
+.wenxzi{
+    color:#0bdf38;
+}
+
+
+
+.FouruDer{
+    height: 1.5rem;
+    background: #fff;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.Gin{
+    width:100%;
+    height:1.2rem;
+}
+
+.Gzuo{
+    /*background:pink;*/
+    border-right: 1px solid #e0e0e0;
+}
+.Gyou{
+    /*background:red;*/
+    border-left: 1px solid #e0e0e0;
+}
+
+.hInNser{
+    height: 0.4rem;
+    line-height: 0.65rem;
+    font-size: 0.225rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+.Houter{
+
+    width: 0.275rem;
+    height: 0.275rem;
+    background: #C0C0C0;
+    font-size: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 0 0 0 0.2rem;
+    color: #fff;
+}
+
+
+
+
+.CunNonc{
+    height: 0.3rem;
+    line-height: 0.3rem;
+    font-size: 0.55rem;
+    font-weight: 800;
+    padding: 0 0 0 0.2rem;
+    display: flex;
+    align-items: center;
+}
+
+
+.CunNonc .Fin{
+    font-size: 0.225rem;
+    font-weight: 400;
+}
+
+
+
+
+.VieTser{
+height: 0.4rem;
+    line-height: 0.65rem;
+    /* background: green; */
+    font-size: 0.225rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 0.25rem;
+}
+
+.BifIter{
+    width: 0.275rem;
+    height: 0.275rem;
+    background: #C0C0C0;
+    font-size: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 0 0 0 0.2rem;
+    color: #fff;
+}
+
+
+
+
+
+.NubPonc{
+    height: 0.3rem;
+    line-height: 0.3rem;
+    font-size: 0.55rem;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+}
+
+
+.NubPonc .Liv{
+    font-size: 0.225rem;
+    font-weight: 400;
+}
+
+
+.ConSu{
+    height: 0.5rem;
+    line-height: 0.5rem;
+    /*background: green;*/
+    font-size: 0.225rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+}
+
+
+.PastnSu{
+    height: 0.5rem;
+    line-height: 0.5rem;
+    /* background: green; */
+    font-size: 0.225rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+    margin:0 0 0 0.25rem;
+}
+
+
+.DinLouid{
+/*    min-height: 1.25rem;
+    line-height: 1.25rem;
+    background: #fff;
+    border-top: 2px solid #bababa;
+    padding: 0 0.25rem 0.35rem 0.25rem;*/
+    min-height: 1.25rem;
+    line-height: 1.25rem;
+    background: #fff;
+    border-top: 1px solid #e0e0e0;
+    padding: 0 0.25rem 0.15rem 0.25rem;
+}
+
+.HaoBun{
+    height: 0.8rem;
+    line-height: 0.8rem;
+    background: #fff;
+    font-size: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.overSi{
+    font-size: 0.225rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+}
+
+.gertgQin{
+    font-size: 0.225rem;
+    color: #bababa;
+}
+
+
+.Wenaer{
+    /*background:#ccc;*/
+    height:1.2rem;
+    display:flex;
+    align-items:center;
+}
+
+
+.Xer{
+    width: 100%;
+    height: 1.1rem;
+    font-size: 0.325rem;
+    background: #fafafa;
+}
+
+.twor{
+    margin:0 0.1rem;
+}
+
+
+.ShuLin{
+    height: 0.5rem;
+    /* background: red; */
+    line-height: 0.5rem;
+    padding: 0 0.2rem;
+    font-size: 0.225rem;
+}
+.JanTin{
+    height:0.5rem;
+    line-height: 0.5rem;
+    /*background:#ccc;*/
+    padding: 0 0.1rem;
+}
+
+
+.Oinv{
+    font-size: 0.275rem;
+    /* margin-right: 0.2rem; */
+}
+.Sbb{
+    font-size: 0.225rem;
+    color: #0bdf38;
+}
+
+
+
+
+
+
+
+.Mistake{
+    height: 0.9rem;
+    line-height: 0.9rem;
+    background: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0 0.25rem;
+    /* font-size: 0.1rem; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin:0.15rem 0 0 0;
+}
+
+
+.Vinder{
+    font-size: 0.3rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.Loinver{
+    font-size: 0.25rem;
+    color: #bababa;
+}
+
+
+.ZuendLes{
+    padding: 0 0.25rem 0.18rem 0.25rem;
+    min-height: 1.8rem;
+    background: #fff;
+    font-size: 0.3rem;
+}
+
+
+.Sindeper{
+    height: 0.8rem;
+    line-height: 0.8rem;
+    font-size: 0.225rem;
+}
+
+
+
+
+
+
+
+
+
+
+.Heartaer{
+  /*  background: #ccc;*/
+    height: 1.2rem;
+    display: flex;
+    align-items: center;
+}
+
+
+.Xurin{
+    width: 100%;
+    height: 1.1rem;
+    font-size: 0.225rem;
+    background: #fafafa;
+}
+
+.Ltwor{
+    margin:0 0.35rem;
+}
+
+
+.Fackin{
+    height: 0.5rem;
+    /* background: red; */
+    line-height: 0.5rem;
+    padding: 0 0.2rem;
+    font-size: 0.225rem;
+}
+
+
+
+.GonenTin{
+    height: 0.5rem;
+    line-height: 0.5rem;
+    /* background: #ccc; */
+    padding: 0 0.2rem;
+    font-size: 0.225rem;
+}
+
+
+.Gunv{
+    font-size: 0.3rem;
+    margin-right: 0.2rem;
+}
+.Kbb{
+    font-size: 0.225rem;
+}
+
+
+
+
+
+
+
+.FoodBun{
+    height: 0.9rem;
+    line-height: 0.9rem;
+    background: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0 0.25rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0.15rem 0 0 0;
+}
+
+
+.FontSi{
+    font-size: 0.3rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+
+.KunFiQin{
+    font-size: 0.25rem;
+    color: #bababa;
+}
+
+.SanTers{
+    height: 1.5rem;
+    background: #fff;
+    padding: 0 0.25rem;
+    display: flex;
+    align-items: center;
+}
+.Bunt{
+    width: 100%;
+    height: 1.2rem;
+}
+
+
+.lefter{
+    border-right: 1px solid #e0e0e0;
+}
+.rightr{
+    border-left: 1px solid #e0e0e0;
+}
+
+
+.Fiser{
+    height: 0.4rem;
+    line-height: 0.65rem;
+    font-size: 0.225rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+}
+
+.Jinter{
+    width: 0.275rem;
+    height: 0.275rem;
+    background: #C0C0C0;
+    font-size: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 0 0 0 0.2rem;
+    color: #fff;
+}
+
+
+
+.Conic{
+    height: 0.5rem;
+    line-height: 0.5rem;
+    font-size: 0.4rem;
+    font-weight: 800;
+    color: #333;
+}
+
+
+.Conic .niv{
+    font-size: 0.275rem;
+    font-weight: 400;
+}
+
+
+
+.HunerSu{
+    height: 0.5rem;
+    line-height: 0.5rem;
+    font-size: 0.225rem;
+    color: #666;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.KinTou{
+    margin: 0 20px 0 15px;
+    font-size: 0.375rem;
+}
+
+.Fnnxzi{
+    color:#0bdf38;
+}
+
+.CunFun{
+    font-size: 0.225rem;
+    text-align: right;
+    color: #666;
+}
+
+
+
+
+input[type="text"]:disabled{
+  background-color:#fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

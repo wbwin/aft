@@ -1,0 +1,226 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+
+
+.sadkpf{
+    padding:0px 10px;
+    height: 65px;
+    background: #06c1ae;
+}
+[v-cloak] {
+    display: none;
+}
+.sadkpf .topzuo{
+    float: left;
+    width: 300px;
+    height: 65px;
+    /*background: red;*/
+    display: flex;
+    align-items: center;
+}
+.sadkpf .topyou{
+    float: right;
+    padding: 12px 0;
+    width: 300px;
+    height: 40px;
+    line-height: 40px;
+    /*background: red;*/
+    display: inline-block;
+}
+
+
+.djasi{
+    float: left;
+    width: 170px;
+    height: 65px;
+    display: inline-block;
+    /*background: pink;*/
+}
+
+.tulogin{
+    width:65px;
+    height:65px;
+    float:left;
+    display:inline-block;
+}
+
+.lecdsf{
+    font-size: 17px;
+    font-weight: 700;
+    color: #fff;
+    padding: 10px 0 0 0;
+}
+
+.cdwee{
+    padding: 5px 0 0px 0;
+    height: 15px;
+    /* background: yellow; */
+    font-size: 1px;
+    color:#fff;
+}
+
+.shanghjia{
+    width: 120px;
+    height: 40px;
+    line-height: 40px;
+    float: left;
+    /* background: yellow; */
+    font-size: 20px;
+    border-left: 1px solid #fff;
+    font-weight: 900;
+    text-indent: 0.5em;
+    color: #fff;
+}
+
+.qian{
+    float: left;
+    height: 40px;
+    /*background: pink;*/
+    display: flex;
+    width: 140px;
+    align-items: center;
+    font-size: 16px;
+    color: #fff;
+
+
+}
+
+.hou{
+    float: right;
+    height: 40px;
+    /*  background: pink;*/
+    display: flex;
+    width: 150px;
+    align-items: center;
+    font-size: 16px;
+    color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+.WanChenKuG{
+    background: #ffffff;
+    margin: 1% 0 0 0px;
+}
+.Sinter{
+    width: 92%;
+    min-height: 50px;
+    background: #f8f8f8;
+    margin: auto;
+    margin-top: 0.2rem;
+    padding: 0 2%;
+}
+.ConOne{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #dbdbdb;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.ConTwo{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #dbdbdb;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.ConThre{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #dbdbdb;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.ConFour{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    /*border-bottom: 1px solid #dbdbdb;*/
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.Findorder{
+    width: 92%;
+    min-height: 50px;
+    background: #f8f8f8;
+    margin: auto;
+    margin-top: 10px;
+    padding: 0 2%;
+}
+.Findorder .FindOne{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    border-bottom: 1px solid #dbdbdb;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.Findorder .FindTwo{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    /*border-bottom: 1px solid #dbdbdb;*/
+    font-size:14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.Chow{
+    /*background: red;*/
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.louis{
+    /*margin-left: 40px;*/
+    color: #fff;
+    text-decoration: none;
+}
+
+.WenSon{
+    width: 150px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    background: #06c1ae;
+    display: inline-block;
+    border-radius: 6px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+

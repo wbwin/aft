@@ -1,0 +1,155 @@
+@charset "utf-8";
+/* CSS Document */
+
+*{
+    margin:0px;
+    padding: 0px;
+}
+
+
+body{
+    background: #f7f7f7;
+}
+
+
+.herd{
+    width: 100%;
+    height: 60px;
+    background:#1e89e0;
+}
+
+
+/****************************************/
+
+
+.conter{
+    width: 100%;
+    min-height:800px;
+   /* background:red;*/
+}
+
+#all_inprotener{
+    width:1180px;
+    min-height: 800px;
+    /*background:#ccc;*/
+    margin:auto;
+}
+
+
+
+
+#all_inprotener .title{
+    float: left;
+    width: 100%;
+    height: 40px;
+    font-size: 12px;
+    line-height: 40px;
+    background: #f7f7f7;
+}
+#all_inprotener .title a{
+    text-decoration: none;
+}
+
+
+
+#all_inprotener .all_left{
+    float: left;
+    width: 170px;
+    min-height: 745px;
+    padding: 15px 0 0 0;
+    background: #f7f7f7;
+}
+
+
+
+.all_left .myall{
+    height: 30px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    padding: 8px 0px 8px 30px;
+    background: url(/static/image/pc/tologin.png) 0px 16px no-repeat;
+}
+.all_left .myall a{
+    text-decoration:none;
+    color: #000;
+}
+
+.all_left .mydingdan{
+    height: 30px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-top: 15px;
+    padding: 8px 0px 8px 30px;
+    background: url(/static/image/pc/tologin.png) 0px -16px no-repeat;
+}
+.all_left .myzichan{
+    height: 30px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-top: 15px;
+    padding: 8px 0px 8px 30px;
+    background: url(/static/image/pc/tologin.png) 0px -50px no-repeat;
+}
+.all_left .myziliao{
+    height: 30px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-top: 15px;
+    padding: 8px 0px 8px 30px;
+    background: url(/static/image/pc/tologin.png) 0px -88px no-repeat;
+}
+.all_left .myshoucang{
+    height: 30px;
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-top: 15px;
+    padding: 8px 0px 8px 30px;
+    background: url(/static/image/pc/tologin.png) 0px -121px no-repeat;
+}
+.all_left .myshoucang a{
+    text-decoration: none;
+    color:#000;
+}
+
+.all_left .er_fenlan a{
+    text-decoration: none;
+    color:#999;
+}
+
+.all_left .er_fenlan{
+    height: 30px;
+    font-size: 0.8rem;
+    padding: 3px 0px 3px 30px;
+}
+
+#all_inprotener .all_right{
+    float: left;
+    width: 980px;
+    min-height: 760px;
+    background: #fff;
+    padding: 0 15px 30px 15px;
+}
+
+
+.weibu{
+    float:left;
+    width:100%;
+    height:70px;
+    background:yellow;
+}
+.geographic{
+    max-width: 135px;
+    display: inline-block;
+    height: 25px;
+    line-height: 25px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    top: 9px;
+    color:#000;
+
+}
+.geographic:hover{
+    color:#0089dc;
+}

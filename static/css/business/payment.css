@@ -1,0 +1,269 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body{
+
+}
+
+.preOrder{
+    padding: 10px 20px 0 20px;
+    background: #ebeef2;
+}
+[v-cloak] {
+    display: none;
+}
+
+.Sinfer{
+    min-height: 200px;
+    background: #fff;
+    padding: 0 0 20px 0;
+}
+
+
+.XinPin{
+    width: 100%;
+    height: 30px;
+    background: #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 12px;
+    /*padding: 0 10px;*/
+}
+
+
+.zuol{
+    margin: 0 20px;
+}
+
+.youl{
+    margin: 0 20px;
+}
+
+
+
+
+.TextEn{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    border-bottom: 1px solid #9b9b9b;
+}
+
+
+.lou{
+    width: 100%;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.Ain{
+    background: #fff;
+}
+.Bin{
+    background: #fff;
+}
+.Cin{
+    background: #fff;
+}
+.Din{
+
+    background: #3dc6b6;
+    color: #fff;
+}
+
+
+.lvse{
+    border: 2px solid #bababa;
+    width: 25px;
+    height: 25px;
+    display: block;
+    transform: rotate(45deg);
+    position: absolute;
+    right: -15px;
+    top: 6px;
+    z-index: 1;
+    background: #3dc6b6;
+    border-bottom: 2px solid #3dc6b6;
+    border-left: 2px solid #3dc6b6;
+}
+.lvser{
+    border: 2px solid #bababa;
+    width: 25px;
+    height: 25px;
+    display: block;
+    transform: rotate(45deg);
+    position: absolute;
+    right: -15px;
+    top: 6px;
+    z-index: 1;
+    background: #fff;
+    border-bottom: 2px solid #fff;
+    border-left: 2px solid #fff;
+}
+
+/**************************************************************************************/
+
+.KunDer{
+    width: 80%;
+    min-height: 400px;
+    border: 1px solid #bababa;
+    margin: auto;
+    margin-top: 20px;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+
+.Money{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    /*background: red;*/
+    margin: 20px 0 0 0;
+    color: #666;
+}
+
+
+.TupIan{
+    width: 100%;
+    height: 120px;
+    /*background: pink;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.ImgerTu{
+    width: 120px;
+    height: 120px;
+}
+
+
+.XinPun{
+    width: 100%;
+    height: 40px;
+    /*background: red;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sapn{
+    background: #f2f3f7;
+    padding: 7px 15px;
+    font-size: 11px;
+}
+
+
+.CunFin{
+    width: 100%;
+    min-height: 40px;
+    /*background: red;*/
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Neiuer{
+    width: 300px;
+    min-height: 20px;
+    /*background: #666;*/
+    font-size: 11px;
+}
+.Cpouer{
+    min-height: 20px;
+    padding: 0 10px;
+    margin: 40px 0 0 0;
+    font-size: 12px;
+}
+.Douer{
+    min-height: 20px;
+    padding: 0 10px;
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.Acunder {
+    width: 80%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+    margin: 15px auto 0 auto;
+    border-top: 1px solid #bababa;
+}
+.SinSon {
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #666;
+    cursor: pointer;
+    margin: 0 30px 0 0;
+    border: 1px solid #666;
+    padding: 0 18px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

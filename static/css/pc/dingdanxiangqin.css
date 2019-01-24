@@ -1,0 +1,654 @@
+@charset "utf-8";
+/* CSS Document */
+@import "style.css";
+
+
+
+.all_right .ddan_xqin{
+    width: 100%;
+    height: 30px;
+    padding: 18px 0 0 0;
+    text-indent: 1em;
+    font-size: 1.2rem;
+    border-bottom: 2px solid #eee;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+
+/******************取消订单时显示************************/
+
+.all_right .hui_bj{
+    width: 100%;
+    height: 100px;
+    background: #f8f8f8;
+    border-radius: 15px;
+
+   /* display:none;*/
+}
+
+.all_right .hui_bj .jindu{
+    width: 100%;
+    height: 20px;
+    padding: 30px 0 10px 0;
+    /*background: pink;*/
+}
+
+
+.all_right .hui_bj .jindu div{
+    display: inline-block;
+    font-size: 0.9rem;
+    color: #999999;
+}
+.all_right .hui_bj .jindu .zuo{
+    float: left;
+    margin-left: 200px;
+}
+.all_right .hui_bj .jindu .you{
+   float: right;
+   margin-right: 200px;
+}
+
+
+.all_right .hui_bj .line{
+    width: 80%;
+    height: 4px;
+    margin-left: 10%;
+    padding: 0 0px;
+    border-bottom: 1px solid #ededed;
+}
+.all_right .hui_bj .zuoimg{
+    margin: -5px 0 0 226px;
+    float: left;
+}
+
+.all_right .hui_bj .youimg{
+    margin: -5px 226px 0 0;
+    float: right;
+}
+/******************取消订单时显示************************/
+
+
+
+/***************完成订单时显示****************/
+.dingdanwanchen{
+    width: 100%;
+    height: 100px;
+    background: #f8f8f8;
+    border-radius: 15px;
+
+    display:none;
+}
+
+
+.dingdanwanchen .topkuang_shang{
+    width: 100%;
+    height: 20px;
+    padding: 30px 0 10px 0;
+    /*background:red;*/
+}
+
+.dingdanwanchen .topkuang_shang div{
+    display: inline-block;
+    font-size: 0.9rem;
+    color: #999999;
+}
+
+.dingdanwanchen .topkuang_shang .left{
+    float: left;
+    margin:0 0 0 145px;
+}
+.dingdanwanchen .topkuang_shang .centers{
+    float: left;
+    margin:0 0 0 300px;
+}
+.dingdanwanchen .topkuang_shang .right{
+    float: left;
+    color:#1e89e0;
+    margin:0 0 0 245px;
+}
+
+
+.dingdanwanchen .line{
+    width: 80%;
+    height: 4px;
+    margin-left: 10%;
+    padding: 0 0px;
+    border-bottom: 1px solid #ededed;
+}
+
+
+.all_right .dingdanwanchen .comone{
+    margin: -5px 0 0 170px;
+    float: left;
+}
+.all_right .dingdanwanchen .comtwo{
+    margin: -5px 0 0 355px;
+    float: left;
+}
+.all_right .dingdanwanchen .comthree{
+    margin: -5px 0 0 287px;
+    float: left;
+}
+/***************完成订单时显示****************/
+
+
+
+
+.all_right .quxaiok{
+    width: 100%;
+    height: 100px;
+    background: #fefdee;
+    display: flex;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    justify-content: center;
+    border: 1px solid #f8e5bb;
+}
+
+
+.all_right .quxaiok .zzuo{
+    width:70%;
+    height:100px;
+    /*background:red;*/
+}
+
+.all_right .quxaiok .yyou{
+    width:30%;
+    height:100px;
+    line-height: 100px;
+    text-align: center;
+   /*background:yellow;*/
+}
+.all_right .quxaiok .yyou a{
+   color:#999999;
+   font-size: 0.95rem;
+}
+.all_right .quxaiok .zzuo .topment{
+    width: 100%;
+    font-size: 0.95rem;
+    padding: 40px 0 10px 30px;
+}
+.all_right .quxaiok .zzuo .subment{
+    width: 100%;
+    font-size: 0.8rem;
+    color: #999999;
+    padding: 0 0 0 30px;
+}
+
+
+.all_right .xiangxi_conter{
+    width:100%;
+    min-height: 480px;
+    background:#f8f8f6;
+    border:1px solid #eeeeee ;
+}
+
+
+.all_right .xiangxi_conter .theone{
+    width: 100%;
+    height: 90px;
+    border-bottom: 1px solid #eeeeee;
+    display: flex;
+    justify-content: center;
+    /*background:red;*/
+}
+
+
+
+.all_right .xiangxi_conter .theone .imggg{
+    width: 90px;
+    height: 90px;
+    /*background: red;*/
+}
+.all_right .xiangxi_conter .theone .imggg img{
+    margin: 25px 0 0 40px;
+}
+
+.all_right .xiangxi_conter .theone .neirong{
+    width:890px;
+    height:90px;
+    /*background:yellow;*/
+}
+
+.all_right .xiangxi_conter .theone .neirong .all_jk{
+    width: 100%;
+    text-indent: 1em;
+    height: 30px;
+   /* background: red;*/
+    margin-top: 20px;
+    font-size: 1.2rem;
+}
+.all_right .xiangxi_conter .theone .neirong .all_jk span{
+    float: right;
+    width: 220px;
+    display: flex;
+    height: 30px;
+    font-size: 1rem;
+    /*background: pink;*/
+    align-items: center;
+}
+
+.all_right .xiangxi_conter .theone .neirong .all_jk span .alltousu{
+     cursor: pointer;
+}
+.all_right .xiangxi_conter .theone .neirong .all_jk a{
+    text-decoration: none;
+    color:#666;
+}
+
+
+
+
+
+
+
+
+.all_right .xiangxi_conter .theone .neirong .all_jk span img{
+   margin-right: 5px;
+}
+.all_right .xiangxi_conter .theone .neirong .all_jk span a{
+    text-decoration: none;
+    margin-right: 30px;
+    color: #a49999;
+}
+.all_right .xiangxi_conter .theone .neirong .all_jk span a:hover{
+    color: #f8b011;
+}
+
+
+
+.all_right .xiangxi_conter .theone .neirong .all_jkkj{
+    width: 100%;
+    height: 20px;
+    margin-top: 1px;
+    /*background: pink;*/
+}
+
+.all_right .xiangxi_conter .theone .neirong .all_jkkj span{
+    width: 200px;
+    height: 20px;
+    font-size: 0.95rem;
+    color: #999;
+    margin: 0 31px 0 16px;
+}
+
+
+
+
+.all_right .xiangxi_conter .thetwo{
+    width: 100%;
+    /*height: 390px;*/
+    display: inline-block;
+    /*background: red;*/
+}
+
+
+.all_right .xiangxi_conter .thetwo .myleft{
+    float: left;
+    width: 570px;
+    /*height: 390px;*/
+    border-right: 1px solid #eeeeee;
+   /* background: pink;*/
+}
+.all_right .xiangxi_conter .thetwo .myright{
+    float: left;
+    width: 378px;
+    height: 390px;
+    padding: 0 15px;
+    background: #fff;
+}
+
+
+
+.thetwo .myleft .nbsp{
+    width: 100%;
+    height: 50px;
+    font-size: 0.95rem;
+    line-height: 50px;
+    border-bottom: 1px solid #eee;
+    font-weight: 600;
+    color: #666;
+    justify-content: space-around;
+    display: flex;
+}
+
+.thetwo .myleft .nbsp .s_yi{
+    width: 50%;
+}
+.thetwo .myleft .nbsp .s_er{
+    /*margin-left: 290px;*/
+}
+.thetwo .myleft .nbsp .s_san{
+    /*margin-left: 90px;*/
+}
+
+.thetwo .myleft .nb_sp{
+    width: 100%;
+    height: 50px;
+    font-size: 0.95rem;
+    line-height: 50px;
+    border-bottom: 1px solid #eee;
+    font-weight: 100;
+    color: #666;
+    justify-content: space-around;
+    display: flex;
+}
+.thetwo .myleft .nb_sp .syi{
+    width: 50%;
+}
+.thetwo .myleft .nb_sp .ser{
+    width: 56px;
+    height: 50px;
+    display: inline-block;
+    text-align: center;
+    /*background: red;*/
+    /*margin-left: 235px;*/
+}
+.thetwo .myleft .nb_sp .ssan{
+    width: 70px;
+    height: 50px;
+    display: inline-block;
+    text-align: center;
+    /*margin-left: 70px;*/
+    /*background: red;*/
+}
+
+
+
+
+.thetwo .myleft .nb_sssp{
+    width: 100%;
+    height: 30px;
+    font-size: 0.95rem;
+    line-height: 30px;
+    /*border-bottom: 1px solid #eee;*/
+    font-weight: 100;
+    color: #666;
+}
+.thetwo .myleft .nb_sssp .syi{
+    margin-left:30px;
+}
+.thetwo .myleft .nb_sssp .ser{
+    width: 105px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+    float: right;
+    /*background: red;*/
+}
+
+
+.thetwo .myleft .nb_topsp{
+    width: 100%;
+    height: 30px;
+    font-size: 0.95rem;
+    line-height: 30px;
+    border-bottom: 1px solid #eee;
+    font-weight: 100;
+    color: #666;
+}
+.thetwo .myleft .nb_topsp .syi{
+    margin-left:30px;
+}
+.thetwo .myleft .nb_topsp .ser{
+    width: 105px;
+    height: 30px;
+    display: inline-block;
+    text-align: center;
+    float: right;
+    /*background: red;*/
+}
+
+
+.need_pay{
+    height: 80px;
+    width: 100%;
+    line-height: 80px;
+    margin: 10px 0 0 0;
+    /*background: red;*/
+    font-size: 1rem;
+  
+}
+.need_pay span{
+    float: right;
+    /* width: 180px; */
+    /*background: green;*/
+    text-align: center;
+    color: red;
+    font-size: 1.7rem;
+    padding: 0 33px 0px 0;
+}
+.need_pay .shiji{
+    font-size: 1rem;
+    color: #000;
+    padding: 0;
+}
+
+
+
+
+
+
+
+.myright .hte_psxx{
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: #666;
+}
+
+.myright .hte_psfs{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 0.95rem;
+    font-weight: 100;
+    color: #666;
+}
+
+
+.myright .lain_xi{
+    width: 100%;
+    margin: 10px 0 0 0;
+    height: 175px;
+    border-top: 1px dashed #eeeeee;
+    border-bottom: 1px dashed #eeeeee;
+}
+.myright .lain_xi .people{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.myright .lain_xi .phone{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.myright .lain_xi .shou_diz{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.myright .lain_xi .shou_diz .key{
+    float: left;
+    width: 75px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+
+.myright .lain_xi .shou_diz .vamler{
+    float: left;
+    width: 300px;
+    height: 80px;
+    line-height: 20px;
+    font-size: 0.9rem;
+    padding: 10px 0 0 0;
+    color: #666;
+    /*background: red;*/
+}
+
+
+
+.myright .hte_help{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-size: 0.95rem;
+    font-weight: 100;
+    color: #666;
+}
+
+
+
+
+
+
+
+/*******************************投诉弹框***********************************/
+
+.thistousu{
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    display:none;
+}
+
+.thistousu .all_kuang{
+    width: 100%;
+    height: 270px;
+    margin-top: 15%;
+}
+.thistousu .all_kuang .bai_kuang{
+    width: 380px;
+    height: 380px;
+    padding: 0 25px;
+    margin: auto;
+    background: #fff;
+}
+.thistousu .all_kuang .bai_kuang .out{
+    width: 100%;
+    height: 40px;
+   /* background: red;*/
+}
+.thistousu .all_kuang .bai_kuang .out span{
+    width: 30px;
+    height: 30px;
+    float: right;
+    line-height: 30px;
+    display: block;
+    color: #999;
+    font-size: 1.5rem;
+    text-align: center;
+    margin: 10px -15px 0px 0;
+   /* background: green;*/
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.thistousu .all_kuang .bai_kuang .tit_tousu{
+    font-size: 1.25rem;
+    font-weight: 800;
+    padding: 10px 0 15px 0;
+}
+
+.thistousu .all_kuang .bai_kuang .dan_xuan{
+    width: 100%;
+    font-size: 0.95rem;
+    height: 25px;
+    line-height: 25px;
+    /*background: red;*/
+}
+.thistousu .all_kuang .bai_kuang .dan_xuan input{
+      margin: 0 10px 0 0;
+}
+
+.thistousu .all_kuang .bai_kuang .textear{
+    width: 100%;
+    font-size: 0.95rem;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.thistousu .all_kuang .bai_kuang .bottom{
+    width: 100px;
+    font-size: 0.9rem;
+    height: 50px;
+    padding: 5px 20px;
+    color: #fff;
+    background: #0089dc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.thistousu .all_kuang .bai_kuang .bottom:hover{
+    color: #fff;
+    background: #019ffe;
+    cursor: pointer;
+}
+.pay{
+    line-height: 40px;
+    margin-left: 24px;
+    min-width: 100px;
+    text-align: center;
+    color: #fff!important;
+    padding: 0.8em;
+    border-radius: 2px;
+    background-color: #f74342;
+}
+
+
+
+
+/*******************************投诉弹框***********************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

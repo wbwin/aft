@@ -1,0 +1,61 @@
+body{
+  background-color: #efefef;
+  font-size: 14px;
+}
+#myOpinion{
+  margin-top: 10px;
+}
+.listBox{
+  background-color: #fff;
+  padding: 20px;
+  width: 60%;
+  margin:0 auto 30px;
+}
+[v-cloak] {
+    display: none;
+}
+.list-item{
+  border: solid 2px #B8B8B8;
+  display: flex;
+  flex-direction: column;
+  border-radius: 3px;
+    padding: 15px 10px 9px;
+}
+.list-item>div{
+border-bottom: solid 1px #E8E8E8;
+line-height: 22px;
+padding:16px 20px;
+color: #686868;
+}
+.list-item .itemlr{
+ display: flex;
+ flex-direction: row;
+ justify-content: space-between;
+}
+.list-item .items{
+   display: flex;
+ flex-direction: row;
+}
+.list-item .name{
+  width: 75px;
+  color: #000;
+  flex: none;
+}
+
+/*无内容  */
+.notContent{
+  width: 100%;
+  height: 100%;
+  min-height: 600px;
+  display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+ color: #606060;
+}
+.notContent img{
+ width: 100px;
+ height: 100px;
+ margin-bottom: 20px;
+
+}

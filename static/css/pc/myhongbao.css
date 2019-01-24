@@ -1,0 +1,425 @@
+@charset "utf-8";
+/* CSS Document */
+@import "style.css";
+
+
+.all_right .dai_pjdingdan{
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    border-bottom: 2px solid #f4f4f4;
+    margin-bottom: 10px;
+    
+}
+
+.all_right .dai_pjdingdan div{
+    width: 100px;
+    height: 60px;
+    line-height: 60px;
+    color: #666;
+    /*background: red;*/
+    text-align: center;
+    display: inline-block;
+}
+
+.all_right .dai_pjdingdan .leftone{
+    float: left;
+    font-weight: 900;
+    cursor:pointer;
+    border-bottom: 3px solid #1e89e0;
+}
+.all_right .dai_pjdingdan .lefttwo{
+    float: left;
+    cursor:pointer;
+}
+.all_right .dai_pjdingdan .rightthree{
+    float: right;
+    cursor: pointer;
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+    font-size: 0.5rem;
+    background: #1e89e0;
+    border-radius: 3px;
+    margin: 22px 0 0 0;
+}
+.all_right .dai_pjdingdan .rightthree:hover{
+    background: #0370b2;
+}
+
+/*****************可用红包********************/
+
+.all_right .keyong_hongbao{
+    width:100%;
+    min-height:700px;
+    /*background:#ccc;*/
+
+}
+.all_right .keyong_hongbao .wu_hongbao{
+    width:100%;
+    min-height:700px;
+    /*background:#ccc;*/
+
+}
+
+
+
+
+.all_right .keyong_hongbao .wu_hongbao img{
+    margin: 90px 0 0 350px;
+
+}
+.all_right .keyong_hongbao .wu_hongbao span{
+    position: absolute;
+    margin: 140px 0 0 20px;
+    font-size: 0.9rem;
+    color: #666;
+
+}
+
+
+
+.all_right .keyong_hongbao .ls_hongbao{
+    width: 317px;
+    height: 96px;
+    /* background: red; */
+    display: inline-block;
+    margin: 10px 5px 10px 0px;
+    border: 1px solid #eee;
+}
+
+.all_right .keyong_hongbao .ls_hongbao .left_img{
+    width: 105px;
+    height: 94px;
+    float: left;
+    margin-top: 1px;
+    background: url(/static/image/pc/0211.jpg) no-repeat;
+}
+
+.all_right .keyong_hongbao .ls_hongbao .left_img .money{
+    width: 100%;
+    height: 55px;
+    line-height: 55px;
+    margin-top: 6px;
+    text-align: center;
+    color: #fff;
+    /*background: #ccc;*/
+    font-size: 1.5rem;
+}
+
+.all_right .keyong_hongbao .ls_hongbao .left_img .man_yuan{
+    background: #fff;
+    width: 90px;
+    font-size: 0.5rem;
+    padding: 3px 2px;
+    margin: auto;
+    color: #999;
+    text-align: center;
+}
+.all_right .keyong_hongbao .ls_hongbao .right_img{
+    width: 200px;
+    height: 94px;
+    padding: 0 0 0 11px;
+    margin-top: 1px;
+    display: inline-block;
+    background: #fff;
+}
+.all_right .keyong_hongbao .ls_hongbao .right_img .pt_hongbao{
+    width: 100%;
+    height: 32px;
+    line-height: 30px;
+    font-size: 0.95rem;
+    color: #666;
+    /* background: green; */
+}
+.all_right .keyong_hongbao .ls_hongbao .right_img .xian_phone{
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    /*background: red;*/
+    font-size: 0.5rem;
+    color:#999;
+}
+.all_right .keyong_hongbao .ls_hongbao .right_img .phone_num{
+    width:100%;
+    height:20px;
+    line-height: 20px;
+    font-size: 0.5rem;
+    color:#999;
+    /*background:pink;*/
+}
+
+.all_right .keyong_hongbao .ls_hongbao .right_img .time_xian{
+    width:100%;
+    height:20px;
+    line-height: 20px;
+    /* background:#999;*/
+    font-size: 0.5rem;
+    color:#999;
+}
+/*****************可用红包********************/
+
+
+
+
+
+/*****************历史红包********************/
+.all_right .lishi_hongbao{
+     width:100%;
+     min-height:700px;
+     /*background:#ccc;*/
+     display:none;
+}
+
+.all_right .lishi_hongbao .wu_hongbao{
+width: 100%;
+min-height: 700px;
+}
+.all_right .lishi_hongbao .wu_hongbao img{
+  margin: 90px 0 0 350px;
+
+}
+.all_right .lishi_hongbao .wu_hongbao span{
+    position: absolute;
+    margin: 140px 0 0 20px;
+    font-size: 0.9rem;
+    color: #666;
+
+}
+
+
+.all_right .lishi_hongbao .ls_hongbao{
+    width: 317px;
+    height: 96px;
+    /* background: red; */
+    display: inline-block;
+    margin: 10px 5px 10px 0px;
+    border: 1px solid #eee;
+}
+
+.all_right .lishi_hongbao .ls_hongbao .left_img{
+    width: 105px;
+    height: 94px;
+    float: left;
+    margin-top: 1px;
+    background: url(/static/image/pc/0211.jpg) no-repeat;
+}
+
+.all_right .lishi_hongbao .ls_hongbao .left_img .money{
+    width: 100%;
+    height: 55px;
+    line-height: 55px;
+    margin-top: 6px;
+    text-align: center;
+    color: #fff;
+    /*background: #ccc;*/
+    font-size: 1.5rem;
+}
+
+.all_right .lishi_hongbao .ls_hongbao .left_img .man_yuan{
+    background: #fff;
+    width: 90px;
+    font-size: 0.5rem;
+    padding: 3px 2px;
+    margin: auto;
+    color: #999;
+    text-align: center;
+}
+.all_right .lishi_hongbao .ls_hongbao .right_img{
+    width: 200px;
+    height: 94px;
+    padding: 0 0 0 11px;
+    margin-top: 1px;
+    display: inline-block;
+    background: #fff;
+}
+.all_right .lishi_hongbao .ls_hongbao .right_img .pt_hongbao{
+    width: 100%;
+    height: 32px;
+    line-height: 30px;
+    font-size: 0.95rem;
+    color: #666;
+    /* background: green; */
+}
+.all_right .lishi_hongbao .ls_hongbao .right_img .xian_phone{
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    /*background: red;*/
+    font-size: 0.5rem;
+    color:#999;
+}
+.all_right .lishi_hongbao .ls_hongbao .right_img .phone_num{
+    width:100%;
+    height:20px;
+    line-height: 20px;
+    font-size: 0.5rem;
+    color:#999;
+    /*background:pink;*/
+}
+
+.all_right .lishi_hongbao .ls_hongbao .right_img .time_xian{
+    width:100%;
+    height:20px;
+    line-height: 20px;
+   /* background:#999;*/
+    font-size: 0.5rem;
+    color:#999;
+}
+/*****************历史红包********************/
+
+
+
+/*********************弹框 兑换红包***************************/
+.all_right .all_pingmu{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    display:none;
+}
+
+.all_right .all_pingmu .kuang_all{
+    width:100%;
+    height:300px;
+   /* background:red;*/
+    margin-top:15%;
+
+}
+
+.all_right .all_pingmu .kuang_all .cenetr_kuang{
+    width:400px;
+    height:300px;
+    margin:auto;
+    background:#fff;
+}
+.cenetr_kuang .the_tui{
+    width:100%;
+    height:40px;
+    line-height: 40px;
+    /*background:#ccc;*/
+}
+.cenetr_kuang .the_tui span{
+    width: 30px;
+    float: right;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+   /* background: red;*/
+    text-align: center;
+    font-size: 1.3rem;
+    margin: 10px 10px 0 0;
+    cursor: pointer;
+    color: #999;
+    font-weight: bold;
+}
+
+.cenetr_kuang .zi_ti{
+    width: 100%;
+    height: 55px;
+    font-size: 1.5rem;
+    line-height: 55px;
+    /* padding: 0 13px; */
+    text-indent: 2em;
+   /* background: green;*/
+}
+.cenetr_kuang .duihuan_ma{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    padding: 15px 0 20px 0;
+    /*background: #ccc;*/
+}
+.cenetr_kuang .duihuan_ma input{
+    width: 300px;
+    height: 38px;
+    border: 1px solid #ccc;
+    line-height: 38px;
+    margin-left: 45px;
+    text-indent: 0.5em;
+}
+
+.cenetr_kuang .yan_zhenma{
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    padding: 0px 0 20px 0;
+   /* background: pink;*/
+}
+.cenetr_kuang .yan_zhenma input{
+    width: 140px;
+    height: 38px;
+    border: 1px solid #ccc;
+    line-height: 38px;
+    margin-left: 45px;
+    text-indent: 0.5em;
+}
+.cenetr_kuang .yan_zhenma .huabu{
+    width:50px;
+    height:40px;
+    line-height: 40px;
+    background:red;
+}
+.cenetr_kuang .yan_zhenma .huabu{
+    width: 90px;
+    position: absolute;
+    height: 35px;
+    display: inline-block;
+    background: #999;
+    margin: 5px 0 0 10px;
+}
+.cenetr_kuang .yan_zhenma .huan_tu{
+    width: 53px;
+    position: absolute;
+    margin: 5px 0 0 105px;
+    height: 35px;
+    line-height: 18px;
+    font-size: 0.9rem;
+   /* background: red;*/
+}
+.cenetr_kuang .yan_zhenma .huan_tu a{
+   text-decoration: none;
+}
+
+.cenetr_kuang .an_niv{
+    width: 90px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    display: inline-block;
+    margin-left: 45px;
+    color:#fff;
+    background: #0074b7;
+    border-radius: 3px;
+    cursor:pointer;
+}
+.cenetr_kuang .an_niv:hover{
+    background: #0089dc;
+}
+
+
+/*********************弹框 兑换红包***************************/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

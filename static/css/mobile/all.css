@@ -1,0 +1,543 @@
+ c {
+            display: none;  
+     }  
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+
+}
+ul li{
+	list-style: none;
+}
+b, optgroup, strong,.fontWeig {
+    font-weight: 700;
+}
+i{
+	font-style: normal;
+}
+table {
+    border-collapse: collapse; /*为表格设置合并边框模型*/
+    border-spacing: 0;/*设置相邻单元格的边框间的距离*/
+}
+td, th, tr {
+    border-collapse: collapse;
+}
+a {
+	text-decoration: none;
+	color: #666;
+}
+span{
+	color: #666;
+}
+
+h4, .h4 {
+    font-size: 0.26rem;
+}
+h4, .h4, h5, .h5, h6, .h6 {
+    margin-top: 0.12rem;
+    margin-bottom: 0.12rem;
+}
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+}
+
+input{
+	outline: 0;
+}
+button{
+	border:none;
+	background-color: transparent;
+}
+
+
+html {
+	font-size: 100px;
+}
+.phoneAll{
+	width: 100%;
+	margin: auto;
+	max-width: 640px;
+	min-width: 150px;
+	position: relative;
+	font-size: 0.21rem;
+	color: #666;
+    padding-top: 0.7rem;
+}
+/*以设计稿为640px fontSize:100px 计算*/
+@media only screen and (min-width: 10px) and (max-width:640px) {
+	html{
+		font-size:15.6vw;
+	}
+}
+
+/*---------------------------------------- 字体 文字  ----------------------------------*/
+.fontMin{
+	font-size: 0.19rem;
+}
+.fontCen{
+ font-size: 0.2rem;
+}
+.fontMax{
+ font-size: 0.25rem;
+}
+
+.textCent{
+	text-align: center;
+}
+
+/*---------------------------------------------  宽度  ---------------------------------------*/
+
+.item-1,.item-2,.item-3,.item-4,.item-5,.item-6,.item-7,.item-8,.item-9,.item-10,.item-11,.item-12{
+	float: left;
+	padding-right: 10px;
+    padding-left: 10px;
+    box-sizing: border-box;
+}
+.item-1{
+	width: 8.33333333%;
+}
+.item-2{
+	width: 16.66666667%;
+}
+.item-3{
+	width: 25%;
+}
+.item-4{
+	width:33.33333%;
+
+}
+.item-5{
+width: 41.6666666%;
+}
+.item-6{
+	width: 50%;
+}
+
+
+.item-7{
+width: 58.33333333%;
+}
+
+.item-8 {
+      width: 66.66666667%;
+}
+.item-9 {
+    width: 75%;
+}
+
+.item-10 {
+    width: 83.333333%;
+}
+.item-11 {
+    width: 91.66666667%;
+}
+/*---------------------------------------------距离---------------------------*/
+.m-right-sm{
+    margin-right: 0.12rem;
+}
+.m-left{
+	margin-left: 0.21rem;
+}
+.m-left-sm{
+	margin-left: 0.12rem
+}
+.m-bottom{
+	margin-bottom: 0.2rem;
+}
+.m-top{
+	margin-top: 0.15rem;
+}
+.marlr{
+	margin: 0 0.1rem;
+}
+/* --------------------------------------  共用样式 -------------------------------*/
+.clear:after,.clear:before{
+	content: "";
+	display: block;
+	width: 0;
+	height: 0;
+	clear: both;
+}
+/*.row {
+    margin-right: -1.2rem;
+    margin-left: -1.2rem;
+}*/
+.row:after,row:before{
+	content: "";
+	display: block;
+	width: 0;
+	height: 0;
+	clear: both;
+}
+.no-wrap,.noWrap {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+/*---------------------------------  共用颜色  ----------------------------------*/
+.bg-green {
+    background-color: #9be6df;
+}
+
+.backf5{
+	background-color: #f5f5f5;
+}
+.ba-main{
+   background-color: #53beb7; /*主要颜色*/
+}
+.ba-gray{
+	background-color: #B8B8B8;/*深灰色*/
+}
+.ba-white{
+	background-color: #fff;
+}
+
+.c-normal {
+    color: #666;
+}
+.c-gray {
+    color: #4A4A4A;
+}
+.c-grayest {
+    color: #A0A0A0!important; /*浅浅灰*/
+}
+.w-grayer {
+    color: #6A6A6A;/*中浅灰色*/
+}
+.menu-color{
+	color: #53beb7; /*主色调*/
+}
+.c-red {
+    color: #FF5A5A;
+}
+.c-warning {
+    color: #f8c833;/*黄色*/
+}
+ .c-menuGray{
+	 color: #666;
+ }
+/***************************************内容******************/
+
+
+.panel{
+	background-color: #fff;
+	margin-bottom: 0.16rem;
+}
+
+.panel-heading {
+    color: #666;
+    background-color: #fff;
+    border-bottom:solid 1px #e0e0e0;
+    padding: 0.18rem 0;
+    position: relative;
+}
+.panel-heading::before{
+	content: "";
+	width: 0.06rem;
+	height: 50%;
+	position: absolute;
+	top: 25%;
+	left: 0;
+	background-color: #53beb7;
+}
+.panel-heading strong{
+	font-size: 0.24rem;
+}
+.panel-body {
+    padding: 0.2rem;
+  }
+
+/*---------------------------------------------头部选择--------------------*/
+header{
+	padding: 0.2rem 0;
+	border-bottom: solid 0.12rem #efefef;
+	background-color: #fff;
+}
+.header-choice{
+	width: 90%;
+	margin: 0 auto;
+	border-radius: 0.05rem;
+	overflow: hidden;
+	font-size: 0;
+    border-right: 1px solid  #53beb7;
+
+}
+.header-choice .but-choice{
+	 background-color: #fff;
+    border: 1px solid  #53beb7;
+    border-right: none;
+    display: inline-block;
+    padding: 4px 0;
+    margin-bottom: 0;
+    font-weight: normal;
+/*    line-height: 1.42857143;*/
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;    /*文本不能被选择*/
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    color: #53beb7;
+  /*  width: 25%;*/
+    font-size: 0.22rem;
+}
+
+.header-choice .but-choice.active{
+	color: #fff;
+    background-color: #53beb7;
+    border-color: #53beb7;
+
+}
+/*------------------------------------------*/
+
+.inline{
+	display: inline-block;
+	vertical-align: middle;
+}
+.inlineTop{
+	display: inline-block;
+	vertical-align: top;
+}
+.overHide{
+	overflow: hidden;
+}
+.relative{
+	position: relative;
+}
+.pull-left{
+	float: left !important;
+}    
+.pull-right{
+	float: right !important;
+}
+.notMar{
+	margin:0 !important;
+}
+.notPad{
+ padding: 0 !important;
+}
+
+
+
+
+/*--------------------------------------  边框  -----------------------------*/
+.bt-solid{
+	border-top: solid 1px #e0e0e0;
+}
+.bb-solid{
+	border-bottom: solid 1px #e0e0e0;
+}
+.br-solid{
+border-right: solid 1px #e0e0e0;
+}
+.br-dashed{
+	border-right: dashed 1px #e0e0e0;
+}
+
+  /*短右边线*/
+.borderR{
+ position: relative;
+
+}
+.borderR::after{
+ content: "";
+ position: absolute;
+ background-color: #e0e0e0;
+ width: 1px;
+ height: 50%;
+ right: 0;
+ top: 25%;
+  font-size: 0;
+}
+
+/*按钮*/
+
+.but{
+	background-color: #fff;
+    display: inline-block;
+    margin-bottom: 0;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;    /*文本不能被选择*/
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+}
+
+
+/*----------------------------------------------  符号  ---------------------------------------*/
+
+.askIcon:after{/*问号*/
+	content: '?';
+	display: inline-block;
+	/*vertical-align: middle;*/
+	width: 0.28rem;
+	height: 0.28rem;
+	border-radius: 50%;  
+	color: #fff;
+	font-size: 0.19rem;
+	line-height: 0.23rem;
+	background:#C0C0C0;
+	margin-left: 5px;
+	text-align: center;
+}
+
+
+/*箭头 箭头在后-*/
+.rotatei:after{
+	content: "↑↓";
+	font-size: 12px;
+	transform: rotate(90deg);
+	display: inline-block;
+	width: 15px;
+	height: 15px;
+	margin-left: 5px;
+}
+.fa-down{
+	color: #0bdf38;
+	font-size: 0.2rem;
+	margin-left: 3px;
+}
+.fa-down:after{
+	content: "↓";
+   margin-left: 2px;
+}
+.fa-up{
+	color: #f10717;
+	font-size: 0.2rem;
+	margin-left: 3px;
+}
+.fa-up:after{
+	content: "↑";
+	margin-left: 2px;
+}
+/*---箭头在前---*/
+.be-down{
+	color: #0bdf38;
+	font-size: 0.2rem;
+	margin-left: 3px;
+}
+.be-down:before{
+	content: "↓";
+   margin-left: 2px;
+}
+.be-up{
+	color: #f10717;
+	font-size: 0.2rem;
+	margin-left: 3px;
+}
+.be-up:before{
+	content: "↑";
+	margin-left: 2px;
+}
+/*上下三角形箭头 单个*/
+
+.threeBot,.threeTop{
+display: inline-block;
+vertical-align: middle;
+border: solid 5px transparent;
+ margin-top: 3px;
+  margin-left: 3px;
+  cursor: pointer;
+}
+
+.threeBot{
+  border-top-color:#6A6A6A;
+}
+.threeTop{
+	border-bottom-color:#6A6A6A;
+	margin-top: -6px !important;
+}
+
+/***--问号弹出框---***/
+.doubtBack{
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0,0,0,0.4);
+}
+.doubtBox{
+	font-size: 0.21rem;
+	width: 76%;
+	height: 3.8rem;
+	overflow: scroll;
+	background-color: #fff;
+	margin:auto;
+	position: absolute;
+	top: 50%;
+	left:12%;
+	margin-top: -1.9rem;
+	border-radius: 0.1rem;
+	padding:0.32rem 0.2rem 0.65rem;
+}
+.doubtBox::-webkit-scrollbar {
+     width: 0; 
+    height: 0;
+}
+.doubtDetail p{
+	margin-bottom: 0.06rem
+}
+.doubtBut{
+	text-align: center;
+	border-top: solid 1px #e0e0e0;
+	line-height: 0.65rem;
+	font-size: 0.24rem;
+	color: #53beb7;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+}
+
+/* 导航栏 */
+ .minibarBox {
+     width: 100%;
+     position: fixed;
+     top: 0;
+     left: 0;
+     z-index: 99;
+ }
+ .minibar {
+     width: 100%;
+     height: 0.7rem;
+     max-width: 640px;
+     min-width: 150px;
+     background-color: #53beb7;
+     display: flex;
+     flex-direction: row;
+     justify-content: space-between;
+     padding: 0.14rem;
+    margin: auto;
+
+ }
+ .minibar span,.minibar div {
+     flex: 1;
+     display: flex;
+     align-items: center;
+ }
+ .minibar div img {
+     width: 15%;
+ }
+ .minibar span {
+     color: #fff;
+     justify-content: center;
+     font-size: 0.26rem;
+ }
